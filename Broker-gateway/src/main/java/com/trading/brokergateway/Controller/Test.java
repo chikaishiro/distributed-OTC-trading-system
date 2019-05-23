@@ -4,13 +4,14 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Scope;
 import org.springframework.web.bind.annotation.*;
-
+import redis.clients.jedis.Jedis;
 @SpringBootApplication
 @RestController
 @CrossOrigin(origins = {"http://localhost:63342", "null"})
 public class Test {
-    @RequestMapping("")
+    @RequestMapping("/get")
     public String get(){
-        return "1";
+        Jedis jedis = new Jedis("localhost");
+        return jedis.get("key");
     }
 }
