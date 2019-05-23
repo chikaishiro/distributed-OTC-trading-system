@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="js/jquery.min.js"></script>
+
+</head>
+<script>
+    function init() {
+        var m = document.getElementById("brokerip").value;
+        var n = document.getElementById("traderid").value;
+        $.post("http://localhost:8081/Init", {ip:m,id:n},function (data) {
+            alert(data);
+        });
+    }
+</script>
+<body>
+    <input placeholder="输入Broker IP" id="brokerip"/>
+    <input placeholder="输入个人ID" id="traderid" />
+    <button onclick="init()">登录到系统</button>
+</body>
+</html>
