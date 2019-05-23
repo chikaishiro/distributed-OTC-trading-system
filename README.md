@@ -2,4 +2,4 @@
 ## Broker-UI: static web project
 ## Trader-UI: static web project
 ## Broker-Gateway: springboot project
-## Trader-Gateway: springbott project
+## Trader-Gateway: springboot project
