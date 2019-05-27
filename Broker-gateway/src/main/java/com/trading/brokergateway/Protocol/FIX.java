@@ -3,13 +3,13 @@ import com.google.gson.Gson;
 import com.trading.brokergateway.Entity.Order;
 
 public class FIX {
-    public Order ParseFIX(String fix){
+    public static Order ParseFIX(String fix){
         Gson gson = new Gson();
         Order order =gson.fromJson(fix, Order.class);
         return order;
     }
 
-    public String toFIX(Order order){
+    public static String toFIX(Order order){
         Gson gson = new Gson();
         String fix = gson.toJson(order);
         return fix;

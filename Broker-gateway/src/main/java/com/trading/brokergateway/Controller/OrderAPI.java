@@ -4,6 +4,7 @@ import com.sun.org.apache.xpath.internal.operations.Or;
 import com.trading.brokergateway.Methods.OrderControl;
 import com.trading.brokergateway.Methods.OrderQueue;
 import com.trading.brokergateway.Methods.SerializeUtil;
+import com.trading.brokergateway.Methods.StoreUtil;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Scope;
@@ -27,18 +28,9 @@ public class OrderAPI {
 
     @RequestMapping(value = "/B",method = RequestMethod.GET)
     public String orderTest(){
-        Jedis jedis = new Jedis("localhost");
         String ret = "";
         FIX fix = new FIX();
-        OrderQueue odq;
-        try{
-           odq =(OrderQueue) SerializeUtil.unserialize(jedis.get("order".getBytes()));
-        }
-        catch (Exception e){
-            odq = new OrderQueue();
-        }
-
-
+        OrderQueue odq = StoreUtil.GetQueue("SB");
         PriorityQueue<Order> sell = odq.getSellQueue();
         PriorityQueue<Order> buy = odq.getBuyQueue();
         while(sell.size() != 0){
@@ -58,18 +50,9 @@ public class OrderAPI {
     @RequestMapping(value = "/A",method = RequestMethod.GET)
     public String re(){
         Order ord = new Order(3.3,"SB",'S');
-        Jedis jedis = new Jedis("localhost");
-        byte[] tp = jedis.get("order".getBytes());
-        OrderQueue odq;
-        if(tp == null){
-            odq = new OrderQueue();
-        }
-        else {
-            odq = (OrderQueue) SerializeUtil.unserialize(tp);
-        }
-
+        OrderQueue odq = StoreUtil.GetQueue(ord.getFutureID());
         odq.insertSell(ord);
-        jedis.set("order".getBytes(), SerializeUtil.serialize(odq));
+        StoreUtil.SetQueue(odq,ord.getFutureID());
         return "O";
     }
     @RequestMapping(value = "/Order",method = RequestMethod.POST)
