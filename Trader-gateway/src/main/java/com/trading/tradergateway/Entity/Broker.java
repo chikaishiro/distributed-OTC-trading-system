@@ -6,30 +6,17 @@ import javax.persistence.*;
 @Entity
 @Table(name = "Broker")
 public class Broker {
-    @Id
-    @Column(nullable = false, name = "broker_id")
+
     private String brokerID;
-
-    @Column(nullable = false, name = "broker_name")
     private String brokerName;
-
-    @Column(name = "broker_http")
-    private String brokerHttp;
-
-    @Column(name = "broker_ws")
-    private String brokerWs;
-
-    @Column(name = "broker_token")
-    private String brokerToken;
+    private String brokerIp;
 
     public Broker() {}
 
-    public Broker(String brokerID, String brokerName, String brokerHttp, String brokerWs, String brokerToken) {
+    public Broker(String brokerID, String brokerName, String brokerIp) {
         this.brokerID = brokerID;
         this.brokerName = brokerName;
-        this.brokerHttp = brokerHttp;
-        this.brokerWs = brokerWs;
-        this.brokerToken = brokerToken;
+        this.brokerIp = brokerIp;
     }
 
     public String getBrokerID() {
@@ -48,27 +35,12 @@ public class Broker {
         this.brokerName = brokerName;
     }
 
-    public String getBrokerToken() {
-        return brokerToken;
-    }
-
-    public void setBrokerToken(String brokerToken) {
-        this.brokerToken = brokerToken;
-    }
-
-    public String getBrokerHttp() {
-        return brokerHttp;
+    public String getBrokerIp() {
+        return brokerIp;
     }
 
     public void setBrokerHttp(String brokerHttp) {
-        this.brokerHttp = brokerHttp;
+        this.brokerIp = brokerIp;
     }
 
-    public String getBrokerWs() {
-        return brokerWs;
-    }
-
-    public void setBrokerWs(String brokerWs) {
-        this.brokerWs = brokerWs;
-    }
 }
