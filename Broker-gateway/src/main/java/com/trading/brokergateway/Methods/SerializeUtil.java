@@ -59,19 +59,6 @@ public class SerializeUtil {
     }
 
     public static void main(String[] args){
-        Order ord = new Order(3.4,"SB",'S');
-        Jedis jedis = new Jedis("localhost");
-        byte[] tp = jedis.get("order".getBytes());
-        OrderQueue odq;
-
-
-
-        System.out.println(tp);
-        odq = (OrderQueue) SerializeUtil.unserialize(tp);
-
-
-        odq.insertSell(ord);
-        jedis.set("order".getBytes(), SerializeUtil.serialize(odq));
 
     }
 }
