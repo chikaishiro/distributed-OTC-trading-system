@@ -2,33 +2,14 @@ package com.trading.brokergateway.Methods;
 
 import com.trading.brokergateway.Entity.Order;
 
+import java.io.Serializable;
 import java.util.*;
-public class OrderQueue {
+public class OrderQueue implements Serializable {
     private PriorityQueue<Order> SellQueue;
     private PriorityQueue<Order> BuyQueue;
     public OrderQueue(){
-        this.SellQueue =  new PriorityQueue<Order>(new Comparator<Order>(){ //小顶堆
-            @Override
-            public int compare(Order o1,Order o2){
-                if (o2.getPrice() > o1.getPrice()){
-                    return -1;
-                }
-                else{
-                    return 1;
-                }
-            }
-        });
-        this.BuyQueue = new PriorityQueue<Order>(new Comparator<Order>(){ //大顶堆
-            @Override
-            public int compare(Order o1,Order o2){
-                if (o2.getPrice() > o1.getPrice()){
-                    return 1;
-                }
-                else{
-                    return -1;
-                }
-            }
-        });
+        this.SellQueue =  new PriorityQueue<Order>(new SmallComparator());
+        this.BuyQueue = new PriorityQueue<Order>(new BigComparator());
     }
 
     public void insertBuy(Order order){
@@ -46,15 +27,15 @@ public class OrderQueue {
         return this.SellQueue;
     }
 
-    public static void main(String[] args){
+//    public static void main(String[] args){
+//        queueTest();
+//    }
 
-    }
-
-    public void queueTest(){
+//    public static void queueTest(){
 //        OrderQueue q = new OrderQueue();
-//        Order o1 = new Order(2.11);
-//        Order o2 = new Order(2.22);
-//        Order o3 = new Order(2.33);
+//        Order o1 = new Order(2.11,"SB",'S');
+//        Order o2 = new Order(2.22,"SB",'S');
+//        Order o3 = new Order(2.33,"SB",'S');
 //        q.insertBuy(o1);
 //        q.insertSell(o1);
 //        q.insertBuy(o2);
@@ -75,5 +56,5 @@ public class OrderQueue {
 //            Order temp = q2.poll();
 //            System.out.println(temp.getPrice());
 //        }
-    }
+//    }
 }

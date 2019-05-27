@@ -1,6 +1,8 @@
 package com.trading.brokergateway.Entity;
 
-public class Order {
+import java.io.*;
+
+public class Order implements Serializable {
     private double Price;
     private String FutureID;
     private char way;

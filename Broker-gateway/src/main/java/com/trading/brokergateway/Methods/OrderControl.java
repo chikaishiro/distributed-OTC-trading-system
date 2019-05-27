@@ -1,8 +1,9 @@
 package com.trading.brokergateway.Methods;
 
+import java.io.Serializable;
 import java.util.*;
 import com.trading.brokergateway.Entity.Order;
-public class OrderControl {
+public class OrderControl implements Serializable {
     private HashMap<String,OrderQueue> OrderMap;
     public OrderControl(){
         this.OrderMap = new HashMap<>();
@@ -10,7 +11,7 @@ public class OrderControl {
 
     public void OrderDeal(Order order){
         String futureid = order.getFutureID();
-        OrderQueue odq  = OrderMap.get(futureid);
+        OrderQueue odq  = this.OrderMap.get(futureid);
         if(odq == null){
             OrderQueue temp = new OrderQueue();
             char way = order.getWay();
@@ -20,7 +21,7 @@ public class OrderControl {
             else if(way == 'B'){
                 temp.insertBuy(order);
             }
-            OrderMap.put(futureid,temp);
+            this.OrderMap.put(futureid,temp);
         }
         else{
             /* Order logic */
@@ -28,8 +29,12 @@ public class OrderControl {
 
     }
 
+    public void setOrderMap(HashMap<String, OrderQueue> orderMap) {
+        this.OrderMap = orderMap;
+    }
+
     public HashMap<String, OrderQueue> getOrderMap() {
-        return OrderMap;
+        return this.OrderMap;
     }
 
 
