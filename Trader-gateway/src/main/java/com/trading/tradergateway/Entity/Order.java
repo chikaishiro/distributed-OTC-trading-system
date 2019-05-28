@@ -22,10 +22,12 @@ public class Order implements Serializable {
 
     private Date timeStamp;
 
+    private String traderId;
+
     public Order() {}
 
     public Order(UUID orderID, String futureID, char type, char way,
-                 Double price, int amount, String brokerIp, Date timeStamp) {
+                 Double price, int amount, String brokerIp, Date timeStamp, String traderIp) {
         this.orderID = orderID;
         this.futureID = futureID;
         this.type = type;
@@ -34,6 +36,7 @@ public class Order implements Serializable {
         this.amount = amount;
         this.brokerIp = brokerIp;
         this.timeStamp = timeStamp;
+        this.traderId = traderId;
     }
 
     public UUID getOrderID() {
@@ -98,5 +101,13 @@ public class Order implements Serializable {
 
     public void setTimeStamp(Date timeStamp) {
         this.timeStamp = timeStamp;
+    }
+
+    public String getTraderId(){
+        return traderId;
+    }
+
+    public void setTraderId(String traderId){
+        this.traderId = traderId;
     }
 }
