@@ -11,10 +11,36 @@ public class OrderControl implements Serializable {
     public static int PROCESSED = 1;
     public static int FAILED = -1;
 
+    public static int OK = 3;
+    public static int PARTLY = 4;
+    public static int NOK = 5;
+
+    public static int CancelOrder(Order order,OrderQueue orderQueue){
+        if (order.getWay() == 'S'){
+            PriorityQueue<Order> sellQueue = orderQueue.getSellQueue();
+        }
+        else if (order.getWay() == 'B'){
+
+        }
+        else{
+            return NOK;
+        }
+    }
+
+    public Order findOrder(UUID orderID, PriorityQueue<Order> queue){
+        for(Order temp:queue){
+
+        }
+    }
     public static int OrderDeal(String OrderJSON){
         Order order = FIX.ParseFIX(OrderJSON);
         String futureID = order.getFutureID();
         OrderQueue orderQueue = StoreUtil.GetQueue(futureID);
+        // Cancel Order
+        if (order.getType() == 'C'){
+            int ret = CancelOrder(order,orderQueue);
+            return ret;
+        }
         // 该期货的第一个订单
         if(orderQueue.getBuyQueue().size()==0 && orderQueue.getSellQueue().size()==0){
             if(order.getWay() == 'S'){
