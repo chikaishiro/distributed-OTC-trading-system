@@ -27,7 +27,14 @@ public class OrderQueue implements Serializable {
         return this.SellQueue;
     }
 
-//    public static void main(String[] args){
+    public void setBuyQueue(PriorityQueue<Order> buyQueue) {
+        this.BuyQueue = buyQueue;
+    }
+
+    public void setSellQueue(PriorityQueue<Order> sellQueue) {
+        this.SellQueue = sellQueue;
+    }
+    //    public static void main(String[] args){
 //        queueTest();
 //    }
 
