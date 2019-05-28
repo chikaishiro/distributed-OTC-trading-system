@@ -2,6 +2,9 @@ package com.trading.brokergateway.Methods;
 
 import java.io.Serializable;
 import java.util.*;
+
+import com.google.gson.Gson;
+import com.sun.org.apache.xpath.internal.operations.Or;
 import com.trading.brokergateway.Entity.Order;
 import com.trading.brokergateway.Protocol.FIX;
 import org.apache.catalina.Store;
@@ -15,22 +18,60 @@ public class OrderControl implements Serializable {
     public static int PARTLY = 4;
     public static int NOK = 5;
 
-    public static int CancelOrder(Order order,OrderQueue orderQueue){
+    public static int CancelOrder(Order order,OrderQueue orderQueue,String futureID){
         if (order.getWay() == 'S'){
             PriorityQueue<Order> sellQueue = orderQueue.getSellQueue();
+            Order temp = findOrder(order.getOrderID(),sellQueue);
+            if(temp == null){
+                return NOK;
+            }
+            else{
+                sellQueue.remove(temp);
+                orderQueue.setSellQueue(sellQueue);
+                StoreUtil.SetQueue(orderQueue,futureID);
+                int amountTarget = temp.getAmount();
+                int amount = order.getAmount();
+                if(amount == amountTarget){
+                    return OK;
+                }
+                else{
+                    return PARTLY;
+                }
+            }
         }
         else if (order.getWay() == 'B'){
-
+            PriorityQueue<Order> buyQueue = orderQueue.getBuyQueue();
+            Order temp = findOrder(order.getOrderID(),buyQueue);
+            if(temp == null){
+                return NOK;
+            }
+            else{
+                buyQueue.remove(temp);
+                orderQueue.setBuyQueue(buyQueue);
+                StoreUtil.SetQueue(orderQueue,futureID);
+                int amountTarget = temp.getAmount();
+                int amount = order.getAmount();
+                if(amount == amountTarget){
+                    return OK;
+                }
+                else{
+                    return PARTLY;
+                }
+            }
         }
         else{
             return NOK;
         }
     }
 
-    public Order findOrder(UUID orderID, PriorityQueue<Order> queue){
+    public static Order findOrder(UUID orderID, PriorityQueue<Order> queue){
         for(Order temp:queue){
+            if(temp.getOrderID().equals(orderID)){
 
+                return temp;
+            }
         }
+        return null;
     }
     public static int OrderDeal(String OrderJSON){
         Order order = FIX.ParseFIX(OrderJSON);
@@ -38,7 +79,7 @@ public class OrderControl implements Serializable {
         OrderQueue orderQueue = StoreUtil.GetQueue(futureID);
         // Cancel Order
         if (order.getType() == 'C'){
-            int ret = CancelOrder(order,orderQueue);
+            int ret = CancelOrder(order,orderQueue,futureID);
             return ret;
         }
         // 该期货的第一个订单
@@ -100,7 +141,11 @@ public class OrderControl implements Serializable {
 
 
 
-    public static void main(String[] args){
-
+    public static void main(String[] args) {
+        UUID uid = UUID.fromString("0d5df9af-08bc-45f0-9532-2333cac7c21");
+        Order ord = new Order(uid, "SB", 'C', 'S', 2.1, 100, "2.4", Calendar.getInstance().getTimeInMillis(), "xxx");
+        Gson gs = new Gson();
+        String json = gs.toJson(ord);
+        System.out.println(OrderDeal(json));
     }
 }
