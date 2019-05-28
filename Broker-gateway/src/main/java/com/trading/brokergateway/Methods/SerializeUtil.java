@@ -5,7 +5,7 @@ import java.util.PriorityQueue;
 import com.trading.brokergateway.Entity.Order;
 import com.trading.brokergateway.Methods.*;
 import redis.clients.jedis.Jedis;
-
+import java.util.Calendar;
 /**
  * @author Administrator
  * 序列化对象工具类
@@ -59,6 +59,7 @@ public class SerializeUtil {
     }
 
     public static void main(String[] args){
-
+        long i = Calendar.getInstance().getTimeInMillis();
+        System.out.println(i);
     }
 }

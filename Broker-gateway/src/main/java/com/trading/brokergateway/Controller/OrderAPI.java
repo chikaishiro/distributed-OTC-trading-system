@@ -15,7 +15,11 @@ import com.trading.brokergateway.Protocol.*;
 
 import com.trading.brokergateway.Entity.Order;
 
+import javax.servlet.http.HttpServletRequest;
+import java.util.Calendar;
 import java.util.PriorityQueue;
+import java.util.Random;
+import java.util.UUID;
 
 @SpringBootApplication
 @RestController
@@ -48,10 +52,27 @@ public class OrderAPI {
     }
 
     @RequestMapping(value = "/A",method = RequestMethod.GET)
-    public String re(){
-        Order ord = new Order(3.3,"SB",'S');
+    public String re(HttpServletRequest req){
+
+
+        UUID UID = UUID.randomUUID();
+        double price = Double.valueOf(req.getParameter("price"));
+        Order ord = new Order(UID,"SB",'M','S',price,1000,"2.4", Calendar.getInstance().getTimeInMillis(),"xxx");
         OrderQueue odq = StoreUtil.GetQueue(ord.getFutureID());
         odq.insertSell(ord);
+        StoreUtil.SetQueue(odq,ord.getFutureID());
+        return "O";
+    }
+
+    @RequestMapping(value = "/C",method = RequestMethod.GET)
+    public String res(HttpServletRequest req){
+
+
+        UUID UID = UUID.randomUUID();
+        double price = Double.valueOf(req.getParameter("price"));
+        Order ord = new Order(UID,"SB",'M','B',price,1000,"2.4", Calendar.getInstance().getTimeInMillis(),"xxx");
+        OrderQueue odq = StoreUtil.GetQueue(ord.getFutureID());
+        odq.insertBuy(ord);
         StoreUtil.SetQueue(odq,ord.getFutureID());
         return "O";
     }

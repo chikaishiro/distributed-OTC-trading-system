@@ -1,39 +1,113 @@
 package com.trading.brokergateway.Entity;
 
-import java.io.*;
+import java.io.Serializable;
+import java.util.Date;
+import java.util.UUID;
+
 
 public class Order implements Serializable {
-    private double Price;
-    private String FutureID;
+    private UUID orderID;
+
+    private String futureID;
+
+    private char type;
+
     private char way;
-    /*
 
-     */
-    public Order(double price,String futureID,char way){
-        this.Price = price;
-        this.FutureID = futureID;
+    private Double price;
+
+    private int amount;
+
+    private String brokerIp;
+
+    private long timeStamp;
+
+    private String traderId;
+
+    public Order() {}
+
+    public Order(UUID orderID, String futureID, char type, char way,
+                 Double price, int amount, String brokerIp, long timeStamp, String traderIp) {
+        this.orderID = orderID;
+        this.futureID = futureID;
+        this.type = type;
         this.way = way;
-    }
-    public void setPrice(double price){
-        this.Price = price;
-    }
-    public double getPrice(){
-        return this.Price;
+        this.price = price;
+        this.amount = amount;
+        this.brokerIp = brokerIp;
+        this.timeStamp = timeStamp;
+        this.traderId = traderId;
     }
 
-    public void setFutureID(String futureID) {
-        FutureID = futureID;
+    public UUID getOrderID() {
+        return orderID;
+    }
+
+    public void setOrderID(UUID orderID) {
+        this.orderID = orderID;
     }
 
     public String getFutureID() {
-        return FutureID;
+        return futureID;
+    }
+
+    public void setFutureID(String futureID) {
+        this.futureID = futureID;
+    }
+
+    public char getType() {
+        return type;
+    }
+
+    public void setType(char type) {
+        this.type = type;
+    }
+
+    public char getWay() {
+        return way;
     }
 
     public void setWay(char way) {
         this.way = way;
     }
 
-    public char getWay() {
-        return way;
+    public Double getPrice() {
+        return price;
+    }
+
+    public void setPrice(Double price) {
+        this.price = price;
+    }
+
+    public int getAmount() {
+        return amount;
+    }
+
+    public void setAmount(int amount) {
+        this.amount = amount;
+    }
+
+    public String getBrokerIp() {
+        return brokerIp;
+    }
+
+    public void setBrokerIp(String brokerIp) {
+        this.brokerIp = brokerIp;
+    }
+
+    public long getTimeStamp() {
+        return timeStamp;
+    }
+
+    public void setTimeStamp(long timeStamp) {
+        this.timeStamp = timeStamp;
+    }
+
+    public String getTraderId(){
+        return traderId;
+    }
+
+    public void setTraderId(String traderId){
+        this.traderId = traderId;
     }
 }
