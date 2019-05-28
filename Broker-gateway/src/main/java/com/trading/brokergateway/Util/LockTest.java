@@ -3,11 +3,6 @@ package com.trading.brokergateway.Util;
 import redis.clients.jedis.Jedis;
 import redis.clients.jedis.JedisPool;
 
-/**
- * @Author: huangwenjun
- * @Description:
- * @Date: Created in 14:10  2018/5/22
- **/
 public class LockTest {
 
     public static void main(String[] args) {
