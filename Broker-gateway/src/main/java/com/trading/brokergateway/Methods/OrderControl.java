@@ -4,10 +4,8 @@ import java.io.Serializable;
 import java.util.*;
 
 import com.google.gson.Gson;
-import com.sun.org.apache.xpath.internal.operations.Or;
 import com.trading.brokergateway.Entity.Order;
-import com.trading.brokergateway.Protocol.FIX;
-import org.apache.catalina.Store;
+import com.trading.brokergateway.Util.FIX;
 
 public class OrderControl implements Serializable {
     public static int PROCESSING = 0;
@@ -73,12 +71,17 @@ public class OrderControl implements Serializable {
         }
         return null;
     }
+
     public static int OrderDeal(String OrderJSON){
         Order order = FIX.ParseFIX(OrderJSON);
         String futureID = order.getFutureID();
         OrderQueue orderQueue = StoreUtil.GetQueue(futureID);
-        // Cancel Order
+        // Cancel Order 处理
         if (order.getType() == 'C'){
+            // 第一个order不能是cancel
+            if(orderQueue.getBuyQueue().size()==0 && orderQueue.getSellQueue().size()==0){
+                return FAILED;
+            }
             int ret = CancelOrder(order,orderQueue,futureID);
             return ret;
         }

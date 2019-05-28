@@ -1,4 +1,4 @@
-package com.trading.brokergateway.Protocol;
+package com.trading.brokergateway.Util;
 import com.google.gson.Gson;
 import com.trading.brokergateway.Entity.Order;
 
