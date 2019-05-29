@@ -88,11 +88,17 @@ public class OrderControl implements Serializable {
         // 该期货的第一个订单
         if(orderQueue.getBuyQueue().size()==0 && orderQueue.getSellQueue().size()==0){
             if(order.getWay() == 'S'){
+                if(order.getType() == 'M'){
+                    return NOK;
+                }
                 orderQueue.insertSell(order);
                 StoreUtil.SetQueue(orderQueue,futureID);
                 return PROCESSING;
             }
             else if(order.getWay() == 'B'){
+                if(order.getType() == 'M'){
+                    return NOK;
+                }
                 orderQueue.insertBuy(order);
                 StoreUtil.SetQueue(orderQueue,futureID);
                 return PROCESSING;
@@ -109,6 +115,9 @@ public class OrderControl implements Serializable {
                 PriorityQueue<Order> buyQueue = orderQueue.getBuyQueue();
                 // 还没有人买
                 if(buyQueue.size()==0){
+                    if(order.getType() == 'M'){
+                        return NOK;
+                    }
                     orderQueue.insertSell(order);
                     StoreUtil.SetQueue(orderQueue,futureID);
                     return PROCESSING;
@@ -116,6 +125,20 @@ public class OrderControl implements Serializable {
                 // 去买的队列里做匹配
                 // TODO
                 else{
+                    char type = order.getType();
+                    int ret;
+                    if(type=='M'){
+
+                    }
+                    else if(type == 'L'){
+
+                    }
+                    else if (type == 'S'){
+
+                    }
+                    else{
+                        return FAILED;
+                    }
 
                 }
             }
@@ -124,6 +147,9 @@ public class OrderControl implements Serializable {
                 PriorityQueue<Order> sellQueue = orderQueue.getSellQueue();
                 //还没有人卖
                 if(sellQueue.size()==0){
+                    if(order.getType() == 'M'){
+                        return NOK;
+                    }
                     orderQueue.insertBuy(order);
                     StoreUtil.SetQueue(orderQueue,futureID);
                     return PROCESSING;
@@ -131,7 +157,19 @@ public class OrderControl implements Serializable {
                 // 去卖的队列里匹配
                 // TODO
                 else{
+                    char type = order.getType();
+                    if(type=='M'){
 
+                    }
+                    else if(type == 'L'){
+
+                    }
+                    else if (type == 'S'){
+
+                    }
+                    else{
+                        return FAILED;
+                    }
                 }
             }
             else{
@@ -143,14 +181,17 @@ public class OrderControl implements Serializable {
         return FAILED;
     }
 
+    public static void record(){
 
-
+    }
 
     public static void main(String[] args) {
-        UUID uid = UUID.fromString("0d5df9af-08bc-45f0-9532-2333cac7c21");
-        Order ord = new Order(uid, "SB", 'C', 'S', 2.1, 100, "2.4", Calendar.getInstance().getTimeInMillis(), "xxx");
+
+        Order ord1 = new Order(UUID.randomUUID(), "SB", 'M', 'S', 8.1, 1000, "2.4",
+                Calendar.getInstance().getTimeInMillis(), "xxx");
         Gson gs = new Gson();
-        String json = gs.toJson(ord);
-        System.out.println(OrderDeal(json));
+
+        int i = OrderDeal(gs.toJson(ord1));
+        System.out.println(i);
     }
 }
