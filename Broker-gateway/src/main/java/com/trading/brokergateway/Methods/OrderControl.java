@@ -128,7 +128,7 @@ public class OrderControl implements Serializable {
                     char type = order.getType();
                     int ret;
                     if(type=='M'){
-
+                        // MarketOrder
                     }
                     else if(type == 'L'){
 
@@ -158,13 +158,17 @@ public class OrderControl implements Serializable {
                 // TODO
                 else{
                     char type = order.getType();
+
                     if(type=='M'){
+                        // MarketOrder
 
                     }
                     else if(type == 'L'){
+                        // Limit Order
 
                     }
                     else if (type == 'S'){
+                        // Stop Order
 
                     }
                     else{
