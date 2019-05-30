@@ -2,7 +2,7 @@ package com.trading.tradergateway.Service.Implement;
 
 
 import com.trading.tradergateway.Entity.Order;
-import com.trading.tradergateway.Service.OrderService;
+import com.trading.tradergateway.Service.Interface.OrderService;
 import org.springframework.stereotype.Service;
 
 

@@ -1,4 +1,4 @@
-package com.trading.tradergateway.Service;
+package com.trading.tradergateway.Service.Interface;
 
 import com.trading.tradergateway.Entity.Order;
 

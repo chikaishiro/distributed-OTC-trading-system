@@ -4,11 +4,14 @@ import javax.persistence.*;
 
 
 @Entity
-@Table(name = "Broker")
+@Table(name = "broker")
 public class Broker {
-
+    @Id
+    @Column(nullable = false, name = "brokerId")
     private String brokerID;
+    @Column(nullable = false, name = "brokerName")
     private String brokerName;
+    @Column(nullable = false, name = "brokerIp")
     private String brokerIp;
 
     public Broker() {}

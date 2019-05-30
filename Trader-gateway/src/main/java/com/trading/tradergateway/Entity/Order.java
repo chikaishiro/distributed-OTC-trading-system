@@ -6,6 +6,7 @@ import java.util.UUID;
 
 
 public class Order implements Serializable {
+
     private UUID orderID;
 
     private String futureID;

@@ -8,7 +8,7 @@ import javax.validation.constraints.NotNull;
 import java.io.Serializable;
 
 @Entity
-@Table(name = "Trader")
+@Table(name = "trader")
 public class Trader implements Serializable {
     @Id
     @Column(nullable = false, name = "trader_id")

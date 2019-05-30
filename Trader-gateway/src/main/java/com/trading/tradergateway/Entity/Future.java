@@ -9,12 +9,18 @@ import java.util.Date;
 
 
 @Entity
-@Table(name = "Futures")
+@Table(name = "future")
 public class Future implements Serializable {
+    @Id
+    @Column(nullable = false, name = "futureId")
     private String futureID;
+    @Column(nullable = false, name = "futureName")
     private String futureName;
+    @Column(nullable = false, name = "category")
     private String category;
+    @Column(nullable = false, name = "listTime")
     private String listTime;
+    @Column(nullable = false, name = "expired")
     private String expired;
 
 
