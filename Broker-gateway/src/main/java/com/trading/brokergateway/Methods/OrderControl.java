@@ -7,6 +7,7 @@ import com.google.gson.Gson;
 import com.trading.brokergateway.Entity.Order;
 import com.trading.brokergateway.Util.FIX;
 import com.trading.brokergateway.Util.SortUtil;
+import org.springframework.boot.autoconfigure.data.web.SpringDataWebProperties;
 
 public class OrderControl implements Serializable {
     public static int PROCESSING = 0;
@@ -133,6 +134,9 @@ public class OrderControl implements Serializable {
                         List<Order> buyList = SortUtil.sortQueue(buyQueue,false);
                         int amount = order.getAmount();
                         for(Order tempOrder:buyList){
+                            if(amount == 0){
+                                break;
+                            }
                             buyList.remove(tempOrder);
                             int tempAmount = tempOrder.getAmount();
                             if(tempAmount>amount){
@@ -170,7 +174,43 @@ public class OrderControl implements Serializable {
 
                     }
                     else if(type == 'L'){
-
+                        // Limit Order
+                        double price = order.getPrice();
+                        int amount = order.getAmount();
+                        PriorityQueue<Order> backup = new PriorityQueue<>(buyQueue);
+                        List<Order> buyList = SortUtil.sortQueueEqualsPrice(backup,price);
+                        for(Order tempOrder:buyList){
+                            if(amount == 0){
+                                break;
+                            }
+                            buyQueue.remove(tempOrder);
+                            int tempAmount = tempOrder.getAmount();
+                            if(tempAmount> amount){
+                                tempAmount = tempAmount - amount;
+                                tempOrder.setAmount(tempAmount);
+                                buyQueue.add(tempOrder);
+                                orderQueue.setBuyQueue(buyQueue);
+                                StoreUtil.SetQueue(orderQueue,futureID);
+                                record();
+                                return PROCESSED;
+                            }
+                            if(tempAmount == amount){
+                                orderQueue.setBuyQueue(buyQueue);
+                                StoreUtil.SetQueue(orderQueue,futureID);
+                                record();
+                                return PROCESSED;
+                            }
+                            else{
+                                amount = amount -tempAmount;
+                                record();
+                                continue;
+                            }
+                        }
+                        order.setAmount(amount);
+                        orderQueue.insertSell(order);
+                        orderQueue.setBuyQueue(buyQueue);
+                        StoreUtil.SetQueue(orderQueue,futureID);
+                        return PROCESSING;
                     }
                     else if (type == 'S'){
 
@@ -203,6 +243,9 @@ public class OrderControl implements Serializable {
                         List<Order> sellList = SortUtil.sortQueue(sellQueue,true);
                         int amount = order.getAmount();
                         for(Order tempOrder:sellList){
+                            if(amount == 0){
+                                break;
+                            }
                             sellList.remove(tempOrder);
                             int tempAmount = tempOrder.getAmount();
                             if(tempAmount>amount){
@@ -241,6 +284,43 @@ public class OrderControl implements Serializable {
                     }
                     else if(type == 'L'){
                         // Limit Order
+                        double price = order.getPrice();
+                        int amount = order.getAmount();
+
+                        PriorityQueue<Order> backup = new PriorityQueue<>(sellQueue);
+                        List<Order> sellList = SortUtil.sortQueueEqualsPrice(backup,price);
+                        for(Order tempOrder:sellList){
+                            if(amount == 0){
+                                break;
+                            }
+                            sellQueue.remove(tempOrder);
+                            int tempAmount = tempOrder.getAmount();
+                            if(tempAmount> amount){
+                                tempAmount = tempAmount - amount;
+                                tempOrder.setAmount(tempAmount);
+                                sellQueue.add(tempOrder);
+                                orderQueue.setSellQueue(sellQueue);
+                                StoreUtil.SetQueue(orderQueue,futureID);
+                                record();
+                                return PROCESSED;
+                            }
+                            if(tempAmount == amount){
+                                orderQueue.setSellQueue(sellQueue);
+                                StoreUtil.SetQueue(orderQueue,futureID);
+                                record();
+                                return PROCESSED;
+                            }
+                            else{
+                                amount = amount -tempAmount;
+                                record();
+                                continue;
+                            }
+                        }
+                        order.setAmount(amount);
+                        orderQueue.insertBuy(order);
+                        orderQueue.setSellQueue(sellQueue);
+                        StoreUtil.SetQueue(orderQueue,futureID);
+                        return PROCESSING;
 
                     }
                     else if (type == 'S'){
@@ -267,7 +347,7 @@ public class OrderControl implements Serializable {
 
     public static void main(String[] args) {
 
-        Order ord1 = new Order(UUID.randomUUID(), "SB", 'M', 'S', 8.1, 1000, "2.4",
+        Order ord1 = new Order(UUID.randomUUID(), "SB", 'L', 'S', 3.1, 1000, "2.4",
                 Calendar.getInstance().getTimeInMillis(), "xxx");
         Gson gs = new Gson();
 

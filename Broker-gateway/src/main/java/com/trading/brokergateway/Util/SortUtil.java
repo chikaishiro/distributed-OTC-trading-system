@@ -28,6 +28,31 @@ public class SortUtil {
 
     }
 
+    public static List<Order> sortQueueEqualsPrice(PriorityQueue<Order> orderQueue,double price){
+        boolean stop = false;
+        LinkedList<Order> lst = new LinkedList<>();
+        while(orderQueue.size()!=0){
+            Order temp = orderQueue.poll();
+            if(temp.getPrice() == price){
+                lst.add(temp);
+            }
+        }
+        List<Order> result = lst.stream()
+                .sorted(Comparator.comparing((Order p) -> p.getPrice())
+                        .thenComparing(Order::getTimeStamp)).collect(Collectors.toList());
+
+
+
+        return result;
+
+    }
+
+    public static void showResult(List<Order> result){
+        Gson gs = new Gson();
+        for (Order order :result){
+            System.out.println(gs.toJson(order));
+        }
+    }
     public static void main(String[] args) {
         OrderQueue orderQueue = new OrderQueue();
         Order ord1 = new Order(UUID.randomUUID(), "SB", 'M', 'S', 8.1, 100, "2.4",
@@ -48,7 +73,9 @@ public class SortUtil {
         orderQueue.insertBuy(ord4);
         orderQueue.insertBuy(ord5);
         orderQueue.insertBuy(ord6);
-        sortQueue(orderQueue.getBuyQueue(),false);
-        sortQueue(orderQueue.getSellQueue(),true);
+//        sortQueue(orderQueue.getBuyQueue(),false);
+////        sortQueue(orderQueue.getSellQueue(),true);
+        List<Order> res = sortQueueEqualsPrice(orderQueue.getBuyQueue(),4.1);
+        showResult(res);
     }
 }
