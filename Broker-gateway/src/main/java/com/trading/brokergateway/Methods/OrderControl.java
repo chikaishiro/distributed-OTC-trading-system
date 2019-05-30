@@ -6,6 +6,7 @@ import java.util.*;
 import com.google.gson.Gson;
 import com.trading.brokergateway.Entity.Order;
 import com.trading.brokergateway.Util.FIX;
+import com.trading.brokergateway.Util.SortUtil;
 
 public class OrderControl implements Serializable {
     public static int PROCESSING = 0;
@@ -128,7 +129,45 @@ public class OrderControl implements Serializable {
                     char type = order.getType();
                     int ret;
                     if(type=='M'){
-                        // MarketOrder
+                        // Sell MarketOrder
+                        List<Order> buyList = SortUtil.sortQueue(buyQueue,false);
+                        int amount = order.getAmount();
+                        for(Order tempOrder:buyList){
+                            buyList.remove(tempOrder);
+                            int tempAmount = tempOrder.getAmount();
+                            if(tempAmount>amount){
+                                tempAmount = tempAmount - amount;
+                                tempOrder.setAmount(tempAmount);
+                                buyList.add(tempOrder);
+                                buyQueue.clear();
+                                for(Order temp:buyList){
+                                    orderQueue.insertBuy(temp);
+                                }
+                                StoreUtil.SetQueue(orderQueue,futureID);
+                                record();
+                                return PROCESSED;
+                            }
+                            if(tempAmount == amount){
+                                buyQueue.clear();
+                                for(Order temp:buyList){
+                                    orderQueue.insertBuy(temp);
+                                }
+                                StoreUtil.SetQueue(orderQueue,futureID);
+                                record();
+                                return PROCESSED;
+                            }
+                            else{
+                                amount = amount -tempAmount;
+                                record();
+                                continue;
+                            }
+
+                        }
+                        buyQueue.clear();
+                        orderQueue.setBuyQueue(buyQueue);
+                        StoreUtil.SetQueue(orderQueue,futureID);
+                        return PARTLY;
+
                     }
                     else if(type == 'L'){
 
@@ -161,6 +200,43 @@ public class OrderControl implements Serializable {
 
                     if(type=='M'){
                         // MarketOrder
+                        List<Order> sellList = SortUtil.sortQueue(sellQueue,true);
+                        int amount = order.getAmount();
+                        for(Order tempOrder:sellList){
+                            sellList.remove(tempOrder);
+                            int tempAmount = tempOrder.getAmount();
+                            if(tempAmount>amount){
+                                tempAmount = tempAmount - amount;
+                                tempOrder.setAmount(tempAmount);
+                                sellList.add(tempOrder);
+                                sellQueue.clear();
+                                for(Order temp:sellList){
+                                    orderQueue.insertSell(temp);
+                                }
+                                StoreUtil.SetQueue(orderQueue,futureID);
+                                record();
+                                return PROCESSED;
+                            }
+                            if(tempAmount == amount){
+                                sellQueue.clear();
+                                for(Order temp:sellList){
+                                    orderQueue.insertSell(temp);
+                                }
+                                StoreUtil.SetQueue(orderQueue,futureID);
+                                record();
+                                return PROCESSED;
+                            }
+                            else{
+                                amount = amount -tempAmount;
+                                record();
+                                continue;
+                            }
+
+                        }
+                        sellQueue.clear();
+                        orderQueue.setSellQueue(sellQueue);
+                        StoreUtil.SetQueue(orderQueue,futureID);
+                        return PARTLY;
 
                     }
                     else if(type == 'L'){
