@@ -2,6 +2,7 @@ package com.trading.brokergateway.Controller;
 
 import com.google.gson.Gson;
 import com.trading.brokergateway.Entity.Order;
+import com.trading.brokergateway.Entity.OrderBook;
 import com.trading.brokergateway.Methods.OrderQueue;
 import com.trading.brokergateway.Methods.StoreUtil;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -19,10 +20,11 @@ import javax.servlet.http.HttpServletRequest;
 public class OrderBookControl {
     @RequestMapping(value = "/OrderBook",method = RequestMethod.GET)
     public String getOrderBook(HttpServletRequest req){
-        String id = req.getParameter("FutureID");
+        String id = req.getParameter("futureID");
         OrderQueue orderQueue = StoreUtil.GetQueue(id);
         Gson gs = new Gson();
-        String to_string = gs.toJson(orderQueue);
+        OrderBook ODB = new OrderBook(orderQueue);
+        String to_string = gs.toJson(ODB);
         return to_string;
 
     }

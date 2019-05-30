@@ -1,4 +1,4 @@
-package com.trading.brokergateway.Protocol;
+package com.trading.brokergateway.Util;
 import com.google.gson.Gson;
 import com.trading.brokergateway.Entity.Order;
 
@@ -17,13 +17,13 @@ public class FIX {
 
     public static void main(String[] args){
 
-        FIX fix = new FIX();
-        Order order = new Order(1,"SB",'S');
-        String i = fix.toFIX(order);
-        System.out.println(i);
-        Order to = fix.ParseFIX(i);
-        System.out.println(to.getPrice());
-        System.out.println(to.getWay());
-        System.out.println(to.getFutureID());
+//        FIX fix = new FIX();
+//        Order order = new Order(1,"SB",'S');
+//        String i = fix.toFIX(order);
+//        System.out.println(i);
+//        Order to = fix.ParseFIX(i);
+//        System.out.println(to.getPrice());
+//        System.out.println(to.getWay());
+//        System.out.println(to.getFutureID());
     }
 }
