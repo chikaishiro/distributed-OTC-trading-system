@@ -223,7 +223,47 @@ public class OrderControl implements Serializable {
                         return PROCESSING;
                     }
                     else if (type == 'S'){
-
+                        // 卖 StopOrder
+                        double toPrice = order.getPrice();
+                        int amount = order.getAmount();
+                        PriorityQueue<Order> backup = new PriorityQueue<Order>(buyQueue);
+                        List<Order> buyList = SortUtil.sortBuyEqualsPrice(backup,toPrice);
+                        for(Order tempOrder:buyList){
+                            if(amount == 0){
+                                break;
+                            }
+                            buyQueue.remove(tempOrder);
+                            int tempAmount = tempOrder.getAmount();
+                            if(tempAmount> amount){
+                                tempAmount = tempAmount - amount;
+                                tempOrder.setAmount(tempAmount);
+                                buyQueue.add(tempOrder);
+                                orderQueue.setBuyQueue(buyQueue);
+                                StoreUtil.setOrderStat(order.getOrderID());
+                                StoreUtil.SetQueue(orderQueue,futureID);
+                                record(order,tempOrder,tempOrder.getPrice(),amount,futureID);
+                                return PROCESSED;
+                            }
+                            if(tempAmount == amount){
+                                orderQueue.setBuyQueue(buyQueue);
+                                StoreUtil.setOrderStat(order.getOrderID());
+                                StoreUtil.setOrderStat(tempOrder.getOrderID());
+                                StoreUtil.SetQueue(orderQueue,futureID);
+                                record(order,tempOrder,tempOrder.getPrice(),amount,futureID);
+                                return PROCESSED;
+                            }
+                            else{
+                                amount = amount -tempAmount;
+                                StoreUtil.setOrderStat(tempOrder.getOrderID());
+                                record(order,tempOrder,tempOrder.getPrice(),tempAmount,futureID);
+                                continue;
+                            }
+                        }
+                        order.setAmount(amount);
+                        //orderQueue.insertSell(order);
+                        orderQueue.setBuyQueue(buyQueue);
+                        StoreUtil.SetQueue(orderQueue,futureID);
+                        return PROCESSING;
                     }
                     else{
                         return FAILED;
@@ -342,7 +382,47 @@ public class OrderControl implements Serializable {
 
                     }
                     else if (type == 'S'){
-                        // Stop Order
+                        // 买 Stop Order
+                        double toPrice = order.getPrice();
+                        int amount = order.getAmount();
+                        PriorityQueue<Order> backup = new PriorityQueue<Order>(sellQueue);
+                        List<Order> sellList = SortUtil.sortSellEqualsPrice(backup,toPrice);
+                        for(Order tempOrder:sellList){
+                            if(amount == 0){
+                                break;
+                            }
+                            sellQueue.remove(tempOrder);
+                            int tempAmount = tempOrder.getAmount();
+                            if(tempAmount> amount){
+                                tempAmount = tempAmount - amount;
+                                tempOrder.setAmount(tempAmount);
+                                sellQueue.add(tempOrder);
+                                orderQueue.setSellQueue(sellQueue);
+                                StoreUtil.setOrderStat(order.getOrderID());
+                                StoreUtil.SetQueue(orderQueue,futureID);
+                                record(order,tempOrder,tempOrder.getPrice(),amount,futureID);
+                                return PROCESSED;
+                            }
+                            if(tempAmount == amount){
+                                orderQueue.setSellQueue(sellQueue);
+                                StoreUtil.setOrderStat(order.getOrderID());
+                                StoreUtil.setOrderStat(tempOrder.getOrderID());
+                                StoreUtil.SetQueue(orderQueue,futureID);
+                                record(order,tempOrder,tempOrder.getPrice(),amount,futureID);
+                                return PROCESSED;
+                            }
+                            else{
+                                amount = amount - tempAmount;
+                                StoreUtil.setOrderStat(tempOrder.getOrderID());
+                                record(order,tempOrder,tempOrder.getPrice(),tempAmount,futureID);
+                                continue;
+                            }
+                        }
+                        order.setAmount(amount);
+                        //orderQueue.insertBuy(order);
+                        orderQueue.setSellQueue(sellQueue);
+                        StoreUtil.SetQueue(orderQueue,futureID);
+                        return PROCESSING;
 
                     }
                     else{
@@ -355,8 +435,6 @@ public class OrderControl implements Serializable {
             }
 
         }
-
-        return FAILED;
     }
 
     public static void record(Order order1,Order order2,double price,int amount,String futureID){
@@ -374,7 +452,7 @@ public class OrderControl implements Serializable {
     public static void main(String[] args) {
         UUID uid = UUID.randomUUID();
         System.out.println(uid);
-        Order ord1 = new Order(uid, "SB", 'L', 'B', 3.1, 900, "2.4",
+        Order ord1 = new Order(uid, "SB", 'S', 'S', 3.2, 200, "2.4",
                 Calendar.getInstance().getTimeInMillis(), "xxx");
         Gson gs = new Gson();
 

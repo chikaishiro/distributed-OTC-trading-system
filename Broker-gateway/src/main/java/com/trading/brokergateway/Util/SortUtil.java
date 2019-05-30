@@ -56,6 +56,7 @@ public class SortUtil {
                 lst.add(temp);
             }
             else{
+                buyQueue.add(temp);
                 break;
             }
         }
@@ -74,6 +75,7 @@ public class SortUtil {
                 lst.add(temp);
             }
             else{
+                sellQueue.add(temp);
                 break;
             }
         }
