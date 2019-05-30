@@ -6,6 +6,7 @@ import com.trading.brokergateway.Entity.Order;
 import redis.clients.jedis.Jedis;
 
 import java.util.HashSet;
+import java.util.UUID;
 
 public class StoreUtil {
     public static void SetQueue(OrderQueue orderQueue,String FutureID){
@@ -59,7 +60,27 @@ public class StoreUtil {
 
         jedis.close();
         return set;
+    }
 
+
+    public static void setOrderStat(UUID orderID){
+        Jedis jedis = new Jedis("localhost");
+        String res = "FINISHED";
+        jedis.set(orderID.toString(),res);
+        jedis.close();
+    }
+
+    public static String getOrderStat(String orderID){
+        Jedis jedis = new Jedis("localhost");
+        String res = jedis.get(orderID);
+        if(res != null){
+            jedis.close();
+            return res;
+        }
+        else{
+            jedis.close();
+            return "PROCESSING";
+        }
 
     }
 }

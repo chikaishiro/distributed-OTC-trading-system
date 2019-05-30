@@ -4,7 +4,9 @@ import java.io.Serializable;
 import java.util.*;
 
 import com.google.gson.Gson;
+import com.trading.brokergateway.DAO.ResultSaving;
 import com.trading.brokergateway.Entity.Order;
+import com.trading.brokergateway.Entity.Result;
 import com.trading.brokergateway.Util.FIX;
 import com.trading.brokergateway.Util.SortUtil;
 import org.springframework.boot.autoconfigure.data.web.SpringDataWebProperties;
@@ -148,7 +150,8 @@ public class OrderControl implements Serializable {
                                     orderQueue.insertBuy(temp);
                                 }
                                 StoreUtil.SetQueue(orderQueue,futureID);
-                                record();
+                                StoreUtil.setOrderStat(order.getOrderID());
+                                record(order,tempOrder,tempOrder.getPrice(),amount,futureID);
                                 return PROCESSED;
                             }
                             if(tempAmount == amount){
@@ -157,12 +160,15 @@ public class OrderControl implements Serializable {
                                     orderQueue.insertBuy(temp);
                                 }
                                 StoreUtil.SetQueue(orderQueue,futureID);
-                                record();
+                                StoreUtil.setOrderStat(order.getOrderID());
+                                StoreUtil.setOrderStat(tempOrder.getOrderID());
+                                record(order,tempOrder,tempOrder.getPrice(),amount,futureID);
                                 return PROCESSED;
                             }
                             else{
                                 amount = amount -tempAmount;
-                                record();
+                                StoreUtil.setOrderStat(tempOrder.getOrderID());
+                                record(order,tempOrder,tempOrder.getPrice(),tempAmount,futureID);
                                 continue;
                             }
 
@@ -190,19 +196,23 @@ public class OrderControl implements Serializable {
                                 tempOrder.setAmount(tempAmount);
                                 buyQueue.add(tempOrder);
                                 orderQueue.setBuyQueue(buyQueue);
+                                StoreUtil.setOrderStat(order.getOrderID());
                                 StoreUtil.SetQueue(orderQueue,futureID);
-                                record();
+                                record(order,tempOrder,price,amount,futureID);
                                 return PROCESSED;
                             }
                             if(tempAmount == amount){
                                 orderQueue.setBuyQueue(buyQueue);
+                                StoreUtil.setOrderStat(order.getOrderID());
+                                StoreUtil.setOrderStat(tempOrder.getOrderID());
                                 StoreUtil.SetQueue(orderQueue,futureID);
-                                record();
+                                record(order,tempOrder,price,amount,futureID);
                                 return PROCESSED;
                             }
                             else{
                                 amount = amount -tempAmount;
-                                record();
+                                StoreUtil.setOrderStat(tempOrder.getOrderID());
+                                record(order,tempOrder,price,tempAmount,futureID);
                                 continue;
                             }
                         }
@@ -256,8 +266,9 @@ public class OrderControl implements Serializable {
                                 for(Order temp:sellList){
                                     orderQueue.insertSell(temp);
                                 }
+                                StoreUtil.setOrderStat(order.getOrderID());
                                 StoreUtil.SetQueue(orderQueue,futureID);
-                                record();
+                                record(order,tempOrder,tempOrder.getPrice(),amount,futureID);
                                 return PROCESSED;
                             }
                             if(tempAmount == amount){
@@ -265,13 +276,16 @@ public class OrderControl implements Serializable {
                                 for(Order temp:sellList){
                                     orderQueue.insertSell(temp);
                                 }
+                                StoreUtil.setOrderStat(order.getOrderID());
+                                StoreUtil.setOrderStat(tempOrder.getOrderID());
                                 StoreUtil.SetQueue(orderQueue,futureID);
-                                record();
+                                record(order,tempOrder,tempOrder.getPrice(),amount,futureID);
                                 return PROCESSED;
                             }
                             else{
                                 amount = amount -tempAmount;
-                                record();
+                                StoreUtil.setOrderStat(tempOrder.getOrderID());
+                                record(order,tempOrder,tempOrder.getPrice(),tempAmount,futureID);
                                 continue;
                             }
 
@@ -300,19 +314,23 @@ public class OrderControl implements Serializable {
                                 tempOrder.setAmount(tempAmount);
                                 sellQueue.add(tempOrder);
                                 orderQueue.setSellQueue(sellQueue);
+                                StoreUtil.setOrderStat(order.getOrderID());
                                 StoreUtil.SetQueue(orderQueue,futureID);
-                                record();
+                                record(order,tempOrder,price,amount,futureID);
                                 return PROCESSED;
                             }
                             if(tempAmount == amount){
                                 orderQueue.setSellQueue(sellQueue);
+                                StoreUtil.setOrderStat(order.getOrderID());
+                                StoreUtil.setOrderStat(tempOrder.getOrderID());
                                 StoreUtil.SetQueue(orderQueue,futureID);
-                                record();
+                                record(order,tempOrder,price,amount,futureID);
                                 return PROCESSED;
                             }
                             else{
                                 amount = amount -tempAmount;
-                                record();
+                                StoreUtil.setOrderStat(tempOrder.getOrderID());
+                                record(order,tempOrder,price,tempAmount,futureID);
                                 continue;
                             }
                         }
@@ -341,13 +359,22 @@ public class OrderControl implements Serializable {
         return FAILED;
     }
 
-    public static void record(){
+    public static void record(Order order1,Order order2,double price,int amount,String futureID){
+        UUID orderID1 = order1.getOrderID();
+        UUID orderID2 = order2.getOrderID();
+        String traderID1 = order1.getTraderId();
+        String traderID2 = order2.getTraderId();
+        UUID uid = UUID.randomUUID();
+        long finishTime = Calendar.getInstance().getTimeInMillis();
+        Result result = new Result(uid,orderID1,orderID2,traderID1,traderID2,futureID,finishTime,price,amount);
+        ResultSaving.saveTradeResult(result);
 
     }
 
     public static void main(String[] args) {
-
-        Order ord1 = new Order(UUID.randomUUID(), "SB", 'L', 'S', 3.1, 1000, "2.4",
+        UUID uid = UUID.randomUUID();
+        System.out.println(uid);
+        Order ord1 = new Order(uid, "SB", 'L', 'B', 3.1, 900, "2.4",
                 Calendar.getInstance().getTimeInMillis(), "xxx");
         Gson gs = new Gson();
 

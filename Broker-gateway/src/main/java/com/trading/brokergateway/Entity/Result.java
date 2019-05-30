@@ -8,89 +8,99 @@ import java.util.UUID;
 
 public class Result implements Serializable{
     private UUID resultID;
-    private UUID orderID;
-    private long finishTime;
-    private String traderID;
+    private UUID orderID1;
+    private UUID orderID2;
     private String futureID;
-    private char way;
-    private char type;
+    private String traderID1;
+    private String traderID2;
+    private long finishTime;
+    private double price;
     private int amount;
 
     public Result(){
 
     }
-    public Result(UUID resultid, long finishTime, Order order,int amount){
-        this.resultID = resultid;
-        this.finishTime = finishTime;
-        this.orderID = order.getOrderID();
-        this.amount = amount;
-        this.way = order.getWay();
-        this.type = order.getType();
-        this.traderID = order.getTraderId();
-        this.futureID = order.getFutureID();
-    }
-
-    public char getWay() {
-        return way;
-    }
-
-    public void setWay(char way) {
-        this.way = way;
-    }
-
-    public String getFutureID() {
-        return futureID;
-    }
-
-    public void setFutureID(String futureID) {
+    public Result(UUID resultID, UUID orderID1,UUID orderID2,String traderID1, String traderID2,String futureID,long finishTime,double price,int amount){
+        this.resultID = resultID;
+        this.orderID1 = orderID1;
+        this.orderID2 = orderID2;
+        this.traderID1 = traderID1;
+        this.traderID2 = traderID2;
         this.futureID = futureID;
-    }
-
-    public char getType() {
-        return type;
-    }
-
-    public void setType(char type) {
-        this.type = type;
-    }
-
-    public UUID getOrderID() {
-        return orderID;
-    }
-
-    public void setOrderID(UUID orderID) {
-        this.orderID = orderID;
-    }
-
-    public UUID getResultID() {
-        return resultID;
+        this.finishTime = finishTime;
+        this.price = price;
+        this.amount = amount;
     }
 
     public void setResultID(UUID resultID) {
         this.resultID = resultID;
     }
 
-    public long getFinishTime() {
-        return finishTime;
+    public UUID getResultID() {
+        return resultID;
     }
 
-    public void setFinishTime(long finishTime) {
-        this.finishTime = finishTime;
+    public void setFutureID(String futureID) {
+        this.futureID = futureID;
     }
 
-    public int getAmount() {
-        return amount;
+    public String getFutureID() {
+        return futureID;
+    }
+
+    public String getTraderID1() {
+        return traderID1;
+    }
+
+    public void setTraderID1(String traderID1) {
+        this.traderID1 = traderID1;
+    }
+
+    public void setTraderID2(String traderID2) {
+        this.traderID2 = traderID2;
+    }
+
+    public String getTraderID2() {
+        return traderID2;
+    }
+
+    public void setOrderID1(UUID orderID1) {
+        this.orderID1 = orderID1;
+    }
+
+    public UUID getOrderID1() {
+        return orderID1;
+    }
+
+    public void setOrderID2(UUID orderID2) {
+        this.orderID2 = orderID2;
+    }
+
+    public UUID getOrderID2() {
+        return orderID2;
+    }
+
+    public void setPrice(double price) {
+        this.price = price;
+    }
+
+    public double getPrice() {
+        return price;
     }
 
     public void setAmount(int amount) {
         this.amount = amount;
     }
 
-    public String getTraderID() {
-        return traderID;
+    public int getAmount() {
+        return amount;
     }
 
-    public void setTraderID(String traderID) {
-        this.traderID = traderID;
+    public void setFinishTime(long finishTime) {
+        this.finishTime = finishTime;
+    }
+
+    public long getFinishTime() {
+        return finishTime;
     }
 }
