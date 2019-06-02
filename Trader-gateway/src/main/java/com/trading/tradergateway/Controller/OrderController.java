@@ -11,6 +11,7 @@ import javax.servlet.http.HttpServletResponse;
 
 @SpringBootApplication
 @RestController
+@RequestMapping("/order")
 public class OrderController {
     private OrderService orderService;
     @Autowired

@@ -7,11 +7,11 @@ import javax.persistence.*;
 @Table(name = "broker")
 public class Broker {
     @Id
-    @Column(nullable = false, name = "brokerId")
+    @Column(nullable = false, name = "broker_id")
     private String brokerID;
-    @Column(nullable = false, name = "brokerName")
+    @Column(nullable = false, name = "broker_name")
     private String brokerName;
-    @Column(nullable = false, name = "brokerIp")
+    @Column(nullable = false, name = "broker_ip")
     private String brokerIp;
 
     public Broker() {}
