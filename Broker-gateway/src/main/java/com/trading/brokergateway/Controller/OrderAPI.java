@@ -12,7 +12,9 @@ import com.trading.brokergateway.Util.*;
 import com.trading.brokergateway.Entity.Order;
 
 import javax.servlet.http.HttpServletRequest;
+import java.io.*;
 import java.util.Calendar;
+import java.util.Enumeration;
 import java.util.PriorityQueue;
 import java.util.UUID;
 
@@ -72,16 +74,33 @@ public class OrderAPI {
         return "O";
     }
     @RequestMapping(value = "/Order",method = RequestMethod.POST)
-    public void orderPost(){
-        String fix;
-        UUID uid = UUID.randomUUID();
-        System.out.println(uid);
-        Order ord1 = new Order(uid, "SB", 'S', 'S', 3.2, 200, "2.4",
-                Calendar.getInstance().getTimeInMillis(), "xxx");
-        Gson gs = new Gson();
+    public String orderPost(HttpServletRequest request,BufferedReader br){
+        Enumeration<?> enum1 = request.getHeaderNames();
+        while (enum1.hasMoreElements()) {
+            String key = (String) enum1.nextElement();
+            String value = request.getHeader(key);
+        }
+        String inputLine;
+        String str = "";
+        try {
+            while ((inputLine = br.readLine()) != null) {
+            str += inputLine;
+        }
+        br.close();
+        } catch (IOException e) {
+            System.out.println("IOException: " + e);
+        }
+        System.out.println("str:" + str);
+        try{
+            OrderControl.OrderDeal(str);
+            return "接收成功";
+        }
+        catch (Exception e){
+            return "接受失败";
+        }
 
-        int i = OrderControl.OrderDeal(gs.toJson(ord1));
-        System.out.println(i);
+
+
 
     }
 
@@ -93,8 +112,7 @@ public class OrderAPI {
         Order ord1 = new Order(uid, "SB", 'S', 'S', 3.2, 100, "2.4",
                 Calendar.getInstance().getTimeInMillis(), "xxx");
         Gson gs = new Gson();
+        System.out.println(gs.toJson(ord1));
 
-        int i = OrderControl.OrderDeal(gs.toJson(ord1));
-        System.out.println(i);
     }
 }
