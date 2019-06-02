@@ -11,6 +11,4 @@ import java.util.List;
 public interface FutureRepository extends JpaRepository<Future, String> {
     Future findFutureByFutureID(String futureID);
     List<Future> findFuturesByFutureName(String futureName);
-    List<Future> findFuturesByExpired(String expired);
-    List<Future> findFuturesByFutureNameAndExpired(String futureName, String expired);
 }
