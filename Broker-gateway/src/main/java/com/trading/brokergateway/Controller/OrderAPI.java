@@ -1,5 +1,7 @@
 package com.trading.brokergateway.Controller;
 
+import com.google.gson.Gson;
+import com.trading.brokergateway.Methods.OrderControl;
 import com.trading.brokergateway.Methods.OrderQueue;
 import com.trading.brokergateway.Methods.StoreUtil;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -72,10 +74,27 @@ public class OrderAPI {
     @RequestMapping(value = "/Order",method = RequestMethod.POST)
     public void orderPost(){
         String fix;
+        UUID uid = UUID.randomUUID();
+        System.out.println(uid);
+        Order ord1 = new Order(uid, "SB", 'S', 'S', 3.2, 200, "2.4",
+                Calendar.getInstance().getTimeInMillis(), "xxx");
+        Gson gs = new Gson();
+
+        int i = OrderControl.OrderDeal(gs.toJson(ord1));
+        System.out.println(i);
 
     }
 
     @RequestMapping(value = "/Order",method = RequestMethod.GET)
     public void orderGet(){
+        String fix;
+        UUID uid = UUID.randomUUID();
+        System.out.println(uid);
+        Order ord1 = new Order(uid, "SB", 'S', 'S', 3.2, 100, "2.4",
+                Calendar.getInstance().getTimeInMillis(), "xxx");
+        Gson gs = new Gson();
+
+        int i = OrderControl.OrderDeal(gs.toJson(ord1));
+        System.out.println(i);
     }
 }

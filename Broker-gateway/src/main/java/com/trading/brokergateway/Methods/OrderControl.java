@@ -449,6 +449,24 @@ public class OrderControl implements Serializable {
 
     }
 
+    public static String getStrFromStat(int i){
+        switch(i){
+            case 0:
+                return "PROCESSING";
+            case 1:
+                return "PROCESSED";
+            case -1:
+                return "FAILED";
+            case 3:
+                return "OK";
+            case 4:
+                return "PARTLY";
+            case 5:
+                return "NOK";
+        }
+        return null;
+    }
+
     public static void main(String[] args) {
         UUID uid = UUID.randomUUID();
         System.out.println(uid);
