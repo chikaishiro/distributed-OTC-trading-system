@@ -92,8 +92,8 @@ public class OrderAPI {
         }
         System.out.println("str:" + str);
         try{
-            OrderControl.OrderDeal(str);
-            return "接收成功";
+            int res= OrderControl.OrderDeal(str);
+            return OrderControl.getStrFromStat(res);
         }
         catch (Exception e){
             return "接受失败";

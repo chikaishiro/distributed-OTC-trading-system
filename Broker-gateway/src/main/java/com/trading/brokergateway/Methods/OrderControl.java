@@ -139,26 +139,18 @@ public class OrderControl implements Serializable {
                             if(amount == 0){
                                 break;
                             }
-                            buyList.remove(tempOrder);
+                            buyQueue.remove(tempOrder);
                             int tempAmount = tempOrder.getAmount();
                             if(tempAmount>amount){
                                 tempAmount = tempAmount - amount;
                                 tempOrder.setAmount(tempAmount);
-                                buyList.add(tempOrder);
-                                buyQueue.clear();
-                                for(Order temp:buyList){
-                                    orderQueue.insertBuy(temp);
-                                }
+                                orderQueue.insertBuy(tempOrder);
                                 StoreUtil.SetQueue(orderQueue,futureID);
                                 StoreUtil.setOrderStat(order.getOrderID());
                                 record(order,tempOrder,tempOrder.getPrice(),amount,futureID);
                                 return PROCESSED;
                             }
                             if(tempAmount == amount){
-                                buyQueue.clear();
-                                for(Order temp:buyList){
-                                    orderQueue.insertBuy(temp);
-                                }
                                 StoreUtil.SetQueue(orderQueue,futureID);
                                 StoreUtil.setOrderStat(order.getOrderID());
                                 StoreUtil.setOrderStat(tempOrder.getOrderID());
@@ -173,7 +165,7 @@ public class OrderControl implements Serializable {
                             }
 
                         }
-                        buyQueue.clear();
+                        StoreUtil.setOrderStat(order.getOrderID());
                         orderQueue.setBuyQueue(buyQueue);
                         StoreUtil.SetQueue(orderQueue,futureID);
                         return PARTLY;
@@ -296,26 +288,18 @@ public class OrderControl implements Serializable {
                             if(amount == 0){
                                 break;
                             }
-                            sellList.remove(tempOrder);
+                            sellQueue.remove(tempOrder);
                             int tempAmount = tempOrder.getAmount();
                             if(tempAmount>amount){
                                 tempAmount = tempAmount - amount;
                                 tempOrder.setAmount(tempAmount);
-                                sellList.add(tempOrder);
-                                sellQueue.clear();
-                                for(Order temp:sellList){
-                                    orderQueue.insertSell(temp);
-                                }
+                                orderQueue.insertSell(tempOrder);
                                 StoreUtil.setOrderStat(order.getOrderID());
                                 StoreUtil.SetQueue(orderQueue,futureID);
                                 record(order,tempOrder,tempOrder.getPrice(),amount,futureID);
                                 return PROCESSED;
                             }
                             if(tempAmount == amount){
-                                sellQueue.clear();
-                                for(Order temp:sellList){
-                                    orderQueue.insertSell(temp);
-                                }
                                 StoreUtil.setOrderStat(order.getOrderID());
                                 StoreUtil.setOrderStat(tempOrder.getOrderID());
                                 StoreUtil.SetQueue(orderQueue,futureID);
@@ -330,7 +314,7 @@ public class OrderControl implements Serializable {
                             }
 
                         }
-                        sellQueue.clear();
+                        StoreUtil.setOrderStat(order.getOrderID());
                         orderQueue.setSellQueue(sellQueue);
                         StoreUtil.SetQueue(orderQueue,futureID);
                         return PARTLY;
@@ -470,7 +454,7 @@ public class OrderControl implements Serializable {
     public static void main(String[] args) {
         UUID uid = UUID.randomUUID();
         System.out.println(uid);
-        Order ord1 = new Order(uid, "SB", 'S', 'S', 3.2, 200, "2.4",
+        Order ord1 = new Order(uid, "SB", 'M', 'B', 3.2, 200, "2.4",
                 Calendar.getInstance().getTimeInMillis(), "xxx");
         Gson gs = new Gson();
 
