@@ -3,18 +3,38 @@ package com.trading.brokergateway.Entity;
 import com.sun.org.apache.xpath.internal.operations.Or;
 
 
+import javax.persistence.Column;
+import javax.persistence.Id;
 import java.io.Serializable;
 import java.util.UUID;
 
 public class Result implements Serializable{
+    @Id
+    @Column(nullable = false, name = "result_id")
     private UUID resultID;
+
+    @Column(nullable = false, name = "order_id1")
     private UUID orderID1;
+
+    @Column(nullable = false, name = "order_id2")
     private UUID orderID2;
+
+    @Column(nullable = false, name = "future_id")
     private String futureID;
+
+    @Column(nullable = false, name = "trader_id1")
     private String traderID1;
+
+    @Column(nullable = false, name = "trader_id2")
     private String traderID2;
+
+    @Column(nullable = false, name = "finish_time")
     private long finishTime;
+
+    @Column(nullable = false, name = "price")
     private double price;
+
+    @Column(nullable = false, name = "amount")
     private int amount;
 
     public Result(){
