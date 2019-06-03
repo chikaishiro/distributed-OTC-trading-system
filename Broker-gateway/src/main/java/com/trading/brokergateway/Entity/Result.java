@@ -4,20 +4,24 @@ import com.sun.org.apache.xpath.internal.operations.Or;
 
 
 import javax.persistence.Column;
+import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.persistence.Table;
 import java.io.Serializable;
 import java.util.UUID;
 
+@Entity
+@Table(name = "result")
 public class Result implements Serializable{
     @Id
     @Column(nullable = false, name = "result_id")
-    private UUID resultID;
+    private String resultID;
 
     @Column(nullable = false, name = "order_id1")
-    private UUID orderID1;
+    private String orderID1;
 
     @Column(nullable = false, name = "order_id2")
-    private UUID orderID2;
+    private String orderID2;
 
     @Column(nullable = false, name = "future_id")
     private String futureID;
@@ -40,8 +44,8 @@ public class Result implements Serializable{
     public Result(){
 
     }
-    public Result(UUID resultID, UUID orderID1,UUID orderID2,String traderID1, String traderID2,String futureID,long finishTime,double price,int amount){
-        this.resultID = resultID;
+    public Result(String resultID, String orderID1,String orderID2,String traderID1, String traderID2,String futureID,long finishTime,double price,int amount){
+        this.resultID =  resultID;
         this.orderID1 = orderID1;
         this.orderID2 = orderID2;
         this.traderID1 = traderID1;
@@ -52,11 +56,11 @@ public class Result implements Serializable{
         this.amount = amount;
     }
 
-    public void setResultID(UUID resultID) {
+    public void setResultID(String resultID) {
         this.resultID = resultID;
     }
 
-    public UUID getResultID() {
+    public String getResultID() {
         return resultID;
     }
 
@@ -84,19 +88,19 @@ public class Result implements Serializable{
         return traderID2;
     }
 
-    public void setOrderID1(UUID orderID1) {
+    public void setOrderID1(String orderID1) {
         this.orderID1 = orderID1;
     }
 
-    public UUID getOrderID1() {
+    public String getOrderID1() {
         return orderID1;
     }
 
-    public void setOrderID2(UUID orderID2) {
+    public void setOrderID2(String orderID2) {
         this.orderID2 = orderID2;
     }
 
-    public UUID getOrderID2() {
+    public String getOrderID2() {
         return orderID2;
     }
 
