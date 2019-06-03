@@ -64,7 +64,7 @@ public class OrderControl {
                     return OK;
                 }
                 else{
-                    return PARTLY;
+                    return amountTarget+PARTLY;
                 }
             }
         }
@@ -84,7 +84,7 @@ public class OrderControl {
                     return OK;
                 }
                 else{
-                    return PARTLY;
+                    return amountTarget+PARTLY;
                 }
             }
         }
@@ -162,6 +162,7 @@ public class OrderControl {
                         // Sell MarketOrder
                         List<Order> buyList = SortUtil.sortQueue(buyQueue,false);
                         int amount = order.getAmount();
+                        int originAmount = amount;
                         for(Order tempOrder:buyList){
                             if(amount == 0){
                                 break;
@@ -195,7 +196,7 @@ public class OrderControl {
                         StoreUtil.setOrderStat(order.getOrderID());
                         orderQueue.setBuyQueue(buyQueue);
                         StoreUtil.SetQueue(orderQueue,futureID);
-                        return PARTLY;
+                        return PARTLY+originAmount-amount;
 
                     }
                     else if(type == 'L'){
@@ -311,6 +312,7 @@ public class OrderControl {
                         // MarketOrder
                         List<Order> sellList = SortUtil.sortQueue(sellQueue,true);
                         int amount = order.getAmount();
+                        int originAmount = amount;
                         for(Order tempOrder:sellList){
                             if(amount == 0){
                                 break;
@@ -344,7 +346,7 @@ public class OrderControl {
                         StoreUtil.setOrderStat(order.getOrderID());
                         orderQueue.setSellQueue(sellQueue);
                         StoreUtil.SetQueue(orderQueue,futureID);
-                        return PARTLY;
+                        return PARTLY+originAmount-amount;
 
                     }
                     else if(type == 'L'){
@@ -470,12 +472,12 @@ public class OrderControl {
                 return "FAILED";
             case 3:
                 return "OK";
-            case 4:
-                return "PARTLY";
             case 5:
                 return "NOK";
+            default:
+                return "PARTLY,"+String.valueOf(i-PARTLY);
         }
-        return null;
+
     }
 
     @RequestMapping(value = "/Main",method = RequestMethod.GET)
