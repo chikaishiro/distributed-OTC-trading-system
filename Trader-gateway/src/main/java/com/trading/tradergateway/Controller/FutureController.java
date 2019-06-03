@@ -4,15 +4,13 @@ import com.trading.tradergateway.Entity.Future;
 import com.trading.tradergateway.Service.Interface.FutureService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
 @SpringBootApplication
 @RestController
+@CrossOrigin(origins={"http://localhost:63342","null"})
 @RequestMapping("/future")
 public class FutureController {
     private FutureService futureService;

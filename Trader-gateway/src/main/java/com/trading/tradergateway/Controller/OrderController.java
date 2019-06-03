@@ -11,6 +11,7 @@ import javax.servlet.http.HttpServletResponse;
 
 @SpringBootApplication
 @RestController
+@CrossOrigin(origins={"http://localhost:63342","null"})
 @RequestMapping("/order")
 public class OrderController {
     private OrderService orderService;
@@ -20,8 +21,16 @@ public class OrderController {
     }
 
     @RequestMapping(value="/SendOrder",method= RequestMethod.POST)
-    public boolean sendOrder(@RequestBody Order order, HttpServletRequest request) throws Exception {
-        boolean result = orderService.sendOrder(order, request);
+    public String sendOrder(@RequestBody Order order, HttpServletRequest request) throws Exception {
+        String result = null;
+        if (order.getType() == 'C'){
+            result = orderService.cancelOrder(order.getOrderID(),request);
+            System.out.println("not C: " + result);
+        }
+        else {
+            result = orderService.sendOrder(order, request);
+            System.out.println("C: " + result);
+        }
         return result;
     }
 

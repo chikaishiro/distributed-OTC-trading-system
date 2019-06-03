@@ -20,7 +20,8 @@
             };
         },
         componentDidMount: function() {
-            var data =  {"futureID" : 'SB',"type" : 'C', "way":"B", "amount":100,"price":3.2, "traderId":"2.4"};
+            //var data =  {"futureID" : 'SB',"type" : 'C', "way":"S", "amount":100,"price":1000.1, "traderId":"2.4"};
+            var data = {"orderID" : "1869261a-ff01-4466-b9e3-67d1f8ed6e32" , "type" : 'C'}
             this.serverRequest = $.ajax({type:"post",
                 url:"/order/SendOrder",
                 async:false,
