@@ -1,17 +1,37 @@
-package com.trading.brokergateway.Methods;
+package com.trading.brokergateway.Controller;
 
+import java.io.BufferedReader;
+import java.io.IOException;
 import java.io.Serializable;
 import java.util.*;
 
 import com.google.gson.Gson;
-import com.trading.brokergateway.DAO.ResultSaving;
+import com.trading.brokergateway.DAO.ResultRepository;
+import com.trading.brokergateway.DAO.ResultService;
 import com.trading.brokergateway.Entity.Order;
 import com.trading.brokergateway.Entity.Result;
+import com.trading.brokergateway.Methods.OrderQueue;
+import com.trading.brokergateway.Methods.StoreUtil;
 import com.trading.brokergateway.Util.FIX;
 import com.trading.brokergateway.Util.SortUtil;
-import org.springframework.boot.autoconfigure.data.web.SpringDataWebProperties;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.data.domain.Example;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
+import org.springframework.data.domain.Sort;
+import org.springframework.web.bind.annotation.CrossOrigin;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RestController;
 
-public class OrderControl implements Serializable {
+import javax.servlet.http.HttpServletRequest;
+
+@SpringBootApplication
+@RestController
+@CrossOrigin(origins = {"http://localhost:63342", "null"})
+@RequestMapping("/Order")
+public class OrderControl {
     public static int PROCESSING = 0;
     public static int PROCESSED = 1;
     public static int FAILED = -1;
@@ -20,7 +40,14 @@ public class OrderControl implements Serializable {
     public static int PARTLY = 4;
     public static int NOK = 5;
 
-    public static int CancelOrder(Order order,OrderQueue orderQueue,String futureID){
+    private ResultService resultService;
+
+    @Autowired
+    public OrderControl(ResultService resultService) {
+        this.resultService = resultService;
+    }
+
+    public static int CancelOrder(Order order, OrderQueue orderQueue, String futureID){
         if (order.getWay() == 'S'){
             PriorityQueue<Order> sellQueue = orderQueue.getSellQueue();
             Order temp = findOrder(order.getOrderID(),sellQueue);
@@ -428,8 +455,8 @@ public class OrderControl implements Serializable {
         String traderID2 = order2.getTraderId();
         UUID uid = UUID.randomUUID();
         long finishTime = Calendar.getInstance().getTimeInMillis();
-        Result result = new Result(uid,orderID1,orderID2,traderID1,traderID2,futureID,finishTime,price,amount);
-        ResultSaving.saveTradeResult(result);
+        Result result = new Result(String.valueOf(uid),String.valueOf(orderID1),String.valueOf(orderID2),traderID1,traderID2,futureID,finishTime,price,amount);
+        ResultService.saveTradeResult(result);
 
     }
 
@@ -451,14 +478,69 @@ public class OrderControl implements Serializable {
         return null;
     }
 
-    public static void main(String[] args) {
+    @RequestMapping(value = "/Main",method = RequestMethod.GET)
+    public String ma() {
         UUID uid = UUID.randomUUID();
         System.out.println(uid);
-        Order ord1 = new Order(uid, "SB", 'M', 'B', 3.2, 200, "2.4",
+        Order ord1 = new Order(uid, "SB", 'L', 'S', 9.2, 200, "2.4",
                 Calendar.getInstance().getTimeInMillis(), "xxx");
         Gson gs = new Gson();
 
         int i = OrderDeal(gs.toJson(ord1));
-        System.out.println(i);
+        return (String.valueOf(i));
+
+    }
+
+//    @RequestMapping(value = "",method = RequestMethod.POST)
+//    public String orderPost(HttpServletRequest request, BufferedReader br){
+//        Enumeration<?> enum1 = request.getHeaderNames();
+//        while (enum1.hasMoreElements()) {
+//            String key = (String) enum1.nextElement();
+//            String value = request.getHeader(key);
+//        }
+//        String inputLine;
+//        String str = "";
+//        try {
+//            while ((inputLine = br.readLine()) != null) {
+//                str += inputLine;
+//            }
+//            br.close();
+//        } catch (IOException e) {
+//            System.out.println("IOException: " + e);
+//        }
+//        System.out.println("str:" + str);
+//        try{
+//            int res= OrderControl.OrderDeal(str);
+//            return OrderControl.getStrFromStat(res);
+//        }
+//        catch (Exception e){
+//            return "接受失败";
+//        }
+//    }
+
+    @RequestMapping(value = "",method = RequestMethod.POST)
+    public String orderPost(){
+        return "???";
+    }
+    public static void main(String[] args) {
+//        UUID uid = UUID.randomUUID();
+////        System.out.println(uid);
+////        Order ord1 = new Order(uid, "SB", 'M', 'B', 3.2, 200, "2.4",
+////                Calendar.getInstance().getTimeInMillis(), "xxx");
+////        Gson gs = new Gson();
+////
+////        int i = OrderDeal(gs.toJson(ord1));
+////        System.out.println(i);
+        Result result = new Result();
+        result.setAmount(20);
+        result.setFutureID("SB");
+        result.setFinishTime(Calendar.getInstance().getTimeInMillis());
+        result.setPrice(2.1);
+        result.setResultID(String.valueOf(UUID.randomUUID()));
+        result.setOrderID1(String.valueOf(UUID.randomUUID()));
+        result.setOrderID2(String.valueOf(UUID.randomUUID()));
+        result.setTraderID1("yry");
+        result.setTraderID2("yty");
+
     }
 }
