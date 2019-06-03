@@ -24,9 +24,6 @@ import java.util.UUID;
 @Scope("singleton")
 public class OrderAPI {
 
-    public OrderAPI(){
-    }
-
     @RequestMapping(value = "/B",method = RequestMethod.GET)
     public String orderTest(){
         String ret = "";
