@@ -7,7 +7,7 @@ import java.util.UUID;
 
 public class Order implements Serializable {
 
-    private UUID orderID;
+    private String orderID;
 
     private String futureID;
 
@@ -21,14 +21,14 @@ public class Order implements Serializable {
 
     private String brokerIp;
 
-    private Date timeStamp;
+    private Long timeStamp;
 
     private String traderId;
 
     public Order() {}
 
-    public Order(UUID orderID, String futureID, char type, char way,
-                 Double price, int amount, String brokerIp, Date timeStamp, String traderId) {
+    public Order(String orderID, String futureID, char type, char way,
+                 Double price, int amount, String brokerIp, Long timeStamp, String traderId) {
         this.orderID = orderID;
         this.futureID = futureID;
         this.type = type;
@@ -40,11 +40,11 @@ public class Order implements Serializable {
         this.traderId = traderId;
     }
 
-    public UUID getOrderID() {
+    public String getOrderID() {
         return orderID;
     }
 
-    public void setOrderID(UUID orderID) {
+    public void setOrderID(String orderID) {
         this.orderID = orderID;
     }
 
@@ -96,11 +96,11 @@ public class Order implements Serializable {
         this.brokerIp = brokerIp;
     }
 
-    public Date getTimeStamp() {
+    public Long getTimeStamp() {
         return timeStamp;
     }
 
-    public void setTimeStamp(Date timeStamp) {
+    public void setTimeStamp(Long timeStamp) {
         this.timeStamp = timeStamp;
     }
 

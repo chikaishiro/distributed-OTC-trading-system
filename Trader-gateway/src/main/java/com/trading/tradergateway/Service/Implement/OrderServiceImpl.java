@@ -5,6 +5,8 @@ import com.trading.tradergateway.Entity.Order;
 import com.trading.tradergateway.JWT.JwtTokenUtil;
 import com.trading.tradergateway.Repository.BrokerRepository;
 import com.trading.tradergateway.Service.Interface.OrderService;
+import com.trading.tradergateway.Util.FIX;
+import com.trading.tradergateway.Util.HttpRequest;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -28,11 +30,15 @@ public class OrderServiceImpl implements OrderService {
 
     @Override
     public boolean sendOrder(Order order, HttpServletRequest request) throws Exception{
-        String username = jwtTokenUtil.parseUsername(request);
-        if (username == null) return false;
-        order.setOrderID(UUID.randomUUID());
-        String now = DateUtil.getDate("yyyy-MM-dd HH:mm:ss");
-        order.setTimeStamp(DateUtil.getDateByStr(now));
+        /*String username = jwtTokenUtil.parseUsername(request);
+        if (username == null) return false;*/
+        //order.setOrderID(String.Valueof(UUID.randomUUID()));
+        order.setOrderID("86b2bedd-1b3b-404d-af1f-f9b5783cc857");
+        Long now = Calendar.getInstance().getTimeInMillis();
+        order.setTimeStamp(now);
+        System.out.println(FIX.toFIX(order));
+        HttpRequest htp = new HttpRequest();
+        htp.sendPost("http://192.168.0.114:8080/Order",FIX.toFIX(order));
         return true;
     }
 

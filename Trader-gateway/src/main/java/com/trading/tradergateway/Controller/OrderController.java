@@ -19,7 +19,7 @@ public class OrderController {
         this.orderService = orderService;
     }
 
-    @RequestMapping(value="/SendOrder",method= RequestMethod.GET)
+    @RequestMapping(value="/SendOrder",method= RequestMethod.POST)
     public boolean sendOrder(@RequestBody Order order, HttpServletRequest request) throws Exception {
         boolean result = orderService.sendOrder(order, request);
         return result;

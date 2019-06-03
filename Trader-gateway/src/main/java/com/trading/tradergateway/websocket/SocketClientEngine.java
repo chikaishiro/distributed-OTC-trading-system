@@ -33,9 +33,9 @@ public class SocketClientEngine {
 
         for (int i = 0; i < brokerNames.size(); i++) {
             GatewaySocketClient client = new GatewaySocketClient();
-            client.connect2Url(brokerWs.get(i));
+            /*client.connect2Url("ws://" + brokerWs.get(i));
             client.setBrokerMapping(brokerNames.get(i));
-            client.sendMessage("I am " + traderGatewayName);
+            client.sendMessage("I am " + traderGatewayName);*/
         }
     }
 }

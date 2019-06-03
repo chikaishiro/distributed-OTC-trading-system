@@ -20,9 +20,9 @@
             };
         },
         componentDidMount: function() {
-            var data =  {"traderId" : 4,"traderName" : 'test',"password" : 'test',"role" : 'user'};
+            var data =  {"futureID" : 'SB',"type" : 'C', "way":"B", "amount":100,"price":3.2, "traderId":"2.4"};
             this.serverRequest = $.ajax({type:"post",
-                url:"/trader/register",
+                url:"/order/SendOrder",
                 async:false,
                 contentType : 'application/json',
                 dataType : 'json',
