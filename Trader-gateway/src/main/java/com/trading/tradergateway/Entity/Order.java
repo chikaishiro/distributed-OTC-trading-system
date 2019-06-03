@@ -28,7 +28,7 @@ public class Order implements Serializable {
     public Order() {}
 
     public Order(UUID orderID, String futureID, char type, char way,
-                 Double price, int amount, String brokerIp, Date timeStamp, String traderIp) {
+                 Double price, int amount, String brokerIp, Date timeStamp, String traderId) {
         this.orderID = orderID;
         this.futureID = futureID;
         this.type = type;

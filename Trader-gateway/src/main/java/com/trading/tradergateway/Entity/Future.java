@@ -12,13 +12,13 @@ import java.util.Date;
 @Table(name = "future")
 public class Future implements Serializable {
     @Id
-    @Column(nullable = false, name = "futureId")
+    @Column(nullable = false, name = "future_id")
     private String futureID;
-    @Column(nullable = false, name = "futureName")
+    @Column(nullable = false, name = "future_name")
     private String futureName;
     @Column(nullable = false, name = "category")
     private String category;
-    @Column(nullable = false, name = "listTime")
+    @Column(nullable = false, name = "list_time")
     private String listTime;
     @Column(nullable = false, name = "expired")
     private String expired;
