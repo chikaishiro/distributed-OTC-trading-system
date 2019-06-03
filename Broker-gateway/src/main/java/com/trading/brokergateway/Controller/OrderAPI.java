@@ -1,5 +1,7 @@
 package com.trading.brokergateway.Controller;
 
+import com.google.gson.Gson;
+import com.trading.brokergateway.Methods.OrderControl;
 import com.trading.brokergateway.Methods.OrderQueue;
 import com.trading.brokergateway.Methods.StoreUtil;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -10,7 +12,9 @@ import com.trading.brokergateway.Util.*;
 import com.trading.brokergateway.Entity.Order;
 
 import javax.servlet.http.HttpServletRequest;
+import java.io.*;
 import java.util.Calendar;
+import java.util.Enumeration;
 import java.util.PriorityQueue;
 import java.util.UUID;
 
@@ -19,9 +23,6 @@ import java.util.UUID;
 @CrossOrigin(origins = {"http://localhost:63342", "null"})
 @Scope("singleton")
 public class OrderAPI {
-
-    public OrderAPI(){
-    }
 
     @RequestMapping(value = "/B",method = RequestMethod.GET)
     public String orderTest(){
@@ -70,12 +71,45 @@ public class OrderAPI {
         return "O";
     }
     @RequestMapping(value = "/Order",method = RequestMethod.POST)
-    public void orderPost(){
-        String fix;
+    public String orderPost(HttpServletRequest request,BufferedReader br){
+        Enumeration<?> enum1 = request.getHeaderNames();
+        while (enum1.hasMoreElements()) {
+            String key = (String) enum1.nextElement();
+            String value = request.getHeader(key);
+        }
+        String inputLine;
+        String str = "";
+        try {
+            while ((inputLine = br.readLine()) != null) {
+            str += inputLine;
+        }
+        br.close();
+        } catch (IOException e) {
+            System.out.println("IOException: " + e);
+        }
+        System.out.println("str:" + str);
+        try{
+            int res= OrderControl.OrderDeal(str);
+            return OrderControl.getStrFromStat(res);
+        }
+        catch (Exception e){
+            return "接受失败";
+        }
+
+
+
 
     }
 
     @RequestMapping(value = "/Order",method = RequestMethod.GET)
     public void orderGet(){
+        String fix;
+        UUID uid = UUID.randomUUID();
+        System.out.println(uid);
+        Order ord1 = new Order(uid, "SB", 'S', 'S', 3.2, 100, "2.4",
+                Calendar.getInstance().getTimeInMillis(), "xxx");
+        Gson gs = new Gson();
+        System.out.println(gs.toJson(ord1));
+
     }
 }
