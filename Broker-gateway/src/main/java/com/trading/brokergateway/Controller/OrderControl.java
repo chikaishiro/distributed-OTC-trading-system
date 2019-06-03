@@ -491,37 +491,33 @@ public class OrderControl {
 
     }
 
-//    @RequestMapping(value = "",method = RequestMethod.POST)
-//    public String orderPost(HttpServletRequest request, BufferedReader br){
-//        Enumeration<?> enum1 = request.getHeaderNames();
-//        while (enum1.hasMoreElements()) {
-//            String key = (String) enum1.nextElement();
-//            String value = request.getHeader(key);
-//        }
-//        String inputLine;
-//        String str = "";
-//        try {
-//            while ((inputLine = br.readLine()) != null) {
-//                str += inputLine;
-//            }
-//            br.close();
-//        } catch (IOException e) {
-//            System.out.println("IOException: " + e);
-//        }
-//        System.out.println("str:" + str);
-//        try{
-//            int res= OrderControl.OrderDeal(str);
-//            return OrderControl.getStrFromStat(res);
-//        }
-//        catch (Exception e){
-//            return "接受失败";
-//        }
-//    }
-
     @RequestMapping(value = "",method = RequestMethod.POST)
-    public String orderPost(){
-        return "???";
+    public String orderPost(HttpServletRequest request, BufferedReader br){
+        Enumeration<?> enum1 = request.getHeaderNames();
+        while (enum1.hasMoreElements()) {
+            String key = (String) enum1.nextElement();
+            String value = request.getHeader(key);
+        }
+        String inputLine;
+        String str = "";
+        try {
+            while ((inputLine = br.readLine()) != null) {
+                str += inputLine;
+            }
+            br.close();
+        } catch (IOException e) {
+            System.out.println("IOException: " + e);
+        }
+        System.out.println("str:" + str);
+        try{
+            int res= OrderControl.OrderDeal(str);
+            return OrderControl.getStrFromStat(res);
+        }
+        catch (Exception e){
+            return "接受失败";
+        }
     }
+
     public static void main(String[] args) {
 //        UUID uid = UUID.randomUUID();
 ////        System.out.println(uid);
