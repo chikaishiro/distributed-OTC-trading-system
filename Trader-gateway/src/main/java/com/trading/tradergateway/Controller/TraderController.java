@@ -15,6 +15,7 @@ import java.util.List;
 
 @SpringBootApplication
 @RestController
+@CrossOrigin(origins={"http://localhost:63342","null"})
 @RequestMapping("/trader")
 @Validated
 public class TraderController {
