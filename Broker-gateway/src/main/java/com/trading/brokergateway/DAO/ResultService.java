@@ -21,20 +21,54 @@ public class ResultService {
         resultRepository.save(result);
     }
 
-    public static List<Result> findByPrice(double price){
-        return resultRepository.findResultsByPriceOrderByFinishTimeDesc(price).subList(0,20);
+    public static List<Result> findByPrice(double price, String futureId){
+        List<Result> list = resultRepository.findResultsByPriceAndFutureIDOrderByFinishTimeDesc(price, futureId).subList(0,10);
+        if(list.size()>10){
+            return list.subList(0,10);
+        }
+        else{
+            return list;
+        }
     }
 
     public static List<Result> findByOrderId(String orderId){
-        return resultRepository.findResultsByOrderID1OrOrderID2OrderByFinishTimeDesc(orderId, orderId).subList(0,20);
+        List<Result> list = resultRepository.findResultsByOrderID1OrOrderID2OrderByFinishTimeDesc(orderId, orderId);
+        if(list.size()>10){
+            return list.subList(0,10);
+        }
+        else{
+            return list;
+        }
     }
 
-    public static List<Result> findall(){
-        return resultRepository.findallOrderByFinishTimeDesc().subList(0,20);
+    public static List<Result> findByTraderId(String traderId){
+        List<Result> list = resultRepository.findResultsByTraderID1OrTraderID2OrderByFinishTimeDesc(traderId,traderId);
+        if(list.size()>10){
+            return list.subList(0,10);
+        }
+        else{
+            return list;
+        }
+    }
+
+    public static List<Result> findAll(){
+        List<Result> list = resultRepository.findAllByOrderByFinishTimeDesc().subList(0,10);
+        if(list.size()>10){
+            return list.subList(0,10);
+        }
+        else{
+            return list;
+        }
     }
 
     public static List<Result> findByFutureId(String futureId){
-        return resultRepository.findResultsByFutureIDOrderByFinishTime(futureId).subList(0,20);
+        List<Result> list = resultRepository.findResultsByFutureIDOrderByFinishTime(futureId).subList(0,10);
+        if(list.size()>10){
+            return list.subList(0,10);
+        }
+        else{
+            return list;
+        }
     }
 
     public static List<Result> findToday (){
@@ -46,7 +80,13 @@ public class ResultService {
         long start = calendar.getTimeInMillis();
         calendar.set(Calendar.HOUR_OF_DAY, 24);
         long end =  calendar.getTimeInMillis();
-        return resultRepository.findResultsByFinishTimeBetweenOrderByFinishTimeDesc(start, end).subList(0, 20);
+        List<Result> list = resultRepository.findResultsByFinishTimeBetweenOrderByFinishTimeDesc(start, end).subList(0, 10);
+        if(list.size()>10){
+            return list.subList(0,10);
+        }
+        else{
+            return list;
+        }
 
     }
 
