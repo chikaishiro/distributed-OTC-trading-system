@@ -25,11 +25,11 @@ public class OrderController {
         String result = null;
         if (order.getType() == 'C'){
             result = orderService.cancelOrder(order.getOrderID(),request);
-            System.out.println("not C: " + result);
+            System.out.println("C: " + result);
         }
         else {
             result = orderService.sendOrder(order, request);
-            System.out.println("C: " + result);
+            System.out.println("not C: " + result);
         }
         return result;
     }

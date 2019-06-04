@@ -8,6 +8,7 @@ import com.trading.tradergateway.Repository.TraderRepository;
 import com.trading.tradergateway.Service.Interface.OrderService;
 import com.trading.tradergateway.Util.FIX;
 import com.trading.tradergateway.Util.HttpRequest;
+import org.apache.commons.beanutils.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -66,18 +67,20 @@ public class OrderServiceImpl implements OrderService {
         String[] params = status.split(",");
         status  = params[0];
         if (status.equals("failed")) return "Order failed";
-        order.setStatus(status);
-        order.setOrderID(String.valueOf(UUID.randomUUID()));
+        Order orderC = new Order();
+        BeanUtils.copyProperties(orderC,order);
+        orderC.setStatus(status);
+        orderC.setOrderID(String.valueOf(UUID.randomUUID()));
         Long now = Calendar.getInstance().getTimeInMillis();
-        order.setTimeStamp(now);
+        orderC.setTimeStamp(now);
         if (status.equals("PARTLY")) {
             int amount = Integer.parseInt(params[1]);
-            order.setAmount(amount);
-            orderRepository.save(order);
+            orderC.setAmount(amount);
+            orderRepository.save(orderC);
             return "This order has been partially done with number " + amount;
         }
         else{
-            orderRepository.save(order);
+            orderRepository.save(orderC);
             return status;
         }
     }
