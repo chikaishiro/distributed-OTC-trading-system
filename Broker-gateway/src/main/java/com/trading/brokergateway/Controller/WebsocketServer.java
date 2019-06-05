@@ -5,6 +5,8 @@ import java.util.Set;
 import java.util.concurrent.CopyOnWriteArraySet;
 
 import com.google.gson.Gson;
+import com.trading.brokergateway.Entity.OrderBook;
+import com.trading.brokergateway.Methods.OrderQueue;
 import com.trading.brokergateway.Methods.StoreUtil;
 import net.sf.json.JSONArray;
 import net.sf.json.JSONObject;
@@ -81,7 +83,9 @@ public class WebsocketServer {
                 try {
                     Thread.sleep(1000);
                     Gson gson = new Gson();
-                    String i = gson.toJson(StoreUtil.GetQueue(futureID));
+                    OrderQueue odq = StoreUtil.GetQueue(futureID);
+                    OrderBook odb = new OrderBook(odq,true);
+                    String i = gson.toJson(odb);
                     sendMessage(session,i);
                 }
                 catch (Exception e){

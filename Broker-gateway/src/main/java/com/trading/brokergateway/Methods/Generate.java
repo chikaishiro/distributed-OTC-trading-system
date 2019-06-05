@@ -31,17 +31,17 @@ public class Generate {
         StoreUtil.SetQueue(orderQueue,"SB");
     }
     public static void test2(){
-        Order ord1 = new Order(UUID.randomUUID(), "SB", 'M', 'S', 8.1, 100, "2.4",
+        Order ord1 = new Order(UUID.randomUUID(), "SB", 'L', 'S', 8.1, 100, "2.4",
                 Calendar.getInstance().getTimeInMillis(), "xxx");
-        Order ord2 = new Order(UUID.randomUUID(), "SB", 'M', 'S', 6.1, 100, "2.4",
+        Order ord2 = new Order(UUID.randomUUID(), "SB", 'L', 'S', 6.1, 100, "2.4",
                 2, "xxx");
-        Order ord3 = new Order(UUID.randomUUID(), "SB", 'M', 'S', 6.1, 100, "2.4",
+        Order ord3 = new Order(UUID.randomUUID(), "SB", 'L', 'S', 6.1, 100, "2.4",
                 1, "xxx");
-        Order ord4 = new Order(UUID.randomUUID(), "SB", 'M', 'B', 5.1, 100, "2.4",
+        Order ord4 = new Order(UUID.randomUUID(), "SB", 'L', 'B', 5.1, 100, "2.4",
                 2, "xxx");
-        Order ord5 = new Order(UUID.randomUUID(), "SB", 'M', 'B', 5.1, 100, "2.4",
+        Order ord5 = new Order(UUID.randomUUID(), "SB", 'L', 'B', 5.1, 100, "2.4",
                 1, "xxx");
-        Order ord6 = new Order(UUID.randomUUID(), "SB", 'M', 'B', 3.1, 100, "2.4",
+        Order ord6 = new Order(UUID.randomUUID(), "SB", 'L', 'B', 3.1, 100, "2.4",
                 Calendar.getInstance().getTimeInMillis(), "xxx");
         OrderQueue orderQueue = StoreUtil.GetQueue("SB");
         orderQueue.insertSell(ord1);

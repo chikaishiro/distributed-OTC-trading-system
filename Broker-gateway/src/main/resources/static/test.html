@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<!doctype html >
+<html>
+<head>
+    <title> new document </title>
+</head>
+<body>
+<script type="text/javascript">
+    var data = {"sellList":
+            [{"orderID":"87dda98c-1093-4807-b4e1-5d103be2cded","futureID":"SB","type":"M","way":"S","price":6.1,"amount":100,"brokerIp":"2.4","timeStamp":2,"traderId":"xxx"},
+                {"orderID":"d10d3279-aacc-4d15-b63e-9f2a7bd8a733","futureID":"SB","type":"M","way":"S","price":8.1,"amount":100,"brokerIp":"2.4","timeStamp":1559629213182,"traderId":"xxx"}],
+        "buyList":
+            [{"orderID":"10754fd4-a003-4248-9dff-855f3691804c","futureID":"SB","type":"M","way":"B","price":5.1,"amount":100,"brokerIp":"2.4","timeStamp":1,"traderId":"xxx"},
+                {"orderID":"0f93cd77-6e20-462f-aef4-05eeb2712f6a","futureID":"SB","type":"M","way":"B","price":5.1,"amount":100,"brokerIp":"2.4","timeStamp":2,"traderId":"xxx"},
+                {"orderID":"523be970-2558-4d17-99f7-f466b86c8aed","futureID":"SB","type":"M","way":"B","price":3.1,"amount":100,"brokerIp":"2.4","timeStamp":1559629213266,"traderId":"xxx"}]};
+    var d1 = data["sellList"];
+
+    var d2 = data["buyList"];
+    var d3 = data["sellList"]
+    var d3 = [[1,11],[2,22],[3,33],[4,44]];
+    var Table = function(element){
+        this.element = document.getElementById(element);
+    };
+    var headers = ["futureID","type","amount","price"];
+    Table.prototype = {
+        add : function(data){
+            var e = this.element, body = null;
+            for(var i = 0; i < data.length; i++){
+                var tr = e.insertRow();
+                for(var j = 0; j < 4; j++){
+                    var td = tr.insertCell();
+                    td.innerHTML = data[i][headers[j]];
+                    tr.appendChild(td);
+                }
+                if(!body) body = e.getElementsByTagName("tbody")[0];
+                body.appendChild(tr);
+            }
+        },
+        update : function(data){
+            var e = this.element, len = e.rows.length, body = null;
+            for(var i = 1; i < data.length+1 && i < len; i++){
+                for(var j = 0; j <4; j++){
+                    e.rows[i].cells[j].innerHTML = data[i-1][headers[j]];
+                }
+            }
+            if(i < len){
+                for(var n = len-1; n >= i; n--){
+                    e.deleteRow(n);
+                }
+            }else if(i < data.length+1){
+                this.add(data.slice(i-1));
+            }
+        }
+    };
+    window.onload = function(){
+        var n = 1, t = new Table("table1");
+        t.update(d1);
+        document.getElementById("button1").onclick = function(){
+
+            t.update(d1);
+
+        };
+        document.getElementById("button2").onclick = function(){
+
+            t.update(d2);
+
+        };
+    };
+</script>
+<input type="button" id="button1" value="update" /><br/>
+<input type="button" id="button2" value="update2" /><br/>
+<table id="table1" border="1">
+    <tr>
+        <th>futureID</th>
+        <th>type</th>
+        <th>amount</th>
+        <th>price</th>
+    </tr>
+</table>
+</body>
+</html>
