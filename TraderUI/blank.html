@@ -373,10 +373,10 @@ function funcmark(){
 			},
 			contentType:"application/json",
 			// dataType: "json"
-		}).success(function () {
-			alert("投稿成功");
+		}).success(function (data) {
+			alert(data);
 		}).error(function () {
-			alert("投稿失败");
+			alert("失败");
 		});
 }
 	function funclimi(){
@@ -409,7 +409,7 @@ function funcmark(){
 		}).success(function (data) {
 			alert(data);
 		}).error(function () {
-			alert("投稿失败");
+			alert("失败");
 		});
 	}
 	function funcstop(){
