@@ -25,4 +25,24 @@ public class OrderBook implements Serializable {
             this.buyList.add(temp);
         }
     }
+
+    public OrderBook(OrderQueue odq,boolean Display){
+        sellList = new LinkedList<Order>();
+        buyList = new LinkedList<Order>();
+        LinkedList<Order> tempSell = new LinkedList<>();
+        PriorityQueue<Order> buyQueue = odq.getBuyQueue();
+        PriorityQueue<Order> sellQueue = odq.getSellQueue();
+        while(sellQueue.size()!=0){
+            Order temp = sellQueue.poll();
+            tempSell.add(temp);
+        }
+        for(int i = tempSell.size()-1;i>=0;i--){
+            Order temp = tempSell.get(i);
+            this.sellList.add(temp);
+        }
+        while(buyQueue.size()!=0){
+            Order temp = buyQueue.poll();
+            this.buyList.add(temp);
+        }
+    }
 }

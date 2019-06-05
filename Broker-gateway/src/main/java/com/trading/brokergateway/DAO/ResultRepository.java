@@ -9,9 +9,10 @@ import java.util.List;
 @Repository("ResultRepository")
 public interface ResultRepository extends JpaRepository<Result, String> {
     Result findResultByResultID(String resultID);
-    List findResultsByPriceOrderByFinishTimeDesc(double price);
+    List findResultsByPriceAndFutureIDOrderByFinishTimeDesc(double price, String futureId);
     List findResultsByOrderID1OrOrderID2OrderByFinishTimeDesc(String orderId1, String orderId2);
-    List findallOrderByFinishTimeDesc();
+    List findAllByOrderByFinishTimeDesc();
     List findResultsByFutureIDOrderByFinishTime(String futureId);
     List findResultsByFinishTimeBetweenOrderByFinishTimeDesc(long start, long end);
+    List findResultsByTraderID1OrTraderID2OrderByFinishTimeDesc(String traderId1,String traderId2);
 }

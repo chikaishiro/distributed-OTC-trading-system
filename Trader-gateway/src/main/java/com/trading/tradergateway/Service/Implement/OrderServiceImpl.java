@@ -32,14 +32,14 @@ public class OrderServiceImpl implements OrderService {
 
     @Override
     public String sendOrder(Order order, HttpServletRequest request) throws Exception{
-        /*String username = jwtTokenUtil.parseUsername(request);
-        if (username == null) return "Authorization failed";*/
-        //order.setTraderId(traderRepository.findTraderByTraderName(username).getTraderID());
+        String username = jwtTokenUtil.parseUsername(request);
+        if (username == null) return "Authorization failed";
+        order.setTraderId(String.valueOf(traderRepository.findTraderByTraderName(username).getTraderID()));
         order.setOrderID(String.valueOf(UUID.randomUUID()));
         Long now = Calendar.getInstance().getTimeInMillis();
         order.setTimeStamp(now);
         HttpRequest htp = new HttpRequest();
-        String status = htp.sendPost("http://192.168.0.114:8080/Order",FIX.toFIX(order));
+        String status = htp.sendPost("http://10.162.248.242:8080/Order",FIX.toFIX(order));
         String[] params = status.split(",");
         status  = params[0];
         if (status.equals("failed")) return "Order failed";
@@ -58,12 +58,12 @@ public class OrderServiceImpl implements OrderService {
 
     @Override
     public String cancelOrder(String orderId, HttpServletRequest request) throws Exception{
-        /*String username = jwtTokenUtil.parseUsername(request);
-        if (username == null) return "Authorization failed";*/
+        String username = jwtTokenUtil.parseUsername(request);
+        if (username == null) return "Authorization failed";
         Order order = orderRepository.findOrderByOrderID(orderId);
         order.setType('C');
         HttpRequest htp = new HttpRequest();
-        String status = htp.sendPost("http://192.168.0.114:8080/Order",FIX.toFIX(order));
+        String status = htp.sendPost("http://10.162.248.242:8080/Order",FIX.toFIX(order));
         String[] params = status.split(",");
         status  = params[0];
         if (status.equals("failed")) return "Order failed";
@@ -86,7 +86,15 @@ public class OrderServiceImpl implements OrderService {
     }
 
     @Override
-    public List findOrdersByTraderName(String traderId){
-        return orderRepository.findOrdersByTraderId(traderId);
+    public List findOrdersByTraderName(String traderName){
+        return orderRepository.findOrdersByTraderId(String.valueOf(traderRepository.findTraderByTraderName(traderName).getTraderID()));
     }
+
+    @Override
+    public List getOrder(HttpServletRequest request){
+        String username = jwtTokenUtil.parseUsername(request);
+        if (username == null) return null;
+        return findOrdersByTraderName(username);
+    }
+
 }

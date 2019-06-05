@@ -11,5 +11,5 @@ public interface OrderService {
         String sendOrder(Order order, HttpServletRequest request) throws Exception;
         String cancelOrder(String orderId, HttpServletRequest request) throws Exception;
         List findOrdersByTraderName(String traderName);
-
+        List getOrder(HttpServletRequest request);
 }

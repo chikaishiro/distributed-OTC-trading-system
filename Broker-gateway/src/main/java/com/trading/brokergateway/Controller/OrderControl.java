@@ -246,6 +246,7 @@ public class OrderControl {
                         // 卖 StopOrder
                         double toPrice = order.getPrice();
                         int amount = order.getAmount();
+                        int originAmount = amount;
                         PriorityQueue<Order> backup = new PriorityQueue<Order>(buyQueue);
                         List<Order> buyList = SortUtil.sortBuyEqualsPrice(backup,toPrice);
                         for(Order tempOrder:buyList){
@@ -283,7 +284,7 @@ public class OrderControl {
                         //orderQueue.insertSell(order);
                         orderQueue.setBuyQueue(buyQueue);
                         StoreUtil.SetQueue(orderQueue,futureID);
-                        return PROCESSING;
+                        return PARTLY+(originAmount-amount);
                     }
                     else{
                         return FAILED;
@@ -398,6 +399,7 @@ public class OrderControl {
                         // 买 Stop Order
                         double toPrice = order.getPrice();
                         int amount = order.getAmount();
+                        int originAmount = amount;
                         PriorityQueue<Order> backup = new PriorityQueue<Order>(sellQueue);
                         List<Order> sellList = SortUtil.sortSellEqualsPrice(backup,toPrice);
                         for(Order tempOrder:sellList){
@@ -435,7 +437,7 @@ public class OrderControl {
                         //orderQueue.insertBuy(order);
                         orderQueue.setSellQueue(sellQueue);
                         StoreUtil.SetQueue(orderQueue,futureID);
-                        return PROCESSING;
+                        return PROCESSING+(originAmount-amount);
 
                     }
                     else{
