@@ -83,7 +83,7 @@ public class PriceServer {
         public void run() {
             while(true){
                 try {
-                    Thread.sleep(1000);
+                    Thread.sleep(2000);
                     String i = new Gson().toJson(getRecentPrice(futureID));
                     sendMessage(session,i);
                 }
@@ -104,16 +104,20 @@ public class PriceServer {
 
     }
 
-    public LinkedList<String> getRecentPrice(String futureID) throws Exception{
-        LinkedList<String> res = new LinkedList<>();
+    public LinkedList<Double> getRecentPrice(String futureID) throws Exception{
+        LinkedList<Double> res = new LinkedList<>();
         JDBCConn link = new JDBCConn();
         String target = "'"+futureID+"'";
         ResultSet rs = link.getRs("select price,finish_time from result where future_id = "+ target + "order by finish_time desc limit 10");
         while (rs.next()){
             double price = rs.getDouble("price");
-            res.add(String.valueOf(price));
+            res.add(price);
         }
-        return res;
+        LinkedList<Double> res2 = new LinkedList<>();
+        for(int i=9;i>=0;i--){
+            res2.add(res.get(i));
+        }
+        return res2;
     }
 
 
