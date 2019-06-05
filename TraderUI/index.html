@@ -45,6 +45,99 @@
 		</style>
 
   	</head>
+	<script>
+		var Chat = {};
+		Chat.socket = null;
+		Chat.connect = (function(host) {
+			if ('WebSocket' in window) {
+				Chat.socket = new WebSocket(host);
+			} else if ('MozWebSocket' in window) {
+				Chat.socket = new MozWebSocket(host);
+			} else {
+				Console.log('Error: WebSocket is not supported by this browser.');
+				return;
+			}
+			Chat.socket.onopen = function () {
+				Console.log('在线聊天室已开启');
+				document.getElementById('chat').onkeydown = function(event) {
+					if (event.keyCode == 13) {
+						Chat.sendMessage();
+					}
+				};
+			};
+			Chat.socket.onclose = function () {
+				document.getElementById('chat').onkeydown = null;
+				Console.log('在线聊天室已关闭');
+			};
+			Chat.socket.onmessage = function (message) {
+					var origindata = JSON.parse(message.data);
+
+					var dataset = origindata;
+					// 基于准备好的dom，初始化echarts实例
+					var myChart = echarts.init(document.getElementById('main'));
+					// 指定图表的配置项和数据
+					var option = {
+						xAxis: {
+							type: 'category',
+							data: ['0', '1', '2', '3', '4', '5', '6','7','8','9']
+						},
+						yAxis: {
+							type: 'value'
+						},
+						series: [{
+							data: dataset,
+							type: 'line'
+						}]
+					};
+					// 使用刚指定的配置项和数据显示图表。
+					myChart.setOption(option);
+
+			};
+		});
+		Chat.initialize = function() {
+			if (window.location.protocol == 'http:') {
+				Chat.connect('ws://' + "192.168.43.40:8080" + '/price');
+			} else {
+				Chat.connect('wss://' + window.location.host + '/orderbook');
+			}
+		};
+		Chat.sendMessage = (function() {
+			var message = document.getElementById('chat').value;
+			if (message != '') {
+				alert(message);
+				Chat.socket.send(message);
+				document.getElementById('chat').value = '';
+			}
+		});
+		var Console = {};
+
+		Console.log = (function(message) {
+			var console = document.getElementById('console');
+			var p = document.createElement('p');
+			p.style.wordWrap = 'break-word';
+			p.innerHTML = message;
+			console.appendChild(p);
+			while (console.childNodes.length > 25) {
+				console.removeChild(console.firstChild);
+			}
+			console.scrollTop = console.scrollHeight;
+
+		});
+
+		function formTable(message) {
+			t1 = new Table("sellTable");
+			t2 = new Table("buyTable");
+			var obj = JSON.parse(message);
+			//alert(obj["sellList"]);
+			t1.update(obj["sellList"]);
+			t2.update(obj["buyList"]);
+		}
+
+
+		function f(){
+			Chat.initialize();
+		}
+	</script>
 
   	<body class="overflow-hidden">
 		<div class="wrapper preload">
@@ -352,7 +445,7 @@
 									<div class="smart-widget-body no-padding">
 										<div class="padding-md">
 											<div id="placeholder" style="height:250px;">
-												<canvas class="flot-base" style="direction: ltr; position: absolute; left: 0px; top: 0px; width: 563px; height: 250px;" width="703" height="312"></canvas>
+
 											</div>
 										</div>
 
@@ -524,84 +617,20 @@
 								</div>
 							</div><!-- ./task-widget -->
 						</div><!-- ./col -->
+
 					</div><!-- ./row -->
+					<p>
+						<input type="text" placeholder="type and press enter to chat" id="chat" />
+					</p>
+					<div id="console-container">
+						<div id="console"/>
+					</div>
+					<button onclick="f()">change</button>
+					<div id="main" style="width: 600px;height:400px;position: center"></div>
 				</div><!-- ./padding-md -->
 			</div><!-- /main-container -->
 			<div class="smart-widget-body no-padding">
-			<div id="divContainer" class="padding-md">
-				铝锭价走势图<br/>
-				<canvas id="cv" class="">你的设备不支持图表数据显示</canvas>
-			</div>
-			</div>
-			<script>
-				(function(){
-					window.onload = function(){
 
-						//数据源
-						var dict = [
-							{x: "2015-04-24", y: 13400},
-							{x: "2015-04-25", y: 13380},
-							{x: "2015-04-26", y: 13370},
-							{x: "2015-04-27", y: 13370},
-							{x: "2015-04-28", y: 13380}
-						]
-
-						//数据源提取
-						var len = dict.length;
-						var xArr = [], yArr = [], tmp_yArr = [];
-						for(var i=0; i<len; i++){
-							xArr.push(i * 60);
-							tmp_yArr.push(dict[i].y);
-						}
-						var tmp_minY = Math.min.apply(Math, tmp_yArr);//最小值
-						var tmp_maxY = Math.max.apply(Math, tmp_yArr);//最大值
-						if(tmp_maxY - tmp_minY <= 100){
-							for(var i=0; i<len; i++){
-								yArr.push(tmp_yArr[i] - tmp_minY + 50);//与最小的做比较
-							}
-						}
-						else{//如果相差太大会导致图表不美观
-							for(var i=0; i<len; i++){
-								yArr.push(tmp_yArr[i] / 500);
-							}
-						}
-						var minY = Math.min.apply(Math, yArr);
-						var maxY = Math.max.apply(Math, yArr);
-
-						//canvas 准备
-						var canvas = document.getElementById("cv");//获取canvas画布
-						var ctx  = canvas.getContext("2d");
-
-						//画折线
-						for(var i=0 ;i<len; i++){
-							var x = xArr[i];
-							var y = maxY - yArr[i] + minY;
-							if(i === 0){
-								ctx .moveTo(x, y);
-							}
-							else{
-								ctx .lineTo(x, y);
-							}
-						}
-						ctx .stroke();
-
-						//画点
-						for(var i=0; i<len; i++){
-							var x = xArr[i];
-							var y = maxY - yArr[i] + minY;
-							var xMemo = dict[i].x;
-							var yMemo = "¥" + dict[i].y;
-							ctx.beginPath();
-							ctx.fillStyle = "#000";
-							ctx.arc(x, y, 2, 0, 2*Math.PI);//画点
-							ctx.fill();
-							ctx.fillText(yMemo, x + 3, y - 10);
-							ctx.fillText(xMemo, x + 3, canvas.height - 10, 40);//画文字
-						}
-
-					}
-				})();
-			</script>
 			<footer class="footer">
 				<span class="footer-brand">
 					<strong class="text-danger">Simplify</strong> Admin
@@ -682,8 +711,10 @@
 		<!-- Simplify -->
 		<script src="js/simplify/simplify.js"></script>
 		<script src="js/simplify/simplify_dashboard.js"></script>
+		<script src="js/incubator-echarts-master/dist/echarts.min.js"></script>
+			<script type="text/javascript">
 
-
+			</script>
 		<script>
 			$(function()	{
 				$('.chart').easyPieChart({
@@ -718,6 +749,7 @@
 					pagecontainer: '.container',
 					transition: 'all 0.3s'
 				});
+
 			});
 
 		</script>
