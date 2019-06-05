@@ -21,7 +21,7 @@
 	
   	</head>
 
-  	<body class="overflow-hidden">
+  	<body class="overflow-hidden" onload="func()">
 		<div class="wrapper preload">
 			<header class="top-nav">
 				<div class="top-nav-inner">
@@ -123,7 +123,14 @@
 			
 			<div class="main-container">
 				<div class="padding-md">
-
+					<table id="buyTable" border="1"  class="table table-striped">
+						<tr>
+							<th>futureID</th>
+							<th>type</th>
+							<th>amount</th>
+							<th>price</th>
+						</tr>
+					</table>
 				</div><!-- ./padding-md -->
 			</div><!-- /main-container -->
 		</div><!-- /wrapper -->
@@ -151,6 +158,168 @@
 		
 		<!-- Simplify -->
 		<script src="js/simplify/simplify.js"></script>
+        <script>
+			var tabledata;
+			function translateType(type){
+				if(type == "M"){
+					return "Market Order";
+				}
+				else if(type == "L"){
+					return "Limit Order";
+				}
+				else if(type=="S"){
+					return "Stop Order";
+				}
+				else{
+					return "Cancel Order";
+				}
+			}
 
+			function translateWay(way){
+				if(way == "S"){
+					return "Sell";
+				}
+				else{
+					return "Buy";
+				}
+			}
+
+	        function func() {
+				htmlobj =  $.ajax({
+					type: "get",
+					url: "http://10.162.231.38:8080/order/GetOrder",
+					//data: JSON.stringify(formData),
+					headers:{
+						'Authorization':"Bearer "+document.cookie,
+
+					},
+					async:false,
+					contentType:"application/json",
+					// dataType: "json"
+				}).success(function (data) {
+					formTable(data);
+					// tabledata = JSON.stringify(data);
+					// var table = document.createElement("table");
+					// var tbody = document.createElement("tbody");
+					// table.appendChild(tbody);
+					// var caption = table.createCaption();
+					// caption.innerHTML = "Order List";
+					// var tr = tbody.insertRow (0);
+					// var str = "OrderID,BrokerIP,FutureID,Type,Way,Amount,Price,Status".split(",");
+					// for (var i = 0; i < str.length; i++)
+					// {
+					// 	var th = document.createElement("th");
+					// 	th.innerHTML = str[i];
+					// 	tr.appendChild (th);
+					// }
+					// for(obj in data){
+					// 	var temp = data[obj];
+					// 	// var es = obj["orderID"];
+					// 	// alert(es);
+					// 	var row = document.createElement('tr'); //创建行  
+					//
+					// 	var idCell = document.createElement('td'); //创建第一列id  
+					// 	var es = temp["orderID"];
+					// 	alert(es);
+					// 	idCell.innerHTML = es; //填充数据  
+					// 	row.appendChild(idCell); //加入行  ，下面类似  
+						//
+						// var nameCell = document.createElement('td');//创建第二列name  
+						// nameCell.innerHTML = temp["brokerIp];
+						// row.appendChild(nameCell);
+						//
+						// var jobCell = document.createElement('td');//创建第三列job  
+						// jobCell.innerHTML = temp["futureID"];
+						// row.appendChild(jobCell);
+						//
+						// var frontCell = document.createElement('td');//创建第三列job  
+						// frontCell.innerHTML =temp["type"];
+						// row.appendChild(frontCell);
+						//
+						// var backCell = document.createElement('td');//创建第三列job  
+						// backCell.innerHTML = temp["way"];
+						// row.appendChild(backCell);
+						//
+						// var backCell2 = document.createElement('td');//创建第三列job  
+						// backCell2.innerHTML = temp["amount"];
+						// row.appendChild(backCell2);
+						// var backCell3 = document.createElement('td');//创建第三列job  
+						// backCell3.innerHTML = temp["price"];
+						// row.appendChild(backCell2);
+						// var backCell4 = document.createElement('td');//创建第三列job  
+						// backCell4.innerHTML = temp["status"];
+						// row.appendChild(backCell2);
+						//tbody.appendChild(row);
+					//}
+					// var row = document.createElement('tr'); //创建行  
+					//
+					// var idCell = document.createElement('td'); //创建第一列id  
+					// idCell.innerHTML = ; //填充数据  
+					// row.appendChild(idCell); //加入行  ，下面类似  
+					//
+					// var nameCell = document.createElement('td');//创建第二列name  
+					// nameCell.innerHTML = a;
+					// row.appendChild(nameCell);
+					//
+					// var jobCell = document.createElement('td');//创建第三列job  
+					// jobCell.innerHTML = b;
+					// row.appendChild(jobCell);
+					//
+					// var frontCell = document.createElement('td');//创建第三列job  
+					// frontCell.innerHTML = (a/numb*100).toFixed(2)+"%";
+					// row.appendChild(frontCell);
+					//
+					// var backCell = document.createElement('td');//创建第三列job  
+					// backCell.innerHTML = (b/numb*100).toFixed(2)+"%";
+					// row.appendChild(backCell);
+					//
+					//
+					// tbody.appendChild(row);
+					//document.body.appendChild(table);
+
+				}).error(function () {
+					alert("失败");
+				});
+			}
+			function formTable(message) {
+				t2 = new Table("buyTable");
+				var obj = JSON.parse(message);
+				t2.update(obj["buyList"]);
+			}
+			var Table = function(element){
+				this.element = document.getElementById(element);
+			};
+			var headers = ["futureID","type","amount","price"];
+			Table.prototype = {
+				add : function(data){
+					var e = this.element, body = null;
+					for(var i = 0; i < data.length; i++){
+						var tr = e.insertRow();
+						for(var j = 0; j < 4; j++){
+							var td = tr.insertCell();
+							td.innerHTML = data[i][headers[j]];
+							tr.appendChild(td);
+						}
+						if(!body) body = e.getElementsByTagName("tbody")[0];
+						body.appendChild(tr);
+					}
+				},
+				update : function(data){
+					var e = this.element, len = e.rows.length, body = null;
+					for(var i = 1; i < data.length+1 && i < len; i++){
+						for(var j = 0; j <4; j++){
+							e.rows[i].cells[j].innerHTML = data[i-1][headers[j]];
+						}
+					}
+					if(i < len){
+						for(var n = len-1; n >= i; n--){
+							e.deleteRow(n);
+						}
+					}else if(i < data.length+1){
+						this.add(data.slice(i-1));
+					}
+				}
+			};
+        </script>
   	</body>
 </html>

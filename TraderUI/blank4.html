@@ -1,6 +1,7 @@
-<!DOCTYPE html>
-<html lang="en">
-  	<head>
+<?xml version="1.0" encoding="UTF-8"?>
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
   		<meta charset="utf-8">
     	<title>Simplify Admin</title>
     	<meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -20,7 +21,113 @@
 		<link href="css/simplify.min.css" rel="stylesheet">
 	
   	</head>
+<script>
+	var Table = function(element){
+		this.element = document.getElementById(element);
+	};
+	var headers = ["futureID","type","amount","price"];
+	Table.prototype = {
+		add : function(data){
+			var e = this.element, body = null;
+			for(var i = 0; i < data.length; i++){
+				var tr = e.insertRow();
+				for(var j = 0; j < 4; j++){
+					var td = tr.insertCell();
+					td.innerHTML = data[i][headers[j]];
+					tr.appendChild(td);
+				}
+				if(!body) body = e.getElementsByTagName("tbody")[0];
+				body.appendChild(tr);
+			}
+		},
+		update : function(data){
+			var e = this.element, len = e.rows.length, body = null;
+			for(var i = 1; i < data.length+1 && i < len; i++){
+				for(var j = 0; j <4; j++){
+					e.rows[i].cells[j].innerHTML = data[i-1][headers[j]];
+				}
+			}
+			if(i < len){
+				for(var n = len-1; n >= i; n--){
+					e.deleteRow(n);
+				}
+			}else if(i < data.length+1){
+				this.add(data.slice(i-1));
+			}
+		}
+	};
+	var Chat = {};
+	Chat.socket = null;
+	Chat.connect = (function(host) {
+		if ('WebSocket' in window) {
+			Chat.socket = new WebSocket(host);
+		} else if ('MozWebSocket' in window) {
+			Chat.socket = new MozWebSocket(host);
+		} else {
+			Console.log('Error: WebSocket is not supported by this browser.');
+			return;
+		}
+		Chat.socket.onopen = function () {
+			Console.log('在线聊天室已开启');
+			document.getElementById('chat').onkeydown = function(event) {
+				if (event.keyCode == 13) {
+					Chat.sendMessage();
+				}
+			};
+		};
+		Chat.socket.onclose = function () {
+			document.getElementById('chat').onkeydown = null;
+			Console.log('在线聊天室已关闭');
+		};
+		Chat.socket.onmessage = function (message) {
+			formTable(message.data);
+		};
+	});
+	Chat.initialize = function() {
+		if (window.location.protocol == 'http:') {
+			Chat.connect('ws://' + "192.168.43.40:8080" + '/orderbook');
+		} else {
+			Chat.connect('wss://' + window.location.host + '/orderbook');
+		}
+	};
+	Chat.sendMessage = (function() {
+		var message = document.getElementById('chat').value;
+		if (message != '') {
+			alert(message);
+			Chat.socket.send(message);
+			document.getElementById('chat').value = '';
+		}
+	});
+	var Console = {};
 
+	Console.log = (function(message) {
+		var console = document.getElementById('console');
+		var p = document.createElement('p');
+		p.style.wordWrap = 'break-word';
+		p.innerHTML = message;
+		console.appendChild(p);
+		while (console.childNodes.length > 25) {
+			console.removeChild(console.firstChild);
+		}
+		console.scrollTop = console.scrollHeight;
+
+	});
+
+	function formTable(message) {
+		t1 = new Table("sellTable");
+		t2 = new Table("buyTable");
+		var obj = JSON.parse(message);
+		//alert(obj["sellList"]);
+		t1.update(obj["sellList"]);
+		t2.update(obj["buyList"]);
+	}
+
+
+	function f(){
+		alert("xxx");
+		Chat.initialize();
+	}
+</script>
   	<body class="overflow-hidden">
 		<div class="wrapper preload">
 			<header class="top-nav">
@@ -123,6 +230,35 @@
 			
 			<div class="main-container">
 				<div class="padding-md">
+					<div>
+						<p>
+							<input type="text" placeholder="type and press enter to view" class="form-control input-sm" id="chat" />
+							<button class="btn btn-block" onclick="f()">search</button>
+						</p>
+						<div id="console-container">
+							<div id="console"/>
+						</div>
+						<div>
+							<h4>Sell List</h4>
+							<table id="sellTable" border="1" class="table table-striped">
+								<tr>
+									<th>futureID</th>
+									<th>type</th>
+									<th>amount</th>
+									<th>price</th>
+								</tr>
+							</table>
+							<h4>Buy List</h4>
+							<table id="buyTable" border="1"  class="table table-striped">
+								<tr>
+									<th>futureID</th>
+									<th>type</th>
+									<th>amount</th>
+									<th>price</th>
+								</tr>
+							</table>
+						</div>
+					</div>
 
 				</div><!-- ./padding-md -->
 			</div><!-- /main-container -->
@@ -133,7 +269,7 @@
 	    <!-- Le javascript
 	    ================================================== -->
 	    <!-- Placed at the end of the document so the pages load faster -->
-		
+
 		<!-- Jquery -->
 		<script src="js/jquery-1.11.1.min.js"></script>
 		
@@ -151,6 +287,7 @@
 		
 		<!-- Simplify -->
 		<script src="js/simplify/simplify.js"></script>
+
 
   	</body>
 </html>
