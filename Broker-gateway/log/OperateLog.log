@@ -1038,3 +1038,11 @@ java.lang.IndexOutOfBoundsException: toIndex = 10
 2019-06-06 12:51:24.215 DEBUG 18804 --- [http-nio-8080-exec-1] m.m.a.RequestResponseBodyMethodProcessor : Using 'text/plain', given [*/*] and supported [text/plain, */*, text/plain, */*, application/json, application/*+json, application/json, application/*+json]
 2019-06-06 12:51:24.216 DEBUG 18804 --- [http-nio-8080-exec-1] m.m.a.RequestResponseBodyMethodProcessor : Writing ["[{"resultID":"176fcd5d-b914-4c18-92dd-3eb259d71872","orderID1":"a3706776-22cf-4765-ba26-1146033c320 (truncated)...]
 2019-06-06 12:51:24.229 DEBUG 18804 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
+2019-06-06 13:03:36.819 DEBUG 18804 --- [http-nio-8080-exec-3] o.s.web.servlet.DispatcherServlet        : OPTIONS "/Result?method=ByFutureID&id=SB", parameters={masked}
+2019-06-06 13:03:36.820 DEBUG 18804 --- [http-nio-8080-exec-3] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to public java.lang.String com.trading.brokergateway.Controller.ResultAPI.getResult(javax.servlet.http.HttpServletRequest) throws java.lang.Exception
+2019-06-06 13:03:36.822 DEBUG 18804 --- [http-nio-8080-exec-3] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
+2019-06-06 13:03:36.833 DEBUG 18804 --- [http-nio-8080-exec-4] o.s.web.servlet.DispatcherServlet        : GET "/Result?method=ByFutureID&id=SB", parameters={masked}
+2019-06-06 13:03:36.834 DEBUG 18804 --- [http-nio-8080-exec-4] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to public java.lang.String com.trading.brokergateway.Controller.ResultAPI.getResult(javax.servlet.http.HttpServletRequest) throws java.lang.Exception
+2019-06-06 13:03:36.867 DEBUG 18804 --- [http-nio-8080-exec-4] m.m.a.RequestResponseBodyMethodProcessor : Using 'text/plain', given [*/*] and supported [text/plain, */*, text/plain, */*, application/json, application/*+json, application/json, application/*+json]
+2019-06-06 13:03:36.867 DEBUG 18804 --- [http-nio-8080-exec-4] m.m.a.RequestResponseBodyMethodProcessor : Writing ["[{"resultID":"176fcd5d-b914-4c18-92dd-3eb259d71872","orderID1":"a3706776-22cf-4765-ba26-1146033c320 (truncated)...]
+2019-06-06 13:03:36.869 DEBUG 18804 --- [http-nio-8080-exec-4] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
