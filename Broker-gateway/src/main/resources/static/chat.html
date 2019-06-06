@@ -3,110 +3,73 @@
 <head>
 
 </head>
+<script src="./js/jquery-1.11.1.min.js"></script>
 <script type="application/javascript">
-
+    Date.prototype.Format = function(fmt) {
+        var o = {
+            "M+" : this.getMonth()+1, //月份
+            "d+" : this.getDate(), //日
+            "h+" : this.getHours(), //小时
+            "m+" : this.getMinutes(), //分
+            "s+" : this.getSeconds(), //秒
+            "q+" : Math.floor((this.getMonth()+3)/3), //季度
+            "S" : this.getMilliseconds() //毫秒
+        };
+        if(/(y+)/.test(fmt))
+            fmt=fmt.replace(RegExp.$1, (this.getFullYear()+"").substr(4 - RegExp.$1.length));
+        for(var k in o)
+            if(new RegExp("("+ k +")").test(fmt))
+                fmt = fmt.replace(RegExp.$1, (RegExp.$1.length==1) ? (o[k]) : (("00"+ o[k]).substr((""+ o[k]).length)));
+        return fmt;
+    }
     var Table = function(element){
         this.element = document.getElementById(element);
     };
-    var headers = ["futureID","type","amount","price"];
+    var headers = ["orderID1","orderID2","traderID1","traderID2","futureID","amount","price","finishTime"];
     Table.prototype = {
         add : function(data){
             var e = this.element, body = null;
             for(var i = 0; i < data.length; i++){
                 var tr = e.insertRow();
-                for(var j = 0; j < 4; j++){
+                for(var j = 0; j < headers.length; j++){
+
+
                     var td = tr.insertCell();
-                    td.innerHTML = data[i][headers[j]];
+                    if(j==7){
+                        var date = new Date(data[i][headers[j]]);
+                        td.innerHTML = date.Format("yyyy-MM-dd hh:mm:ss");
+
+                    }
+                    else{
+                        td.innerHTML = data[i][headers[j]];
+                    }
+
+
                     tr.appendChild(td);
                 }
                 if(!body) body = e.getElementsByTagName("tbody")[0];
                 body.appendChild(tr);
             }
-        },
-        update : function(data){
-            var e = this.element, len = e.rows.length, body = null;
-            for(var i = 1; i < data.length+1 && i < len; i++){
-                for(var j = 0; j <4; j++){
-                    e.rows[i].cells[j].innerHTML = data[i-1][headers[j]];
-                }
-            }
-            if(i < len){
-                for(var n = len-1; n >= i; n--){
-                    e.deleteRow(n);
-                }
-            }else if(i < data.length+1){
-                this.add(data.slice(i-1));
-            }
         }
     };
-    var Chat = {};
-    Chat.socket = null;
-    Chat.connect = (function(host) {
-        if ('WebSocket' in window) {
-            Chat.socket = new WebSocket(host);
-        } else if ('MozWebSocket' in window) {
-            Chat.socket = new MozWebSocket(host);
-        } else {
-            Console.log('Error: WebSocket is not supported by this browser.');
-            return;
-        }
-        Chat.socket.onopen = function () {
-            Console.log('在线聊天室已开启');
-            document.getElementById('chat').onkeydown = function(event) {
-                if (event.keyCode == 13) {
-                    Chat.sendMessage();
-                }
-            };
-        };
-        Chat.socket.onclose = function () {
-            document.getElementById('chat').onkeydown = null;
-            Console.log('在线聊天室已关闭');
-        };
-        Chat.socket.onmessage = function (message) {
-            formTable(message.data);
-        };
-    });
-    Chat.initialize = function() {
-        if (window.location.protocol == 'http:') {
-            Chat.connect('ws://' + "localhost:8080" + '/orderbook');
-        } else {
-            Chat.connect('wss://' + window.location.host + '/orderbook');
-        }
-    };
-    Chat.sendMessage = (function() {
-        var message = document.getElementById('chat').value;
-        if (message != '') {
-            alert(message);
-            Chat.socket.send(message);
-            document.getElementById('chat').value = '';
-        }
-    });
-    var Console = {};
-
-    Console.log = (function(message) {
-        var console = document.getElementById('console');
-        var p = document.createElement('p');
-        p.style.wordWrap = 'break-word';
-        p.innerHTML = message;
-        console.appendChild(p);
-        while (console.childNodes.length > 25) {
-            console.removeChild(console.firstChild);
-        }
-        console.scrollTop = console.scrollHeight;
-
-    });
-
-    function formTable(message) {
-        t1 = new Table("sellTable");
-        t2 = new Table("buyTable");
-        var obj = JSON.parse(message);
-        //alert(obj["sellList"]);
-        t1.update(obj["sellList"]);
-        t2.update(obj["buyList"]);
-    }
-
     window.onload=function (ev) {
-        Chat.initialize();
+
+        $.ajax({
+            type: "get",
+            url: "http://localhost:8080/Result",
+            data:{"method":"ByFutureID",
+                    "id":"SB"
+            },
+            contentType: "application/json",
+            //dataType: "json",
+
+        }).success(function (data) {
+            var table = new Table("Table");
+            table.add(JSON.parse(data));
+        }).error(function () {
+
+        });
+
 
     }
 </script>
@@ -121,23 +84,21 @@
     </div>
     <div>
         <h4>Sell List</h4>
-        <table id="sellTable" border="1" >
+        <table id="Table" border="1" >
+
             <tr>
+                <th>orderID1</th>
+                <th>orderID2</th>
+                <th>traderID1</th>
+                <th>traderID2</th>
                 <th>futureID</th>
-                <th>type</th>
                 <th>amount</th>
                 <th>price</th>
+                <th>finishTime</th>
             </tr>
         </table>
         <h4>Buy List</h4>
-        <table id="buyTable" border="1" >
-            <tr>
-                <th>futureID</th>
-                <th>type</th>
-                <th>amount</th>
-                <th>price</th>
-            </tr>
-        </table>
+
     </div>
 </div>
 </body>

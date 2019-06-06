@@ -12,7 +12,7 @@ public interface ResultRepository extends JpaRepository<Result, String> {
     List findResultsByPriceAndFutureIDOrderByFinishTimeDesc(double price, String futureId);
     List findResultsByOrderID1OrOrderID2OrderByFinishTimeDesc(String orderId1, String orderId2);
     List findAllByOrderByFinishTimeDesc();
-    List findResultsByFutureIDOrderByFinishTime(String futureId);
+    List findResultsByFutureIDOrderByFinishTimeDesc(String futureId);
     List findResultsByFinishTimeBetweenOrderByFinishTimeDesc(long start, long end);
     List findResultsByTraderID1OrTraderID2OrderByFinishTimeDesc(String traderId1,String traderId2);
 }
