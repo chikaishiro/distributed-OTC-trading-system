@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+
+</head>
+<script src="js/jquery-1.11.1.min.js"></script>
+<script type="application/javascript">
+    Date.prototype.Format = function(fmt) {
+        var o = {
+            "M+" : this.getMonth()+1, //月份
+            "d+" : this.getDate(), //�?
+            "h+" : this.getHours(), //小时
+            "m+" : this.getMinutes(), //�?
+            "s+" : this.getSeconds(), //�?
+            "q+" : Math.floor((this.getMonth()+3)/3), //季度
+            "S" : this.getMilliseconds() //毫秒
+        };
+        if(/(y+)/.test(fmt))
+            fmt=fmt.replace(RegExp.$1, (this.getFullYear()+"").substr(4 - RegExp.$1.length));
+        for(var k in o)
+            if(new RegExp("("+ k +")").test(fmt))
+                fmt = fmt.replace(RegExp.$1, (RegExp.$1.length==1) ? (o[k]) : (("00"+ o[k]).substr((""+ o[k]).length)));
+        return fmt;
+    }
+    var Table = function(element){
+        this.element = document.getElementById(element);
+    };
+    var headers = ["orderID1","orderID2","traderID1","traderID2","futureID","amount","price","finishTime"];
+    Table.prototype = {
+        add : function(data){
+            var e = this.element, body = null;
+            for(var i = 0; i < data.length; i++){
+                var tr = e.insertRow();
+                for(var j = 0; j < headers.length; j++){
+
+
+                    var td = tr.insertCell();
+                    if(j==7){
+                        var date = new Date(data[i][headers[j]]);
+                        td.innerHTML = date.Format("yyyy-MM-dd hh:mm:ss");
+
+                    }
+                    else{
+                        td.innerHTML = data[i][headers[j]];
+                    }
+
+
+                    tr.appendChild(td);
+                }
+                if(!body) body = e.getElementsByTagName("tbody")[0];
+                body.appendChild(tr);
+            }
+        }
+    };
+    window.onload=function (ev) {
+
+        $.ajax({
+            type: "get",
+            url: "http://192.168.0.114:8080/Result",
+            data:{"method":"ByFutureID",
+                    "id":"SB"
+            },
+            contentType: "application/json",
+            //dataType: "json",
+
+        }).success(function (data) {
+            var table = new Table("Table");
+            table.add(JSON.parse(data));
+        }).error(function () {
+
+        });
+
+
+    }
+</script>
+<body>
+<div>
+    <p>
+        <input type="text" placeholder="type and press enter to chat" id="chat" />
+    </p>
+    <div id="console-container">
+        <div id="console"/>
+
+    </div>
+    <div>
+        <h4>Sell List</h4>
+        <table id="Table" border="1" >
+
+            <tr>
+                <th>orderID1</th>
+                <th>orderID2</th>
+                <th>traderID1</th>
+                <th>traderID2</th>
+                <th>futureID</th>
+                <th>amount</th>
+                <th>price</th>
+                <th>finishTime</th>
+            </tr>
+        </table>
+        <h4>Buy List</h4>
+
+    </div>
+</div>
+</body>
+</html>
