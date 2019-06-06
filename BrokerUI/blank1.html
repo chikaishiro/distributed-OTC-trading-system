@@ -24,10 +24,10 @@
 	Date.prototype.Format = function(fmt) {
 		var o = {
 			"M+" : this.getMonth()+1, //月份
-			"d+" : this.getDate(), //�?
+			"d+" : this.getDate(), //日
 			"h+" : this.getHours(), //小时
-			"m+" : this.getMinutes(), //�?
-			"s+" : this.getSeconds(), //�?
+			"m+" : this.getMinutes(), //分
+			"s+" : this.getSeconds(), //秒
 			"q+" : Math.floor((this.getMonth()+3)/3), //季度
 			"S" : this.getMilliseconds() //毫秒
 		};
@@ -66,42 +66,158 @@
 				if(!body) body = e.getElementsByTagName("tbody")[0];
 				body.appendChild(tr);
 			}
+		},
+		update : function(data){
+
+			var e = this.element, len = e.rows.length, body = null;
+			for(var i = 1; i < data.length+1 && i < len; i++){
+				for(var j = 0; j <headers.length; j++){
+					//e.rows[i].cells[j].innerHTML = data[i-1][headers[j]];
+					if(j== (headers.length-1)){
+						var date = new Date(data[i-1][headers[j]]);
+						e.rows[i].cells[j].innerHTML = date.Format("yyyy-MM-dd hh:mm:ss");
+					}
+					else{
+						e.rows[i].cells[j].innerHTML = data[i-1][headers[j]];
+					}
+
+				}
+			}
+			if(i < len){
+				for(var n = len-1; n >= i; n--){
+					e.deleteRow(n);
+				}
+			}else if(i < data.length+1){
+				this.add(data.slice(i-1));
+			}
 		}
 	};
+	function removeSpace(str) {
+		var str1 = str.replace(/\s*/g,"");
+		return str1;
+	}
+
 	function f1() {
+		if(document.getElementById("time").checked===true){
+			$.ajax({
+				type: "get",
+				url: "http://192.168.0.114:8080/Result",
+				data:{
+					"method":"ByTime",
+				},
+				contentType: "application/json",
+				//dataType: "json",
+			}).success(function (data) {
+				var table = new Table("Table");
+				table.update(JSON.parse(data));
+			}).error(function () {
+			});
+		}
+		else {
+			$.ajax({
+				type: "get",
+				url: "http://192.168.0.114:8080/Result",
+				//data:{"method":"ByFutureID",
+				//	"id":"SB"
+				//},
+				contentType: "application/json",
+				//dataType: "json",
 
-		$.ajax({
-			type: "get",
-			url: "http://192.168.0.114:8080/Result",
-			//data:{"method":"ByFutureID",
-			//	"id":"SB"
-			//},
-			contentType: "application/json",
-			//dataType: "json",
+			}).success(function (data) {
+				var table = new Table("Table");
+				table.update(JSON.parse(data));
+			}).error(function () {
 
-		}).success(function (data) {
-			var table = new Table("Table");
-			table.add(JSON.parse(data));
-		}).error(function () {
-
-		});
-
+			});
+		}
 
 	}
-	function f2() {
-
+	function f3() {
+		var fid = $('input[name="fid"]').val();
 		$.ajax({
 			type: "get",
 			url: "http://192.168.0.114:8080/Result",
 			data:{
 				"method":"ByFutureID",
-				"id":"SB"
+				"id":fid,
+			},
+			contentType: "application/json",
+			//dataType: "json",
+		}).success(function (data) {
+			var table = new Table("Table3");
+			table.update(JSON.parse(data));
+		}).error(function () {
+		});
+	}
+	function f2() {
+		var oid = $('input[name="oid"]').val();
+		oid = removeSpace(oid);
+		$.ajax({
+			type: "get",
+			url: "http://192.168.0.114:8080/Result",
+			data:{
+				"method":"ByOrderID",
+				"id":oid,
+			},
+			contentType: "application/json",
+			//dataType: "json",
+		}).success(function (data) {
+			var table = new Table("Table2");
+			table.update(JSON.parse(data));
+		}).error(function () {
+		});
+	}
+	function f4() {
+		var tid = $('input[name="tid"]').val();
+		tid = removeSpace(tid);
+		$.ajax({
+			type: "get",
+			url: "http://192.168.0.114:8080/Result",
+			data:{
+				"method":"ByTraderID",
+				"id":tid,
+			},
+			contentType: "application/json",
+			//dataType: "json",
+		}).success(function (data) {
+			var table = new Table("Table4");
+			table.update(JSON.parse(data));
+		}).error(function () {
+		});
+	}
+	function f5() {
+		$.ajax({
+			type: "get",
+			url: "http://192.168.0.114:8080/Result",
+			data:{
+				"method":"ByTime",
 			},
 			contentType: "application/json",
 			//dataType: "json",
 		}).success(function (data) {
 			var table = new Table("Table");
-			table.add(JSON.parse(data));
+			table.update(JSON.parse(data));
+		}).error(function () {
+		});
+	}
+	function f6() {
+		var fid = $('input[name="fid"]').val();
+		var pid = $('input[name="pid"]').val();
+		fid = removeSpace(fid);
+		pid = removeSpace(pid);
+		$.ajax({
+			type: "get",
+			url: "http://192.168.0.114:8080/Result",
+			data:{
+				"method":"ByPrice",
+				"id":fid,
+				"price":pid,
+			},
+			contentType: "application/json",
+			//dataType: "json",
+		}).success(function (data) {
+			var table = new Table("Table3");
+			table.update(JSON.parse(data));
 		}).error(function () {
 		});
 	}
@@ -229,37 +345,28 @@
 										<span class="text-wrapper">按Order ID查询</span>
 									</a>
 								</li>
-								<li class="active">
-									<a href="#style2Tab1" data-toggle="tab">
-										<span class="icon-wrapper"><i class="fa fa-bar-chart-o"></i></span>
+								<li>
+									<a href="#style2Tab3" data-toggle="tab">
+										<span class="icon-wrapper"><i class="fa fa-credit-card"></i></span>
+										<span class="text-wrapper">按Future ID 查询</span>
+									</a>
+								</li>
+								<li>
+									<a href="#style2Tab4" data-toggle="tab">
+										<span class="icon-wrapper"><i class="fa fa-cog"></i></span>
 										<span class="text-wrapper">按Trader ID查询</span>
-									</a>
-								</li>
-								<li class="active">
-									<a href="#style2Tab1" data-toggle="tab">
-										<span class="icon-wrapper"><i class="fa fa-bar-chart-o"></i></span>
-										<span class="text-wrapper">查询特定期货</span>
-									</a>
-								</li>
-								<li class="active">
-									<a href="#style2Tab1" data-toggle="tab">
-										<span class="icon-wrapper"><i class="fa fa-bar-chart-o"></i></span>
-										<span class="text-wrapper">查询当日记录</span>
-									</a>
-								</li>
-								<li class="active">
-									<a href="#style2Tab1" data-toggle="tab">
-										<span class="icon-wrapper"><i class="fa fa-bar-chart-o"></i></span>
-										<span class="text-wrapper">查询特定价格的期货</span>
 									</a>
 								</li>
 							</ul>
 							<div class="smart-widget-body">
 								<div class="tab-content">
 									<div class="tab-pane fade in active" id="style2Tab1">
-										<div class="block h4"><strong>List</strong></div>
-										<button class="btn-primary" onclick="f1()">search</button>
-										<table id="Table" class="table table-striped">
+										<div class="block h4"><strong>所有记录</strong></div>
+										<p class="m-top-sm">
+											<input class="input" type="checkbox" id="time">仅今日
+											<button class="btn" onclick="f1()">Search</button>
+										<table id="Table" border="1" class="table table-striped">
+
 											<tr>
 												<th>orderID1</th>
 												<th>orderID2</th>
@@ -271,27 +378,15 @@
 												<th>finishTime</th>
 											</tr>
 										</table>
+										</p>
 									</div><!-- ./tab-pane -->
 									<div class="tab-pane fade" id="style2Tab2">
-									<div class="block h4"><strong>List</strong></div>
-										<button class="btn-primary">search</button>
-									<table id="Table2" class="table table-striped">
-										<tr>
-											<th>orderID1</th>
-											<th>orderID2</th>
-											<th>traderID1</th>
-											<th>traderID2</th>
-											<th>futureID</th>
-											<th>amount</th>
-											<th>price</th>
-											<th>finishTime</th>
-										</tr>
-									</table>
-								</div><!-- ./tab-pane -->
-									<div class="tab-pane fade" id="style2Tab3">
-										<div class="block h4"><strong>List</strong></div>
-										<button class="btn-primary">search</button>
-										<table id="Table3" class="table table-striped">
+										<div class="block h4"><strong>按Order ID查询</strong></div>
+										<p class="m-top-sm">
+											<input class="input" type="text" name="oid">
+											<button class="btn" onclick="f2()">Search</button>
+										<table id="Table2" border="1" class="table table-striped">
+
 											<tr>
 												<th>orderID1</th>
 												<th>orderID2</th>
@@ -303,11 +398,37 @@
 												<th>finishTime</th>
 											</tr>
 										</table>
+										</p>
+									</div><!-- ./tab-pane -->
+									<div class="tab-pane fade" id="style2Tab3">
+										<div class="block h4"><strong>按Future ID 查询</strong></div>
+										<p class="m-top-sm">
+											<input class="input" type="text" name="fid">
+											<button class="btn" onclick="f3()">Search</button>
+											<input class="input" type="text" name="pid">
+											<button class="btn" onclick="f6()">指定价格</button>
+										<table id="Table3" border="1" class="table table-striped">
+
+											<tr>
+												<th>orderID1</th>
+												<th>orderID2</th>
+												<th>traderID1</th>
+												<th>traderID2</th>
+												<th>futureID</th>
+												<th>amount</th>
+												<th>price</th>
+												<th>finishTime</th>
+											</tr>
+										</table>
+										</p>
 									</div><!-- ./tab-pane -->
 									<div class="tab-pane fade" id="style2Tab4">
-										<div class="block h4"><strong>List</strong></div>
-										<button class="btn-primary">search</button>
-										<table id="Table4" class="table table-striped">
+										<div class="block h4"><strong>按Trader ID查询</strong></div>
+										<p class="m-top-sm">
+											<input class="input" type="text" name="tid">
+											<button class="btn" onclick="f4()">Search</button>
+										<table id="Table4" border="1" class="table table-striped">
+
 											<tr>
 												<th>orderID1</th>
 												<th>orderID2</th>
@@ -319,38 +440,7 @@
 												<th>finishTime</th>
 											</tr>
 										</table>
-									</div><!-- ./tab-pane -->
-									<div class="tab-pane fade">
-										<div class="block h4"><strong>List</strong></div>
-										<button class="btn-primary">search</button>
-										<table id="Table5" class="table table-striped">
-											<tr>
-												<th>orderID1</th>
-												<th>orderID2</th>
-												<th>traderID1</th>
-												<th>traderID2</th>
-												<th>futureID</th>
-												<th>amount</th>
-												<th>price</th>
-												<th>finishTime</th>
-											</tr>
-										</table>
-									</div><!-- ./tab-pane -->
-									<div class="tab-pane fade">
-										<div class="block h4"><strong>List</strong></div>
-										<button class="btn-primary">search</button>
-										<table id="Table6" class="table table-striped">
-											<tr>
-												<th>orderID1</th>
-												<th>orderID2</th>
-												<th>traderID1</th>
-												<th>traderID2</th>
-												<th>futureID</th>
-												<th>amount</th>
-												<th>price</th>
-												<th>finishTime</th>
-											</tr>
-										</table>
+										</p>
 									</div><!-- ./tab-pane -->
 								</div><!-- ./tab-content -->
 							</div>
