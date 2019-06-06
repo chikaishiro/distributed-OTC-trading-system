@@ -62,7 +62,7 @@ public class ResultService {
     }
 
     public static List<Result> findByFutureId(String futureId){
-        List<Result> list = resultRepository.findResultsByFutureIDOrderByFinishTime(futureId).subList(0,10);
+        List<Result> list = resultRepository.findResultsByFutureIDOrderByFinishTimeDesc(futureId).subList(0,10);
         if(list.size()>10){
             return list.subList(0,10);
         }
