@@ -133,6 +133,9 @@
 					<h4>Trader ID</h4>
                     <p style="font-size: 20px">yty</p>
 					<h4>Connected to Broker:</h4>
+					<input type="number" placeholder="Trader Gateway's IP" class="form-control input-sm" name="chat1" />
+					<input type="number" placeholder="Broker IP" class="form-control input-sm" name="chat2" />
+					<button class="btn btn-block" onclick="f()">search</button>
 					<p style="font-size: 20px"></p>
 				</div><!-- ./padding-md -->
 			</div><!-- /main-container -->
@@ -161,6 +164,14 @@
 		
 		<!-- Simplify -->
 		<script src="js/simplify/simplify.js"></script>
+	<script>
+		function f() {
+			var traderIP = $('input[name="chat1"]').val();
+			var brokerIP = $('input[name="chat2"]').val();
+			localStorage.setItem('tip',traderIP);
+			localStorage.setItem('bip',brokerIP);
+		}
+	</script>
 
   	</body>
 </html>
