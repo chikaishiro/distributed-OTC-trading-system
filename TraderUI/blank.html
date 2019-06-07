@@ -365,7 +365,7 @@ function funcmark(){
 		alert(JSON.stringify(formData));
 		htmlobj =  $.ajax({
 			type: "post",
-			url: "http://10.162.231.38:8080/order/SendOrder",
+			url: "http://"+localStorage.getItem('tip')+":8080/order/SendOrder",
 			data: JSON.stringify(formData),
 			headers:{
 				'Authorization':"Bearer "+document.cookie,
@@ -398,7 +398,7 @@ function funcmark(){
 		alert(JSON.stringify(formData));
 		htmlobj =  $.ajax({
 			type: "post",
-			url: "http://10.162.231.38:8080/order/SendOrder",
+			url: "http://"+localStorage.getItem('tip')+":8080/order/SendOrder",
 			data: JSON.stringify(formData),
 			headers:{
 				'Authorization':"Bearer "+document.cookie,
@@ -431,7 +431,7 @@ function funcmark(){
 		alert(JSON.stringify(formData));
 		htmlobj =  $.ajax({
 			type: "post",
-			url: "http://10.162.231.38:8080/order/SendOrder",
+			url: "http://"+localStorage.getItem('tip')+":8080/order/SendOrder",
 			data: JSON.stringify(formData),
 			headers:{
 				'Authorization':"Bearer "+document.cookie,
@@ -453,7 +453,7 @@ function funcmark(){
 		};
 		htmlobj =  $.ajax({
 			type: "post",
-			url: "http://10.162.231.38:8080/order/SendOrder",
+			url: "http://"+localStorage.getItem('tip')+":8080/order/SendOrder",
 			data: JSON.stringify(formData),
 			headers:{
 				'Authorization':"Bearer "+document.cookie,
