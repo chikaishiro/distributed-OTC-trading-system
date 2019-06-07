@@ -50,6 +50,30 @@
                 if(!body) body = e.getElementsByTagName("tbody")[0];
                 body.appendChild(tr);
             }
+        },
+        update : function(data){
+
+            var e = this.element, len = e.rows.length, body = null;
+            for(var i = 1; i < data.length+1 && i < len; i++){
+                for(var j = 0; j <8; j++){
+                    //e.rows[i].cells[j].innerHTML = data[i-1][headers[j]];
+                    if(j== 7){
+                        var date = new Date(data[i-1][headers[j]]);
+                        e.rows[i].cells[j].innerHTML = date.Format("yyyy-MM-dd hh:mm:ss");
+                    }
+                    else{
+                        e.rows[i].cells[j].innerHTML = data[i-1][headers[j]];
+                    }
+
+                }
+            }
+            if(i < len){
+                for(var n = len-1; n >= i; n--){
+                    e.deleteRow(n);
+                }
+            }else if(i < data.length+1){
+                this.add(data.slice(i-1));
+            }
         }
     };
     window.onload=function (ev) {
@@ -65,12 +89,17 @@
 
         }).success(function (data) {
             var table = new Table("Table");
-            table.add(JSON.parse(data));
+            table.update(JSON.parse(data));
         }).error(function () {
 
         });
 
 
+    }
+
+    function removeSpace(str) {
+       var str1 = str.replace(/\s*/g,"");
+       return str1;
     }
 </script>
 <body>
@@ -98,7 +127,7 @@
             </tr>
         </table>
         <h4>Buy List</h4>
-
+        <button onclick="sb()"></button>
     </div>
 </div>
 </body>
