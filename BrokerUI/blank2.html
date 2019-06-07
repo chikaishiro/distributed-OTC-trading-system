@@ -126,13 +126,18 @@
 					<div class="row">
 						<div class="col-sm-6">
 							<div class="page-title">
-								个人信息
+								系统信息
 							</div>
 						</div>
 					</div>
-					<h4>Trader ID</h4>
-                    <p style="font-size: 20px">yty</p>
+					<h4>Connected Trader:</h4>
+                    <p style="font-size: 20px">localhost</p>
 					<h4>Connected to Broker:</h4>
+					<p style="font-size: 20px"  id="brokerip"></p>
+
+					<input type="text" placeholder="Trader Gateway's IP" class="form-control input-sm" name="chat1" />
+					<input type="text" placeholder="Broker IP" class="form-control input-sm" name="chat2" />
+					<button class="btn btn-block" onclick="f()">Save Information</button>
 					<p style="font-size: 20px"></p>
 				</div><!-- ./padding-md -->
 			</div><!-- /main-container -->
@@ -161,6 +166,18 @@
 		
 		<!-- Simplify -->
 		<script src="js/simplify/simplify.js"></script>
+	<script>
+		window.onload = function f() {
+			document.getElementById("brokerip").innerHTML = localStorage.getItem("bip");
+        }
+		function f() {
+			var traderIP = $('input[name="chat1"]').val();
+			var brokerIP = $('input[name="chat2"]').val();
+			localStorage.setItem('tip',traderIP);
+			localStorage.setItem('bip',brokerIP);
+			alert("Information saved");
+		}
+	</script>
 
   	</body>
 </html>

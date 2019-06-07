@@ -30,10 +30,10 @@
 				'password':password,
 			};
 			var token;
-			alert(JSON.stringify(formData));
+			//alert(JSON.stringify(formData));
 			$.ajax({
 				type: "post",
-				url: "http://10.162.231.38:8080/trader/login",
+				url: "http://localhost:8080/trader/login",
 				async:false,
 				data: JSON.stringify(formData),
 				contentType: "application/json",
@@ -43,7 +43,7 @@
 				alert(data);
 				document.cookie = data;
 			}).error(function () {
-				alert("erroer");
+				alert("error");
 			})
 
 		}

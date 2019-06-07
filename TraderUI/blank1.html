@@ -149,27 +149,15 @@
 								<div class="tab-content">
 									<div class="tab-pane fade in active" id="style2Tab1">
 										<div class="block h4"><strong>Future List</strong></div>
-										<table class="table table-striped">
-											<thead>
+										<table class="table table-striped" id ="future" style="text-align: center">
+
 											<tr>
-												<th class="text-center">Future Name</th>
+
 												<th class="text-center">Future ID</th>
+												<th class="text-center">Future Name</th>
 											</tr>
-											</thead>
-											<tbody>
-											<tr>
-												<td class="text-center">SOLID BRASS</td>
-												<td class="text-center">SB</td>
-											</tr>
-											<tr>
-												<td class="text-center">GOLD</td>
-												<td class="text-center">GD</td>
-											</tr>
-											<tr>
-												<td class="text-center">PORK</td>
-												<td class="text-center">PK</td>
-											</tr>
-											</tbody>
+
+
 										</table>
 									</div><!-- ./tab-pane -->
 									<div class="tab-pane fade" id="style2Tab2">
@@ -229,9 +217,51 @@
 		<!-- Simplify -->
 		<script src="js/simplify/simplify.js"></script>
         <script>
+            var Table = function(element){
+                this.element = document.getElementById(element);
+            };
+            var headers = ["futureID","futureName"];
+            Table.prototype = {
+                add : function(data){
+                    var e = this.element, body = null;
+                    for(var i = 0; i < data.length; i++){
+                        var tr = e.insertRow();
+                        for(var j = 0; j < headers.length; j++){
+                            var td = tr.insertCell();
+                            var todata;
+
+
+							todata = data[i][headers[j]];
+
+                            td.innerHTML = todata;
+                            tr.appendChild(td);
+                        }
+                        if(!body) body = e.getElementsByTagName("tbody")[0];
+                        body.appendChild(tr);
+                    }
+                },
+            };
+
 			$(function()	{
-				$('.table').tablesorter();
-				alert("xx");
+				// $('.table').tablesorter();
+                htmlobj =  $.ajax({
+                    type: "get",
+                    url: "http://"+localStorage.getItem("tip")+":8080/future/all",
+                    //data: JSON.stringify(formData),
+                    headers:{
+                        'Authorization':"Bearer "+document.cookie,
+
+                    },
+                    async:false,
+                    contentType:"application/json",
+                    // dataType: "json"
+                }).success(function (data) {
+                    //alert(JSON.stringify(data));
+                    t1 = new Table("future");
+                    t1.add(data);
+                }).error(function () {
+                    alert("失败");
+                });
 			})
 		</script>
 		<script src="js/jquery.tablesorter.js"></script>

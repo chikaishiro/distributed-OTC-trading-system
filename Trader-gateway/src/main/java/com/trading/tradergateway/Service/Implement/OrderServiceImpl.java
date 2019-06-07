@@ -22,6 +22,7 @@ public class OrderServiceImpl implements OrderService {
     private JwtTokenUtil jwtTokenUtil;
     private OrderRepository orderRepository;
     private TraderRepository traderRepository;
+    private static String brokerAddress = "localhost:8081";
 
     @Autowired
     public OrderServiceImpl(OrderRepository orderRepository, TraderRepository traderRepository, JwtTokenUtil jwtTokenUtil) {
@@ -39,7 +40,7 @@ public class OrderServiceImpl implements OrderService {
         Long now = Calendar.getInstance().getTimeInMillis();
         order.setTimeStamp(now);
         HttpRequest htp = new HttpRequest();
-        String status = htp.sendPost("http://10.162.248.242:8080/Order",FIX.toFIX(order));
+        String status = htp.sendPost("http://"+brokerAddress+"/Order",FIX.toFIX(order));
         String[] params = status.split(",");
         status  = params[0];
         if (status.equals("failed")) return "Order failed";
@@ -63,7 +64,7 @@ public class OrderServiceImpl implements OrderService {
         Order order = orderRepository.findOrderByOrderID(orderId);
         order.setType('C');
         HttpRequest htp = new HttpRequest();
-        String status = htp.sendPost("http://10.162.248.242:8080/Order",FIX.toFIX(order));
+        String status = htp.sendPost("http://"+brokerAddress+"/Order",FIX.toFIX(order));
         String[] params = status.split(",");
         status  = params[0];
         if (status.equals("failed")) return "Order failed";

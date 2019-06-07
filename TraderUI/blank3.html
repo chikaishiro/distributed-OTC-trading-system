@@ -123,12 +123,17 @@
 			
 			<div class="main-container">
 				<div class="padding-md">
-					<table id="buyTable" border="1"  class="table table-striped">
+					<h4>我的订单</h4>
+					<table id="Table" border="1" class="table table-striped">
 						<tr>
+							<th>orderID</th>
 							<th>futureID</th>
 							<th>type</th>
-							<th>amount</th>
+							<th>way</th>
 							<th>price</th>
+							<th>amount</th>
+							<th>time</th>
+							<th>status</th>
 						</tr>
 					</table>
 				</div><!-- ./padding-md -->
@@ -159,6 +164,59 @@
 		<!-- Simplify -->
 		<script src="js/simplify/simplify.js"></script>
         <script>
+            Date.prototype.Format = function(fmt) {
+                var o = {
+                    "M+" : this.getMonth()+1, //月份
+                    "d+" : this.getDate(), //日
+                    "h+" : this.getHours(), //小时
+                    "m+" : this.getMinutes(), //分
+                    "s+" : this.getSeconds(), //秒
+                    "q+" : Math.floor((this.getMonth()+3)/3), //季度
+                    "S" : this.getMilliseconds() //毫秒
+                };
+                if(/(y+)/.test(fmt))
+                    fmt=fmt.replace(RegExp.$1, (this.getFullYear()+"").substr(4 - RegExp.$1.length));
+                for(var k in o)
+                    if(new RegExp("("+ k +")").test(fmt))
+                        fmt = fmt.replace(RegExp.$1, (RegExp.$1.length==1) ? (o[k]) : (("00"+ o[k]).substr((""+ o[k]).length)));
+                return fmt;
+            }
+            var Table = function(element){
+                this.element = document.getElementById(element);
+            };
+            var headers = ["orderID","futureID","type","way","price","amount","timeStamp","status"];
+            Table.prototype = {
+                add : function(data){
+                    var e = this.element, body = null;
+                    for(var i = 0; i < data.length; i++){
+                        var tr = e.insertRow();
+                        for(var j = 0; j < headers.length; j++){
+                            var td = tr.insertCell();
+                            var todata;
+                            if(j==2){
+                                todata = translateType(data[i][headers[j]]);
+							}
+							else if(j == 3){
+                                todata =translateWay(data[i][headers[j]]);
+							}
+							else if(j == 4){
+                                todata = translatePrice(data[i][headers[j]]);
+							}
+							else if(j == 6){
+                                todata = translateTime(data[i][headers[j]]);
+							}
+							else{
+                                todata = data[i][headers[j]];
+							}
+                            td.innerHTML = todata;
+                            tr.appendChild(td);
+                        }
+                        if(!body) body = e.getElementsByTagName("tbody")[0];
+                        body.appendChild(tr);
+                    }
+                },
+            };
+
 			var tabledata;
 			function translateType(type){
 				if(type == "M"){
@@ -184,142 +242,41 @@
 				}
 			}
 
+			function translatePrice(price) {
+				if (price== 0){
+				    return "/";
+				}
+				else {
+				    return price;
+				}
+            }
+
+            function translateTime(time) {
+                var date = new Date(time);
+                return date.Format("yyyy-MM-dd hh:mm:ss");
+            }
 	        function func() {
+                //$('.table').tablesorter();
 				htmlobj =  $.ajax({
 					type: "get",
-					url: "http://10.162.231.38:8080/order/GetOrder",
+					url: "http://"+localStorage.getItem("tip")+":8080/order/GetOrder",
 					//data: JSON.stringify(formData),
 					headers:{
 						'Authorization':"Bearer "+document.cookie,
 
 					},
 					async:false,
-					contentType:"application/json",
+					//contentType:"application/json",
 					// dataType: "json"
 				}).success(function (data) {
-					formTable(data);
-					// tabledata = JSON.stringify(data);
-					// var table = document.createElement("table");
-					// var tbody = document.createElement("tbody");
-					// table.appendChild(tbody);
-					// var caption = table.createCaption();
-					// caption.innerHTML = "Order List";
-					// var tr = tbody.insertRow (0);
-					// var str = "OrderID,BrokerIP,FutureID,Type,Way,Amount,Price,Status".split(",");
-					// for (var i = 0; i < str.length; i++)
-					// {
-					// 	var th = document.createElement("th");
-					// 	th.innerHTML = str[i];
-					// 	tr.appendChild (th);
-					// }
-					// for(obj in data){
-					// 	var temp = data[obj];
-					// 	// var es = obj["orderID"];
-					// 	// alert(es);
-					// 	var row = document.createElement('tr'); //创建行  
-					//
-					// 	var idCell = document.createElement('td'); //创建第一列id  
-					// 	var es = temp["orderID"];
-					// 	alert(es);
-					// 	idCell.innerHTML = es; //填充数据  
-					// 	row.appendChild(idCell); //加入行  ，下面类似  
-						//
-						// var nameCell = document.createElement('td');//创建第二列name  
-						// nameCell.innerHTML = temp["brokerIp];
-						// row.appendChild(nameCell);
-						//
-						// var jobCell = document.createElement('td');//创建第三列job  
-						// jobCell.innerHTML = temp["futureID"];
-						// row.appendChild(jobCell);
-						//
-						// var frontCell = document.createElement('td');//创建第三列job  
-						// frontCell.innerHTML =temp["type"];
-						// row.appendChild(frontCell);
-						//
-						// var backCell = document.createElement('td');//创建第三列job  
-						// backCell.innerHTML = temp["way"];
-						// row.appendChild(backCell);
-						//
-						// var backCell2 = document.createElement('td');//创建第三列job  
-						// backCell2.innerHTML = temp["amount"];
-						// row.appendChild(backCell2);
-						// var backCell3 = document.createElement('td');//创建第三列job  
-						// backCell3.innerHTML = temp["price"];
-						// row.appendChild(backCell2);
-						// var backCell4 = document.createElement('td');//创建第三列job  
-						// backCell4.innerHTML = temp["status"];
-						// row.appendChild(backCell2);
-						//tbody.appendChild(row);
-					//}
-					// var row = document.createElement('tr'); //创建行  
-					//
-					// var idCell = document.createElement('td'); //创建第一列id  
-					// idCell.innerHTML = ; //填充数据  
-					// row.appendChild(idCell); //加入行  ，下面类似  
-					//
-					// var nameCell = document.createElement('td');//创建第二列name  
-					// nameCell.innerHTML = a;
-					// row.appendChild(nameCell);
-					//
-					// var jobCell = document.createElement('td');//创建第三列job  
-					// jobCell.innerHTML = b;
-					// row.appendChild(jobCell);
-					//
-					// var frontCell = document.createElement('td');//创建第三列job  
-					// frontCell.innerHTML = (a/numb*100).toFixed(2)+"%";
-					// row.appendChild(frontCell);
-					//
-					// var backCell = document.createElement('td');//创建第三列job  
-					// backCell.innerHTML = (b/numb*100).toFixed(2)+"%";
-					// row.appendChild(backCell);
-					//
-					//
-					// tbody.appendChild(row);
-					//document.body.appendChild(table);
-
+					t1 = new Table("Table");
+					t1.add(data);
 				}).error(function () {
 					alert("失败");
 				});
 			}
-			function formTable(message) {
-				t2 = new Table("buyTable");
-				var obj = JSON.parse(message);
-				t2.update(obj["buyList"]);
-			}
-			var Table = function(element){
-				this.element = document.getElementById(element);
-			};
-			var headers = ["futureID","type","amount","price"];
-			Table.prototype = {
-				add : function(data){
-					var e = this.element, body = null;
-					for(var i = 0; i < data.length; i++){
-						var tr = e.insertRow();
-						for(var j = 0; j < 4; j++){
-							var td = tr.insertCell();
-							td.innerHTML = data[i][headers[j]];
-							tr.appendChild(td);
-						}
-						if(!body) body = e.getElementsByTagName("tbody")[0];
-						body.appendChild(tr);
-					}
-				},
-				update : function(data){
-					var e = this.element, len = e.rows.length, body = null;
-					for(var i = 1; i < data.length+1 && i < len; i++){
-						for(var j = 0; j <4; j++){
-							e.rows[i].cells[j].innerHTML = data[i-1][headers[j]];
-						}
-					}
-					if(i < len){
-						for(var n = len-1; n >= i; n--){
-							e.deleteRow(n);
-						}
-					}else if(i < data.length+1){
-						this.add(data.slice(i-1));
-					}
-				}
-			};
+
+
         </script>
   	</body>
 </html>

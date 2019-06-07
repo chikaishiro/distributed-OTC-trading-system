@@ -101,7 +101,7 @@
 		if(document.getElementById("time").checked===true){
 			$.ajax({
 				type: "get",
-				url: "http://192.168.0.114:8080/Result",
+				url: "http://"+localStorage.getItem("bip")+":8081/Result",
 				data:{
 					"method":"ByTime",
 				},
@@ -116,7 +116,7 @@
 		else {
 			$.ajax({
 				type: "get",
-				url: "http://192.168.0.114:8080/Result",
+				url: "http://"+localStorage.getItem("bip")+":8081/Result",
 				//data:{"method":"ByFutureID",
 				//	"id":"SB"
 				//},
@@ -136,7 +136,7 @@
 		var fid = $('input[name="fid"]').val();
 		$.ajax({
 			type: "get",
-			url: "http://192.168.0.114:8080/Result",
+			url: "http://"+localStorage.getItem("bip")+":8081/Result",
 			data:{
 				"method":"ByFutureID",
 				"id":fid,
@@ -154,7 +154,7 @@
 		oid = removeSpace(oid);
 		$.ajax({
 			type: "get",
-			url: "http://192.168.0.114:8080/Result",
+			url:"http://"+localStorage.getItem("bip")+":8081/Result",
 			data:{
 				"method":"ByOrderID",
 				"id":oid,
@@ -172,7 +172,7 @@
 		tid = removeSpace(tid);
 		$.ajax({
 			type: "get",
-			url: "http://192.168.0.114:8080/Result",
+			url: "http://"+localStorage.getItem("bip")+":8081/Result",
 			data:{
 				"method":"ByTraderID",
 				"id":tid,
@@ -188,7 +188,7 @@
 	function f5() {
 		$.ajax({
 			type: "get",
-			url: "http://192.168.0.114:8080/Result",
+			url: "http://"+localStorage.getItem("bip")+":8081/Result",
 			data:{
 				"method":"ByTime",
 			},
@@ -207,7 +207,7 @@
 		pid = removeSpace(pid);
 		$.ajax({
 			type: "get",
-			url: "http://192.168.0.114:8080/Result",
+			url: "http://"+localStorage.getItem("bip")+":8081/Result",
 			data:{
 				"method":"ByPrice",
 				"id":fid,
@@ -476,7 +476,7 @@
         <script>
 			$(function()	{
 				$('.table').tablesorter();
-				alert("xx");
+				//alert("xx");
 			})
 		</script>
 		<script src="js/jquery.tablesorter.js"></script>
