@@ -2,13 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="e8e9c4e3-386f-4a2c-ac9c-8e609ae5b0c5" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/blank.html" beforeDir="false" afterPath="$PROJECT_DIR$/blank.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/blank1.html" beforeDir="false" afterPath="$PROJECT_DIR$/blank1.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/blank2.html" beforeDir="false" afterPath="$PROJECT_DIR$/blank2.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/blank3.html" beforeDir="false" afterPath="$PROJECT_DIR$/blank3.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/blank4.html" beforeDir="false" afterPath="$PROJECT_DIR$/blank4.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/index.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../TraderUI/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../TraderUI/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../TraderUI/blank3.html" beforeDir="false" afterPath="$PROJECT_DIR$/../TraderUI/blank3.html" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -42,8 +38,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/blank1.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="618">
-              <caret line="485" selection-end-line="485" />
+            <state relative-caret-position="477">
+              <caret line="92" column="9" lean-forward="true" selection-start-line="69" selection-start-column="8" selection-end-line="92" selection-end-column="9" />
             </state>
           </provider>
         </entry>
@@ -51,7 +47,7 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/blank4.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="751">
+            <state relative-caret-position="523">
               <caret line="228" column="20" selection-start-line="228" selection-start-column="20" selection-end-line="228" selection-end-column="20" />
             </state>
           </provider>
@@ -60,8 +56,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/blank2.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1264">
-              <caret line="222" column="68" selection-start-line="222" selection-start-column="68" selection-end-line="222" selection-end-column="68" />
+            <state relative-caret-position="447">
+              <caret line="230" column="46" lean-forward="true" selection-start-line="230" selection-start-column="46" selection-end-line="230" selection-end-column="46" />
             </state>
           </provider>
         </entry>
@@ -69,8 +65,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/blank3.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-570">
-              <caret line="156" column="70" selection-start-line="156" selection-start-column="70" selection-end-line="156" selection-end-column="70" />
+            <state relative-caret-position="314">
+              <caret line="260" column="41" selection-start-line="260" selection-start-column="41" selection-end-line="260" selection-end-column="41" />
             </state>
           </provider>
         </entry>
@@ -128,11 +124,10 @@
       </list>
     </option>
   </component>
-  <component name="ProjectFrameBounds">
+  <component name="ProjectFrameBounds" extendedState="6">
     <option name="x" value="-25" />
-    <option name="y" value="85" />
-    <option name="width" value="1280" />
-    <option name="height" value="670" />
+    <option name="width" value="1022" />
+    <option name="height" value="1038" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectView">
@@ -297,18 +292,17 @@
       <workItem from="1559892677951" duration="2089000" />
       <workItem from="1559895599369" duration="9000" />
       <workItem from="1560087718750" duration="656000" />
-      <workItem from="1560103454224" duration="3658000" />
+      <workItem from="1560103454224" duration="6270000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="68900000" />
+    <option name="totallyTimeSpent" value="71512000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-7" y="-7" width="1550" height="838" extended-state="6" />
-    <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.17371202" />
+      <window_info content_ui="combo" id="Project" order="0" weight="0.26619434" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Designer" order="2" />
       <window_info id="Image Layers" order="3" />
@@ -471,13 +465,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/blank4.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="751">
-          <caret line="228" column="20" selection-start-line="228" selection-start-column="20" selection-end-line="228" selection-end-column="20" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/blank.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="352">
@@ -487,22 +474,29 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/blank2.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1264">
-          <caret line="222" column="68" selection-start-line="222" selection-start-column="68" selection-end-line="222" selection-end-column="68" />
+        <state relative-caret-position="447">
+          <caret line="230" column="46" lean-forward="true" selection-start-line="230" selection-start-column="46" selection-end-line="230" selection-end-column="46" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/blank4.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="523">
+          <caret line="228" column="20" selection-start-line="228" selection-start-column="20" selection-end-line="228" selection-end-column="20" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/blank1.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="618">
-          <caret line="485" selection-end-line="485" />
+        <state relative-caret-position="477">
+          <caret line="92" column="9" lean-forward="true" selection-start-line="69" selection-start-column="8" selection-end-line="92" selection-end-column="9" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/blank3.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-570">
-          <caret line="156" column="70" selection-start-line="156" selection-start-column="70" selection-end-line="156" selection-end-column="70" />
+        <state relative-caret-position="314">
+          <caret line="260" column="41" selection-start-line="260" selection-start-column="41" selection-end-line="260" selection-end-column="41" />
         </state>
       </provider>
     </entry>

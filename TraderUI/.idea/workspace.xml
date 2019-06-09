@@ -3,13 +3,8 @@
   <component name="ChangeListManager">
     <list default="true" id="e8e9c4e3-386f-4a2c-ac9c-8e609ae5b0c5" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/../BrokerUI/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../BrokerUI/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../BrokerUI/blank.html" beforeDir="false" afterPath="$PROJECT_DIR$/../BrokerUI/blank.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../BrokerUI/blank1.html" beforeDir="false" afterPath="$PROJECT_DIR$/../BrokerUI/blank1.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../BrokerUI/blank2.html" beforeDir="false" afterPath="$PROJECT_DIR$/../BrokerUI/blank2.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../BrokerUI/blank3.html" beforeDir="false" afterPath="$PROJECT_DIR$/../BrokerUI/blank3.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../BrokerUI/blank4.html" beforeDir="false" afterPath="$PROJECT_DIR$/../BrokerUI/blank4.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../BrokerUI/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/../BrokerUI/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/blank3.html" beforeDir="false" afterPath="$PROJECT_DIR$/blank3.html" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -83,19 +78,19 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/blank3.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-1034">
-              <caret line="185" column="14" selection-start-line="185" selection-start-column="14" selection-end-line="185" selection-end-column="14" />
+            <state relative-caret-position="200">
+              <caret line="261" column="75" selection-start-line="261" selection-start-column="75" selection-end-line="261" selection-end-column="75" />
             </state>
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/blank4.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-237">
+            <state relative-caret-position="-693">
               <caret line="90" column="9" selection-start-line="90" selection-start-column="9" selection-end-line="90" selection-end-column="9" />
             </state>
           </provider>
@@ -148,20 +143,19 @@
         <option value="$PROJECT_DIR$/1.html" />
         <option value="$PROJECT_DIR$/price.html" />
         <option value="$PROJECT_DIR$/index.html" />
-        <option value="$PROJECT_DIR$/blank3.html" />
         <option value="$PROJECT_DIR$/blank4.html" />
         <option value="$PROJECT_DIR$/blank.html" />
         <option value="$PROJECT_DIR$/blank1.html" />
         <option value="$PROJECT_DIR$/blank2.html" />
         <option value="$PROJECT_DIR$/signin.html" />
+        <option value="$PROJECT_DIR$/blank3.html" />
       </list>
     </option>
   </component>
   <component name="ProjectFrameBounds" extendedState="6">
     <option name="x" value="-25" />
-    <option name="y" value="85" />
-    <option name="width" value="1280" />
-    <option name="height" value="670" />
+    <option name="width" value="1022" />
+    <option name="height" value="1038" />
   </component>
   <component name="ProjectView">
     <navigator proportions="" version="1">
@@ -318,12 +312,12 @@
       <workItem from="1559895612034" duration="550000" />
       <workItem from="1560087652535" duration="4532000" />
       <workItem from="1560103467039" duration="1256000" />
-      <workItem from="1560107458553" duration="718000" />
+      <workItem from="1560107458553" duration="1873000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="67487000" />
+    <option name="totallyTimeSpent" value="68642000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-7" y="-7" width="1550" height="838" extended-state="6" />
@@ -456,17 +450,17 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/blank3.html">
+    <entry file="file://$PROJECT_DIR$/blank4.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-1034">
-          <caret line="185" column="14" selection-start-line="185" selection-start-column="14" selection-end-line="185" selection-end-column="14" />
+        <state relative-caret-position="-693">
+          <caret line="90" column="9" selection-start-line="90" selection-start-column="9" selection-end-line="90" selection-end-column="9" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/blank4.html">
+    <entry file="file://$PROJECT_DIR$/blank3.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-237">
-          <caret line="90" column="9" selection-start-line="90" selection-start-column="9" selection-end-line="90" selection-end-column="9" />
+        <state relative-caret-position="200">
+          <caret line="261" column="75" selection-start-line="261" selection-start-column="75" selection-end-line="261" selection-end-column="75" />
         </state>
       </provider>
     </entry>

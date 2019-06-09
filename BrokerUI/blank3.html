@@ -41,26 +41,31 @@
 	var Table = function(element){
 		this.element = document.getElementById(element);
 	};
-	var headers = ["orderID1","orderID2","traderID1","traderID2","futureID","amount","price","finishTime"];
+	var headers = ["orderID","futureID","type","way","price","amount","timeStamp","status"];
 	Table.prototype = {
 		add : function(data){
 			var e = this.element, body = null;
 			for(var i = 0; i < data.length; i++){
 				var tr = e.insertRow();
 				for(var j = 0; j < headers.length; j++){
-
-
 					var td = tr.insertCell();
-					if(j==7){
-						var date = new Date(data[i][headers[j]]);
-						td.innerHTML = date.Format("yyyy-MM-dd hh:mm:ss");
-
+					var todata;
+					if(j==2){
+						todata = translateType(data[i][headers[j]]);
+					}
+					else if(j == 3){
+						todata =translateWay(data[i][headers[j]]);
+					}
+					else if(j == 4){
+						todata = translatePrice(data[i][headers[j]]);
+					}
+					else if(j == 6){
+						todata = translateTime(data[i][headers[j]]);
 					}
 					else{
-						td.innerHTML = data[i][headers[j]];
+						todata = data[i][headers[j]];
 					}
-
-
+					td.innerHTML = todata;
 					tr.appendChild(td);
 				}
 				if(!body) body = e.getElementsByTagName("tbody")[0];
@@ -73,13 +78,23 @@
 			for(var i = 1; i < data.length+1 && i < len; i++){
 				for(var j = 0; j <headers.length; j++){
 					//e.rows[i].cells[j].innerHTML = data[i-1][headers[j]];
-					if(j== (headers.length-1)){
-						var date = new Date(data[i-1][headers[j]]);
-						e.rows[i].cells[j].innerHTML = date.Format("yyyy-MM-dd hh:mm:ss");
+					var todata;
+					if(j==2){
+						todata = translateType(data[i-1][headers[j]]);
+					}
+					else if(j == 3){
+						todata =translateWay(data[i-1][headers[j]]);
+					}
+					else if(j == 4){
+						todata = translatePrice(data[i-1][headers[j]]);
+					}
+					else if(j == 6){
+						todata = translateTime(data[i-1][headers[j]]);
 					}
 					else{
-						e.rows[i].cells[j].innerHTML = data[i-1][headers[j]];
+						todata = data[i-1][headers[j]];
 					}
+					e.rows[i].cells[j].innerHTML = todata;
 
 				}
 			}
@@ -92,12 +107,52 @@
 			}
 		}
 	};
+
+	var tabledata;
+	function translateType(type){
+		if(type == "M"){
+			return "Market Order";
+		}
+		else if(type == "L"){
+			return "Limit Order";
+		}
+		else if(type=="S"){
+			return "Stop Order";
+		}
+		else{
+			return "Cancel Order";
+		}
+	}
+
+	function translateWay(way){
+		if(way == "S"){
+			return "Sell";
+		}
+		else{
+			return "Buy";
+		}
+	}
+
+	function translatePrice(price) {
+		if (price== 0){
+			return "/";
+		}
+		else {
+			return price;
+		}
+	}
+
+	function translateTime(time) {
+		var date = new Date(time);
+		return date.Format("yyyy-MM-dd hh:mm:ss");
+	}
 	function removeSpace(str) {
 		var str1 = str.replace(/\s*/g,"");
 		return str1;
 	}
 
 	function f1() {
+		alert("haha");
 		if(document.getElementById("time").checked===true){
 			$.ajax({
 				type: "get",
@@ -108,11 +163,12 @@
 				//dataType: "json",
 			}).success(function (data) {
 				var table = new Table("Table");
-				table.update(JSON.parse(data));
+				table.update(data);
 			}).error(function () {
 			});
 		}
 		else {
+			alert(localStorage.getItem("tip"));
 			$.ajax({
 				type: "get",
 				url: "http://"+localStorage.getItem("tip")+":8080/order",
@@ -123,11 +179,11 @@
 				//dataType: "json",
 
 			}).success(function (data) {
-				alert(JSON.parse(data));
+				alert(data);
 				var table = new Table("Table");
-				table.update(JSON.parse(data));
+				table.update(data);
 			}).error(function () {
-
+                alert("error");
 			});
 		}
 
@@ -144,9 +200,11 @@
 			contentType: "application/json",
 			//dataType: "json",
 		}).success(function (data) {
+			alert(data);
 			var table = new Table("Table3");
-			table.update(JSON.parse(data));
+			table.update(data);
 		}).error(function () {
+			alert("err");
 		});
 	}
 	function f2() {
@@ -162,9 +220,11 @@
 			contentType: "application/json",
 			//dataType: "json",
 		}).success(function (data) {
+			alert(data);
 			var table = new Table("Table2");
-			table.update(JSON.parse(data));
+			table.update(data);
 		}).error(function () {
+			alert("erer");
 		});
 	}
 	function f4() {
@@ -180,9 +240,11 @@
 			contentType: "application/json",
 			//dataType: "json",
 		}).success(function (data) {
+			alert(data);
 			var table = new Table("Table4");
-			table.update(JSON.parse(data));
+			table.update(data);
 		}).error(function () {
+			alert("err");
 		});
 	}
 	function f5() {
@@ -196,8 +258,8 @@
 			contentType: "application/json",
 			//dataType: "json",
 		}).success(function (data) {
-			var table = new Table("Table");
-			table.update(JSON.parse(data));
+			var table = new Table("Table2");
+			table.update(data);
 		}).error(function () {
 		});
 	}
@@ -216,8 +278,9 @@
 			contentType: "application/json",
 			//dataType: "json",
 		}).success(function (data) {
+			alert(data);
 			var table = new Table("Table3");
-			table.update(JSON.parse(data));
+			table.update(data);
 		}).error(function () {
 		});
 	}
@@ -366,16 +429,15 @@
 									<input class="input" type="checkbox" id="time">仅今日
 									<button class="btn" onclick="f1()">Search</button>
 								<table id="Table" border="1" class="table table-striped">
-
 									<tr>
-										<th>orderID1</th>
-										<th>orderID2</th>
-										<th>traderID1</th>
-										<th>traderID2</th>
+										<th>orderID</th>
 										<th>futureID</th>
-										<th>amount</th>
+										<th>type</th>
+										<th>way</th>
 										<th>price</th>
-										<th>finishTime</th>
+										<th>amount</th>
+										<th>time</th>
+										<th>status</th>
 									</tr>
 								</table>
 								</p>
@@ -385,17 +447,18 @@
 								<p class="m-top-sm">
 									<input class="input" type="text" name="oid">
 									<button class="btn" onclick="f2()">Search</button>
+									<input class="input" type="text" name="sid">
+									<button class="btn" onclick="f5()">指定状态</button>
 								<table id="Table2" border="1" class="table table-striped">
-
 									<tr>
-										<th>orderID1</th>
-										<th>orderID2</th>
-										<th>traderID1</th>
-										<th>traderID2</th>
+										<th>orderID</th>
 										<th>futureID</th>
-										<th>amount</th>
+										<th>type</th>
+										<th>way</th>
 										<th>price</th>
-										<th>finishTime</th>
+										<th>amount</th>
+										<th>time</th>
+										<th>status</th>
 									</tr>
 								</table>
 								</p>
@@ -408,16 +471,15 @@
 									<input class="input" type="text" name="pid">
 									<button class="btn" onclick="f6()">指定价格</button>
 								<table id="Table3" border="1" class="table table-striped">
-
 									<tr>
-										<th>orderID1</th>
-										<th>orderID2</th>
-										<th>traderID1</th>
-										<th>traderID2</th>
+										<th>orderID</th>
 										<th>futureID</th>
-										<th>amount</th>
+										<th>type</th>
+										<th>way</th>
 										<th>price</th>
-										<th>finishTime</th>
+										<th>amount</th>
+										<th>time</th>
+										<th>status</th>
 									</tr>
 								</table>
 								</p>
@@ -428,16 +490,15 @@
 									<input class="input" type="text" name="tid">
 									<button class="btn" onclick="f4()">Search</button>
 								<table id="Table4" border="1" class="table table-striped">
-
 									<tr>
-										<th>orderID1</th>
-										<th>orderID2</th>
-										<th>traderID1</th>
-										<th>traderID2</th>
+										<th>orderID</th>
 										<th>futureID</th>
-										<th>amount</th>
+										<th>type</th>
+										<th>way</th>
 										<th>price</th>
-										<th>finishTime</th>
+										<th>amount</th>
+										<th>time</th>
+										<th>status</th>
 									</tr>
 								</table>
 								</p>
