@@ -105,6 +105,8 @@ public class OrderControl {
 
     public static int OrderDeal(String OrderJSON){
         Order order = FIX.ParseFIX(OrderJSON);
+        String traderID = order.getTraderId();
+        TraderRegister(traderID);
         String futureID = order.getFutureID();
         OrderQueue orderQueue = StoreUtil.GetQueue(futureID);
         // Cancel Order 处理
@@ -522,6 +524,22 @@ public class OrderControl {
         }
     }
 
+    public static void TraderRegister(String traderID){
+        try{
+            HashSet<String> set = StoreUtil.GetSet("traders");
+            if(set.contains(traderID)){
+                return;
+            }
+            else{
+                set.add(traderID);
+                StoreUtil.SetSet(set);
+                return;
+            }
+        }
+        catch (Exception e){
+            return;
+        }
+    }
     public static void main(String[] args) {
 //        UUID uid = UUID.randomUUID();
 ////        System.out.println(uid);

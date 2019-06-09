@@ -41,17 +41,17 @@ public class OrderServiceImpl implements OrderService {
         Long now = Calendar.getInstance().getTimeInMillis();
         order.setTimeStamp(now);
         HttpRequest htp = new HttpRequest();
-        String status = htp.sendPost("http://"+brokerAddress+"/Order",FIX.toFIX(order));
+        String status = htp.sendPost("http://"+order.getBrokerIp()+":8081/Order",FIX.toFIX(order));
         String[] params = status.split(",");
         status  = params[0];
-        if (status.equals("failed")) return "Order failed";
+        if (status.equals("NOK") || status.equals("FAILED")) return "Order Request Failed";
         if (status.equals("PARTLY")) {
             int amount = Integer.parseInt(params[1]);
             status = params[0] + ":" + String.valueOf(amount);
         }
         order.setStatus(status);
         orderRepository.save(order);
-        return "Order processing";
+        return "Order Request Processing";
     }
 
     @Override
@@ -59,12 +59,14 @@ public class OrderServiceImpl implements OrderService {
         String username = jwtTokenUtil.parseUsername(request);
         if (username == null) return "Authorization failed";
         Order order = orderRepository.findOrderByOrderID(orderId);
+        char type = order.getType();
         order.setType('C');
         HttpRequest htp = new HttpRequest();
-        String status = htp.sendPost("http://"+brokerAddress+"/Order",FIX.toFIX(order));
+        String status = htp.sendPost("http://"+order.getBrokerIp()+":8081/Order",FIX.toFIX(order));
         String[] params = status.split(",");
         status  = params[0];
-        if (status.equals("failed")) return "Order failed";
+        if (status.equals("FAILED")) return "Cancel Order Failed(Already done)";
+        String addon,stat;
         Order orderC = new Order();
         BeanUtils.copyProperties(orderC,order);
         orderC.setOrderID(String.valueOf(UUID.randomUUID()));
@@ -73,22 +75,34 @@ public class OrderServiceImpl implements OrderService {
         if (status.equals("PARTLY")) {
             int amount = Integer.parseInt(params[1]);
             status = params[0] + ":" + String.valueOf(amount);
+            addon = " Partly canceled with amount "+ String.valueOf(amount);
+            stat = "PARTLY CANCELED";
+        }
+        else{
+            addon = " Successfully canceled.";
+            stat = "CANCELED";
+
         }
         orderC.setStatus(status);
+        order.setStatus(stat);
+        order.setType(type);
         orderRepository.save(orderC);
-        return "Order processing";
+        orderRepository.save(order);
+        return "Order Request Status:"+ addon;
     }
 
     @Override
     public List findOrdersByTraderId(String traderId){
         List<Order> orders = orderRepository.findOrdersByTraderIdAndStatus(traderId, processing);
-        return updateOrders(orders);
+        updateOrders(orders);
+        return orderRepository.findOrdersByTraderIdOrderByTimeStampDesc(traderId);
     }
 
     @Override
     public List findOrdersByFutureId(String futureId){
         List<Order> orders = orderRepository.findOrdersByFutureIDAndStatus(futureId, processing);
-        return updateOrders(orders);
+        updateOrders(orders);
+        return orderRepository.findOrdersByFutureIDOrderByTimeStampDesc(futureId);
     }
 
     @Override
@@ -102,7 +116,8 @@ public class OrderServiceImpl implements OrderService {
         calendar.set(Calendar.HOUR_OF_DAY, 24);
         long end =  calendar.getTimeInMillis();
         List<Order> orders = orderRepository.findOrdersByStatusAndTimeStampBetween(processing, start, end);
-        return updateOrders(orders);
+        updateOrders(orders);
+        return orderRepository.findOrdersByTimeStampBetweenOrderByTimeStampDesc(start, end);
     }
 
 
@@ -115,16 +130,20 @@ public class OrderServiceImpl implements OrderService {
     }
 
     @Override
-    public List updateOrders(List<Order> orders){
-        List<Order> results = new ArrayList<>();
+    public void updateOrders(List<Order> orders){
         for (Order order : orders){
             HttpRequest htp = new HttpRequest();
-            String status = htp.sendGet("http://"+brokerAddress+"/OrderStat","id=" + order.getOrderID());
+            String bip = order.getBrokerIp();
+            String status;
+            if(bip.length()!=0){
+                status = htp.sendGet("http://"+bip+":8081/OrderStat","id=" + order.getOrderID());
+            }
+            else{
+                status = htp.sendGet("http://"+brokerAddress+"/OrderStat","id=" + order.getOrderID());
+            }
             order.setStatus(status);
             orderRepository.save(order);
-            results.add(order);
         }
-        return results;
     }
 
 }

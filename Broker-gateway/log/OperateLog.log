@@ -1,147 +1,466 @@
-2019-06-07 14:43:27.516  INFO 10460 --- [main] c.t.b.BrokergatewayApplication           : Starting BrokergatewayApplication on LAPTOP-HAEK8B4U with PID 10460 (D:\distributed-OTC-trading-system\Broker-gateway\target\classes started by administartor in D:\distributed-OTC-trading-system\Broker-gateway)
-2019-06-07 14:43:27.523  INFO 10460 --- [main] c.t.b.BrokergatewayApplication           : No active profile set, falling back to default profiles: default
-2019-06-07 14:43:28.781  INFO 10460 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data repositories in DEFAULT mode.
-2019-06-07 14:43:28.851  INFO 10460 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 63ms. Found 1 repository interfaces.
-2019-06-07 14:43:29.229  INFO 10460 --- [main] trationDelegate$BeanPostProcessorChecker : Bean 'org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration' of type [org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration$$EnhancerBySpringCGLIB$$b4c06399] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
-2019-06-07 14:43:29.542  INFO 10460 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8081 (http)
-2019-06-07 14:43:29.569  INFO 10460 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
-2019-06-07 14:43:29.570  INFO 10460 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.19]
-2019-06-07 14:43:29.740  INFO 10460 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
-2019-06-07 14:43:29.741 DEBUG 10460 --- [main] o.s.web.context.ContextLoader            : Published root WebApplicationContext as ServletContext attribute with name [org.springframework.web.context.WebApplicationContext.ROOT]
-2019-06-07 14:43:29.741  INFO 10460 --- [main] o.s.web.context.ContextLoader            : Root WebApplicationContext: initialization completed in 2175 ms
-2019-06-07 14:43:29.880  INFO 10460 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
-2019-06-07 14:43:29.881  WARN 10460 --- [main] com.zaxxer.hikari.util.DriverDataSource  : Registered driver with driverClassName=com.mysql.jdbc.Driver was not found, trying direct instantiation.
-2019-06-07 14:43:29.981  INFO 10460 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
-2019-06-07 14:43:30.958  INFO 10460 --- [main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
-2019-06-07 14:43:31.310 DEBUG 10460 --- [main] o.s.w.s.handler.SimpleUrlHandlerMapping  : Patterns [/**/favicon.ico] in 'faviconHandlerMapping'
-2019-06-07 14:43:31.456  INFO 10460 --- [main] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
-2019-06-07 14:43:31.468 DEBUG 10460 --- [main] s.w.s.m.m.a.RequestMappingHandlerAdapter : ControllerAdvice beans: 0 @ModelAttribute, 0 @InitBinder, 1 RequestBodyAdvice, 1 ResponseBodyAdvice
-2019-06-07 14:43:31.492  WARN 10460 --- [main] aWebConfiguration$JpaWebMvcConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
-2019-06-07 14:43:31.524 DEBUG 10460 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : 12 mappings in 'requestMappingHandlerMapping'
-2019-06-07 14:43:31.538 DEBUG 10460 --- [main] o.s.w.s.handler.SimpleUrlHandlerMapping  : Patterns [/webjars/**, /**] in 'resourceHandlerMapping'
-2019-06-07 14:43:31.545 DEBUG 10460 --- [main] .m.m.a.ExceptionHandlerExceptionResolver : ControllerAdvice beans: 0 @ExceptionHandler, 1 ResponseBodyAdvice
-2019-06-07 14:43:31.705 DEBUG 10460 --- [main] o.s.w.s.s.s.ServerEndpointExporter       : Registering @ServerEndpoint class: class com.trading.brokergateway.Controller.PriceServer
-2019-06-07 14:43:31.710 DEBUG 10460 --- [main] o.s.w.s.s.s.ServerEndpointExporter       : Registering @ServerEndpoint class: class com.trading.brokergateway.Controller.WebsocketServer
-2019-06-07 14:43:31.751  INFO 10460 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8081 (http) with context path ''
-2019-06-07 14:43:31.753  INFO 10460 --- [main] c.t.b.BrokergatewayApplication           : Started BrokergatewayApplication in 4.672 seconds (JVM running for 6.223)
-2019-06-07 14:45:36.659  INFO 10460 --- [http-nio-8081-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
-2019-06-07 14:45:36.660  INFO 10460 --- [http-nio-8081-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
-2019-06-07 14:45:36.660 DEBUG 10460 --- [http-nio-8081-exec-1] o.s.web.servlet.DispatcherServlet        : Detected StandardServletMultipartResolver
-2019-06-07 14:45:36.668 DEBUG 10460 --- [http-nio-8081-exec-1] o.s.web.servlet.DispatcherServlet        : enableLoggingRequestDetails='false': request parameters and headers will be masked to prevent unsafe logging of potentially sensitive data
-2019-06-07 14:45:36.668  INFO 10460 --- [http-nio-8081-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 8 ms
-2019-06-07 14:45:52.282 ERROR 10460 --- [http-nio-8081-exec-2] c.t.b.Controller.WebsocketServer         : 发生错误
-2019-06-07 14:45:53.293 ERROR 10460 --- [http-nio-8081-exec-2] c.t.b.Controller.WebsocketServer         : 发生错误
-2019-06-07 14:46:30.982 ERROR 10460 --- [http-nio-8081-exec-4] c.t.b.Controller.PriceServer             : 发生错误
-2019-06-07 14:46:32.993 ERROR 10460 --- [http-nio-8081-exec-4] c.t.b.Controller.PriceServer             : 发生错误
-2019-06-07 14:50:55.631 DEBUG 10460 --- [http-nio-8081-exec-6] o.s.web.servlet.DispatcherServlet        : GET "/OrderBook?futureID=SB", parameters={masked}
-2019-06-07 14:50:55.636 DEBUG 10460 --- [http-nio-8081-exec-6] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to public java.lang.String com.trading.brokergateway.Controller.OrderBookControl.getOrderBook(javax.servlet.http.HttpServletRequest)
-2019-06-07 14:50:55.666 DEBUG 10460 --- [http-nio-8081-exec-6] m.m.a.RequestResponseBodyMethodProcessor : Using 'text/plain', given [*/*] and supported [text/plain, */*, text/plain, */*, application/json, application/*+json, application/json, application/*+json]
-2019-06-07 14:50:55.667 DEBUG 10460 --- [http-nio-8081-exec-6] m.m.a.RequestResponseBodyMethodProcessor : Writing ["{"sellList":[{"orderID":"969cd9ce-2087-479d-b88d-9c7bc3af25be","futureID":"SB","type":"L","way":"S" (truncated)...]
-2019-06-07 14:50:55.677 DEBUG 10460 --- [http-nio-8081-exec-6] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
-2019-06-07 14:51:15.083 DEBUG 10460 --- [http-nio-8081-exec-7] o.s.web.servlet.DispatcherServlet        : POST "/Order", parameters={}
-2019-06-07 14:51:15.084 DEBUG 10460 --- [http-nio-8081-exec-7] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to public java.lang.String com.trading.brokergateway.Controller.OrderControl.orderPost(javax.servlet.http.HttpServletRequest,java.io.BufferedReader)
-2019-06-07 14:51:15.195 DEBUG 10460 --- [http-nio-8081-exec-7] m.m.a.RequestResponseBodyMethodProcessor : Using 'application/json', given [application/json] and supported [text/plain, */*, text/plain, */*, application/json, application/*+json, application/json, application/*+json]
-2019-06-07 14:51:15.195 DEBUG 10460 --- [http-nio-8081-exec-7] m.m.a.RequestResponseBodyMethodProcessor : Writing ["PROCESSED"]
-2019-06-07 14:51:15.197 DEBUG 10460 --- [http-nio-8081-exec-7] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
-2019-06-07 14:51:23.552 DEBUG 10460 --- [http-nio-8081-exec-8] o.s.web.servlet.DispatcherServlet        : GET "/OrderBook?futureID=SB", parameters={masked}
-2019-06-07 14:51:23.553 DEBUG 10460 --- [http-nio-8081-exec-8] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to public java.lang.String com.trading.brokergateway.Controller.OrderBookControl.getOrderBook(javax.servlet.http.HttpServletRequest)
-2019-06-07 14:51:23.555 DEBUG 10460 --- [http-nio-8081-exec-8] m.m.a.RequestResponseBodyMethodProcessor : Using 'text/plain', given [*/*] and supported [text/plain, */*, text/plain, */*, application/json, application/*+json, application/json, application/*+json]
-2019-06-07 14:51:23.555 DEBUG 10460 --- [http-nio-8081-exec-8] m.m.a.RequestResponseBodyMethodProcessor : Writing ["{"sellList":[{"orderID":"688f389c-a6f7-4eaf-84e8-dd66f134f700","futureID":"SB","type":"L","way":"S" (truncated)...]
-2019-06-07 14:51:23.556 DEBUG 10460 --- [http-nio-8081-exec-8] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
-2019-06-07 14:52:00.121 DEBUG 10460 --- [http-nio-8081-exec-10] o.s.web.servlet.DispatcherServlet        : POST "/Order", parameters={}
-2019-06-07 14:52:00.122 DEBUG 10460 --- [http-nio-8081-exec-10] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to public java.lang.String com.trading.brokergateway.Controller.OrderControl.orderPost(javax.servlet.http.HttpServletRequest,java.io.BufferedReader)
-2019-06-07 14:52:00.126 DEBUG 10460 --- [http-nio-8081-exec-10] m.m.a.RequestResponseBodyMethodProcessor : Using 'application/json', given [application/json] and supported [text/plain, */*, text/plain, */*, application/json, application/*+json, application/json, application/*+json]
-2019-06-07 14:52:00.126 DEBUG 10460 --- [http-nio-8081-exec-10] m.m.a.RequestResponseBodyMethodProcessor : Writing ["PROCESSING"]
-2019-06-07 14:52:00.128 DEBUG 10460 --- [http-nio-8081-exec-10] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
-2019-06-07 14:52:04.020 DEBUG 10460 --- [http-nio-8081-exec-1] o.s.web.servlet.DispatcherServlet        : GET "/OrderBook?futureID=SB", parameters={masked}
-2019-06-07 14:52:04.020 DEBUG 10460 --- [http-nio-8081-exec-1] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to public java.lang.String com.trading.brokergateway.Controller.OrderBookControl.getOrderBook(javax.servlet.http.HttpServletRequest)
-2019-06-07 14:52:04.023 DEBUG 10460 --- [http-nio-8081-exec-1] m.m.a.RequestResponseBodyMethodProcessor : Using 'text/plain', given [*/*] and supported [text/plain, */*, text/plain, */*, application/json, application/*+json, application/json, application/*+json]
-2019-06-07 14:52:04.023 DEBUG 10460 --- [http-nio-8081-exec-1] m.m.a.RequestResponseBodyMethodProcessor : Writing ["{"sellList":[{"orderID":"969cd9ce-2087-479d-b88d-9c7bc3af25be","futureID":"SB","type":"L","way":"S" (truncated)...]
-2019-06-07 14:52:04.024 DEBUG 10460 --- [http-nio-8081-exec-1] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
-2019-06-07 14:53:02.327 DEBUG 10460 --- [http-nio-8081-exec-3] o.s.web.servlet.DispatcherServlet        : GET "/OrderBook?futureID=SB", parameters={masked}
-2019-06-07 14:53:02.327 DEBUG 10460 --- [http-nio-8081-exec-3] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to public java.lang.String com.trading.brokergateway.Controller.OrderBookControl.getOrderBook(javax.servlet.http.HttpServletRequest)
-2019-06-07 14:53:02.331 DEBUG 10460 --- [http-nio-8081-exec-3] m.m.a.RequestResponseBodyMethodProcessor : Using 'text/plain', given [*/*] and supported [text/plain, */*, text/plain, */*, application/json, application/*+json, application/json, application/*+json]
-2019-06-07 14:53:02.331 DEBUG 10460 --- [http-nio-8081-exec-3] m.m.a.RequestResponseBodyMethodProcessor : Writing ["{"sellList":[{"orderID":"969cd9ce-2087-479d-b88d-9c7bc3af25be","futureID":"SB","type":"L","way":"S" (truncated)...]
-2019-06-07 14:53:02.332 DEBUG 10460 --- [http-nio-8081-exec-3] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
-2019-06-07 14:53:10.865 DEBUG 10460 --- [http-nio-8081-exec-4] o.s.web.servlet.DispatcherServlet        : POST "/Order", parameters={}
-2019-06-07 14:53:10.867 DEBUG 10460 --- [http-nio-8081-exec-4] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to public java.lang.String com.trading.brokergateway.Controller.OrderControl.orderPost(javax.servlet.http.HttpServletRequest,java.io.BufferedReader)
-2019-06-07 14:53:10.871 DEBUG 10460 --- [http-nio-8081-exec-4] m.m.a.RequestResponseBodyMethodProcessor : Using 'application/json', given [application/json] and supported [text/plain, */*, text/plain, */*, application/json, application/*+json, application/json, application/*+json]
-2019-06-07 14:53:10.872 DEBUG 10460 --- [http-nio-8081-exec-4] m.m.a.RequestResponseBodyMethodProcessor : Writing ["OK"]
-2019-06-07 14:53:10.873 DEBUG 10460 --- [http-nio-8081-exec-4] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
-2019-06-07 14:53:16.566 DEBUG 10460 --- [http-nio-8081-exec-5] o.s.web.servlet.DispatcherServlet        : GET "/OrderBook?futureID=SB", parameters={masked}
-2019-06-07 14:53:16.566 DEBUG 10460 --- [http-nio-8081-exec-5] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to public java.lang.String com.trading.brokergateway.Controller.OrderBookControl.getOrderBook(javax.servlet.http.HttpServletRequest)
-2019-06-07 14:53:16.568 DEBUG 10460 --- [http-nio-8081-exec-5] m.m.a.RequestResponseBodyMethodProcessor : Using 'text/plain', given [*/*] and supported [text/plain, */*, text/plain, */*, application/json, application/*+json, application/json, application/*+json]
-2019-06-07 14:53:16.568 DEBUG 10460 --- [http-nio-8081-exec-5] m.m.a.RequestResponseBodyMethodProcessor : Writing ["{"sellList":[{"orderID":"688f389c-a6f7-4eaf-84e8-dd66f134f700","futureID":"SB","type":"L","way":"S" (truncated)...]
-2019-06-07 14:53:16.569 DEBUG 10460 --- [http-nio-8081-exec-5] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
-2019-06-07 16:01:09.192 ERROR 10460 --- [http-nio-8081-exec-9] c.t.b.Controller.WebsocketServer         : 发生错误
-2019-06-07 16:01:10.202 ERROR 10460 --- [http-nio-8081-exec-9] c.t.b.Controller.WebsocketServer         : 发生错误
-2019-06-07 16:01:20.130 DEBUG 10460 --- [http-nio-8081-exec-10] o.s.web.servlet.DispatcherServlet        : POST "/Order", parameters={}
-2019-06-07 16:01:20.133 DEBUG 10460 --- [http-nio-8081-exec-10] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to public java.lang.String com.trading.brokergateway.Controller.OrderControl.orderPost(javax.servlet.http.HttpServletRequest,java.io.BufferedReader)
-2019-06-07 16:01:20.193 DEBUG 10460 --- [http-nio-8081-exec-10] m.m.a.RequestResponseBodyMethodProcessor : Using 'application/json', given [application/json] and supported [text/plain, */*, text/plain, */*, application/json, application/*+json, application/json, application/*+json]
-2019-06-07 16:01:20.194 DEBUG 10460 --- [http-nio-8081-exec-10] m.m.a.RequestResponseBodyMethodProcessor : Writing ["PROCESSED"]
-2019-06-07 16:01:20.196 DEBUG 10460 --- [http-nio-8081-exec-10] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
-2019-06-07 16:01:37.931 ERROR 10460 --- [http-nio-8081-exec-3] c.t.b.Controller.WebsocketServer         : 发生错误
-2019-06-07 16:01:38.937 ERROR 10460 --- [http-nio-8081-exec-3] c.t.b.Controller.WebsocketServer         : 发生错误
-2019-06-07 16:01:54.942 ERROR 10460 --- [http-nio-8081-exec-5] c.t.b.Controller.PriceServer             : 发生错误
-2019-06-07 16:01:56.960 ERROR 10460 --- [http-nio-8081-exec-5] c.t.b.Controller.PriceServer             : 发生错误
-2019-06-07 16:06:18.269 DEBUG 10460 --- [http-nio-8081-exec-6] o.s.web.servlet.DispatcherServlet        : OPTIONS "/Result", parameters={}
-2019-06-07 16:06:18.271 DEBUG 10460 --- [http-nio-8081-exec-6] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to public java.lang.String com.trading.brokergateway.Controller.ResultAPI.getResult(javax.servlet.http.HttpServletRequest) throws java.lang.Exception
-2019-06-07 16:06:18.294 DEBUG 10460 --- [http-nio-8081-exec-6] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
-2019-06-07 16:06:18.313 DEBUG 10460 --- [http-nio-8081-exec-7] o.s.web.servlet.DispatcherServlet        : GET "/Result", parameters={}
-2019-06-07 16:06:18.314 DEBUG 10460 --- [http-nio-8081-exec-7] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to public java.lang.String com.trading.brokergateway.Controller.ResultAPI.getResult(javax.servlet.http.HttpServletRequest) throws java.lang.Exception
-2019-06-07 16:06:18.664 DEBUG 10460 --- [http-nio-8081-exec-7] m.m.a.RequestResponseBodyMethodProcessor : Using 'text/plain', given [*/*] and supported [text/plain, */*, text/plain, */*, application/json, application/*+json, application/json, application/*+json]
-2019-06-07 16:06:18.664 DEBUG 10460 --- [http-nio-8081-exec-7] m.m.a.RequestResponseBodyMethodProcessor : Writing ["[{"resultID":"cef13b4e-ab4a-4653-9c32-015e4074c817","orderID1":"410368a8-3f35-4a7d-b124-81f223a8918 (truncated)...]
-2019-06-07 16:06:18.665 DEBUG 10460 --- [http-nio-8081-exec-7] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
-2019-06-07 16:06:20.990 DEBUG 10460 --- [http-nio-8081-exec-8] o.s.web.servlet.DispatcherServlet        : OPTIONS "/Result?method=ByTime", parameters={masked}
-2019-06-07 16:06:20.991 DEBUG 10460 --- [http-nio-8081-exec-8] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to public java.lang.String com.trading.brokergateway.Controller.ResultAPI.getResult(javax.servlet.http.HttpServletRequest) throws java.lang.Exception
-2019-06-07 16:06:20.992 DEBUG 10460 --- [http-nio-8081-exec-8] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
-2019-06-07 16:06:21.009 DEBUG 10460 --- [http-nio-8081-exec-9] o.s.web.servlet.DispatcherServlet        : GET "/Result?method=ByTime", parameters={masked}
-2019-06-07 16:06:21.009 DEBUG 10460 --- [http-nio-8081-exec-9] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to public java.lang.String com.trading.brokergateway.Controller.ResultAPI.getResult(javax.servlet.http.HttpServletRequest) throws java.lang.Exception
-2019-06-07 16:06:21.029 DEBUG 10460 --- [http-nio-8081-exec-9] m.m.a.RequestResponseBodyMethodProcessor : Using 'text/plain', given [*/*] and supported [text/plain, */*, text/plain, */*, application/json, application/*+json, application/json, application/*+json]
-2019-06-07 16:06:21.029 DEBUG 10460 --- [http-nio-8081-exec-9] m.m.a.RequestResponseBodyMethodProcessor : Writing ["[{"resultID":"cef13b4e-ab4a-4653-9c32-015e4074c817","orderID1":"410368a8-3f35-4a7d-b124-81f223a8918 (truncated)...]
-2019-06-07 16:06:21.030 DEBUG 10460 --- [http-nio-8081-exec-9] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
-2019-06-07 16:06:29.294 DEBUG 10460 --- [http-nio-8081-exec-10] o.s.web.servlet.DispatcherServlet        : OPTIONS "/Result?method=ByOrderID&id=410368a8-3f35-4a7d-b124-81f223a8918c", parameters={masked}
-2019-06-07 16:06:29.294 DEBUG 10460 --- [http-nio-8081-exec-10] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to public java.lang.String com.trading.brokergateway.Controller.ResultAPI.getResult(javax.servlet.http.HttpServletRequest) throws java.lang.Exception
-2019-06-07 16:06:29.295 DEBUG 10460 --- [http-nio-8081-exec-10] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
-2019-06-07 16:06:29.309 DEBUG 10460 --- [http-nio-8081-exec-1] o.s.web.servlet.DispatcherServlet        : GET "/Result?method=ByOrderID&id=410368a8-3f35-4a7d-b124-81f223a8918c", parameters={masked}
-2019-06-07 16:06:29.310 DEBUG 10460 --- [http-nio-8081-exec-1] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to public java.lang.String com.trading.brokergateway.Controller.ResultAPI.getResult(javax.servlet.http.HttpServletRequest) throws java.lang.Exception
-2019-06-07 16:06:29.320 DEBUG 10460 --- [http-nio-8081-exec-1] m.m.a.RequestResponseBodyMethodProcessor : Using 'text/plain', given [*/*] and supported [text/plain, */*, text/plain, */*, application/json, application/*+json, application/json, application/*+json]
-2019-06-07 16:06:29.321 DEBUG 10460 --- [http-nio-8081-exec-1] m.m.a.RequestResponseBodyMethodProcessor : Writing ["[{"resultID":"cef13b4e-ab4a-4653-9c32-015e4074c817","orderID1":"410368a8-3f35-4a7d-b124-81f223a8918 (truncated)...]
-2019-06-07 16:06:29.321 DEBUG 10460 --- [http-nio-8081-exec-1] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
-2019-06-07 16:06:32.255 DEBUG 10460 --- [http-nio-8081-exec-2] o.s.web.servlet.DispatcherServlet        : OPTIONS "/Result?method=ByFutureID&id=SB", parameters={masked}
-2019-06-07 16:06:32.256 DEBUG 10460 --- [http-nio-8081-exec-2] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to public java.lang.String com.trading.brokergateway.Controller.ResultAPI.getResult(javax.servlet.http.HttpServletRequest) throws java.lang.Exception
-2019-06-07 16:06:32.257 DEBUG 10460 --- [http-nio-8081-exec-2] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
-2019-06-07 16:06:32.270 DEBUG 10460 --- [http-nio-8081-exec-3] o.s.web.servlet.DispatcherServlet        : GET "/Result?method=ByFutureID&id=SB", parameters={masked}
-2019-06-07 16:06:32.270 DEBUG 10460 --- [http-nio-8081-exec-3] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to public java.lang.String com.trading.brokergateway.Controller.ResultAPI.getResult(javax.servlet.http.HttpServletRequest) throws java.lang.Exception
-2019-06-07 16:06:32.282 DEBUG 10460 --- [http-nio-8081-exec-3] m.m.a.RequestResponseBodyMethodProcessor : Using 'text/plain', given [*/*] and supported [text/plain, */*, text/plain, */*, application/json, application/*+json, application/json, application/*+json]
-2019-06-07 16:06:32.282 DEBUG 10460 --- [http-nio-8081-exec-3] m.m.a.RequestResponseBodyMethodProcessor : Writing ["[{"resultID":"cef13b4e-ab4a-4653-9c32-015e4074c817","orderID1":"410368a8-3f35-4a7d-b124-81f223a8918 (truncated)...]
-2019-06-07 16:06:32.283 DEBUG 10460 --- [http-nio-8081-exec-3] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
-2019-06-07 16:06:54.482 DEBUG 10460 --- [http-nio-8081-exec-4] o.s.web.servlet.DispatcherServlet        : OPTIONS "/Result?method=ByFutureID&id=sb", parameters={masked}
-2019-06-07 16:06:54.483 DEBUG 10460 --- [http-nio-8081-exec-4] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to public java.lang.String com.trading.brokergateway.Controller.ResultAPI.getResult(javax.servlet.http.HttpServletRequest) throws java.lang.Exception
-2019-06-07 16:06:54.483 DEBUG 10460 --- [http-nio-8081-exec-4] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
-2019-06-07 16:06:54.500 DEBUG 10460 --- [http-nio-8081-exec-5] o.s.web.servlet.DispatcherServlet        : GET "/Result?method=ByFutureID&id=sb", parameters={masked}
-2019-06-07 16:06:54.501 DEBUG 10460 --- [http-nio-8081-exec-5] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to public java.lang.String com.trading.brokergateway.Controller.ResultAPI.getResult(javax.servlet.http.HttpServletRequest) throws java.lang.Exception
-2019-06-07 16:06:54.511 DEBUG 10460 --- [http-nio-8081-exec-5] m.m.a.RequestResponseBodyMethodProcessor : Using 'text/plain', given [*/*] and supported [text/plain, */*, text/plain, */*, application/json, application/*+json, application/json, application/*+json]
-2019-06-07 16:06:54.512 DEBUG 10460 --- [http-nio-8081-exec-5] m.m.a.RequestResponseBodyMethodProcessor : Writing ["[{"resultID":"cef13b4e-ab4a-4653-9c32-015e4074c817","orderID1":"410368a8-3f35-4a7d-b124-81f223a8918 (truncated)...]
-2019-06-07 16:06:54.512 DEBUG 10460 --- [http-nio-8081-exec-5] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
-2019-06-07 16:06:58.056 DEBUG 10460 --- [http-nio-8081-exec-6] o.s.web.servlet.DispatcherServlet        : GET "/Result?method=ByFutureID&id=SB", parameters={masked}
-2019-06-07 16:06:58.056 DEBUG 10460 --- [http-nio-8081-exec-6] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to public java.lang.String com.trading.brokergateway.Controller.ResultAPI.getResult(javax.servlet.http.HttpServletRequest) throws java.lang.Exception
-2019-06-07 16:06:58.065 DEBUG 10460 --- [http-nio-8081-exec-6] m.m.a.RequestResponseBodyMethodProcessor : Using 'text/plain', given [*/*] and supported [text/plain, */*, text/plain, */*, application/json, application/*+json, application/json, application/*+json]
-2019-06-07 16:06:58.065 DEBUG 10460 --- [http-nio-8081-exec-6] m.m.a.RequestResponseBodyMethodProcessor : Writing ["[{"resultID":"cef13b4e-ab4a-4653-9c32-015e4074c817","orderID1":"410368a8-3f35-4a7d-b124-81f223a8918 (truncated)...]
-2019-06-07 16:06:58.066 DEBUG 10460 --- [http-nio-8081-exec-6] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
-2019-06-07 16:07:01.111 DEBUG 10460 --- [http-nio-8081-exec-7] o.s.web.servlet.DispatcherServlet        : OPTIONS "/Result?method=ByPrice&id=SB&price=6.1", parameters={masked}
-2019-06-07 16:07:01.113 DEBUG 10460 --- [http-nio-8081-exec-7] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to public java.lang.String com.trading.brokergateway.Controller.ResultAPI.getResult(javax.servlet.http.HttpServletRequest) throws java.lang.Exception
-2019-06-07 16:07:01.115 DEBUG 10460 --- [http-nio-8081-exec-7] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
-2019-06-07 16:07:01.133 DEBUG 10460 --- [http-nio-8081-exec-8] o.s.web.servlet.DispatcherServlet        : GET "/Result?method=ByPrice&id=SB&price=6.1", parameters={masked}
-2019-06-07 16:07:01.133 DEBUG 10460 --- [http-nio-8081-exec-8] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to public java.lang.String com.trading.brokergateway.Controller.ResultAPI.getResult(javax.servlet.http.HttpServletRequest) throws java.lang.Exception
-2019-06-07 16:07:01.142 DEBUG 10460 --- [http-nio-8081-exec-8] m.m.a.RequestResponseBodyMethodProcessor : Using 'text/plain', given [*/*] and supported [text/plain, */*, text/plain, */*, application/json, application/*+json, application/json, application/*+json]
-2019-06-07 16:07:01.142 DEBUG 10460 --- [http-nio-8081-exec-8] m.m.a.RequestResponseBodyMethodProcessor : Writing ["[{"resultID":"cef13b4e-ab4a-4653-9c32-015e4074c817","orderID1":"410368a8-3f35-4a7d-b124-81f223a8918 (truncated)...]
-2019-06-07 16:07:01.143 DEBUG 10460 --- [http-nio-8081-exec-8] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
-2019-06-07 16:07:05.388 DEBUG 10460 --- [http-nio-8081-exec-9] o.s.web.servlet.DispatcherServlet        : OPTIONS "/Result?method=ByTraderID&id=XXX", parameters={masked}
-2019-06-07 16:07:05.389 DEBUG 10460 --- [http-nio-8081-exec-9] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to public java.lang.String com.trading.brokergateway.Controller.ResultAPI.getResult(javax.servlet.http.HttpServletRequest) throws java.lang.Exception
-2019-06-07 16:07:05.390 DEBUG 10460 --- [http-nio-8081-exec-9] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
-2019-06-07 16:07:05.412 DEBUG 10460 --- [http-nio-8081-exec-10] o.s.web.servlet.DispatcherServlet        : GET "/Result?method=ByTraderID&id=XXX", parameters={masked}
-2019-06-07 16:07:05.412 DEBUG 10460 --- [http-nio-8081-exec-10] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to public java.lang.String com.trading.brokergateway.Controller.ResultAPI.getResult(javax.servlet.http.HttpServletRequest) throws java.lang.Exception
-2019-06-07 16:07:05.423 DEBUG 10460 --- [http-nio-8081-exec-10] m.m.a.RequestResponseBodyMethodProcessor : Using 'text/plain', given [*/*] and supported [text/plain, */*, text/plain, */*, application/json, application/*+json, application/json, application/*+json]
-2019-06-07 16:07:05.423 DEBUG 10460 --- [http-nio-8081-exec-10] m.m.a.RequestResponseBodyMethodProcessor : Writing ["[{"resultID":"cef13b4e-ab4a-4653-9c32-015e4074c817","orderID1":"410368a8-3f35-4a7d-b124-81f223a8918 (truncated)...]
-2019-06-07 16:07:05.424 DEBUG 10460 --- [http-nio-8081-exec-10] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
+2019-06-10 00:51:03.696  INFO 29992 --- [main] c.t.b.BrokergatewayApplication           : Starting BrokergatewayApplication on LAPTOP-HAEK8B4U with PID 29992 (D:\distributed-OTC-trading-system\Broker-gateway\target\classes started by administartor in D:\distributed-OTC-trading-system\Broker-gateway)
+2019-06-10 00:51:03.714  INFO 29992 --- [main] c.t.b.BrokergatewayApplication           : No active profile set, falling back to default profiles: default
+2019-06-10 00:51:04.759  INFO 29992 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data repositories in DEFAULT mode.
+2019-06-10 00:51:04.847  INFO 29992 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 79ms. Found 1 repository interfaces.
+2019-06-10 00:51:05.282  INFO 29992 --- [main] trationDelegate$BeanPostProcessorChecker : Bean 'org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration' of type [org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration$$EnhancerBySpringCGLIB$$9bd3a6ff] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2019-06-10 00:51:05.664  INFO 29992 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8081 (http)
+2019-06-10 00:51:05.690  INFO 29992 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2019-06-10 00:51:05.690  INFO 29992 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.19]
+2019-06-10 00:51:05.873  INFO 29992 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2019-06-10 00:51:05.874 DEBUG 29992 --- [main] o.s.web.context.ContextLoader            : Published root WebApplicationContext as ServletContext attribute with name [org.springframework.web.context.WebApplicationContext.ROOT]
+2019-06-10 00:51:05.874  INFO 29992 --- [main] o.s.web.context.ContextLoader            : Root WebApplicationContext: initialization completed in 2088 ms
+2019-06-10 00:51:06.016  INFO 29992 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2019-06-10 00:51:06.018  WARN 29992 --- [main] com.zaxxer.hikari.util.DriverDataSource  : Registered driver with driverClassName=com.mysql.jdbc.Driver was not found, trying direct instantiation.
+2019-06-10 00:51:06.139  INFO 29992 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2019-06-10 00:51:07.353  INFO 29992 --- [main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2019-06-10 00:51:07.778 DEBUG 29992 --- [main] o.s.w.s.handler.SimpleUrlHandlerMapping  : Patterns [/**/favicon.ico] in 'faviconHandlerMapping'
+2019-06-10 00:51:07.983  INFO 29992 --- [main] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
+2019-06-10 00:51:08.014 DEBUG 29992 --- [main] s.w.s.m.m.a.RequestMappingHandlerAdapter : ControllerAdvice beans: 0 @ModelAttribute, 0 @InitBinder, 1 RequestBodyAdvice, 1 ResponseBodyAdvice
+2019-06-10 00:51:08.054  WARN 29992 --- [main] aWebConfiguration$JpaWebMvcConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2019-06-10 00:51:08.098 DEBUG 29992 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : 12 mappings in 'requestMappingHandlerMapping'
+2019-06-10 00:51:08.115 DEBUG 29992 --- [main] o.s.w.s.handler.SimpleUrlHandlerMapping  : Patterns [/webjars/**, /**] in 'resourceHandlerMapping'
+2019-06-10 00:51:08.128 DEBUG 29992 --- [main] .m.m.a.ExceptionHandlerExceptionResolver : ControllerAdvice beans: 0 @ExceptionHandler, 1 ResponseBodyAdvice
+2019-06-10 00:51:08.415 DEBUG 29992 --- [main] o.s.w.s.s.s.ServerEndpointExporter       : Registering @ServerEndpoint class: class com.trading.brokergateway.Controller.PriceServer
+2019-06-10 00:51:08.422 DEBUG 29992 --- [main] o.s.w.s.s.s.ServerEndpointExporter       : Registering @ServerEndpoint class: class com.trading.brokergateway.Controller.WebsocketServer
+2019-06-10 00:51:08.462  INFO 29992 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8081 (http) with context path ''
+2019-06-10 00:51:08.464  INFO 29992 --- [main] c.t.b.BrokergatewayApplication           : Started BrokergatewayApplication in 5.366 seconds (JVM running for 7.016)
+2019-06-10 00:58:07.015  INFO 29992 --- [http-nio-8081-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2019-06-10 00:58:07.015  INFO 29992 --- [http-nio-8081-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2019-06-10 00:58:07.015 DEBUG 29992 --- [http-nio-8081-exec-1] o.s.web.servlet.DispatcherServlet        : Detected StandardServletMultipartResolver
+2019-06-10 00:58:07.027 DEBUG 29992 --- [http-nio-8081-exec-1] o.s.web.servlet.DispatcherServlet        : enableLoggingRequestDetails='false': request parameters and headers will be masked to prevent unsafe logging of potentially sensitive data
+2019-06-10 00:58:07.028  INFO 29992 --- [http-nio-8081-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 13 ms
+2019-06-10 00:58:07.038 DEBUG 29992 --- [http-nio-8081-exec-1] o.s.web.servlet.DispatcherServlet        : GET "/OrderStat?id=359382f1-2a31-408b-a10b-f7979bff1d1e", parameters={masked}
+2019-06-10 00:58:07.042 DEBUG 29992 --- [http-nio-8081-exec-1] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to public java.lang.String com.trading.brokergateway.Controller.OrderStatAPI.getStat(javax.servlet.http.HttpServletRequest)
+2019-06-10 00:58:07.114 DEBUG 29992 --- [http-nio-8081-exec-1] m.m.a.RequestResponseBodyMethodProcessor : Using 'text/plain', given [*/*] and supported [text/plain, */*, text/plain, */*, application/json, application/*+json, application/json, application/*+json]
+2019-06-10 00:58:07.115 DEBUG 29992 --- [http-nio-8081-exec-1] m.m.a.RequestResponseBodyMethodProcessor : Writing ["PROCESSING"]
+2019-06-10 00:58:07.129 DEBUG 29992 --- [http-nio-8081-exec-1] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
+2019-06-10 00:58:07.161 DEBUG 29992 --- [http-nio-8081-exec-2] o.s.web.servlet.DispatcherServlet        : GET "/OrderStat?id=551f9b53-d678-42c4-89b6-4796e5940fb1", parameters={masked}
+2019-06-10 00:58:07.162 DEBUG 29992 --- [http-nio-8081-exec-2] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to public java.lang.String com.trading.brokergateway.Controller.OrderStatAPI.getStat(javax.servlet.http.HttpServletRequest)
+2019-06-10 00:58:07.164 DEBUG 29992 --- [http-nio-8081-exec-2] m.m.a.RequestResponseBodyMethodProcessor : Using 'text/plain', given [*/*] and supported [text/plain, */*, text/plain, */*, application/json, application/*+json, application/json, application/*+json]
+2019-06-10 00:58:07.164 DEBUG 29992 --- [http-nio-8081-exec-2] m.m.a.RequestResponseBodyMethodProcessor : Writing ["PROCESSING"]
+2019-06-10 00:58:07.165 DEBUG 29992 --- [http-nio-8081-exec-2] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
+2019-06-10 00:58:07.168 DEBUG 29992 --- [http-nio-8081-exec-3] o.s.web.servlet.DispatcherServlet        : GET "/OrderStat?id=5a542826-1815-4542-98dc-9b1f316be7e3", parameters={masked}
+2019-06-10 00:58:07.169 DEBUG 29992 --- [http-nio-8081-exec-3] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to public java.lang.String com.trading.brokergateway.Controller.OrderStatAPI.getStat(javax.servlet.http.HttpServletRequest)
+2019-06-10 00:58:07.171 DEBUG 29992 --- [http-nio-8081-exec-3] m.m.a.RequestResponseBodyMethodProcessor : Using 'text/plain', given [*/*] and supported [text/plain, */*, text/plain, */*, application/json, application/*+json, application/json, application/*+json]
+2019-06-10 00:58:07.171 DEBUG 29992 --- [http-nio-8081-exec-3] m.m.a.RequestResponseBodyMethodProcessor : Writing ["PROCESSING"]
+2019-06-10 00:58:07.172 DEBUG 29992 --- [http-nio-8081-exec-3] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
+2019-06-10 00:58:07.174 DEBUG 29992 --- [http-nio-8081-exec-4] o.s.web.servlet.DispatcherServlet        : GET "/OrderStat?id=89349864-1b41-421a-a891-dd3f0931e0f5", parameters={masked}
+2019-06-10 00:58:07.175 DEBUG 29992 --- [http-nio-8081-exec-4] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to public java.lang.String com.trading.brokergateway.Controller.OrderStatAPI.getStat(javax.servlet.http.HttpServletRequest)
+2019-06-10 00:58:07.176 DEBUG 29992 --- [http-nio-8081-exec-4] m.m.a.RequestResponseBodyMethodProcessor : Using 'text/plain', given [*/*] and supported [text/plain, */*, text/plain, */*, application/json, application/*+json, application/json, application/*+json]
+2019-06-10 00:58:07.176 DEBUG 29992 --- [http-nio-8081-exec-4] m.m.a.RequestResponseBodyMethodProcessor : Writing ["PROCESSING"]
+2019-06-10 00:58:07.177 DEBUG 29992 --- [http-nio-8081-exec-4] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
+2019-06-10 00:58:20.143 DEBUG 29992 --- [http-nio-8081-exec-6] o.s.web.servlet.DispatcherServlet        : GET "/OrderStat?id=359382f1-2a31-408b-a10b-f7979bff1d1e", parameters={masked}
+2019-06-10 00:58:20.143 DEBUG 29992 --- [http-nio-8081-exec-6] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to public java.lang.String com.trading.brokergateway.Controller.OrderStatAPI.getStat(javax.servlet.http.HttpServletRequest)
+2019-06-10 00:58:20.145 DEBUG 29992 --- [http-nio-8081-exec-6] m.m.a.RequestResponseBodyMethodProcessor : Using 'text/plain', given [*/*] and supported [text/plain, */*, text/plain, */*, application/json, application/*+json, application/json, application/*+json]
+2019-06-10 00:58:20.145 DEBUG 29992 --- [http-nio-8081-exec-6] m.m.a.RequestResponseBodyMethodProcessor : Writing ["PROCESSING"]
+2019-06-10 00:58:20.146 DEBUG 29992 --- [http-nio-8081-exec-6] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
+2019-06-10 00:58:20.150 DEBUG 29992 --- [http-nio-8081-exec-7] o.s.web.servlet.DispatcherServlet        : GET "/OrderStat?id=551f9b53-d678-42c4-89b6-4796e5940fb1", parameters={masked}
+2019-06-10 00:58:20.151 DEBUG 29992 --- [http-nio-8081-exec-7] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to public java.lang.String com.trading.brokergateway.Controller.OrderStatAPI.getStat(javax.servlet.http.HttpServletRequest)
+2019-06-10 00:58:20.152 DEBUG 29992 --- [http-nio-8081-exec-7] m.m.a.RequestResponseBodyMethodProcessor : Using 'text/plain', given [*/*] and supported [text/plain, */*, text/plain, */*, application/json, application/*+json, application/json, application/*+json]
+2019-06-10 00:58:20.153 DEBUG 29992 --- [http-nio-8081-exec-7] m.m.a.RequestResponseBodyMethodProcessor : Writing ["PROCESSING"]
+2019-06-10 00:58:20.154 DEBUG 29992 --- [http-nio-8081-exec-7] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
+2019-06-10 00:58:20.156 DEBUG 29992 --- [http-nio-8081-exec-8] o.s.web.servlet.DispatcherServlet        : GET "/OrderStat?id=5a542826-1815-4542-98dc-9b1f316be7e3", parameters={masked}
+2019-06-10 00:58:20.156 DEBUG 29992 --- [http-nio-8081-exec-8] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to public java.lang.String com.trading.brokergateway.Controller.OrderStatAPI.getStat(javax.servlet.http.HttpServletRequest)
+2019-06-10 00:58:20.158 DEBUG 29992 --- [http-nio-8081-exec-8] m.m.a.RequestResponseBodyMethodProcessor : Using 'text/plain', given [*/*] and supported [text/plain, */*, text/plain, */*, application/json, application/*+json, application/json, application/*+json]
+2019-06-10 00:58:20.158 DEBUG 29992 --- [http-nio-8081-exec-8] m.m.a.RequestResponseBodyMethodProcessor : Writing ["PROCESSING"]
+2019-06-10 00:58:20.159 DEBUG 29992 --- [http-nio-8081-exec-8] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
+2019-06-10 00:58:20.161 DEBUG 29992 --- [http-nio-8081-exec-9] o.s.web.servlet.DispatcherServlet        : GET "/OrderStat?id=89349864-1b41-421a-a891-dd3f0931e0f5", parameters={masked}
+2019-06-10 00:58:20.162 DEBUG 29992 --- [http-nio-8081-exec-9] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to public java.lang.String com.trading.brokergateway.Controller.OrderStatAPI.getStat(javax.servlet.http.HttpServletRequest)
+2019-06-10 00:58:20.163 DEBUG 29992 --- [http-nio-8081-exec-9] m.m.a.RequestResponseBodyMethodProcessor : Using 'text/plain', given [*/*] and supported [text/plain, */*, text/plain, */*, application/json, application/*+json, application/json, application/*+json]
+2019-06-10 00:58:20.163 DEBUG 29992 --- [http-nio-8081-exec-9] m.m.a.RequestResponseBodyMethodProcessor : Writing ["PROCESSING"]
+2019-06-10 00:58:20.164 DEBUG 29992 --- [http-nio-8081-exec-9] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
+2019-06-10 00:58:23.212 DEBUG 29992 --- [http-nio-8081-exec-10] o.s.web.servlet.DispatcherServlet        : GET "/OrderStat?id=359382f1-2a31-408b-a10b-f7979bff1d1e", parameters={masked}
+2019-06-10 00:58:23.212 DEBUG 29992 --- [http-nio-8081-exec-10] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to public java.lang.String com.trading.brokergateway.Controller.OrderStatAPI.getStat(javax.servlet.http.HttpServletRequest)
+2019-06-10 00:58:23.216 DEBUG 29992 --- [http-nio-8081-exec-10] m.m.a.RequestResponseBodyMethodProcessor : Using 'text/plain', given [*/*] and supported [text/plain, */*, text/plain, */*, application/json, application/*+json, application/json, application/*+json]
+2019-06-10 00:58:23.217 DEBUG 29992 --- [http-nio-8081-exec-10] m.m.a.RequestResponseBodyMethodProcessor : Writing ["PROCESSING"]
+2019-06-10 00:58:23.220 DEBUG 29992 --- [http-nio-8081-exec-10] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
+2019-06-10 00:58:23.223 DEBUG 29992 --- [http-nio-8081-exec-1] o.s.web.servlet.DispatcherServlet        : GET "/OrderStat?id=551f9b53-d678-42c4-89b6-4796e5940fb1", parameters={masked}
+2019-06-10 00:58:23.223 DEBUG 29992 --- [http-nio-8081-exec-1] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to public java.lang.String com.trading.brokergateway.Controller.OrderStatAPI.getStat(javax.servlet.http.HttpServletRequest)
+2019-06-10 00:58:23.225 DEBUG 29992 --- [http-nio-8081-exec-1] m.m.a.RequestResponseBodyMethodProcessor : Using 'text/plain', given [*/*] and supported [text/plain, */*, text/plain, */*, application/json, application/*+json, application/json, application/*+json]
+2019-06-10 00:58:23.225 DEBUG 29992 --- [http-nio-8081-exec-1] m.m.a.RequestResponseBodyMethodProcessor : Writing ["PROCESSING"]
+2019-06-10 00:58:23.225 DEBUG 29992 --- [http-nio-8081-exec-1] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
+2019-06-10 00:58:23.241 DEBUG 29992 --- [http-nio-8081-exec-2] o.s.web.servlet.DispatcherServlet        : GET "/OrderStat?id=5a542826-1815-4542-98dc-9b1f316be7e3", parameters={masked}
+2019-06-10 00:58:23.241 DEBUG 29992 --- [http-nio-8081-exec-2] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to public java.lang.String com.trading.brokergateway.Controller.OrderStatAPI.getStat(javax.servlet.http.HttpServletRequest)
+2019-06-10 00:58:23.249 DEBUG 29992 --- [http-nio-8081-exec-2] m.m.a.RequestResponseBodyMethodProcessor : Using 'text/plain', given [*/*] and supported [text/plain, */*, text/plain, */*, application/json, application/*+json, application/json, application/*+json]
+2019-06-10 00:58:23.250 DEBUG 29992 --- [http-nio-8081-exec-2] m.m.a.RequestResponseBodyMethodProcessor : Writing ["PROCESSING"]
+2019-06-10 00:58:23.251 DEBUG 29992 --- [http-nio-8081-exec-2] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
+2019-06-10 00:58:23.254 DEBUG 29992 --- [http-nio-8081-exec-3] o.s.web.servlet.DispatcherServlet        : GET "/OrderStat?id=89349864-1b41-421a-a891-dd3f0931e0f5", parameters={masked}
+2019-06-10 00:58:23.255 DEBUG 29992 --- [http-nio-8081-exec-3] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to public java.lang.String com.trading.brokergateway.Controller.OrderStatAPI.getStat(javax.servlet.http.HttpServletRequest)
+2019-06-10 00:58:23.257 DEBUG 29992 --- [http-nio-8081-exec-3] m.m.a.RequestResponseBodyMethodProcessor : Using 'text/plain', given [*/*] and supported [text/plain, */*, text/plain, */*, application/json, application/*+json, application/json, application/*+json]
+2019-06-10 00:58:23.257 DEBUG 29992 --- [http-nio-8081-exec-3] m.m.a.RequestResponseBodyMethodProcessor : Writing ["PROCESSING"]
+2019-06-10 00:58:23.258 DEBUG 29992 --- [http-nio-8081-exec-3] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
+2019-06-10 00:59:04.952 DEBUG 29992 --- [http-nio-8081-exec-5] o.s.web.servlet.DispatcherServlet        : GET "/OrderStat?id=359382f1-2a31-408b-a10b-f7979bff1d1e", parameters={masked}
+2019-06-10 00:59:04.953 DEBUG 29992 --- [http-nio-8081-exec-5] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to public java.lang.String com.trading.brokergateway.Controller.OrderStatAPI.getStat(javax.servlet.http.HttpServletRequest)
+2019-06-10 00:59:04.955 DEBUG 29992 --- [http-nio-8081-exec-5] m.m.a.RequestResponseBodyMethodProcessor : Using 'text/plain', given [*/*] and supported [text/plain, */*, text/plain, */*, application/json, application/*+json, application/json, application/*+json]
+2019-06-10 00:59:04.955 DEBUG 29992 --- [http-nio-8081-exec-5] m.m.a.RequestResponseBodyMethodProcessor : Writing ["PROCESSING"]
+2019-06-10 00:59:04.956 DEBUG 29992 --- [http-nio-8081-exec-5] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
+2019-06-10 00:59:04.962 DEBUG 29992 --- [http-nio-8081-exec-6] o.s.web.servlet.DispatcherServlet        : GET "/OrderStat?id=551f9b53-d678-42c4-89b6-4796e5940fb1", parameters={masked}
+2019-06-10 00:59:04.962 DEBUG 29992 --- [http-nio-8081-exec-6] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to public java.lang.String com.trading.brokergateway.Controller.OrderStatAPI.getStat(javax.servlet.http.HttpServletRequest)
+2019-06-10 00:59:04.963 DEBUG 29992 --- [http-nio-8081-exec-6] m.m.a.RequestResponseBodyMethodProcessor : Using 'text/plain', given [*/*] and supported [text/plain, */*, text/plain, */*, application/json, application/*+json, application/json, application/*+json]
+2019-06-10 00:59:04.964 DEBUG 29992 --- [http-nio-8081-exec-6] m.m.a.RequestResponseBodyMethodProcessor : Writing ["PROCESSING"]
+2019-06-10 00:59:04.964 DEBUG 29992 --- [http-nio-8081-exec-6] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
+2019-06-10 00:59:04.967 DEBUG 29992 --- [http-nio-8081-exec-7] o.s.web.servlet.DispatcherServlet        : GET "/OrderStat?id=5a542826-1815-4542-98dc-9b1f316be7e3", parameters={masked}
+2019-06-10 00:59:04.967 DEBUG 29992 --- [http-nio-8081-exec-7] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to public java.lang.String com.trading.brokergateway.Controller.OrderStatAPI.getStat(javax.servlet.http.HttpServletRequest)
+2019-06-10 00:59:04.969 DEBUG 29992 --- [http-nio-8081-exec-7] m.m.a.RequestResponseBodyMethodProcessor : Using 'text/plain', given [*/*] and supported [text/plain, */*, text/plain, */*, application/json, application/*+json, application/json, application/*+json]
+2019-06-10 00:59:04.969 DEBUG 29992 --- [http-nio-8081-exec-7] m.m.a.RequestResponseBodyMethodProcessor : Writing ["PROCESSING"]
+2019-06-10 00:59:04.970 DEBUG 29992 --- [http-nio-8081-exec-7] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
+2019-06-10 00:59:04.973 DEBUG 29992 --- [http-nio-8081-exec-8] o.s.web.servlet.DispatcherServlet        : GET "/OrderStat?id=89349864-1b41-421a-a891-dd3f0931e0f5", parameters={masked}
+2019-06-10 00:59:04.974 DEBUG 29992 --- [http-nio-8081-exec-8] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to public java.lang.String com.trading.brokergateway.Controller.OrderStatAPI.getStat(javax.servlet.http.HttpServletRequest)
+2019-06-10 00:59:04.977 DEBUG 29992 --- [http-nio-8081-exec-8] m.m.a.RequestResponseBodyMethodProcessor : Using 'text/plain', given [*/*] and supported [text/plain, */*, text/plain, */*, application/json, application/*+json, application/json, application/*+json]
+2019-06-10 00:59:04.977 DEBUG 29992 --- [http-nio-8081-exec-8] m.m.a.RequestResponseBodyMethodProcessor : Writing ["PROCESSING"]
+2019-06-10 00:59:04.978 DEBUG 29992 --- [http-nio-8081-exec-8] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
+2019-06-10 01:13:58.133 DEBUG 29992 --- [http-nio-8081-exec-10] o.s.web.servlet.DispatcherServlet        : GET "/OrderStat?id=359382f1-2a31-408b-a10b-f7979bff1d1e", parameters={masked}
+2019-06-10 01:13:58.134 DEBUG 29992 --- [http-nio-8081-exec-10] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to public java.lang.String com.trading.brokergateway.Controller.OrderStatAPI.getStat(javax.servlet.http.HttpServletRequest)
+2019-06-10 01:13:58.138 DEBUG 29992 --- [http-nio-8081-exec-10] m.m.a.RequestResponseBodyMethodProcessor : Using 'text/plain', given [*/*] and supported [text/plain, */*, text/plain, */*, application/json, application/*+json, application/json, application/*+json]
+2019-06-10 01:13:58.138 DEBUG 29992 --- [http-nio-8081-exec-10] m.m.a.RequestResponseBodyMethodProcessor : Writing ["PROCESSING"]
+2019-06-10 01:13:58.139 DEBUG 29992 --- [http-nio-8081-exec-10] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
+2019-06-10 01:13:58.166 DEBUG 29992 --- [http-nio-8081-exec-1] o.s.web.servlet.DispatcherServlet        : GET "/OrderStat?id=551f9b53-d678-42c4-89b6-4796e5940fb1", parameters={masked}
+2019-06-10 01:13:58.166 DEBUG 29992 --- [http-nio-8081-exec-1] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to public java.lang.String com.trading.brokergateway.Controller.OrderStatAPI.getStat(javax.servlet.http.HttpServletRequest)
+2019-06-10 01:13:58.169 DEBUG 29992 --- [http-nio-8081-exec-1] m.m.a.RequestResponseBodyMethodProcessor : Using 'text/plain', given [*/*] and supported [text/plain, */*, text/plain, */*, application/json, application/*+json, application/json, application/*+json]
+2019-06-10 01:13:58.169 DEBUG 29992 --- [http-nio-8081-exec-1] m.m.a.RequestResponseBodyMethodProcessor : Writing ["PROCESSING"]
+2019-06-10 01:13:58.170 DEBUG 29992 --- [http-nio-8081-exec-1] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
+2019-06-10 01:13:58.172 DEBUG 29992 --- [http-nio-8081-exec-2] o.s.web.servlet.DispatcherServlet        : GET "/OrderStat?id=5a542826-1815-4542-98dc-9b1f316be7e3", parameters={masked}
+2019-06-10 01:13:58.172 DEBUG 29992 --- [http-nio-8081-exec-2] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to public java.lang.String com.trading.brokergateway.Controller.OrderStatAPI.getStat(javax.servlet.http.HttpServletRequest)
+2019-06-10 01:13:58.174 DEBUG 29992 --- [http-nio-8081-exec-2] m.m.a.RequestResponseBodyMethodProcessor : Using 'text/plain', given [*/*] and supported [text/plain, */*, text/plain, */*, application/json, application/*+json, application/json, application/*+json]
+2019-06-10 01:13:58.174 DEBUG 29992 --- [http-nio-8081-exec-2] m.m.a.RequestResponseBodyMethodProcessor : Writing ["PROCESSING"]
+2019-06-10 01:13:58.175 DEBUG 29992 --- [http-nio-8081-exec-2] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
+2019-06-10 01:13:58.177 DEBUG 29992 --- [http-nio-8081-exec-3] o.s.web.servlet.DispatcherServlet        : GET "/OrderStat?id=89349864-1b41-421a-a891-dd3f0931e0f5", parameters={masked}
+2019-06-10 01:13:58.177 DEBUG 29992 --- [http-nio-8081-exec-3] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to public java.lang.String com.trading.brokergateway.Controller.OrderStatAPI.getStat(javax.servlet.http.HttpServletRequest)
+2019-06-10 01:13:58.178 DEBUG 29992 --- [http-nio-8081-exec-3] m.m.a.RequestResponseBodyMethodProcessor : Using 'text/plain', given [*/*] and supported [text/plain, */*, text/plain, */*, application/json, application/*+json, application/json, application/*+json]
+2019-06-10 01:13:58.179 DEBUG 29992 --- [http-nio-8081-exec-3] m.m.a.RequestResponseBodyMethodProcessor : Writing ["PROCESSING"]
+2019-06-10 01:13:58.180 DEBUG 29992 --- [http-nio-8081-exec-3] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
+2019-06-10 01:14:28.745 ERROR 29992 --- [http-nio-8081-exec-6] c.t.b.Controller.WebsocketServer         : 发生错误
+2019-06-10 01:14:29.751 ERROR 29992 --- [http-nio-8081-exec-6] c.t.b.Controller.WebsocketServer         : 发生错误
+2019-06-10 01:15:21.421 DEBUG 29992 --- [http-nio-8081-exec-9] o.s.web.servlet.DispatcherServlet        : POST "/Order", parameters={}
+2019-06-10 01:15:21.421 DEBUG 29992 --- [http-nio-8081-exec-9] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to public java.lang.String com.trading.brokergateway.Controller.OrderControl.orderPost(javax.servlet.http.HttpServletRequest,java.io.BufferedReader)
+2019-06-10 01:15:21.442 DEBUG 29992 --- [http-nio-8081-exec-9] m.m.a.RequestResponseBodyMethodProcessor : Using 'application/json', given [application/json] and supported [text/plain, */*, text/plain, */*, application/json, application/*+json, application/json, application/*+json]
+2019-06-10 01:15:21.442 DEBUG 29992 --- [http-nio-8081-exec-9] m.m.a.RequestResponseBodyMethodProcessor : Writing ["PROCESSING"]
+2019-06-10 01:15:21.443 DEBUG 29992 --- [http-nio-8081-exec-9] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
+2019-06-10 01:15:29.667 DEBUG 29992 --- [http-nio-8081-exec-1] o.s.web.servlet.DispatcherServlet        : GET "/OrderStat?id=359382f1-2a31-408b-a10b-f7979bff1d1e", parameters={masked}
+2019-06-10 01:15:29.667 DEBUG 29992 --- [http-nio-8081-exec-1] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to public java.lang.String com.trading.brokergateway.Controller.OrderStatAPI.getStat(javax.servlet.http.HttpServletRequest)
+2019-06-10 01:15:29.669 DEBUG 29992 --- [http-nio-8081-exec-1] m.m.a.RequestResponseBodyMethodProcessor : Using 'text/plain', given [*/*] and supported [text/plain, */*, text/plain, */*, application/json, application/*+json, application/json, application/*+json]
+2019-06-10 01:15:29.669 DEBUG 29992 --- [http-nio-8081-exec-1] m.m.a.RequestResponseBodyMethodProcessor : Writing ["PROCESSING"]
+2019-06-10 01:15:29.670 DEBUG 29992 --- [http-nio-8081-exec-1] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
+2019-06-10 01:15:29.673 DEBUG 29992 --- [http-nio-8081-exec-2] o.s.web.servlet.DispatcherServlet        : GET "/OrderStat?id=551f9b53-d678-42c4-89b6-4796e5940fb1", parameters={masked}
+2019-06-10 01:15:29.673 DEBUG 29992 --- [http-nio-8081-exec-2] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to public java.lang.String com.trading.brokergateway.Controller.OrderStatAPI.getStat(javax.servlet.http.HttpServletRequest)
+2019-06-10 01:15:29.675 DEBUG 29992 --- [http-nio-8081-exec-2] m.m.a.RequestResponseBodyMethodProcessor : Using 'text/plain', given [*/*] and supported [text/plain, */*, text/plain, */*, application/json, application/*+json, application/json, application/*+json]
+2019-06-10 01:15:29.675 DEBUG 29992 --- [http-nio-8081-exec-2] m.m.a.RequestResponseBodyMethodProcessor : Writing ["PROCESSING"]
+2019-06-10 01:15:29.675 DEBUG 29992 --- [http-nio-8081-exec-2] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
+2019-06-10 01:15:29.678 DEBUG 29992 --- [http-nio-8081-exec-3] o.s.web.servlet.DispatcherServlet        : GET "/OrderStat?id=5a542826-1815-4542-98dc-9b1f316be7e3", parameters={masked}
+2019-06-10 01:15:29.678 DEBUG 29992 --- [http-nio-8081-exec-3] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to public java.lang.String com.trading.brokergateway.Controller.OrderStatAPI.getStat(javax.servlet.http.HttpServletRequest)
+2019-06-10 01:15:29.680 DEBUG 29992 --- [http-nio-8081-exec-3] m.m.a.RequestResponseBodyMethodProcessor : Using 'text/plain', given [*/*] and supported [text/plain, */*, text/plain, */*, application/json, application/*+json, application/json, application/*+json]
+2019-06-10 01:15:29.681 DEBUG 29992 --- [http-nio-8081-exec-3] m.m.a.RequestResponseBodyMethodProcessor : Writing ["PROCESSING"]
+2019-06-10 01:15:29.681 DEBUG 29992 --- [http-nio-8081-exec-3] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
+2019-06-10 01:15:29.695 DEBUG 29992 --- [http-nio-8081-exec-4] o.s.web.servlet.DispatcherServlet        : GET "/OrderStat?id=88ee1ba5-b22d-4be7-8082-ad6b7ca1d570", parameters={masked}
+2019-06-10 01:15:29.696 DEBUG 29992 --- [http-nio-8081-exec-4] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to public java.lang.String com.trading.brokergateway.Controller.OrderStatAPI.getStat(javax.servlet.http.HttpServletRequest)
+2019-06-10 01:15:29.698 DEBUG 29992 --- [http-nio-8081-exec-4] m.m.a.RequestResponseBodyMethodProcessor : Using 'text/plain', given [*/*] and supported [text/plain, */*, text/plain, */*, application/json, application/*+json, application/json, application/*+json]
+2019-06-10 01:15:29.698 DEBUG 29992 --- [http-nio-8081-exec-4] m.m.a.RequestResponseBodyMethodProcessor : Writing ["PROCESSING"]
+2019-06-10 01:15:29.699 DEBUG 29992 --- [http-nio-8081-exec-4] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
+2019-06-10 01:15:29.701 DEBUG 29992 --- [http-nio-8081-exec-5] o.s.web.servlet.DispatcherServlet        : GET "/OrderStat?id=89349864-1b41-421a-a891-dd3f0931e0f5", parameters={masked}
+2019-06-10 01:15:29.701 DEBUG 29992 --- [http-nio-8081-exec-5] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to public java.lang.String com.trading.brokergateway.Controller.OrderStatAPI.getStat(javax.servlet.http.HttpServletRequest)
+2019-06-10 01:15:29.703 DEBUG 29992 --- [http-nio-8081-exec-5] m.m.a.RequestResponseBodyMethodProcessor : Using 'text/plain', given [*/*] and supported [text/plain, */*, text/plain, */*, application/json, application/*+json, application/json, application/*+json]
+2019-06-10 01:15:29.703 DEBUG 29992 --- [http-nio-8081-exec-5] m.m.a.RequestResponseBodyMethodProcessor : Writing ["PROCESSING"]
+2019-06-10 01:15:29.704 DEBUG 29992 --- [http-nio-8081-exec-5] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
+2019-06-10 01:15:52.626 DEBUG 29992 --- [http-nio-8081-exec-6] o.s.web.servlet.DispatcherServlet        : GET "/OrderStat?id=359382f1-2a31-408b-a10b-f7979bff1d1e", parameters={masked}
+2019-06-10 01:15:52.627 DEBUG 29992 --- [http-nio-8081-exec-6] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to public java.lang.String com.trading.brokergateway.Controller.OrderStatAPI.getStat(javax.servlet.http.HttpServletRequest)
+2019-06-10 01:15:52.639 DEBUG 29992 --- [http-nio-8081-exec-6] m.m.a.RequestResponseBodyMethodProcessor : Using 'text/plain', given [*/*] and supported [text/plain, */*, text/plain, */*, application/json, application/*+json, application/json, application/*+json]
+2019-06-10 01:15:52.639 DEBUG 29992 --- [http-nio-8081-exec-6] m.m.a.RequestResponseBodyMethodProcessor : Writing ["PROCESSING"]
+2019-06-10 01:15:52.640 DEBUG 29992 --- [http-nio-8081-exec-6] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
+2019-06-10 01:15:52.644 DEBUG 29992 --- [http-nio-8081-exec-9] o.s.web.servlet.DispatcherServlet        : GET "/OrderStat?id=551f9b53-d678-42c4-89b6-4796e5940fb1", parameters={masked}
+2019-06-10 01:15:52.644 DEBUG 29992 --- [http-nio-8081-exec-9] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to public java.lang.String com.trading.brokergateway.Controller.OrderStatAPI.getStat(javax.servlet.http.HttpServletRequest)
+2019-06-10 01:15:52.646 DEBUG 29992 --- [http-nio-8081-exec-9] m.m.a.RequestResponseBodyMethodProcessor : Using 'text/plain', given [*/*] and supported [text/plain, */*, text/plain, */*, application/json, application/*+json, application/json, application/*+json]
+2019-06-10 01:15:52.646 DEBUG 29992 --- [http-nio-8081-exec-9] m.m.a.RequestResponseBodyMethodProcessor : Writing ["PROCESSING"]
+2019-06-10 01:15:52.646 DEBUG 29992 --- [http-nio-8081-exec-9] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
+2019-06-10 01:15:52.648 DEBUG 29992 --- [http-nio-8081-exec-10] o.s.web.servlet.DispatcherServlet        : GET "/OrderStat?id=5a542826-1815-4542-98dc-9b1f316be7e3", parameters={masked}
+2019-06-10 01:15:52.649 DEBUG 29992 --- [http-nio-8081-exec-10] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to public java.lang.String com.trading.brokergateway.Controller.OrderStatAPI.getStat(javax.servlet.http.HttpServletRequest)
+2019-06-10 01:15:52.650 DEBUG 29992 --- [http-nio-8081-exec-10] m.m.a.RequestResponseBodyMethodProcessor : Using 'text/plain', given [*/*] and supported [text/plain, */*, text/plain, */*, application/json, application/*+json, application/json, application/*+json]
+2019-06-10 01:15:52.650 DEBUG 29992 --- [http-nio-8081-exec-10] m.m.a.RequestResponseBodyMethodProcessor : Writing ["PROCESSING"]
+2019-06-10 01:15:52.651 DEBUG 29992 --- [http-nio-8081-exec-10] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
+2019-06-10 01:15:52.654 DEBUG 29992 --- [http-nio-8081-exec-1] o.s.web.servlet.DispatcherServlet        : GET "/OrderStat?id=88ee1ba5-b22d-4be7-8082-ad6b7ca1d570", parameters={masked}
+2019-06-10 01:15:52.655 DEBUG 29992 --- [http-nio-8081-exec-1] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to public java.lang.String com.trading.brokergateway.Controller.OrderStatAPI.getStat(javax.servlet.http.HttpServletRequest)
+2019-06-10 01:15:52.656 DEBUG 29992 --- [http-nio-8081-exec-1] m.m.a.RequestResponseBodyMethodProcessor : Using 'text/plain', given [*/*] and supported [text/plain, */*, text/plain, */*, application/json, application/*+json, application/json, application/*+json]
+2019-06-10 01:15:52.656 DEBUG 29992 --- [http-nio-8081-exec-1] m.m.a.RequestResponseBodyMethodProcessor : Writing ["PROCESSING"]
+2019-06-10 01:15:52.658 DEBUG 29992 --- [http-nio-8081-exec-1] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
+2019-06-10 01:15:52.661 DEBUG 29992 --- [http-nio-8081-exec-2] o.s.web.servlet.DispatcherServlet        : GET "/OrderStat?id=89349864-1b41-421a-a891-dd3f0931e0f5", parameters={masked}
+2019-06-10 01:15:52.661 DEBUG 29992 --- [http-nio-8081-exec-2] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to public java.lang.String com.trading.brokergateway.Controller.OrderStatAPI.getStat(javax.servlet.http.HttpServletRequest)
+2019-06-10 01:15:52.663 DEBUG 29992 --- [http-nio-8081-exec-2] m.m.a.RequestResponseBodyMethodProcessor : Using 'text/plain', given [*/*] and supported [text/plain, */*, text/plain, */*, application/json, application/*+json, application/json, application/*+json]
+2019-06-10 01:15:52.663 DEBUG 29992 --- [http-nio-8081-exec-2] m.m.a.RequestResponseBodyMethodProcessor : Writing ["PROCESSING"]
+2019-06-10 01:15:52.664 DEBUG 29992 --- [http-nio-8081-exec-2] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
+2019-06-10 01:15:53.815 DEBUG 29992 --- [http-nio-8081-exec-3] o.s.web.servlet.DispatcherServlet        : GET "/OrderStat?id=359382f1-2a31-408b-a10b-f7979bff1d1e", parameters={masked}
+2019-06-10 01:15:53.816 DEBUG 29992 --- [http-nio-8081-exec-3] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to public java.lang.String com.trading.brokergateway.Controller.OrderStatAPI.getStat(javax.servlet.http.HttpServletRequest)
+2019-06-10 01:15:53.818 DEBUG 29992 --- [http-nio-8081-exec-3] m.m.a.RequestResponseBodyMethodProcessor : Using 'text/plain', given [*/*] and supported [text/plain, */*, text/plain, */*, application/json, application/*+json, application/json, application/*+json]
+2019-06-10 01:15:53.819 DEBUG 29992 --- [http-nio-8081-exec-3] m.m.a.RequestResponseBodyMethodProcessor : Writing ["PROCESSING"]
+2019-06-10 01:15:53.820 DEBUG 29992 --- [http-nio-8081-exec-3] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
+2019-06-10 01:15:53.824 DEBUG 29992 --- [http-nio-8081-exec-4] o.s.web.servlet.DispatcherServlet        : GET "/OrderStat?id=551f9b53-d678-42c4-89b6-4796e5940fb1", parameters={masked}
+2019-06-10 01:15:53.826 DEBUG 29992 --- [http-nio-8081-exec-4] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to public java.lang.String com.trading.brokergateway.Controller.OrderStatAPI.getStat(javax.servlet.http.HttpServletRequest)
+2019-06-10 01:15:53.829 DEBUG 29992 --- [http-nio-8081-exec-4] m.m.a.RequestResponseBodyMethodProcessor : Using 'text/plain', given [*/*] and supported [text/plain, */*, text/plain, */*, application/json, application/*+json, application/json, application/*+json]
+2019-06-10 01:15:53.829 DEBUG 29992 --- [http-nio-8081-exec-4] m.m.a.RequestResponseBodyMethodProcessor : Writing ["PROCESSING"]
+2019-06-10 01:15:53.830 DEBUG 29992 --- [http-nio-8081-exec-4] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
+2019-06-10 01:15:53.832 DEBUG 29992 --- [http-nio-8081-exec-5] o.s.web.servlet.DispatcherServlet        : GET "/OrderStat?id=5a542826-1815-4542-98dc-9b1f316be7e3", parameters={masked}
+2019-06-10 01:15:53.833 DEBUG 29992 --- [http-nio-8081-exec-5] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to public java.lang.String com.trading.brokergateway.Controller.OrderStatAPI.getStat(javax.servlet.http.HttpServletRequest)
+2019-06-10 01:15:53.834 DEBUG 29992 --- [http-nio-8081-exec-5] m.m.a.RequestResponseBodyMethodProcessor : Using 'text/plain', given [*/*] and supported [text/plain, */*, text/plain, */*, application/json, application/*+json, application/json, application/*+json]
+2019-06-10 01:15:53.834 DEBUG 29992 --- [http-nio-8081-exec-5] m.m.a.RequestResponseBodyMethodProcessor : Writing ["PROCESSING"]
+2019-06-10 01:15:53.835 DEBUG 29992 --- [http-nio-8081-exec-5] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
+2019-06-10 01:15:53.839 DEBUG 29992 --- [http-nio-8081-exec-7] o.s.web.servlet.DispatcherServlet        : GET "/OrderStat?id=88ee1ba5-b22d-4be7-8082-ad6b7ca1d570", parameters={masked}
+2019-06-10 01:15:53.839 DEBUG 29992 --- [http-nio-8081-exec-7] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to public java.lang.String com.trading.brokergateway.Controller.OrderStatAPI.getStat(javax.servlet.http.HttpServletRequest)
+2019-06-10 01:15:53.843 DEBUG 29992 --- [http-nio-8081-exec-7] m.m.a.RequestResponseBodyMethodProcessor : Using 'text/plain', given [*/*] and supported [text/plain, */*, text/plain, */*, application/json, application/*+json, application/json, application/*+json]
+2019-06-10 01:15:53.844 DEBUG 29992 --- [http-nio-8081-exec-7] m.m.a.RequestResponseBodyMethodProcessor : Writing ["PROCESSING"]
+2019-06-10 01:15:53.845 DEBUG 29992 --- [http-nio-8081-exec-7] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
+2019-06-10 01:15:53.848 DEBUG 29992 --- [http-nio-8081-exec-6] o.s.web.servlet.DispatcherServlet        : GET "/OrderStat?id=89349864-1b41-421a-a891-dd3f0931e0f5", parameters={masked}
+2019-06-10 01:15:53.849 DEBUG 29992 --- [http-nio-8081-exec-6] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to public java.lang.String com.trading.brokergateway.Controller.OrderStatAPI.getStat(javax.servlet.http.HttpServletRequest)
+2019-06-10 01:15:53.850 DEBUG 29992 --- [http-nio-8081-exec-6] m.m.a.RequestResponseBodyMethodProcessor : Using 'text/plain', given [*/*] and supported [text/plain, */*, text/plain, */*, application/json, application/*+json, application/json, application/*+json]
+2019-06-10 01:15:53.851 DEBUG 29992 --- [http-nio-8081-exec-6] m.m.a.RequestResponseBodyMethodProcessor : Writing ["PROCESSING"]
+2019-06-10 01:15:53.851 DEBUG 29992 --- [http-nio-8081-exec-6] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
+2019-06-10 01:15:54.637 DEBUG 29992 --- [http-nio-8081-exec-9] o.s.web.servlet.DispatcherServlet        : GET "/OrderStat?id=359382f1-2a31-408b-a10b-f7979bff1d1e", parameters={masked}
+2019-06-10 01:15:54.637 DEBUG 29992 --- [http-nio-8081-exec-9] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to public java.lang.String com.trading.brokergateway.Controller.OrderStatAPI.getStat(javax.servlet.http.HttpServletRequest)
+2019-06-10 01:15:54.639 DEBUG 29992 --- [http-nio-8081-exec-9] m.m.a.RequestResponseBodyMethodProcessor : Using 'text/plain', given [*/*] and supported [text/plain, */*, text/plain, */*, application/json, application/*+json, application/json, application/*+json]
+2019-06-10 01:15:54.639 DEBUG 29992 --- [http-nio-8081-exec-9] m.m.a.RequestResponseBodyMethodProcessor : Writing ["PROCESSING"]
+2019-06-10 01:15:54.640 DEBUG 29992 --- [http-nio-8081-exec-9] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
+2019-06-10 01:15:54.644 DEBUG 29992 --- [http-nio-8081-exec-10] o.s.web.servlet.DispatcherServlet        : GET "/OrderStat?id=551f9b53-d678-42c4-89b6-4796e5940fb1", parameters={masked}
+2019-06-10 01:15:54.645 DEBUG 29992 --- [http-nio-8081-exec-10] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to public java.lang.String com.trading.brokergateway.Controller.OrderStatAPI.getStat(javax.servlet.http.HttpServletRequest)
+2019-06-10 01:15:54.647 DEBUG 29992 --- [http-nio-8081-exec-10] m.m.a.RequestResponseBodyMethodProcessor : Using 'text/plain', given [*/*] and supported [text/plain, */*, text/plain, */*, application/json, application/*+json, application/json, application/*+json]
+2019-06-10 01:15:54.647 DEBUG 29992 --- [http-nio-8081-exec-10] m.m.a.RequestResponseBodyMethodProcessor : Writing ["PROCESSING"]
+2019-06-10 01:15:54.647 DEBUG 29992 --- [http-nio-8081-exec-10] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
+2019-06-10 01:15:54.648 DEBUG 29992 --- [http-nio-8081-exec-1] o.s.web.servlet.DispatcherServlet        : GET "/OrderStat?id=5a542826-1815-4542-98dc-9b1f316be7e3", parameters={masked}
+2019-06-10 01:15:54.649 DEBUG 29992 --- [http-nio-8081-exec-1] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to public java.lang.String com.trading.brokergateway.Controller.OrderStatAPI.getStat(javax.servlet.http.HttpServletRequest)
+2019-06-10 01:15:54.650 DEBUG 29992 --- [http-nio-8081-exec-1] m.m.a.RequestResponseBodyMethodProcessor : Using 'text/plain', given [*/*] and supported [text/plain, */*, text/plain, */*, application/json, application/*+json, application/json, application/*+json]
+2019-06-10 01:15:54.650 DEBUG 29992 --- [http-nio-8081-exec-1] m.m.a.RequestResponseBodyMethodProcessor : Writing ["PROCESSING"]
+2019-06-10 01:15:54.651 DEBUG 29992 --- [http-nio-8081-exec-1] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
+2019-06-10 01:15:54.653 DEBUG 29992 --- [http-nio-8081-exec-2] o.s.web.servlet.DispatcherServlet        : GET "/OrderStat?id=88ee1ba5-b22d-4be7-8082-ad6b7ca1d570", parameters={masked}
+2019-06-10 01:15:54.654 DEBUG 29992 --- [http-nio-8081-exec-2] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to public java.lang.String com.trading.brokergateway.Controller.OrderStatAPI.getStat(javax.servlet.http.HttpServletRequest)
+2019-06-10 01:15:54.655 DEBUG 29992 --- [http-nio-8081-exec-2] m.m.a.RequestResponseBodyMethodProcessor : Using 'text/plain', given [*/*] and supported [text/plain, */*, text/plain, */*, application/json, application/*+json, application/json, application/*+json]
+2019-06-10 01:15:54.655 DEBUG 29992 --- [http-nio-8081-exec-2] m.m.a.RequestResponseBodyMethodProcessor : Writing ["PROCESSING"]
+2019-06-10 01:15:54.656 DEBUG 29992 --- [http-nio-8081-exec-2] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
+2019-06-10 01:15:54.661 DEBUG 29992 --- [http-nio-8081-exec-3] o.s.web.servlet.DispatcherServlet        : GET "/OrderStat?id=89349864-1b41-421a-a891-dd3f0931e0f5", parameters={masked}
+2019-06-10 01:15:54.661 DEBUG 29992 --- [http-nio-8081-exec-3] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to public java.lang.String com.trading.brokergateway.Controller.OrderStatAPI.getStat(javax.servlet.http.HttpServletRequest)
+2019-06-10 01:15:54.663 DEBUG 29992 --- [http-nio-8081-exec-3] m.m.a.RequestResponseBodyMethodProcessor : Using 'text/plain', given [*/*] and supported [text/plain, */*, text/plain, */*, application/json, application/*+json, application/json, application/*+json]
+2019-06-10 01:15:54.663 DEBUG 29992 --- [http-nio-8081-exec-3] m.m.a.RequestResponseBodyMethodProcessor : Writing ["PROCESSING"]
+2019-06-10 01:15:54.663 DEBUG 29992 --- [http-nio-8081-exec-3] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
+2019-06-10 01:16:31.924 DEBUG 29992 --- [http-nio-8081-exec-5] o.s.web.servlet.DispatcherServlet        : POST "/Order", parameters={}
+2019-06-10 01:16:31.924 DEBUG 29992 --- [http-nio-8081-exec-5] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to public java.lang.String com.trading.brokergateway.Controller.OrderControl.orderPost(javax.servlet.http.HttpServletRequest,java.io.BufferedReader)
+2019-06-10 01:16:32.055 DEBUG 29992 --- [http-nio-8081-exec-5] m.m.a.RequestResponseBodyMethodProcessor : Using 'application/json', given [application/json] and supported [text/plain, */*, text/plain, */*, application/json, application/*+json, application/json, application/*+json]
+2019-06-10 01:16:32.055 DEBUG 29992 --- [http-nio-8081-exec-5] m.m.a.RequestResponseBodyMethodProcessor : Writing ["PROCESSED"]
+2019-06-10 01:16:32.056 DEBUG 29992 --- [http-nio-8081-exec-5] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
+2019-06-10 01:16:40.792 DEBUG 29992 --- [http-nio-8081-exec-6] o.s.web.servlet.DispatcherServlet        : GET "/OrderStat?id=359382f1-2a31-408b-a10b-f7979bff1d1e", parameters={masked}
+2019-06-10 01:16:40.792 DEBUG 29992 --- [http-nio-8081-exec-6] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to public java.lang.String com.trading.brokergateway.Controller.OrderStatAPI.getStat(javax.servlet.http.HttpServletRequest)
+2019-06-10 01:16:40.794 DEBUG 29992 --- [http-nio-8081-exec-6] m.m.a.RequestResponseBodyMethodProcessor : Using 'text/plain', given [*/*] and supported [text/plain, */*, text/plain, */*, application/json, application/*+json, application/json, application/*+json]
+2019-06-10 01:16:40.794 DEBUG 29992 --- [http-nio-8081-exec-6] m.m.a.RequestResponseBodyMethodProcessor : Writing ["PROCESSING"]
+2019-06-10 01:16:40.795 DEBUG 29992 --- [http-nio-8081-exec-6] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
+2019-06-10 01:16:40.798 DEBUG 29992 --- [http-nio-8081-exec-9] o.s.web.servlet.DispatcherServlet        : GET "/OrderStat?id=551f9b53-d678-42c4-89b6-4796e5940fb1", parameters={masked}
+2019-06-10 01:16:40.799 DEBUG 29992 --- [http-nio-8081-exec-9] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to public java.lang.String com.trading.brokergateway.Controller.OrderStatAPI.getStat(javax.servlet.http.HttpServletRequest)
+2019-06-10 01:16:40.802 DEBUG 29992 --- [http-nio-8081-exec-9] m.m.a.RequestResponseBodyMethodProcessor : Using 'text/plain', given [*/*] and supported [text/plain, */*, text/plain, */*, application/json, application/*+json, application/json, application/*+json]
+2019-06-10 01:16:40.802 DEBUG 29992 --- [http-nio-8081-exec-9] m.m.a.RequestResponseBodyMethodProcessor : Writing ["PROCESSING"]
+2019-06-10 01:16:40.803 DEBUG 29992 --- [http-nio-8081-exec-9] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
+2019-06-10 01:16:40.805 DEBUG 29992 --- [http-nio-8081-exec-10] o.s.web.servlet.DispatcherServlet        : GET "/OrderStat?id=5a542826-1815-4542-98dc-9b1f316be7e3", parameters={masked}
+2019-06-10 01:16:40.805 DEBUG 29992 --- [http-nio-8081-exec-10] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to public java.lang.String com.trading.brokergateway.Controller.OrderStatAPI.getStat(javax.servlet.http.HttpServletRequest)
+2019-06-10 01:16:40.807 DEBUG 29992 --- [http-nio-8081-exec-10] m.m.a.RequestResponseBodyMethodProcessor : Using 'text/plain', given [*/*] and supported [text/plain, */*, text/plain, */*, application/json, application/*+json, application/json, application/*+json]
+2019-06-10 01:16:40.807 DEBUG 29992 --- [http-nio-8081-exec-10] m.m.a.RequestResponseBodyMethodProcessor : Writing ["PROCESSING"]
+2019-06-10 01:16:40.808 DEBUG 29992 --- [http-nio-8081-exec-10] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
+2019-06-10 01:16:40.810 DEBUG 29992 --- [http-nio-8081-exec-1] o.s.web.servlet.DispatcherServlet        : GET "/OrderStat?id=88ee1ba5-b22d-4be7-8082-ad6b7ca1d570", parameters={masked}
+2019-06-10 01:16:40.810 DEBUG 29992 --- [http-nio-8081-exec-1] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to public java.lang.String com.trading.brokergateway.Controller.OrderStatAPI.getStat(javax.servlet.http.HttpServletRequest)
+2019-06-10 01:16:40.812 DEBUG 29992 --- [http-nio-8081-exec-1] m.m.a.RequestResponseBodyMethodProcessor : Using 'text/plain', given [*/*] and supported [text/plain, */*, text/plain, */*, application/json, application/*+json, application/json, application/*+json]
+2019-06-10 01:16:40.812 DEBUG 29992 --- [http-nio-8081-exec-1] m.m.a.RequestResponseBodyMethodProcessor : Writing ["FINISHED"]
+2019-06-10 01:16:40.812 DEBUG 29992 --- [http-nio-8081-exec-1] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
+2019-06-10 01:16:40.832 DEBUG 29992 --- [http-nio-8081-exec-2] o.s.web.servlet.DispatcherServlet        : GET "/OrderStat?id=89349864-1b41-421a-a891-dd3f0931e0f5", parameters={masked}
+2019-06-10 01:16:40.832 DEBUG 29992 --- [http-nio-8081-exec-2] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to public java.lang.String com.trading.brokergateway.Controller.OrderStatAPI.getStat(javax.servlet.http.HttpServletRequest)
+2019-06-10 01:16:40.834 DEBUG 29992 --- [http-nio-8081-exec-2] m.m.a.RequestResponseBodyMethodProcessor : Using 'text/plain', given [*/*] and supported [text/plain, */*, text/plain, */*, application/json, application/*+json, application/json, application/*+json]
+2019-06-10 01:16:40.835 DEBUG 29992 --- [http-nio-8081-exec-2] m.m.a.RequestResponseBodyMethodProcessor : Writing ["PROCESSING"]
+2019-06-10 01:16:40.835 DEBUG 29992 --- [http-nio-8081-exec-2] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
+2019-06-10 01:20:55.725  INFO 23784 --- [main] c.t.b.BrokergatewayApplication           : Starting BrokergatewayApplication on LAPTOP-HAEK8B4U with PID 23784 (D:\distributed-OTC-trading-system\Broker-gateway\target\classes started by administartor in D:\distributed-OTC-trading-system\Broker-gateway)
+2019-06-10 01:20:55.728  INFO 23784 --- [main] c.t.b.BrokergatewayApplication           : No active profile set, falling back to default profiles: default
+2019-06-10 01:20:56.607  INFO 23784 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data repositories in DEFAULT mode.
+2019-06-10 01:20:56.685  INFO 23784 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 69ms. Found 1 repository interfaces.
+2019-06-10 01:20:57.069  INFO 23784 --- [main] trationDelegate$BeanPostProcessorChecker : Bean 'org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration' of type [org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration$$EnhancerBySpringCGLIB$$5d1e7b8c] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2019-06-10 01:20:57.423  INFO 23784 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8081 (http)
+2019-06-10 01:20:57.453  INFO 23784 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2019-06-10 01:20:57.453  INFO 23784 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.19]
+2019-06-10 01:20:57.688  INFO 23784 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2019-06-10 01:20:57.688 DEBUG 23784 --- [main] o.s.web.context.ContextLoader            : Published root WebApplicationContext as ServletContext attribute with name [org.springframework.web.context.WebApplicationContext.ROOT]
+2019-06-10 01:20:57.689  INFO 23784 --- [main] o.s.web.context.ContextLoader            : Root WebApplicationContext: initialization completed in 1916 ms
+2019-06-10 01:20:57.852  INFO 23784 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2019-06-10 01:20:57.853  WARN 23784 --- [main] com.zaxxer.hikari.util.DriverDataSource  : Registered driver with driverClassName=com.mysql.jdbc.Driver was not found, trying direct instantiation.
+2019-06-10 01:20:58.008  INFO 23784 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2019-06-10 01:20:59.571  INFO 23784 --- [main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2019-06-10 01:20:59.957 DEBUG 23784 --- [main] o.s.w.s.handler.SimpleUrlHandlerMapping  : Patterns [/**/favicon.ico] in 'faviconHandlerMapping'
+2019-06-10 01:21:00.164  INFO 23784 --- [main] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
+2019-06-10 01:21:00.185 DEBUG 23784 --- [main] s.w.s.m.m.a.RequestMappingHandlerAdapter : ControllerAdvice beans: 0 @ModelAttribute, 0 @InitBinder, 1 RequestBodyAdvice, 1 ResponseBodyAdvice
+2019-06-10 01:21:00.217  WARN 23784 --- [main] aWebConfiguration$JpaWebMvcConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2019-06-10 01:21:00.258 DEBUG 23784 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : 12 mappings in 'requestMappingHandlerMapping'
+2019-06-10 01:21:00.273 DEBUG 23784 --- [main] o.s.w.s.handler.SimpleUrlHandlerMapping  : Patterns [/webjars/**, /**] in 'resourceHandlerMapping'
+2019-06-10 01:21:00.285 DEBUG 23784 --- [main] .m.m.a.ExceptionHandlerExceptionResolver : ControllerAdvice beans: 0 @ExceptionHandler, 1 ResponseBodyAdvice
+2019-06-10 01:21:00.490 DEBUG 23784 --- [main] o.s.w.s.s.s.ServerEndpointExporter       : Registering @ServerEndpoint class: class com.trading.brokergateway.Controller.PriceServer
+2019-06-10 01:21:00.498 DEBUG 23784 --- [main] o.s.w.s.s.s.ServerEndpointExporter       : Registering @ServerEndpoint class: class com.trading.brokergateway.Controller.WebsocketServer
+2019-06-10 01:21:00.573  INFO 23784 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8081 (http) with context path ''
+2019-06-10 01:21:00.576  INFO 23784 --- [main] c.t.b.BrokergatewayApplication           : Started BrokergatewayApplication in 5.363 seconds (JVM running for 6.838)
+2019-06-10 01:22:11.543  INFO 23784 --- [http-nio-8081-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2019-06-10 01:22:11.543  INFO 23784 --- [http-nio-8081-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2019-06-10 01:22:11.544 DEBUG 23784 --- [http-nio-8081-exec-1] o.s.web.servlet.DispatcherServlet        : Detected StandardServletMultipartResolver
+2019-06-10 01:22:11.557 DEBUG 23784 --- [http-nio-8081-exec-1] o.s.web.servlet.DispatcherServlet        : enableLoggingRequestDetails='false': request parameters and headers will be masked to prevent unsafe logging of potentially sensitive data
+2019-06-10 01:22:11.557  INFO 23784 --- [http-nio-8081-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 14 ms
+2019-06-10 01:22:11.568 DEBUG 23784 --- [http-nio-8081-exec-1] o.s.web.servlet.DispatcherServlet        : POST "/Order", parameters={}
+2019-06-10 01:22:11.575 DEBUG 23784 --- [http-nio-8081-exec-1] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to public java.lang.String com.trading.brokergateway.Controller.OrderControl.orderPost(javax.servlet.http.HttpServletRequest,java.io.BufferedReader)
+2019-06-10 01:22:11.654 DEBUG 23784 --- [http-nio-8081-exec-1] m.m.a.RequestResponseBodyMethodProcessor : Using 'application/json', given [application/json] and supported [text/plain, */*, text/plain, */*, application/json, application/*+json, application/json, application/*+json]
+2019-06-10 01:22:11.655 DEBUG 23784 --- [http-nio-8081-exec-1] m.m.a.RequestResponseBodyMethodProcessor : Writing ["NOK"]
+2019-06-10 01:22:11.664 DEBUG 23784 --- [http-nio-8081-exec-1] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
+2019-06-10 01:22:50.319 DEBUG 23784 --- [http-nio-8081-exec-7] o.s.web.servlet.DispatcherServlet        : POST "/Order", parameters={}
+2019-06-10 01:22:50.320 DEBUG 23784 --- [http-nio-8081-exec-7] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to public java.lang.String com.trading.brokergateway.Controller.OrderControl.orderPost(javax.servlet.http.HttpServletRequest,java.io.BufferedReader)
+2019-06-10 01:22:50.468 DEBUG 23784 --- [http-nio-8081-exec-7] m.m.a.RequestResponseBodyMethodProcessor : Using 'application/json', given [application/json] and supported [text/plain, */*, text/plain, */*, application/json, application/*+json, application/json, application/*+json]
+2019-06-10 01:22:50.468 DEBUG 23784 --- [http-nio-8081-exec-7] m.m.a.RequestResponseBodyMethodProcessor : Writing ["PROCESSED"]
+2019-06-10 01:22:50.469 DEBUG 23784 --- [http-nio-8081-exec-7] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
+2019-06-10 01:25:55.583 DEBUG 23784 --- [http-nio-8081-exec-9] o.s.web.servlet.DispatcherServlet        : POST "/Order", parameters={}
+2019-06-10 01:25:55.584 DEBUG 23784 --- [http-nio-8081-exec-9] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to public java.lang.String com.trading.brokergateway.Controller.OrderControl.orderPost(javax.servlet.http.HttpServletRequest,java.io.BufferedReader)
+2019-06-10 01:25:55.590 DEBUG 23784 --- [http-nio-8081-exec-9] m.m.a.RequestResponseBodyMethodProcessor : Using 'application/json', given [application/json] and supported [text/plain, */*, text/plain, */*, application/json, application/*+json, application/json, application/*+json]
+2019-06-10 01:25:55.590 DEBUG 23784 --- [http-nio-8081-exec-9] m.m.a.RequestResponseBodyMethodProcessor : Writing ["PROCESSING"]
+2019-06-10 01:25:55.591 DEBUG 23784 --- [http-nio-8081-exec-9] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
+2019-06-10 01:25:58.599 DEBUG 23784 --- [http-nio-8081-exec-10] o.s.web.servlet.DispatcherServlet        : GET "/OrderStat?id=98fe6bd9-f403-4719-89e0-53444ee2abd2", parameters={masked}
+2019-06-10 01:25:58.601 DEBUG 23784 --- [http-nio-8081-exec-10] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to public java.lang.String com.trading.brokergateway.Controller.OrderStatAPI.getStat(javax.servlet.http.HttpServletRequest)
+2019-06-10 01:25:58.604 DEBUG 23784 --- [http-nio-8081-exec-10] m.m.a.RequestResponseBodyMethodProcessor : Using 'text/plain', given [*/*] and supported [text/plain, */*, text/plain, */*, application/json, application/*+json, application/json, application/*+json]
+2019-06-10 01:25:58.605 DEBUG 23784 --- [http-nio-8081-exec-10] m.m.a.RequestResponseBodyMethodProcessor : Writing ["PROCESSING"]
+2019-06-10 01:25:58.608 DEBUG 23784 --- [http-nio-8081-exec-10] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
+2019-06-10 01:26:14.069 DEBUG 23784 --- [http-nio-8081-exec-4] o.s.web.servlet.DispatcherServlet        : POST "/Order", parameters={}
+2019-06-10 01:26:14.070 DEBUG 23784 --- [http-nio-8081-exec-4] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to public java.lang.String com.trading.brokergateway.Controller.OrderControl.orderPost(javax.servlet.http.HttpServletRequest,java.io.BufferedReader)
+2019-06-10 01:26:14.075 DEBUG 23784 --- [http-nio-8081-exec-4] m.m.a.RequestResponseBodyMethodProcessor : Using 'application/json', given [application/json] and supported [text/plain, */*, text/plain, */*, application/json, application/*+json, application/json, application/*+json]
+2019-06-10 01:26:14.075 DEBUG 23784 --- [http-nio-8081-exec-4] m.m.a.RequestResponseBodyMethodProcessor : Writing ["OK"]
+2019-06-10 01:26:14.076 DEBUG 23784 --- [http-nio-8081-exec-4] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
+2019-06-10 01:26:19.095 DEBUG 23784 --- [http-nio-8081-exec-6] o.s.web.servlet.DispatcherServlet        : GET "/OrderStat?id=98fe6bd9-f403-4719-89e0-53444ee2abd2", parameters={masked}
+2019-06-10 01:26:19.096 DEBUG 23784 --- [http-nio-8081-exec-6] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to public java.lang.String com.trading.brokergateway.Controller.OrderStatAPI.getStat(javax.servlet.http.HttpServletRequest)
+2019-06-10 01:26:19.098 DEBUG 23784 --- [http-nio-8081-exec-6] m.m.a.RequestResponseBodyMethodProcessor : Using 'text/plain', given [*/*] and supported [text/plain, */*, text/plain, */*, application/json, application/*+json, application/json, application/*+json]
+2019-06-10 01:26:19.099 DEBUG 23784 --- [http-nio-8081-exec-6] m.m.a.RequestResponseBodyMethodProcessor : Writing ["PROCESSING"]
+2019-06-10 01:26:19.100 DEBUG 23784 --- [http-nio-8081-exec-6] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
+2019-06-10 01:33:04.257 DEBUG 23784 --- [http-nio-8081-exec-5] o.s.web.servlet.DispatcherServlet        : POST "/Order", parameters={}
+2019-06-10 01:33:04.258 DEBUG 23784 --- [http-nio-8081-exec-5] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to public java.lang.String com.trading.brokergateway.Controller.OrderControl.orderPost(javax.servlet.http.HttpServletRequest,java.io.BufferedReader)
+2019-06-10 01:33:04.263 DEBUG 23784 --- [http-nio-8081-exec-5] m.m.a.RequestResponseBodyMethodProcessor : Using 'application/json', given [application/json] and supported [text/plain, */*, text/plain, */*, application/json, application/*+json, application/json, application/*+json]
+2019-06-10 01:33:04.263 DEBUG 23784 --- [http-nio-8081-exec-5] m.m.a.RequestResponseBodyMethodProcessor : Writing ["PROCESSING"]
+2019-06-10 01:33:04.264 DEBUG 23784 --- [http-nio-8081-exec-5] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
+2019-06-10 01:33:08.656 DEBUG 23784 --- [http-nio-8081-exec-7] o.s.web.servlet.DispatcherServlet        : GET "/OrderStat?id=5dfb0cff-2cac-4cc4-be7b-c8dc193cd806", parameters={masked}
+2019-06-10 01:33:08.657 DEBUG 23784 --- [http-nio-8081-exec-7] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to public java.lang.String com.trading.brokergateway.Controller.OrderStatAPI.getStat(javax.servlet.http.HttpServletRequest)
+2019-06-10 01:33:08.659 DEBUG 23784 --- [http-nio-8081-exec-7] m.m.a.RequestResponseBodyMethodProcessor : Using 'text/plain', given [*/*] and supported [text/plain, */*, text/plain, */*, application/json, application/*+json, application/json, application/*+json]
+2019-06-10 01:33:08.659 DEBUG 23784 --- [http-nio-8081-exec-7] m.m.a.RequestResponseBodyMethodProcessor : Writing ["PROCESSING"]
+2019-06-10 01:33:08.660 DEBUG 23784 --- [http-nio-8081-exec-7] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
+2019-06-10 01:33:08.663 DEBUG 23784 --- [http-nio-8081-exec-8] o.s.web.servlet.DispatcherServlet        : GET "/OrderStat?id=98fe6bd9-f403-4719-89e0-53444ee2abd2", parameters={masked}
+2019-06-10 01:33:08.664 DEBUG 23784 --- [http-nio-8081-exec-8] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to public java.lang.String com.trading.brokergateway.Controller.OrderStatAPI.getStat(javax.servlet.http.HttpServletRequest)
+2019-06-10 01:33:08.667 DEBUG 23784 --- [http-nio-8081-exec-8] m.m.a.RequestResponseBodyMethodProcessor : Using 'text/plain', given [*/*] and supported [text/plain, */*, text/plain, */*, application/json, application/*+json, application/json, application/*+json]
+2019-06-10 01:33:08.668 DEBUG 23784 --- [http-nio-8081-exec-8] m.m.a.RequestResponseBodyMethodProcessor : Writing ["PROCESSING"]
+2019-06-10 01:33:08.668 DEBUG 23784 --- [http-nio-8081-exec-8] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
+2019-06-10 01:33:18.074 DEBUG 23784 --- [http-nio-8081-exec-10] o.s.web.servlet.DispatcherServlet        : POST "/Order", parameters={}
+2019-06-10 01:33:18.074 DEBUG 23784 --- [http-nio-8081-exec-10] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to public java.lang.String com.trading.brokergateway.Controller.OrderControl.orderPost(javax.servlet.http.HttpServletRequest,java.io.BufferedReader)
+2019-06-10 01:33:18.079 DEBUG 23784 --- [http-nio-8081-exec-10] m.m.a.RequestResponseBodyMethodProcessor : Using 'application/json', given [application/json] and supported [text/plain, */*, text/plain, */*, application/json, application/*+json, application/json, application/*+json]
+2019-06-10 01:33:18.079 DEBUG 23784 --- [http-nio-8081-exec-10] m.m.a.RequestResponseBodyMethodProcessor : Writing ["OK"]
+2019-06-10 01:33:18.080 DEBUG 23784 --- [http-nio-8081-exec-10] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
+2019-06-10 01:33:24.990 DEBUG 23784 --- [http-nio-8081-exec-4] o.s.web.servlet.DispatcherServlet        : GET "/OrderStat?id=98fe6bd9-f403-4719-89e0-53444ee2abd2", parameters={masked}
+2019-06-10 01:33:24.990 DEBUG 23784 --- [http-nio-8081-exec-4] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to public java.lang.String com.trading.brokergateway.Controller.OrderStatAPI.getStat(javax.servlet.http.HttpServletRequest)
+2019-06-10 01:33:24.997 DEBUG 23784 --- [http-nio-8081-exec-4] m.m.a.RequestResponseBodyMethodProcessor : Using 'text/plain', given [*/*] and supported [text/plain, */*, text/plain, */*, application/json, application/*+json, application/json, application/*+json]
+2019-06-10 01:33:24.997 DEBUG 23784 --- [http-nio-8081-exec-4] m.m.a.RequestResponseBodyMethodProcessor : Writing ["PROCESSING"]
+2019-06-10 01:33:24.998 DEBUG 23784 --- [http-nio-8081-exec-4] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
+2019-06-10 01:34:00.016 DEBUG 23784 --- [http-nio-8081-exec-5] o.s.web.servlet.DispatcherServlet        : GET "/OrderStat?id=98fe6bd9-f403-4719-89e0-53444ee2abd2", parameters={masked}
+2019-06-10 01:34:00.016 DEBUG 23784 --- [http-nio-8081-exec-5] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to public java.lang.String com.trading.brokergateway.Controller.OrderStatAPI.getStat(javax.servlet.http.HttpServletRequest)
+2019-06-10 01:34:00.019 DEBUG 23784 --- [http-nio-8081-exec-5] m.m.a.RequestResponseBodyMethodProcessor : Using 'text/plain', given [*/*] and supported [text/plain, */*, text/plain, */*, application/json, application/*+json, application/json, application/*+json]
+2019-06-10 01:34:00.019 DEBUG 23784 --- [http-nio-8081-exec-5] m.m.a.RequestResponseBodyMethodProcessor : Writing ["PROCESSING"]
+2019-06-10 01:34:00.020 DEBUG 23784 --- [http-nio-8081-exec-5] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
+2019-06-10 01:35:07.614 DEBUG 23784 --- [http-nio-8081-exec-1] o.s.web.servlet.DispatcherServlet        : POST "/Order", parameters={}
+2019-06-10 01:35:07.615 DEBUG 23784 --- [http-nio-8081-exec-1] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to public java.lang.String com.trading.brokergateway.Controller.OrderControl.orderPost(javax.servlet.http.HttpServletRequest,java.io.BufferedReader)
+2019-06-10 01:35:07.641 DEBUG 23784 --- [http-nio-8081-exec-1] m.m.a.RequestResponseBodyMethodProcessor : Using 'application/json', given [application/json] and supported [text/plain, */*, text/plain, */*, application/json, application/*+json, application/json, application/*+json]
+2019-06-10 01:35:07.641 DEBUG 23784 --- [http-nio-8081-exec-1] m.m.a.RequestResponseBodyMethodProcessor : Writing ["PROCESSING"]
+2019-06-10 01:35:07.642 DEBUG 23784 --- [http-nio-8081-exec-1] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
+2019-06-10 01:35:11.907 DEBUG 23784 --- [http-nio-8081-exec-4] o.s.web.servlet.DispatcherServlet        : GET "/OrderStat?id=98fe6bd9-f403-4719-89e0-53444ee2abd2", parameters={masked}
+2019-06-10 01:35:11.907 DEBUG 23784 --- [http-nio-8081-exec-4] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to public java.lang.String com.trading.brokergateway.Controller.OrderStatAPI.getStat(javax.servlet.http.HttpServletRequest)
+2019-06-10 01:35:11.909 DEBUG 23784 --- [http-nio-8081-exec-4] m.m.a.RequestResponseBodyMethodProcessor : Using 'text/plain', given [*/*] and supported [text/plain, */*, text/plain, */*, application/json, application/*+json, application/json, application/*+json]
+2019-06-10 01:35:11.909 DEBUG 23784 --- [http-nio-8081-exec-4] m.m.a.RequestResponseBodyMethodProcessor : Writing ["PROCESSING"]
+2019-06-10 01:35:11.910 DEBUG 23784 --- [http-nio-8081-exec-4] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
+2019-06-10 01:35:11.913 DEBUG 23784 --- [http-nio-8081-exec-2] o.s.web.servlet.DispatcherServlet        : GET "/OrderStat?id=e7e61af0-2acf-4df0-ae58-6dabc0f5d007", parameters={masked}
+2019-06-10 01:35:11.914 DEBUG 23784 --- [http-nio-8081-exec-2] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to public java.lang.String com.trading.brokergateway.Controller.OrderStatAPI.getStat(javax.servlet.http.HttpServletRequest)
+2019-06-10 01:35:11.916 DEBUG 23784 --- [http-nio-8081-exec-2] m.m.a.RequestResponseBodyMethodProcessor : Using 'text/plain', given [*/*] and supported [text/plain, */*, text/plain, */*, application/json, application/*+json, application/json, application/*+json]
+2019-06-10 01:35:11.916 DEBUG 23784 --- [http-nio-8081-exec-2] m.m.a.RequestResponseBodyMethodProcessor : Writing ["PROCESSING"]
+2019-06-10 01:35:11.917 DEBUG 23784 --- [http-nio-8081-exec-2] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
+2019-06-10 01:36:09.207 DEBUG 23784 --- [http-nio-8081-exec-3] o.s.web.servlet.DispatcherServlet        : GET "/OrderStat?id=98fe6bd9-f403-4719-89e0-53444ee2abd2", parameters={masked}
+2019-06-10 01:36:09.207 DEBUG 23784 --- [http-nio-8081-exec-3] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to public java.lang.String com.trading.brokergateway.Controller.OrderStatAPI.getStat(javax.servlet.http.HttpServletRequest)
+2019-06-10 01:36:09.209 DEBUG 23784 --- [http-nio-8081-exec-3] m.m.a.RequestResponseBodyMethodProcessor : Using 'text/plain', given [*/*] and supported [text/plain, */*, text/plain, */*, application/json, application/*+json, application/json, application/*+json]
+2019-06-10 01:36:09.209 DEBUG 23784 --- [http-nio-8081-exec-3] m.m.a.RequestResponseBodyMethodProcessor : Writing ["PROCESSING"]
+2019-06-10 01:36:09.209 DEBUG 23784 --- [http-nio-8081-exec-3] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
+2019-06-10 01:36:09.212 DEBUG 23784 --- [http-nio-8081-exec-5] o.s.web.servlet.DispatcherServlet        : GET "/OrderStat?id=e7e61af0-2acf-4df0-ae58-6dabc0f5d007", parameters={masked}
+2019-06-10 01:36:09.213 DEBUG 23784 --- [http-nio-8081-exec-5] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to public java.lang.String com.trading.brokergateway.Controller.OrderStatAPI.getStat(javax.servlet.http.HttpServletRequest)
+2019-06-10 01:36:09.216 DEBUG 23784 --- [http-nio-8081-exec-5] m.m.a.RequestResponseBodyMethodProcessor : Using 'text/plain', given [*/*] and supported [text/plain, */*, text/plain, */*, application/json, application/*+json, application/json, application/*+json]
+2019-06-10 01:36:09.216 DEBUG 23784 --- [http-nio-8081-exec-5] m.m.a.RequestResponseBodyMethodProcessor : Writing ["PROCESSING"]
+2019-06-10 01:36:09.217 DEBUG 23784 --- [http-nio-8081-exec-5] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
+2019-06-10 01:36:11.344 DEBUG 23784 --- [http-nio-8081-exec-7] o.s.web.servlet.DispatcherServlet        : GET "/OrderStat?id=98fe6bd9-f403-4719-89e0-53444ee2abd2", parameters={masked}
+2019-06-10 01:36:11.344 DEBUG 23784 --- [http-nio-8081-exec-7] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to public java.lang.String com.trading.brokergateway.Controller.OrderStatAPI.getStat(javax.servlet.http.HttpServletRequest)
+2019-06-10 01:36:11.345 DEBUG 23784 --- [http-nio-8081-exec-7] m.m.a.RequestResponseBodyMethodProcessor : Using 'text/plain', given [*/*] and supported [text/plain, */*, text/plain, */*, application/json, application/*+json, application/json, application/*+json]
+2019-06-10 01:36:11.345 DEBUG 23784 --- [http-nio-8081-exec-7] m.m.a.RequestResponseBodyMethodProcessor : Writing ["PROCESSING"]
+2019-06-10 01:36:11.346 DEBUG 23784 --- [http-nio-8081-exec-7] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
+2019-06-10 01:36:11.349 DEBUG 23784 --- [http-nio-8081-exec-8] o.s.web.servlet.DispatcherServlet        : GET "/OrderStat?id=e7e61af0-2acf-4df0-ae58-6dabc0f5d007", parameters={masked}
+2019-06-10 01:36:11.349 DEBUG 23784 --- [http-nio-8081-exec-8] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to public java.lang.String com.trading.brokergateway.Controller.OrderStatAPI.getStat(javax.servlet.http.HttpServletRequest)
+2019-06-10 01:36:11.351 DEBUG 23784 --- [http-nio-8081-exec-8] m.m.a.RequestResponseBodyMethodProcessor : Using 'text/plain', given [*/*] and supported [text/plain, */*, text/plain, */*, application/json, application/*+json, application/json, application/*+json]
+2019-06-10 01:36:11.351 DEBUG 23784 --- [http-nio-8081-exec-8] m.m.a.RequestResponseBodyMethodProcessor : Writing ["PROCESSING"]
+2019-06-10 01:36:11.352 DEBUG 23784 --- [http-nio-8081-exec-8] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
+2019-06-10 01:36:26.008 DEBUG 23784 --- [http-nio-8081-exec-1] o.s.web.servlet.DispatcherServlet        : POST "/Order", parameters={}
+2019-06-10 01:36:26.008 DEBUG 23784 --- [http-nio-8081-exec-1] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to public java.lang.String com.trading.brokergateway.Controller.OrderControl.orderPost(javax.servlet.http.HttpServletRequest,java.io.BufferedReader)
+2019-06-10 01:36:26.012 DEBUG 23784 --- [http-nio-8081-exec-1] m.m.a.RequestResponseBodyMethodProcessor : Using 'application/json', given [application/json] and supported [text/plain, */*, text/plain, */*, application/json, application/*+json, application/json, application/*+json]
+2019-06-10 01:36:26.012 DEBUG 23784 --- [http-nio-8081-exec-1] m.m.a.RequestResponseBodyMethodProcessor : Writing ["PROCESSING"]
+2019-06-10 01:36:26.013 DEBUG 23784 --- [http-nio-8081-exec-1] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
+2019-06-10 01:37:10.501 ERROR 23784 --- [http-nio-8081-exec-10] c.t.b.Controller.WebsocketServer         : 发生错误
+2019-06-10 01:37:11.507 ERROR 23784 --- [http-nio-8081-exec-10] c.t.b.Controller.WebsocketServer         : 发生错误
+2019-06-10 01:37:31.362 DEBUG 23784 --- [http-nio-8081-exec-8] o.s.web.servlet.DispatcherServlet        : GET "/OrderStat?id=94ba7ab0-a425-4b65-b0d0-59e3dce85fba", parameters={masked}
+2019-06-10 01:37:31.362 DEBUG 23784 --- [http-nio-8081-exec-8] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to public java.lang.String com.trading.brokergateway.Controller.OrderStatAPI.getStat(javax.servlet.http.HttpServletRequest)
+2019-06-10 01:37:31.364 DEBUG 23784 --- [http-nio-8081-exec-8] m.m.a.RequestResponseBodyMethodProcessor : Using 'text/plain', given [*/*] and supported [text/plain, */*, text/plain, */*, application/json, application/*+json, application/json, application/*+json]
+2019-06-10 01:37:31.364 DEBUG 23784 --- [http-nio-8081-exec-8] m.m.a.RequestResponseBodyMethodProcessor : Writing ["PROCESSING"]
+2019-06-10 01:37:31.365 DEBUG 23784 --- [http-nio-8081-exec-8] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
+2019-06-10 01:37:31.370 DEBUG 23784 --- [http-nio-8081-exec-9] o.s.web.servlet.DispatcherServlet        : GET "/OrderStat?id=98fe6bd9-f403-4719-89e0-53444ee2abd2", parameters={masked}
+2019-06-10 01:37:31.370 DEBUG 23784 --- [http-nio-8081-exec-9] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to public java.lang.String com.trading.brokergateway.Controller.OrderStatAPI.getStat(javax.servlet.http.HttpServletRequest)
+2019-06-10 01:37:31.372 DEBUG 23784 --- [http-nio-8081-exec-9] m.m.a.RequestResponseBodyMethodProcessor : Using 'text/plain', given [*/*] and supported [text/plain, */*, text/plain, */*, application/json, application/*+json, application/json, application/*+json]
+2019-06-10 01:37:31.373 DEBUG 23784 --- [http-nio-8081-exec-9] m.m.a.RequestResponseBodyMethodProcessor : Writing ["PROCESSING"]
+2019-06-10 01:37:31.373 DEBUG 23784 --- [http-nio-8081-exec-9] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
+2019-06-10 01:37:33.012 ERROR 23784 --- [http-nio-8081-exec-5] c.t.b.Controller.WebsocketServer         : 发生错误
+2019-06-10 01:37:34.020 ERROR 23784 --- [http-nio-8081-exec-5] c.t.b.Controller.WebsocketServer         : 发生错误
+2019-06-10 01:39:44.727  INFO 29740 --- [main] c.t.b.BrokergatewayApplication           : Starting BrokergatewayApplication on LAPTOP-HAEK8B4U with PID 29740 (D:\distributed-OTC-trading-system\Broker-gateway\target\classes started by administartor in D:\distributed-OTC-trading-system\Broker-gateway)
+2019-06-10 01:39:44.732  INFO 29740 --- [main] c.t.b.BrokergatewayApplication           : No active profile set, falling back to default profiles: default
+2019-06-10 01:39:45.551  INFO 29740 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data repositories in DEFAULT mode.
+2019-06-10 01:39:45.629  INFO 29740 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 68ms. Found 1 repository interfaces.
+2019-06-10 01:39:45.978  INFO 29740 --- [main] trationDelegate$BeanPostProcessorChecker : Bean 'org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration' of type [org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration$$EnhancerBySpringCGLIB$$f94ef136] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2019-06-10 01:39:46.338  INFO 29740 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8081 (http)
+2019-06-10 01:39:46.366  INFO 29740 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2019-06-10 01:39:46.367  INFO 29740 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.19]
+2019-06-10 01:39:46.573  INFO 29740 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2019-06-10 01:39:46.574 DEBUG 29740 --- [main] o.s.web.context.ContextLoader            : Published root WebApplicationContext as ServletContext attribute with name [org.springframework.web.context.WebApplicationContext.ROOT]
+2019-06-10 01:39:46.574  INFO 29740 --- [main] o.s.web.context.ContextLoader            : Root WebApplicationContext: initialization completed in 1790 ms
+2019-06-10 01:39:46.756  INFO 29740 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2019-06-10 01:39:46.758  WARN 29740 --- [main] com.zaxxer.hikari.util.DriverDataSource  : Registered driver with driverClassName=com.mysql.jdbc.Driver was not found, trying direct instantiation.
+2019-06-10 01:39:46.913  INFO 29740 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2019-06-10 01:39:48.166  INFO 29740 --- [main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2019-06-10 01:39:48.666 DEBUG 29740 --- [main] o.s.w.s.handler.SimpleUrlHandlerMapping  : Patterns [/**/favicon.ico] in 'faviconHandlerMapping'
+2019-06-10 01:39:48.935  INFO 29740 --- [main] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
+2019-06-10 01:39:48.963 DEBUG 29740 --- [main] s.w.s.m.m.a.RequestMappingHandlerAdapter : ControllerAdvice beans: 0 @ModelAttribute, 0 @InitBinder, 1 RequestBodyAdvice, 1 ResponseBodyAdvice
+2019-06-10 01:39:49.072  WARN 29740 --- [main] aWebConfiguration$JpaWebMvcConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2019-06-10 01:39:49.214 DEBUG 29740 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : 12 mappings in 'requestMappingHandlerMapping'
+2019-06-10 01:39:49.251 DEBUG 29740 --- [main] o.s.w.s.handler.SimpleUrlHandlerMapping  : Patterns [/webjars/**, /**] in 'resourceHandlerMapping'
+2019-06-10 01:39:49.266 DEBUG 29740 --- [main] .m.m.a.ExceptionHandlerExceptionResolver : ControllerAdvice beans: 0 @ExceptionHandler, 1 ResponseBodyAdvice
+2019-06-10 01:39:49.567 DEBUG 29740 --- [main] o.s.w.s.s.s.ServerEndpointExporter       : Registering @ServerEndpoint class: class com.trading.brokergateway.Controller.PriceServer
+2019-06-10 01:39:49.577 DEBUG 29740 --- [main] o.s.w.s.s.s.ServerEndpointExporter       : Registering @ServerEndpoint class: class com.trading.brokergateway.Controller.WebsocketServer
+2019-06-10 01:39:49.627  INFO 29740 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8081 (http) with context path ''
+2019-06-10 01:39:49.629  INFO 29740 --- [main] c.t.b.BrokergatewayApplication           : Started BrokergatewayApplication in 5.388 seconds (JVM running for 7.021)
+2019-06-10 01:40:01.644  INFO 29740 --- [http-nio-8081-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2019-06-10 01:40:01.645  INFO 29740 --- [http-nio-8081-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2019-06-10 01:40:01.645 DEBUG 29740 --- [http-nio-8081-exec-1] o.s.web.servlet.DispatcherServlet        : Detected StandardServletMultipartResolver
+2019-06-10 01:40:01.654 DEBUG 29740 --- [http-nio-8081-exec-1] o.s.web.servlet.DispatcherServlet        : enableLoggingRequestDetails='false': request parameters and headers will be masked to prevent unsafe logging of potentially sensitive data
+2019-06-10 01:40:01.654  INFO 29740 --- [http-nio-8081-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 9 ms
+2019-06-10 01:40:01.667 DEBUG 29740 --- [http-nio-8081-exec-1] o.s.web.servlet.DispatcherServlet        : POST "/Order", parameters={}
+2019-06-10 01:40:01.672 DEBUG 29740 --- [http-nio-8081-exec-1] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to public java.lang.String com.trading.brokergateway.Controller.OrderControl.orderPost(javax.servlet.http.HttpServletRequest,java.io.BufferedReader)
+2019-06-10 01:40:01.896 DEBUG 29740 --- [http-nio-8081-exec-1] m.m.a.RequestResponseBodyMethodProcessor : Using 'application/json', given [application/json] and supported [text/plain, */*, text/plain, */*, application/json, application/*+json, application/json, application/*+json]
+2019-06-10 01:40:01.897 DEBUG 29740 --- [http-nio-8081-exec-1] m.m.a.RequestResponseBodyMethodProcessor : Writing ["PROCESSING"]
+2019-06-10 01:40:01.907 DEBUG 29740 --- [http-nio-8081-exec-1] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
+2019-06-10 01:40:04.736 DEBUG 29740 --- [http-nio-8081-exec-2] o.s.web.servlet.DispatcherServlet        : GET "/OrderStat?id=b15de14a-cb2c-4630-9310-fe760da0e7e6", parameters={masked}
+2019-06-10 01:40:04.737 DEBUG 29740 --- [http-nio-8081-exec-2] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to public java.lang.String com.trading.brokergateway.Controller.OrderStatAPI.getStat(javax.servlet.http.HttpServletRequest)
+2019-06-10 01:40:04.741 DEBUG 29740 --- [http-nio-8081-exec-2] m.m.a.RequestResponseBodyMethodProcessor : Using 'text/plain', given [*/*] and supported [text/plain, */*, text/plain, */*, application/json, application/*+json, application/json, application/*+json]
+2019-06-10 01:40:04.742 DEBUG 29740 --- [http-nio-8081-exec-2] m.m.a.RequestResponseBodyMethodProcessor : Writing ["PROCESSING"]
+2019-06-10 01:40:04.743 DEBUG 29740 --- [http-nio-8081-exec-2] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
+2019-06-10 01:40:12.158 DEBUG 29740 --- [http-nio-8081-exec-4] o.s.web.servlet.DispatcherServlet        : GET "/OrderStat?id=b15de14a-cb2c-4630-9310-fe760da0e7e6", parameters={masked}
+2019-06-10 01:40:12.159 DEBUG 29740 --- [http-nio-8081-exec-4] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to public java.lang.String com.trading.brokergateway.Controller.OrderStatAPI.getStat(javax.servlet.http.HttpServletRequest)
+2019-06-10 01:40:12.161 DEBUG 29740 --- [http-nio-8081-exec-4] m.m.a.RequestResponseBodyMethodProcessor : Using 'text/plain', given [*/*] and supported [text/plain, */*, text/plain, */*, application/json, application/*+json, application/json, application/*+json]
+2019-06-10 01:40:12.161 DEBUG 29740 --- [http-nio-8081-exec-4] m.m.a.RequestResponseBodyMethodProcessor : Writing ["PROCESSING"]
+2019-06-10 01:40:12.161 DEBUG 29740 --- [http-nio-8081-exec-4] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
+2019-06-10 01:40:17.759 DEBUG 29740 --- [http-nio-8081-exec-6] o.s.web.servlet.DispatcherServlet        : POST "/Order", parameters={}
+2019-06-10 01:40:17.759 DEBUG 29740 --- [http-nio-8081-exec-6] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to public java.lang.String com.trading.brokergateway.Controller.OrderControl.orderPost(javax.servlet.http.HttpServletRequest,java.io.BufferedReader)
+2019-06-10 01:40:17.767 DEBUG 29740 --- [http-nio-8081-exec-6] m.m.a.RequestResponseBodyMethodProcessor : Using 'application/json', given [application/json] and supported [text/plain, */*, text/plain, */*, application/json, application/*+json, application/json, application/*+json]
+2019-06-10 01:40:17.767 DEBUG 29740 --- [http-nio-8081-exec-6] m.m.a.RequestResponseBodyMethodProcessor : Writing ["PARTLY,100"]
+2019-06-10 01:40:17.768 DEBUG 29740 --- [http-nio-8081-exec-6] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
+2019-06-10 01:41:26.567 ERROR 29740 --- [http-nio-8081-exec-9] c.t.b.Controller.PriceServer             : 发生错误
+2019-06-10 01:41:28.579 ERROR 29740 --- [http-nio-8081-exec-9] c.t.b.Controller.PriceServer             : 发生错误

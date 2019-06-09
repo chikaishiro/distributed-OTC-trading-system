@@ -131,7 +131,7 @@
 						</div>
 					</div>
 					<h4>Trader ID</h4>
-                    <p style="font-size: 20px">yty</p>
+                    <p style="font-size: 20px" id="uname"></p>
 					<h4>Connected to Trader:</h4>
 					<p style="font-size: 20px"  id="traderip"></p>
 					<h4>Connected to Broker:</h4>
@@ -169,6 +169,7 @@
 		<script src="js/simplify/simplify.js"></script>
 	<script>
 		window.onload = function f() {
+            document.getElementById("uname").innerHTML = localStorage.getItem("username");
 			document.getElementById("brokerip").innerHTML = localStorage.getItem("bip");
             document.getElementById("traderip").innerHTML = localStorage.getItem("tip");
         }

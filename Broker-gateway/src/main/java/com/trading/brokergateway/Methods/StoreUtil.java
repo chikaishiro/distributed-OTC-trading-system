@@ -65,7 +65,7 @@ public class StoreUtil {
 
     public static void setOrderStat(UUID orderID){
         Jedis jedis = new Jedis("localhost");
-        String res = "FINISHED";
+        String res = "PROCESSED";
         jedis.set(orderID.toString(),res);
         jedis.close();
     }

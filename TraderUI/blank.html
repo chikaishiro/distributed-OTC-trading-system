@@ -360,7 +360,8 @@ function funcmark(){
 			'futureID' : $('#fu-mar').val(),
 			'amount' : $('#qu-mar').val(),
 			'way': typ,
-			'type':'M'
+			'type':'M',
+			'brokerIp':localStorage.getItem('bip')
 		};
 		alert(JSON.stringify(formData));
 		htmlobj =  $.ajax({
@@ -393,7 +394,8 @@ function funcmark(){
 			'amount' : $('#qu-lim').val(),
 			'price':$('#pr-lim').val(),
 			'way': typ,
-			'type':'L'
+			'type':'L',
+            'brokerIp':localStorage.getItem('bip')
 		};
 		alert(JSON.stringify(formData));
 		htmlobj =  $.ajax({
@@ -425,8 +427,9 @@ function funcmark(){
 			'futureID' : $('#fu-sto').val(),
 			'amount' : $('#qu-sto').val(),
 			'price':typ,
-			'way': 'S',
-			'type':'L'
+			'way': typ,
+			'type':'L',
+            'brokerIp':localStorage.getItem('bip')
 		};
 		alert(JSON.stringify(formData));
 		htmlobj =  $.ajax({
@@ -449,7 +452,8 @@ function funcmark(){
 		alert("good");
 		var formData = {
 			'orderID':$('#or-can').val(),
-			'type':'C'
+			'type':'C',
+            'brokerIp':localStorage.getItem('bip')
 		};
 		htmlobj =  $.ajax({
 			type: "post",

@@ -1,5 +1,6 @@
 package com.trading.brokergateway.Controller;
 
+import com.google.gson.Gson;
 import com.trading.brokergateway.Methods.StoreUtil;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.web.bind.annotation.*;
@@ -32,13 +33,11 @@ public class TraderControl {
 
     @RequestMapping(value="Trader",method = RequestMethod.GET)
     public String TraderList(){
-        String ret = "";
-        try{
+        Gson gson  = new Gson();
+        try
+        {
             HashSet<String> set = StoreUtil.GetSet("traders");
-            for(String i:set){
-                ret = ret + i + "||";
-            }
-            return ret;
+            return gson.toJson(set);
         }
         catch (Exception e){
             return "ERR";

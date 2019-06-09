@@ -52,8 +52,32 @@ public class Generate {
         orderQueue.insertBuy(ord6);
         StoreUtil.SetQueue(orderQueue,"SB");
     }
+
+    public static void test3(){
+        Order ord1 = new Order(UUID.randomUUID(), "U", 'L', 'S', 8.1, 100, "2.4",
+                Calendar.getInstance().getTimeInMillis(), "xxx");
+        Order ord2 = new Order(UUID.randomUUID(), "U", 'L', 'S', 6.1, 100, "2.4",
+                2, "xxx");
+        Order ord3 = new Order(UUID.randomUUID(), "U", 'L', 'S', 6.1, 100, "2.4",
+                1, "xxx");
+        Order ord4 = new Order(UUID.randomUUID(), "U", 'L', 'B', 5.1, 100, "2.4",
+                2, "xxx");
+        Order ord5 = new Order(UUID.randomUUID(), "U", 'L', 'B', 5.1, 100, "2.4",
+                1, "xxx");
+        Order ord6 = new Order(UUID.randomUUID(), "U", 'L', 'B', 3.1, 100, "2.4",
+                Calendar.getInstance().getTimeInMillis(), "xxx");
+        OrderQueue orderQueue = StoreUtil.GetQueue("U");
+        orderQueue.insertSell(ord1);
+        orderQueue.insertSell(ord2);
+        orderQueue.insertSell(ord3);
+        orderQueue.insertBuy(ord4);
+        orderQueue.insertBuy(ord5);
+        orderQueue.insertBuy(ord6);
+        StoreUtil.SetQueue(orderQueue,"U");
+    }
     public static void main(String[] args) {
         test2();
+        test3();
 
 
     }
