@@ -56,13 +56,13 @@
 								</a>
 							</li>
 							<li class="bg-palette2">
-								<a href="blank.html">
+								<a href="blank3.html">
 									<span class="menu-content block">
 										<span class="menu-icon"><i class="block fa fa-desktop fa-lg"></i></span>
-										<span class="text m-left-sm">新建订单</span>
+										<span class="text m-left-sm">订单记录</span>
 									</span>
 									<span class="menu-content-hover block">
-										新建
+										订单
 									</span>
 								</a>
 							</li>
@@ -78,7 +78,7 @@
 								</a>
 							</li>
 							<li class="bg-palette2">
-								<a href="blank3.html">
+								<a href="blank1.html">
 									<span class="menu-content block">
 										<span class="menu-icon"><i class="block fa fa-clock-o fa-lg"></i></span>
 										<span class="text m-left-sm">交易记录</span>
@@ -103,13 +103,13 @@
 								</a>
 							</li>
 							<li class="bg-palette4">
-								<a href="blank1.html">
+								<a href="blank.html">
 									<span class="menu-content block">
 										<span class="menu-icon"><i class="block fa fa-list fa-lg"></i></span>
-										<span class="text m-left-sm">信息查询</span>
+										<span class="text m-left-sm">信息管理</span>
 									</span>
 									<span class="menu-content-hover block">
-										查询
+										管理
 									</span>
 								</a>
 							</li>
@@ -131,13 +131,19 @@
 						</div>
 					</div>
 					<h4>Connected Trader:</h4>
-                    <p style="font-size: 20px">localhost</p>
+                    <p style="font-size: 20px" id="traderip"></p>
 					<h4>Connected to Broker:</h4>
 					<p style="font-size: 20px"  id="brokerip"></p>
 
 					<input type="text" placeholder="Trader Gateway's IP" class="form-control input-sm" name="chat1" />
 					<input type="text" placeholder="Broker IP" class="form-control input-sm" name="chat2" />
-					<button class="btn btn-block" onclick="f()">Save Information</button>
+					<button class="btn btn-block" onclick="ff()">Save Information</button>
+					<table id="Table" border="1" class="table table-striped">
+						<tr>
+							<th>traders</th>
+						</tr>
+					</table>
+					</p>
 					<p style="font-size: 20px"></p>
 				</div><!-- ./padding-md -->
 			</div><!-- /main-container -->
@@ -169,14 +175,63 @@
 	<script>
 		window.onload = function f() {
 			document.getElementById("brokerip").innerHTML = localStorage.getItem("bip");
+			document.getElementById("traderip").innerHTML = localStorage.getItem("tip");
+			$.ajax({
+				type: "get",
+				url: "http://"+localStorage.getItem("bip")+":8081/Trader",
+				data:{
+				},
+				contentType: "application/json",
+				//dataType: "json",
+			}).success(function (data) {
+				alert(data);
+				var table = new Table("Table");
+				table.update(JSON.parse(data));
+			}).error(function () {
+			});
         }
-		function f() {
+		function ff() {
 			var traderIP = $('input[name="chat1"]').val();
 			var brokerIP = $('input[name="chat2"]').val();
 			localStorage.setItem('tip',traderIP);
 			localStorage.setItem('bip',brokerIP);
 			alert("Information saved");
 		}
+		var Table = function(element){
+			this.element = document.getElementById(element);
+		};
+		var headers = ["traders"];
+		Table.prototype = {
+			add : function(data){
+				var e = this.element, body = null;
+				for(var i = 0; i < data.length; i++){
+					var tr = e.insertRow();
+					for(var j = 0; j < headers.length; j++){
+						var td = tr.insertCell();
+							td.innerHTML = data[i];
+						tr.appendChild(td);
+					}
+					if(!body) body = e.getElementsByTagName("tbody")[0];
+					body.appendChild(tr);
+				}
+			},
+			update : function(data){
+				var e = this.element, len = e.rows.length, body = null;
+				for(var i = 1; i < data.length+1 && i < len; i++){
+					for(var j = 0; j <headers.length; j++){
+						//e.rows[i].cells[j].innerHTML = data[i-1][headers[j]];
+							e.rows[i].cells[j].innerHTML = data[i-1];
+					}
+				}
+				if(i < len){
+					for(var n = len-1; n >= i; n--){
+						e.deleteRow(n);
+					}
+				}else if(i < data.length+1){
+					this.add(data.slice(i-1));
+				}
+			}
+		};
 	</script>
 
   	</body>
