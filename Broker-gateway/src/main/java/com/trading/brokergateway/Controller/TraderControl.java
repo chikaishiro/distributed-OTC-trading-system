@@ -31,7 +31,7 @@ public class TraderControl {
         }
     }
 
-    @RequestMapping(value="Trader",method = RequestMethod.GET)
+    @RequestMapping(value="/Trader",method = RequestMethod.GET)
     public String TraderList(){
         Gson gson  = new Gson();
         try
