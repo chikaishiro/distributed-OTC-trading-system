@@ -56,4 +56,9 @@ public class OrderController {
     public List getOrdersByFid() {
         return orderService.findOrdersByToday();
     }
+
+    @GetMapping("")
+    public List getAllOrders(){
+        return orderService.
+    }
 }

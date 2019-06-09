@@ -120,7 +120,10 @@ public class OrderServiceImpl implements OrderService {
         return orderRepository.findOrdersByTimeStampBetweenOrderByTimeStampDesc(start, end);
     }
 
-
+    @Override
+    public List getAllOrders(){
+        return orderRepository.
+    }
     @Override
     public List getOrder(HttpServletRequest request){
         String username = jwtTokenUtil.parseUsername(request);
@@ -145,5 +148,6 @@ public class OrderServiceImpl implements OrderService {
             orderRepository.save(order);
         }
     }
+
 
 }

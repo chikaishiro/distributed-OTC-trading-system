@@ -1185,3 +1185,62 @@ Caused by: org.springframework.data.mapping.PropertyReferenceException: No prope
 2019-06-10 02:01:17.490 DEBUG 8584 --- [http-nio-8080-exec-7] m.m.a.RequestResponseBodyMethodProcessor : Using 'text/plain', given [*/*] and supported [text/plain, */*, text/plain, */*, application/json, application/*+json, application/json, application/*+json]
 2019-06-10 02:01:17.490 DEBUG 8584 --- [http-nio-8080-exec-7] m.m.a.RequestResponseBodyMethodProcessor : Writing ["eyJhbGciOiJIUzUxMiJ9.eyJpc3MiOiJDVFMiLCJzdWIiOiJ0ZXN0IiwiZXhwIjoxNTYwMTA2ODc3LCJpYXQiOjE1NjAxMDMyNz (truncated)...]
 2019-06-10 02:01:17.491 DEBUG 8584 --- [http-nio-8080-exec-7] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
+2019-06-10 02:05:25.262 DEBUG 8584 --- [http-nio-8080-exec-9] o.s.web.servlet.DispatcherServlet        : OPTIONS "/trader/login", parameters={}
+2019-06-10 02:05:25.263 DEBUG 8584 --- [http-nio-8080-exec-9] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to public java.lang.String com.trading.tradergateway.Controller.TraderController.login(com.trading.tradergateway.Entity.Trader) throws javax.naming.AuthenticationException
+2019-06-10 02:05:25.264 DEBUG 8584 --- [http-nio-8080-exec-9] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
+2019-06-10 02:05:25.271 DEBUG 8584 --- [http-nio-8080-exec-10] o.s.web.servlet.DispatcherServlet        : POST "/trader/login", parameters={}
+2019-06-10 02:05:25.272 DEBUG 8584 --- [http-nio-8080-exec-10] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to public java.lang.String com.trading.tradergateway.Controller.TraderController.login(com.trading.tradergateway.Entity.Trader) throws javax.naming.AuthenticationException
+2019-06-10 02:05:25.273 DEBUG 8584 --- [http-nio-8080-exec-10] m.m.a.RequestResponseBodyMethodProcessor : Read "application/json;charset=UTF-8" to [com.trading.tradergateway.Entity.Trader@598f0991]
+2019-06-10 02:05:25.388 DEBUG 8584 --- [http-nio-8080-exec-10] m.m.a.RequestResponseBodyMethodProcessor : Using 'text/plain', given [*/*] and supported [text/plain, */*, text/plain, */*, application/json, application/*+json, application/json, application/*+json]
+2019-06-10 02:05:25.388 DEBUG 8584 --- [http-nio-8080-exec-10] m.m.a.RequestResponseBodyMethodProcessor : Writing ["eyJhbGciOiJIUzUxMiJ9.eyJpc3MiOiJDVFMiLCJzdWIiOiJ0ZXN0IiwiZXhwIjoxNTYwMTA3MTI1LCJpYXQiOjE1NjAxMDM1Mj (truncated)...]
+2019-06-10 02:05:25.389 DEBUG 8584 --- [http-nio-8080-exec-10] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
+2019-06-10 02:05:38.657 DEBUG 8584 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : POST "/trader/login", parameters={}
+2019-06-10 02:05:38.657 DEBUG 8584 --- [http-nio-8080-exec-1] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to public java.lang.String com.trading.tradergateway.Controller.TraderController.login(com.trading.tradergateway.Entity.Trader) throws javax.naming.AuthenticationException
+2019-06-10 02:05:38.657 DEBUG 8584 --- [http-nio-8080-exec-1] m.m.a.RequestResponseBodyMethodProcessor : Read "application/json;charset=UTF-8" to [com.trading.tradergateway.Entity.Trader@6f542d63]
+2019-06-10 02:05:38.768 DEBUG 8584 --- [http-nio-8080-exec-1] m.m.a.RequestResponseBodyMethodProcessor : Using 'text/plain', given [*/*] and supported [text/plain, */*, text/plain, */*, application/json, application/*+json, application/json, application/*+json]
+2019-06-10 02:05:38.768 DEBUG 8584 --- [http-nio-8080-exec-1] m.m.a.RequestResponseBodyMethodProcessor : Writing ["eyJhbGciOiJIUzUxMiJ9.eyJpc3MiOiJDVFMiLCJzdWIiOiJ5dHkiLCJleHAiOjE1NjAxMDcxMzgsImlhdCI6MTU2MDEwMzUzOD (truncated)...]
+2019-06-10 02:05:38.769 DEBUG 8584 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
+2019-06-10 02:07:26.564 DEBUG 8584 --- [http-nio-8080-exec-4] o.s.web.servlet.DispatcherServlet        : OPTIONS "/order/SendOrder", parameters={}
+2019-06-10 02:07:26.564 DEBUG 8584 --- [http-nio-8080-exec-4] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to public java.lang.String com.trading.tradergateway.Controller.OrderController.sendOrder(com.trading.tradergateway.Entity.Order,javax.servlet.http.HttpServletRequest) throws java.lang.Exception
+2019-06-10 02:07:26.565 DEBUG 8584 --- [http-nio-8080-exec-4] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
+2019-06-10 02:07:26.580 DEBUG 8584 --- [http-nio-8080-exec-5] o.s.web.servlet.DispatcherServlet        : POST "/order/SendOrder", parameters={}
+2019-06-10 02:07:26.580 DEBUG 8584 --- [http-nio-8080-exec-5] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to public java.lang.String com.trading.tradergateway.Controller.OrderController.sendOrder(com.trading.tradergateway.Entity.Order,javax.servlet.http.HttpServletRequest) throws java.lang.Exception
+2019-06-10 02:07:26.581 DEBUG 8584 --- [http-nio-8080-exec-5] m.m.a.RequestResponseBodyMethodProcessor : Read "application/json;charset=UTF-8" to [com.trading.tradergateway.Entity.Order@5767ad82]
+2019-06-10 02:07:26.600 DEBUG 8584 --- [http-nio-8080-exec-5] m.m.a.RequestResponseBodyMethodProcessor : Using 'text/plain', given [*/*] and supported [text/plain, */*, text/plain, */*, application/json, application/*+json, application/json, application/*+json]
+2019-06-10 02:07:26.601 DEBUG 8584 --- [http-nio-8080-exec-5] m.m.a.RequestResponseBodyMethodProcessor : Writing ["Order Request Processing"]
+2019-06-10 02:07:26.602 DEBUG 8584 --- [http-nio-8080-exec-5] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
+2019-06-10 02:07:32.616 DEBUG 8584 --- [http-nio-8080-exec-6] o.s.web.servlet.DispatcherServlet        : OPTIONS "/order/GetOrder", parameters={}
+2019-06-10 02:07:32.616 DEBUG 8584 --- [http-nio-8080-exec-6] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to public net.sf.json.JSONArray com.trading.tradergateway.Controller.OrderController.getOrder(javax.servlet.http.HttpServletRequest)
+2019-06-10 02:07:32.616 DEBUG 8584 --- [http-nio-8080-exec-6] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
+2019-06-10 02:07:32.626 DEBUG 8584 --- [http-nio-8080-exec-7] o.s.web.servlet.DispatcherServlet        : GET "/order/GetOrder", parameters={}
+2019-06-10 02:07:32.627 DEBUG 8584 --- [http-nio-8080-exec-7] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to public net.sf.json.JSONArray com.trading.tradergateway.Controller.OrderController.getOrder(javax.servlet.http.HttpServletRequest)
+2019-06-10 02:07:32.641 DEBUG 8584 --- [http-nio-8080-exec-7] m.m.a.RequestResponseBodyMethodProcessor : Using 'application/json', given [*/*] and supported [application/json, application/*+json, application/json, application/*+json]
+2019-06-10 02:07:32.641 DEBUG 8584 --- [http-nio-8080-exec-7] m.m.a.RequestResponseBodyMethodProcessor : Writing [[{"amount":100,"brokerIp":"192.168.0.114","futureID":"SB","orderID":"e007fe7f-85ac-456e-9434-f314f20 (truncated)...]
+2019-06-10 02:07:32.642 DEBUG 8584 --- [http-nio-8080-exec-7] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
+2019-06-10 02:07:45.505 DEBUG 8584 --- [http-nio-8080-exec-8] o.s.web.servlet.DispatcherServlet        : GET "/order/GetOrder", parameters={}
+2019-06-10 02:07:45.505 DEBUG 8584 --- [http-nio-8080-exec-8] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to public net.sf.json.JSONArray com.trading.tradergateway.Controller.OrderController.getOrder(javax.servlet.http.HttpServletRequest)
+2019-06-10 02:07:45.519 DEBUG 8584 --- [http-nio-8080-exec-8] m.m.a.RequestResponseBodyMethodProcessor : Using 'application/json', given [*/*] and supported [application/json, application/*+json, application/json, application/*+json]
+2019-06-10 02:07:45.519 DEBUG 8584 --- [http-nio-8080-exec-8] m.m.a.RequestResponseBodyMethodProcessor : Writing [[{"amount":100,"brokerIp":"192.168.0.114","futureID":"SB","orderID":"e007fe7f-85ac-456e-9434-f314f20 (truncated)...]
+2019-06-10 02:07:45.520 DEBUG 8584 --- [http-nio-8080-exec-8] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
+2019-06-10 02:07:46.866 DEBUG 8584 --- [http-nio-8080-exec-9] o.s.web.servlet.DispatcherServlet        : GET "/order/GetOrder", parameters={}
+2019-06-10 02:07:46.867 DEBUG 8584 --- [http-nio-8080-exec-9] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to public net.sf.json.JSONArray com.trading.tradergateway.Controller.OrderController.getOrder(javax.servlet.http.HttpServletRequest)
+2019-06-10 02:07:46.880 DEBUG 8584 --- [http-nio-8080-exec-9] m.m.a.RequestResponseBodyMethodProcessor : Using 'application/json', given [*/*] and supported [application/json, application/*+json, application/json, application/*+json]
+2019-06-10 02:07:46.880 DEBUG 8584 --- [http-nio-8080-exec-9] m.m.a.RequestResponseBodyMethodProcessor : Writing [[{"amount":100,"brokerIp":"192.168.0.114","futureID":"SB","orderID":"e007fe7f-85ac-456e-9434-f314f20 (truncated)...]
+2019-06-10 02:07:46.881 DEBUG 8584 --- [http-nio-8080-exec-9] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
+2019-06-10 02:08:08.509 DEBUG 8584 --- [http-nio-8080-exec-10] o.s.web.servlet.DispatcherServlet        : OPTIONS "/order/SendOrder", parameters={}
+2019-06-10 02:08:08.509 DEBUG 8584 --- [http-nio-8080-exec-10] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to public java.lang.String com.trading.tradergateway.Controller.OrderController.sendOrder(com.trading.tradergateway.Entity.Order,javax.servlet.http.HttpServletRequest) throws java.lang.Exception
+2019-06-10 02:08:08.510 DEBUG 8584 --- [http-nio-8080-exec-10] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
+2019-06-10 02:08:08.520 DEBUG 8584 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : POST "/order/SendOrder", parameters={}
+2019-06-10 02:08:08.521 DEBUG 8584 --- [http-nio-8080-exec-1] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to public java.lang.String com.trading.tradergateway.Controller.OrderController.sendOrder(com.trading.tradergateway.Entity.Order,javax.servlet.http.HttpServletRequest) throws java.lang.Exception
+2019-06-10 02:08:08.522 DEBUG 8584 --- [http-nio-8080-exec-1] m.m.a.RequestResponseBodyMethodProcessor : Read "application/json;charset=UTF-8" to [com.trading.tradergateway.Entity.Order@74bcd8a3]
+2019-06-10 02:08:08.553 DEBUG 8584 --- [http-nio-8080-exec-1] m.m.a.RequestResponseBodyMethodProcessor : Using 'text/plain', given [*/*] and supported [text/plain, */*, text/plain, */*, application/json, application/*+json, application/json, application/*+json]
+2019-06-10 02:08:08.553 DEBUG 8584 --- [http-nio-8080-exec-1] m.m.a.RequestResponseBodyMethodProcessor : Writing ["Order Request Processing"]
+2019-06-10 02:08:08.554 DEBUG 8584 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
+2019-06-10 02:08:10.654 DEBUG 8584 --- [http-nio-8080-exec-2] o.s.web.servlet.DispatcherServlet        : OPTIONS "/order/GetOrder", parameters={}
+2019-06-10 02:08:10.654 DEBUG 8584 --- [http-nio-8080-exec-2] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to public net.sf.json.JSONArray com.trading.tradergateway.Controller.OrderController.getOrder(javax.servlet.http.HttpServletRequest)
+2019-06-10 02:08:10.654 DEBUG 8584 --- [http-nio-8080-exec-2] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
+2019-06-10 02:08:10.670 DEBUG 8584 --- [http-nio-8080-exec-3] o.s.web.servlet.DispatcherServlet        : GET "/order/GetOrder", parameters={}
+2019-06-10 02:08:10.670 DEBUG 8584 --- [http-nio-8080-exec-3] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to public net.sf.json.JSONArray com.trading.tradergateway.Controller.OrderController.getOrder(javax.servlet.http.HttpServletRequest)
+2019-06-10 02:08:10.681 DEBUG 8584 --- [http-nio-8080-exec-3] m.m.a.RequestResponseBodyMethodProcessor : Using 'application/json', given [*/*] and supported [application/json, application/*+json, application/json, application/*+json]
+2019-06-10 02:08:10.681 DEBUG 8584 --- [http-nio-8080-exec-3] m.m.a.RequestResponseBodyMethodProcessor : Writing [[{"amount":100,"brokerIp":"192.168.0.114","futureID":"SB","orderID":"179b9898-9644-4068-b6e1-90cf8ef (truncated)...]
+2019-06-10 02:08:10.683 DEBUG 8584 --- [http-nio-8080-exec-3] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
