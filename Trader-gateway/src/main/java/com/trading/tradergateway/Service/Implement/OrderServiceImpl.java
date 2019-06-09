@@ -23,6 +23,7 @@ public class OrderServiceImpl implements OrderService {
     private OrderRepository orderRepository;
     private TraderRepository traderRepository;
     private static String brokerAddress = "localhost:8081";
+    private static final String processing = "PROCESSING";
 
     @Autowired
     public OrderServiceImpl(OrderRepository orderRepository, TraderRepository traderRepository, JwtTokenUtil jwtTokenUtil) {
@@ -44,17 +45,13 @@ public class OrderServiceImpl implements OrderService {
         String[] params = status.split(",");
         status  = params[0];
         if (status.equals("failed")) return "Order failed";
-        order.setStatus(status);
         if (status.equals("PARTLY")) {
             int amount = Integer.parseInt(params[1]);
-            order.setAmount(amount);
-            orderRepository.save(order);
-            return "This order has been partially done with number " + amount;
+            status = params[0] + ":" + String.valueOf(amount);
         }
-        else{
-            orderRepository.save(order);
-            return status;
-        }
+        order.setStatus(status);
+        orderRepository.save(order);
+        return "Order processing";
     }
 
     @Override
@@ -70,32 +67,64 @@ public class OrderServiceImpl implements OrderService {
         if (status.equals("failed")) return "Order failed";
         Order orderC = new Order();
         BeanUtils.copyProperties(orderC,order);
-        orderC.setStatus(status);
         orderC.setOrderID(String.valueOf(UUID.randomUUID()));
         Long now = Calendar.getInstance().getTimeInMillis();
         orderC.setTimeStamp(now);
         if (status.equals("PARTLY")) {
             int amount = Integer.parseInt(params[1]);
-            orderC.setAmount(amount);
-            orderRepository.save(orderC);
-            return "This order has been partially done with number " + amount;
+            status = params[0] + ":" + String.valueOf(amount);
         }
-        else{
-            orderRepository.save(orderC);
-            return status;
-        }
+        orderC.setStatus(status);
+        orderRepository.save(orderC);
+        return "Order processing";
     }
 
     @Override
-    public List findOrdersByTraderName(String traderName){
-        return orderRepository.findOrdersByTraderId(String.valueOf(traderRepository.findTraderByTraderName(traderName).getTraderID()));
+    public List findOrdersByTraderId(String traderId){
+        List<Order> orders = orderRepository.findOrdersByTraderIdAndStatus(traderId, processing);
+        return updateOrders(orders);
     }
+
+    @Override
+    public List findOrdersByFutureId(String futureId){
+        List<Order> orders = orderRepository.findOrdersByFutureIDAndStatus(futureId, processing);
+        return updateOrders(orders);
+    }
+
+    @Override
+    public List findOrdersByToday(){
+        Calendar calendar = Calendar.getInstance();
+        calendar.set(Calendar.HOUR_OF_DAY, 0);
+        calendar.set(Calendar.MINUTE, 0);
+        calendar.set(Calendar.SECOND, 0);
+        calendar.set(Calendar.MILLISECOND, 0); //当天0点
+        long start = calendar.getTimeInMillis();
+        calendar.set(Calendar.HOUR_OF_DAY, 24);
+        long end =  calendar.getTimeInMillis();
+        List<Order> orders = orderRepository.findOrdersByStatusAndTimeStampBetween(processing, start, end);
+        return updateOrders(orders);
+    }
+
 
     @Override
     public List getOrder(HttpServletRequest request){
         String username = jwtTokenUtil.parseUsername(request);
         if (username == null) return null;
-        return findOrdersByTraderName(username);
+        String traderId = String.valueOf(traderRepository.findTraderByTraderName(username).getTraderID());
+        return findOrdersByTraderId(traderId);
+    }
+
+    @Override
+    public List updateOrders(List<Order> orders){
+        List<Order> results = new ArrayList<>();
+        for (Order order : orders){
+            HttpRequest htp = new HttpRequest();
+            String status = htp.sendGet("http://"+brokerAddress+"/OrderStat","id=" + order.getOrderID());
+            order.setStatus(status);
+            orderRepository.save(order);
+            results.add(order);
+        }
+        return results;
     }
 
 }

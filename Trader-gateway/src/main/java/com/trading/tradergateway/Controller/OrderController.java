@@ -42,5 +42,18 @@ public class OrderController {
         return result;
     }
 
+    @GetMapping("/tid")
+    public List getOrdersByTid(@RequestParam("traderId")String traderId) {
+        return orderService.findOrdersByTraderId(traderId);
+    }
 
+    @GetMapping("/fid")
+    public List getOrdersByFid(@RequestParam("futureId")String futureId) {
+        return orderService.findOrdersByFutureId(futureId);
+    }
+
+    @GetMapping("/today")
+    public List getOrdersByFid() {
+        return orderService.findOrdersByToday();
+    }
 }

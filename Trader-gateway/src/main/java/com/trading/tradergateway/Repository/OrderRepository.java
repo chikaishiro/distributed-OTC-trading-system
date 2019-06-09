@@ -10,5 +10,7 @@ import java.util.List;
 @Repository("OrderRepository")
 public interface OrderRepository extends JpaRepository<Order, String> {
     Order findOrderByOrderID(String orderID);
-    List<Order> findOrdersByTraderId(String traderId);
+    List<Order> findOrdersByTraderIdAndStatus(String traderId, String status);
+    List<Order> findOrdersByStatusAndTimeStampBetween(String status,Long start, Long end);
+    List<Order> findOrdersByFutureIDAndStatus(String futureId, String status);
 }
