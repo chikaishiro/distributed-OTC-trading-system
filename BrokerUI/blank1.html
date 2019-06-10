@@ -41,7 +41,7 @@
 	var Table = function(element){
 		this.element = document.getElementById(element);
 	};
-	var headers = ["orderID1","orderID2","traderID1","traderID2","futureID","amount","price","finishTime"];
+	var headers = ["orderID1","orderID2","traderID1","traderID2","futureID","amount","price","finishTime","commission"];
 	Table.prototype = {
 		add : function(data){
 			var e = this.element, body = null;
@@ -55,6 +55,12 @@
 						var date = new Date(data[i][headers[j]]);
 						td.innerHTML = date.Format("yyyy-MM-dd hh:mm:ss");
 
+					}
+					else if(j == 8){
+                        var temp = Number(data[i][headers[j]]);
+                        temp = Math.floor(temp*1000)/1000;
+                        temp = temp.toFixed(3);
+						td.innerHTML = temp;
 					}
 					else{
 						td.innerHTML = data[i][headers[j]];
@@ -73,9 +79,15 @@
 			for(var i = 1; i < data.length+1 && i < len; i++){
 				for(var j = 0; j <headers.length; j++){
 					//e.rows[i].cells[j].innerHTML = data[i-1][headers[j]];
-					if(j== (headers.length-1)){
+					if(j== (headers.length-2)){
 						var date = new Date(data[i-1][headers[j]]);
 						e.rows[i].cells[j].innerHTML = date.Format("yyyy-MM-dd hh:mm:ss");
+					}
+					else if(j== (headers.length-1)){
+						var temp = Number(data[i][headers[j]]);
+						temp = Math.floor(temp*1000)/1000;
+						temp = temp.toFixed(3);
+						e.rows[i].cells[j].innerHTML = temp;
 					}
 					else{
 						e.rows[i].cells[j].innerHTML = data[i-1][headers[j]];
@@ -415,6 +427,7 @@
 												<th>amount</th>
 												<th>price</th>
 												<th>finishTime</th>
+												<th>commission</th>
 											</tr>
 										</table>
 										</p>
@@ -435,6 +448,7 @@
 												<th>amount</th>
 												<th>price</th>
 												<th>finishTime</th>
+												<th>commission</th>
 											</tr>
 										</table>
 										</p>
@@ -457,6 +471,7 @@
 												<th>amount</th>
 												<th>price</th>
 												<th>finishTime</th>
+												<th>commission</th>
 											</tr>
 										</table>
 										</p>
@@ -477,6 +492,7 @@
 												<th>amount</th>
 												<th>price</th>
 												<th>finishTime</th>
+												<th>commission</th>
 											</tr>
 										</table>
 										</p>
