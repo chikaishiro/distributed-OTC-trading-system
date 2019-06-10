@@ -3686,3 +3686,162 @@ java.lang.ArrayIndexOutOfBoundsException: -1
 2019-06-10 19:37:23.244 DEBUG 22036 --- [http-nio-8081-exec-4] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
 2019-06-10 19:53:01.472 ERROR 22036 --- [http-nio-8081-exec-2] c.t.b.Controller.WebsocketServer         : 发生错误
 2019-06-10 19:53:02.486 ERROR 22036 --- [http-nio-8081-exec-2] c.t.b.Controller.WebsocketServer         : 发生错误
+2019-06-10 23:04:11.330  INFO 16604 --- [main] c.t.b.BrokergatewayApplication           : Starting BrokergatewayApplication on DESKTOP-M68LV1O with PID 16604 (E:\distributed-OTC-trading-system\Broker-gateway\target\classes started by TXX in E:\distributed-OTC-trading-system\Broker-gateway)
+2019-06-10 23:04:11.332  INFO 16604 --- [main] c.t.b.BrokergatewayApplication           : No active profile set, falling back to default profiles: default
+2019-06-10 23:04:11.996  INFO 16604 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data repositories in DEFAULT mode.
+2019-06-10 23:04:12.091  INFO 16604 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 85ms. Found 1 repository interfaces.
+2019-06-10 23:04:12.590  INFO 16604 --- [main] trationDelegate$BeanPostProcessorChecker : Bean 'org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration' of type [org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration$$EnhancerBySpringCGLIB$$d23a8247] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2019-06-10 23:04:12.849  INFO 16604 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8081 (http)
+2019-06-10 23:04:12.874  INFO 16604 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2019-06-10 23:04:12.875  INFO 16604 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.19]
+2019-06-10 23:04:13.047  INFO 16604 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2019-06-10 23:04:13.047 DEBUG 16604 --- [main] o.s.web.context.ContextLoader            : Published root WebApplicationContext as ServletContext attribute with name [org.springframework.web.context.WebApplicationContext.ROOT]
+2019-06-10 23:04:13.047  INFO 16604 --- [main] o.s.web.context.ContextLoader            : Root WebApplicationContext: initialization completed in 1678 ms
+2019-06-10 23:04:13.312  INFO 16604 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2019-06-10 23:04:13.314  WARN 16604 --- [main] com.zaxxer.hikari.util.DriverDataSource  : Registered driver with driverClassName=com.mysql.jdbc.Driver was not found, trying direct instantiation.
+2019-06-10 23:04:13.524  INFO 16604 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2019-06-10 23:04:15.231  INFO 16604 --- [main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2019-06-10 23:04:16.003  INFO 1940 --- [main] c.t.b.BrokergatewayApplication           : Starting BrokergatewayApplication on DESKTOP-M68LV1O with PID 1940 (E:\distributed-OTC-trading-system\Broker-gateway\target\classes started by TXX in E:\distributed-OTC-trading-system\Broker-gateway)
+2019-06-10 23:04:16.006  INFO 1940 --- [main] c.t.b.BrokergatewayApplication           : No active profile set, falling back to default profiles: default
+2019-06-10 23:04:16.208 DEBUG 16604 --- [main] o.s.w.s.handler.SimpleUrlHandlerMapping  : Patterns [/**/favicon.ico] in 'faviconHandlerMapping'
+2019-06-10 23:04:16.880  INFO 16604 --- [main] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
+2019-06-10 23:04:16.901  INFO 1940 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data repositories in DEFAULT mode.
+2019-06-10 23:04:16.962  INFO 1940 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 55ms. Found 1 repository interfaces.
+2019-06-10 23:04:17.232  INFO 1940 --- [main] trationDelegate$BeanPostProcessorChecker : Bean 'org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration' of type [org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration$$EnhancerBySpringCGLIB$$67736851] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2019-06-10 23:04:17.362 DEBUG 16604 --- [main] s.w.s.m.m.a.RequestMappingHandlerAdapter : ControllerAdvice beans: 0 @ModelAttribute, 0 @InitBinder, 1 RequestBodyAdvice, 1 ResponseBodyAdvice
+2019-06-10 23:04:17.391  WARN 16604 --- [main] aWebConfiguration$JpaWebMvcConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2019-06-10 23:04:17.422 DEBUG 16604 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : 12 mappings in 'requestMappingHandlerMapping'
+2019-06-10 23:04:17.434 DEBUG 16604 --- [main] o.s.w.s.handler.SimpleUrlHandlerMapping  : Patterns [/webjars/**, /**] in 'resourceHandlerMapping'
+2019-06-10 23:04:17.471  INFO 1940 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8081 (http)
+2019-06-10 23:04:17.492  INFO 1940 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2019-06-10 23:04:17.492  INFO 1940 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.19]
+2019-06-10 23:04:17.794 DEBUG 16604 --- [main] .m.m.a.ExceptionHandlerExceptionResolver : ControllerAdvice beans: 0 @ExceptionHandler, 1 ResponseBodyAdvice
+2019-06-10 23:04:18.015  INFO 1940 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2019-06-10 23:04:18.015 DEBUG 1940 --- [main] o.s.web.context.ContextLoader            : Published root WebApplicationContext as ServletContext attribute with name [org.springframework.web.context.WebApplicationContext.ROOT]
+2019-06-10 23:04:18.015  INFO 1940 --- [main] o.s.web.context.ContextLoader            : Root WebApplicationContext: initialization completed in 1961 ms
+2019-06-10 23:04:18.143  INFO 1940 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2019-06-10 23:04:18.143  WARN 1940 --- [main] com.zaxxer.hikari.util.DriverDataSource  : Registered driver with driverClassName=com.mysql.jdbc.Driver was not found, trying direct instantiation.
+2019-06-10 23:04:18.243  INFO 1940 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2019-06-10 23:04:18.432 DEBUG 16604 --- [main] o.s.w.s.s.s.ServerEndpointExporter       : Registering @ServerEndpoint class: class com.trading.brokergateway.Controller.PriceServer
+2019-06-10 23:04:18.440 DEBUG 16604 --- [main] o.s.w.s.s.s.ServerEndpointExporter       : Registering @ServerEndpoint class: class com.trading.brokergateway.Controller.WebsocketServer
+2019-06-10 23:04:19.091  INFO 1940 --- [main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2019-06-10 23:04:19.408 DEBUG 1940 --- [main] o.s.w.s.handler.SimpleUrlHandlerMapping  : Patterns [/**/favicon.ico] in 'faviconHandlerMapping'
+2019-06-10 23:04:19.529  INFO 1940 --- [main] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
+2019-06-10 23:04:19.539 DEBUG 1940 --- [main] s.w.s.m.m.a.RequestMappingHandlerAdapter : ControllerAdvice beans: 0 @ModelAttribute, 0 @InitBinder, 1 RequestBodyAdvice, 1 ResponseBodyAdvice
+2019-06-10 23:04:19.570  WARN 1940 --- [main] aWebConfiguration$JpaWebMvcConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2019-06-10 23:04:19.588  INFO 16604 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8081 (http) with context path ''
+2019-06-10 23:04:19.590  INFO 16604 --- [main] c.t.b.BrokergatewayApplication           : Started BrokergatewayApplication in 8.563 seconds (JVM running for 10.162)
+2019-06-10 23:04:19.602 DEBUG 1940 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : 12 mappings in 'requestMappingHandlerMapping'
+2019-06-10 23:04:19.612 DEBUG 1940 --- [main] o.s.w.s.handler.SimpleUrlHandlerMapping  : Patterns [/webjars/**, /**] in 'resourceHandlerMapping'
+2019-06-10 23:04:19.622 DEBUG 1940 --- [main] .m.m.a.ExceptionHandlerExceptionResolver : ControllerAdvice beans: 0 @ExceptionHandler, 1 ResponseBodyAdvice
+2019-06-10 23:04:19.760 DEBUG 1940 --- [main] o.s.w.s.s.s.ServerEndpointExporter       : Registering @ServerEndpoint class: class com.trading.brokergateway.Controller.PriceServer
+2019-06-10 23:04:19.768 DEBUG 1940 --- [main] o.s.w.s.s.s.ServerEndpointExporter       : Registering @ServerEndpoint class: class com.trading.brokergateway.Controller.WebsocketServer
+2019-06-10 23:04:19.932 ERROR 1940 --- [main] org.apache.catalina.util.LifecycleBase   : Failed to start component [Connector[HTTP/1.1-8081]]
+
+org.apache.catalina.LifecycleException: Protocol handler start failed
+	at org.apache.catalina.connector.Connector.startInternal(Connector.java:1008) ~[tomcat-embed-core-9.0.19.jar:9.0.19]
+	at org.apache.catalina.util.LifecycleBase.start(LifecycleBase.java:183) ~[tomcat-embed-core-9.0.19.jar:9.0.19]
+	at org.apache.catalina.core.StandardService.addConnector(StandardService.java:226) [tomcat-embed-core-9.0.19.jar:9.0.19]
+	at org.springframework.boot.web.embedded.tomcat.TomcatWebServer.addPreviouslyRemovedConnectors(TomcatWebServer.java:259) [spring-boot-2.1.5.RELEASE.jar:2.1.5.RELEASE]
+	at org.springframework.boot.web.embedded.tomcat.TomcatWebServer.start(TomcatWebServer.java:197) [spring-boot-2.1.5.RELEASE.jar:2.1.5.RELEASE]
+	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.startWebServer(ServletWebServerApplicationContext.java:311) [spring-boot-2.1.5.RELEASE.jar:2.1.5.RELEASE]
+	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.finishRefresh(ServletWebServerApplicationContext.java:164) [spring-boot-2.1.5.RELEASE.jar:2.1.5.RELEASE]
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:552) [spring-context-5.1.7.RELEASE.jar:5.1.7.RELEASE]
+	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.refresh(ServletWebServerApplicationContext.java:142) [spring-boot-2.1.5.RELEASE.jar:2.1.5.RELEASE]
+	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:775) [spring-boot-2.1.5.RELEASE.jar:2.1.5.RELEASE]
+	at org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:397) [spring-boot-2.1.5.RELEASE.jar:2.1.5.RELEASE]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:316) [spring-boot-2.1.5.RELEASE.jar:2.1.5.RELEASE]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1260) [spring-boot-2.1.5.RELEASE.jar:2.1.5.RELEASE]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1248) [spring-boot-2.1.5.RELEASE.jar:2.1.5.RELEASE]
+	at com.trading.brokergateway.BrokergatewayApplication.main(BrokergatewayApplication.java:18) [classes/:na]
+Caused by: java.net.BindException: Address already in use: bind
+	at sun.nio.ch.Net.bind0(Native Method) ~[na:1.8.0_211]
+	at sun.nio.ch.Net.bind(Net.java:433) ~[na:1.8.0_211]
+	at sun.nio.ch.Net.bind(Net.java:425) ~[na:1.8.0_211]
+	at sun.nio.ch.ServerSocketChannelImpl.bind(ServerSocketChannelImpl.java:223) ~[na:1.8.0_211]
+	at sun.nio.ch.ServerSocketAdaptor.bind(ServerSocketAdaptor.java:74) ~[na:1.8.0_211]
+	at org.apache.tomcat.util.net.NioEndpoint.initServerSocket(NioEndpoint.java:239) ~[tomcat-embed-core-9.0.19.jar:9.0.19]
+	at org.apache.tomcat.util.net.NioEndpoint.bind(NioEndpoint.java:213) ~[tomcat-embed-core-9.0.19.jar:9.0.19]
+	at org.apache.tomcat.util.net.AbstractEndpoint.bindWithCleanup(AbstractEndpoint.java:1116) ~[tomcat-embed-core-9.0.19.jar:9.0.19]
+	at org.apache.tomcat.util.net.AbstractEndpoint.start(AbstractEndpoint.java:1202) ~[tomcat-embed-core-9.0.19.jar:9.0.19]
+	at org.apache.coyote.AbstractProtocol.start(AbstractProtocol.java:568) ~[tomcat-embed-core-9.0.19.jar:9.0.19]
+	at org.apache.catalina.connector.Connector.startInternal(Connector.java:1005) ~[tomcat-embed-core-9.0.19.jar:9.0.19]
+	... 14 common frames omitted
+
+2019-06-10 23:04:19.937  INFO 1940 --- [main] o.apache.catalina.core.StandardService   : Stopping service [Tomcat]
+2019-06-10 23:04:20.119  INFO 1940 --- [main] ConditionEvaluationReportLoggingListener : 
+
+Error starting ApplicationContext. To display the conditions report re-run your application with 'debug' enabled.
+2019-06-10 23:04:20.124 ERROR 1940 --- [main] o.s.b.d.LoggingFailureAnalysisReporter   : 
+
+***************************
+APPLICATION FAILED TO START
+***************************
+
+Description:
+
+The Tomcat connector configured to listen on port 8081 failed to start. The port may already be in use or the connector may be misconfigured.
+
+Action:
+
+Verify the connector's configuration, identify and stop any process that's listening on port 8081, or configure this application to listen on another port.
+
+2019-06-10 23:04:20.127  INFO 1940 --- [main] o.s.s.concurrent.ThreadPoolTaskExecutor  : Shutting down ExecutorService 'applicationTaskExecutor'
+2019-06-10 23:04:20.127  INFO 1940 --- [main] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2019-06-10 23:04:20.129  INFO 1940 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2019-06-10 23:04:20.132  INFO 1940 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2019-06-10 23:05:12.003  INFO 17052 --- [main] c.t.b.BrokergatewayApplication           : Starting BrokergatewayApplication on DESKTOP-M68LV1O with PID 17052 (E:\distributed-OTC-trading-system\Broker-gateway\target\classes started by TXX in E:\distributed-OTC-trading-system\Broker-gateway)
+2019-06-10 23:05:12.006  INFO 17052 --- [main] c.t.b.BrokergatewayApplication           : No active profile set, falling back to default profiles: default
+2019-06-10 23:05:12.647  INFO 17052 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data repositories in DEFAULT mode.
+2019-06-10 23:05:12.709  INFO 17052 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 56ms. Found 1 repository interfaces.
+2019-06-10 23:05:13.004  INFO 17052 --- [main] trationDelegate$BeanPostProcessorChecker : Bean 'org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration' of type [org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration$$EnhancerBySpringCGLIB$$58c4426d] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2019-06-10 23:05:13.253  INFO 17052 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8081 (http)
+2019-06-10 23:05:13.272  INFO 17052 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2019-06-10 23:05:13.273  INFO 17052 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.19]
+2019-06-10 23:05:13.394  INFO 17052 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2019-06-10 23:05:13.395 DEBUG 17052 --- [main] o.s.web.context.ContextLoader            : Published root WebApplicationContext as ServletContext attribute with name [org.springframework.web.context.WebApplicationContext.ROOT]
+2019-06-10 23:05:13.395  INFO 17052 --- [main] o.s.web.context.ContextLoader            : Root WebApplicationContext: initialization completed in 1356 ms
+2019-06-10 23:05:13.559  INFO 17052 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2019-06-10 23:05:13.559  WARN 17052 --- [main] com.zaxxer.hikari.util.DriverDataSource  : Registered driver with driverClassName=com.mysql.jdbc.Driver was not found, trying direct instantiation.
+2019-06-10 23:05:13.651  INFO 17052 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2019-06-10 23:05:14.527  INFO 17052 --- [main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2019-06-10 23:05:14.889 DEBUG 17052 --- [main] o.s.w.s.handler.SimpleUrlHandlerMapping  : Patterns [/**/favicon.ico] in 'faviconHandlerMapping'
+2019-06-10 23:05:15.024  INFO 17052 --- [main] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
+2019-06-10 23:05:15.036 DEBUG 17052 --- [main] s.w.s.m.m.a.RequestMappingHandlerAdapter : ControllerAdvice beans: 0 @ModelAttribute, 0 @InitBinder, 1 RequestBodyAdvice, 1 ResponseBodyAdvice
+2019-06-10 23:05:15.064  WARN 17052 --- [main] aWebConfiguration$JpaWebMvcConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2019-06-10 23:05:15.093 DEBUG 17052 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : 12 mappings in 'requestMappingHandlerMapping'
+2019-06-10 23:05:15.106 DEBUG 17052 --- [main] o.s.w.s.handler.SimpleUrlHandlerMapping  : Patterns [/webjars/**, /**] in 'resourceHandlerMapping'
+2019-06-10 23:05:15.114 DEBUG 17052 --- [main] .m.m.a.ExceptionHandlerExceptionResolver : ControllerAdvice beans: 0 @ExceptionHandler, 1 ResponseBodyAdvice
+2019-06-10 23:05:15.266 DEBUG 17052 --- [main] o.s.w.s.s.s.ServerEndpointExporter       : Registering @ServerEndpoint class: class com.trading.brokergateway.Controller.PriceServer
+2019-06-10 23:05:15.273 DEBUG 17052 --- [main] o.s.w.s.s.s.ServerEndpointExporter       : Registering @ServerEndpoint class: class com.trading.brokergateway.Controller.WebsocketServer
+2019-06-10 23:05:15.313  INFO 17052 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8081 (http) with context path ''
+2019-06-10 23:05:15.315  INFO 17052 --- [main] c.t.b.BrokergatewayApplication           : Started BrokergatewayApplication in 3.647 seconds (JVM running for 4.375)
+2019-06-10 23:06:23.091  INFO 17052 --- [http-nio-8081-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2019-06-10 23:06:23.092  INFO 17052 --- [http-nio-8081-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2019-06-10 23:06:23.092 DEBUG 17052 --- [http-nio-8081-exec-1] o.s.web.servlet.DispatcherServlet        : Detected StandardServletMultipartResolver
+2019-06-10 23:06:23.098 DEBUG 17052 --- [http-nio-8081-exec-1] o.s.web.servlet.DispatcherServlet        : enableLoggingRequestDetails='false': request parameters and headers will be masked to prevent unsafe logging of potentially sensitive data
+2019-06-10 23:06:23.098  INFO 17052 --- [http-nio-8081-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 6 ms
+2019-06-10 23:06:23.106 DEBUG 17052 --- [http-nio-8081-exec-1] o.s.web.servlet.DispatcherServlet        : POST "/Order", parameters={}
+2019-06-10 23:06:23.112 DEBUG 17052 --- [http-nio-8081-exec-1] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to public java.lang.String com.trading.brokergateway.Controller.OrderControl.orderPost(javax.servlet.http.HttpServletRequest,java.io.BufferedReader)
+2019-06-10 23:06:23.354 DEBUG 17052 --- [http-nio-8081-exec-1] m.m.a.RequestResponseBodyMethodProcessor : Using 'text/plain', given [*/*] and supported [text/plain, */*, text/plain, */*, application/json, application/*+json, application/json, application/*+json]
+2019-06-10 23:06:23.354 DEBUG 17052 --- [http-nio-8081-exec-1] m.m.a.RequestResponseBodyMethodProcessor : Writing ["PROCESSED"]
+2019-06-10 23:06:23.361 DEBUG 17052 --- [http-nio-8081-exec-1] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
+2019-06-10 23:10:35.890 DEBUG 17052 --- [http-nio-8081-exec-5] o.s.web.servlet.DispatcherServlet        : POST "/Order", parameters={}
+2019-06-10 23:10:35.891 DEBUG 17052 --- [http-nio-8081-exec-5] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to public java.lang.String com.trading.brokergateway.Controller.OrderControl.orderPost(javax.servlet.http.HttpServletRequest,java.io.BufferedReader)
+2019-06-10 23:10:37.257 DEBUG 17052 --- [http-nio-8081-exec-5] m.m.a.RequestResponseBodyMethodProcessor : Using 'application/json', given [application/json] and supported [text/plain, */*, text/plain, */*, application/json, application/*+json, application/json, application/*+json]
+2019-06-10 23:10:37.258 DEBUG 17052 --- [http-nio-8081-exec-5] m.m.a.RequestResponseBodyMethodProcessor : Writing ["PROCESSED"]
+2019-06-10 23:10:37.259 DEBUG 17052 --- [http-nio-8081-exec-5] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
+2019-06-10 23:11:25.442 DEBUG 17052 --- [http-nio-8081-exec-7] o.s.web.servlet.DispatcherServlet        : POST "/Order", parameters={}
+2019-06-10 23:11:25.443 DEBUG 17052 --- [http-nio-8081-exec-7] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to public java.lang.String com.trading.brokergateway.Controller.OrderControl.orderPost(javax.servlet.http.HttpServletRequest,java.io.BufferedReader)
+2019-06-10 23:11:25.567 DEBUG 17052 --- [http-nio-8081-exec-7] m.m.a.RequestResponseBodyMethodProcessor : Using 'application/json', given [application/json] and supported [text/plain, */*, text/plain, */*, application/json, application/*+json, application/json, application/*+json]
+2019-06-10 23:11:25.568 DEBUG 17052 --- [http-nio-8081-exec-7] m.m.a.RequestResponseBodyMethodProcessor : Writing ["PROCESSED"]
+2019-06-10 23:11:25.569 DEBUG 17052 --- [http-nio-8081-exec-7] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
+2019-06-10 23:11:32.654 ERROR 17052 --- [http-nio-8081-exec-4] c.t.b.Controller.WebsocketServer         : 发生错误
+2019-06-10 23:11:33.665 ERROR 17052 --- [http-nio-8081-exec-4] c.t.b.Controller.WebsocketServer         : 发生错误
+2019-06-10 23:14:44.209 DEBUG 17052 --- [http-nio-8081-exec-1] o.s.web.servlet.DispatcherServlet        : POST "/Order", parameters={}
+2019-06-10 23:14:44.210 DEBUG 17052 --- [http-nio-8081-exec-1] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to public java.lang.String com.trading.brokergateway.Controller.OrderControl.orderPost(javax.servlet.http.HttpServletRequest,java.io.BufferedReader)
+2019-06-10 23:14:44.329 DEBUG 17052 --- [http-nio-8081-exec-1] m.m.a.RequestResponseBodyMethodProcessor : Using 'application/json', given [application/json] and supported [text/plain, */*, text/plain, */*, application/json, application/*+json, application/json, application/*+json]
+2019-06-10 23:14:44.330 DEBUG 17052 --- [http-nio-8081-exec-1] m.m.a.RequestResponseBodyMethodProcessor : Writing ["PROCESSED"]
+2019-06-10 23:14:44.331 DEBUG 17052 --- [http-nio-8081-exec-1] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
+2019-06-10 23:53:55.134 ERROR 17052 --- [http-nio-8081-exec-10] c.t.b.Controller.WebsocketServer         : 发生错误
+2019-06-10 23:53:56.146 ERROR 17052 --- [http-nio-8081-exec-10] c.t.b.Controller.WebsocketServer         : 发生错误
