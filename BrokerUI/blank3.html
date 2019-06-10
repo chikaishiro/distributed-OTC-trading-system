@@ -153,7 +153,7 @@
 
 	function f1() {
 		alert("haha");
-		if(document.getElementById("time").checked===true){
+		if(document.getElementById("time").checked===true&&document.getElementById("time2").checked===false&&document.getElementById("time3").checked===false){
 			$.ajax({
 				type: "get",
 				url: "http://"+localStorage.getItem("tip")+":8080/order/today",
@@ -165,6 +165,36 @@
 				var table = new Table("Table");
 				table.update(data);
 			}).error(function () {
+			});
+		}
+		else if(document.getElementById("time2").checked===true&&document.getElementById("time").checked===false&&document.getElementById("time3").checked===false){
+			$.ajax({
+				type: "get",
+				url: "http://"+localStorage.getItem("tip")+":8080/order/week",
+				contentType: "application/json",
+				//dataType: "json",
+
+			}).success(function (data) {
+				alert(data);
+				var table = new Table("Table");
+				table.update(data);
+			}).error(function () {
+
+			});
+		}
+		else if(document.getElementById("time3").checked===true&&document.getElementById("time2").checked===false&&document.getElementById("time").checked===false){
+			$.ajax({
+				type: "get",
+				url: "http://"+localStorage.getItem("tip")+":8080/order/month",
+				contentType: "application/json",
+				//dataType: "json",
+
+			}).success(function (data) {
+				alert(data);
+				var table = new Table("Table");
+				table.update(data);
+			}).error(function () {
+
 			});
 		}
 		else {
@@ -427,6 +457,8 @@
 								<div class="block h4"><strong>所有记录</strong></div>
 								<p class="m-top-sm">
 									<input class="input" type="checkbox" id="time">仅今日
+									<input class="input" type="checkbox" id="time2">仅本周
+									<input class="input" type="checkbox" id="time3">仅本月
 									<button class="btn" onclick="f1()">Search</button>
 								<table id="Table" border="1" class="table table-striped">
 									<tr>

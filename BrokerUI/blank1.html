@@ -98,12 +98,13 @@
 	}
 
 	function f1() {
-		if(document.getElementById("time").checked===true){
+		if(document.getElementById("time").checked===true&&document.getElementById("time2").checked===false&&document.getElementById("time3").checked===false){
 			$.ajax({
 				type: "get",
 				url: "http://"+localStorage.getItem("bip")+":8081/Result",
 				data:{
 					"method":"ByTime",
+					"start":"today",
 				},
 				contentType: "application/json",
 				//dataType: "json",
@@ -113,7 +114,45 @@
 			}).error(function () {
 			});
 		}
-		else {
+		else if(document.getElementById("time2").checked===true&&document.getElementById("time").checked===false&&document.getElementById("time3").checked===false){
+			$.ajax({
+				type: "get",
+				url: "http://"+localStorage.getItem("bip")+":8081/Result",
+				data:{
+					"method":"ByTime",
+					"start":"week",
+				},
+				contentType: "application/json",
+				//dataType: "json",
+
+			}).success(function (data) {
+				alert(JSON.parse(data));
+				var table = new Table("Table");
+				table.update(JSON.parse(data));
+			}).error(function () {
+
+			});
+		}
+		else if(document.getElementById("time3").checked===true&&document.getElementById("time2").checked===false&&document.getElementById("time").checked===false){
+			$.ajax({
+				type: "get",
+				url: "http://"+localStorage.getItem("bip")+":8081/Result",
+						data:{
+							"method":"ByTime",
+							"start":"month",
+						},
+				contentType: "application/json",
+				//dataType: "json",
+
+			}).success(function (data) {
+				alert(JSON.parse(data));
+				var table = new Table("Table");
+				table.update(JSON.parse(data));
+			}).error(function () {
+
+			});
+		}
+	else {
 			$.ajax({
 				type: "get",
 				url: "http://"+localStorage.getItem("bip")+":8081/Result",
@@ -327,7 +366,7 @@
 					<div class="row">
 						<div class="col-sm-6">
 							<div class="page-title">
-								信息查询
+								交易记录
 							</div>
 						</div>
 					</div>
@@ -365,6 +404,8 @@
 										<div class="block h4"><strong>所有记录</strong></div>
 										<p class="m-top-sm">
 											<input class="input" type="checkbox" id="time">仅今日
+											<input class="input" type="checkbox" id="time2">仅本周
+											<input class="input" type="checkbox" id="time3">仅本月
 											<button class="btn" onclick="f1()">Search</button>
 										<table id="Table" border="1" class="table table-striped">
 
