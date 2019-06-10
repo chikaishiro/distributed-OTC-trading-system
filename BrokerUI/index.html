@@ -106,7 +106,7 @@
 		Chat.sendMessage = (function() {
 			var message = document.getElementById('chat').value;
 			if (message != '') {
-				alert(message);
+				//alert(message);
 				Chat.socket.send(message);
 				document.getElementById('chat').value = '';
 			}
@@ -249,7 +249,7 @@
 								交易统计
 							</div>
 							<div class="page-sub-header">
-								Welcome Back, 袁添镱, <i class="fa fa-map-marker text-danger"></i> Shanghai
+								Welcome Back, <i class="fa fa-map-marker text-danger"></i> Shanghai
 							</div>
 						</div>
 					</div>
@@ -258,13 +258,14 @@
 						<div class="col-lg-3 col-sm-6">
 							<div class="statistic-box bg-danger m-bottom-md">
 								<div class="statistic-title">
+									VWAP
 								</div>
 
 								<div class="statistic-value" id="s2">
-									96.7k
+									0
 								</div>
 
-								<div class="m-top-md">11% Higher than last week</div>
+								<div class="m-top-md"></div>
 
 								<div class="statistic-icon-background">
 									<i class="ion-eye"></i>
@@ -275,13 +276,14 @@
 						<div class="col-lg-3 col-sm-6">
 							<div class="statistic-box bg-info m-bottom-md">
 								<div class="statistic-title">
+									TWAP
 								</div>
 
 								<div class="statistic-value" id="b2">
-									751
+									0
 								</div>
 
-								<div class="m-top-md">8% Higher than last week</div>
+								<div class="m-top-md"></div>
 
 								<div class="statistic-icon-background">
 									<i class="ion-ios7-cart-outline"></i>
@@ -292,13 +294,14 @@
 						<div class="col-lg-3 col-sm-6">
 							<div class="statistic-box bg-purple m-bottom-md">
 								<div class="statistic-title">
+									DAY
 								</div>
 
 								<div class="statistic-value">
-									129
+									Monday
 								</div>
 
-								<div class="m-top-md">3% Higher than last week</div>
+								<div class="m-top-md"></div>
 
 								<div class="statistic-icon-background">
 									<i class="ion-person-add"></i>
@@ -309,13 +312,14 @@
 						<div class="col-lg-3 col-sm-6">
 							<div class="statistic-box bg-success m-bottom-md">
 								<div class="statistic-title">
+									DATE
 								</div>
 
 								<div class="statistic-value">
-									$124.45k
+									June 10
 								</div>
 
-								<div class="m-top-md">7% Higher than last week</div>
+								<div class="m-top-md"></div>
 
 								<div class="statistic-icon-background">
 									<i class="ion-stats-bars"></i>

@@ -348,7 +348,7 @@
 		});
 	});
 function funcmark(){
-	    alert("good");
+	    //alert("good");
 	    var typ = $('#ty-mar').val();
 	    if(typ == "sell"){
 		    typ = 'S'
@@ -363,7 +363,7 @@ function funcmark(){
 			'type':'M',
 			'brokerIp':localStorage.getItem('bip')
 		};
-		alert(JSON.stringify(formData));
+		//alert(JSON.stringify(formData));
 		htmlobj =  $.ajax({
 			type: "post",
 			url: "http://"+localStorage.getItem('tip')+":8080/order/SendOrder",
@@ -381,7 +381,7 @@ function funcmark(){
 		});
 }
 	function funclimi(){
-		alert("good");
+		//alert("good");
 		var typ = $('#ty-lim').val();
 		if(typ == "sell"){
 			typ = 'S'
@@ -415,7 +415,7 @@ function funcmark(){
 		});
 	}
 	function funcstop(){
-		alert("good");
+		//alert("good");
 		var typ = $('#ty-sto').val();
 		if(typ == "sell"){
 			typ = 'S'
@@ -431,7 +431,7 @@ function funcmark(){
 			'type':'L',
             'brokerIp':localStorage.getItem('bip')
 		};
-		alert(JSON.stringify(formData));
+		//alert(JSON.stringify(formData));
 		htmlobj =  $.ajax({
 			type: "post",
 			url: "http://"+localStorage.getItem('tip')+":8080/order/SendOrder",
@@ -449,7 +449,7 @@ function funcmark(){
 		});
 	}
 	function funccanc(){
-		alert("good");
+		//alert("good");
 		var formData = {
 			'orderID':$('#or-can').val(),
 			'type':'C',

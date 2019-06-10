@@ -68,7 +68,7 @@
 			return;
 		}
 		Chat.socket.onopen = function () {
-			Console.log('在线聊天室已开启');
+			//Console.log('在线聊天室已开启');
 			document.getElementById('chat').onkeydown = function(event) {
 				if (event.keyCode == 13) {
 					Chat.sendMessage();
@@ -77,7 +77,7 @@
 		};
 		Chat.socket.onclose = function () {
 			document.getElementById('chat').onkeydown = null;
-			Console.log('在线聊天室已关闭');
+			//Console.log('在线聊天室已关闭');
 		};
 		Chat.socket.onmessage = function (message) {
 			formTable(message.data);
@@ -124,7 +124,7 @@
 
 
 	function f(){
-		alert("xxx");
+		//alert("xxx");
 		Chat.initialize();
 	}
 </script>

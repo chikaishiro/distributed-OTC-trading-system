@@ -139,7 +139,7 @@
 			<div class="row">
 				<div class="col-sm-6">
 					<div class="page-title">
-						新建订单
+						信息管理
 					</div>
 				</div>
 			</div>
@@ -149,25 +149,7 @@
 						<li class="active">
 							<a href="#style1Tab1" data-toggle="tab">
 								<span class="icon-wrapper"><i class="fa fa-bar-chart-o"></i></span>
-								Market Order
-							</a>
-						</li>
-						<li>
-							<a href="#style1Tab2" data-toggle="tab">
-								<span class="icon-wrapper"><i class="fa fa-book"></i></span>
-								Limit Order
-							</a>
-						</li>
-						<li>
-							<a href="#style1Tab3" data-toggle="tab">
-								<span class="icon-wrapper"><i class="fa fa-credit-card"></i></span>
-								Stop Order
-							</a>
-						</li>
-						<li>
-							<a href="#style1Tab4" data-toggle="tab">
-								<span class="icon-wrapper"><i class="fa fa-cog"></i></span>
-								Cancel Order
+								NEW FUTURE
 							</a>
 						</li>
 					</ul>
@@ -176,51 +158,12 @@
 							<div class="tab-pane fade in active" id="style1Tab1">
 								<h4>future ID</h4>
 								<input type="text" class="form-control input-sm" id="fu-mar">
-								<h4>quantity</h4>
-								<input type="number" class="form-control input-sm" id="qu-mar">
-								<h4>type</h4>
-								<select class="form-control input-sm" id="ty-mar">
-									<option value ="sell">sell</option>
-									<option value ="purchase">purchase</option>
-								</select>
+								<h4>future Name</h4>
+								<input type="text" class="form-control input-sm" id="fu-nam">
+								<h4>Category</h4>
+								<input type="text" class="form-control input-sm" id="fu-cat">
 								<h6></h6>
 								<button type="button" class="btn btn-info btn-lg" id="mar" onclick="funcmark()">Commit Order</button>
-							</div><!-- ./tab-pane -->
-							<div class="tab-pane fade" id="style1Tab2">
-								<h4>future ID</h4>
-								<input type="text" class="form-control input-sm" id="fu-lim">
-								<h4>quantity</h4>
-								<input type="number" class="form-control input-sm" id="qu-lim">
-								<h4>price</h4>
-								<input type="number" class="form-control input-sm" id="pr-lim">
-								<h4>type</h4>
-								<select class="form-control input-sm" id="ty-lim">
-									<option value ="sell">sell</option>
-									<option value ="purchase">purchase</option>
-								</select>
-								<h6></h6>
-								<button type="button" class="btn btn-info btn-lg" id="lim" onclick="funclimi()">Commit Order</button>
-							</div><!-- ./tab-pane -->
-							<div class="tab-pane fade" id="style1Tab3">
-								<h4>future ID</h4>
-								<input type="text" class="form-control input-sm" id="fu-sto">
-								<h4>quantity</h4>
-								<input type="number" class="form-control input-sm" id="qu-sto">
-								<h4>limit price</h4>
-								<input type="number" class="form-control input-sm" id="pr-sto">
-								<h4>type</h4>
-								<select class="form-control input-sm" id="ty-sto">
-									<option value ="sell">sell</option>
-									<option value ="purchase">purchase</option>
-								</select>
-								<h6></h6>
-								<button type="button" class="btn btn-info btn-lg" id="sto" onclick="funcstop()">Commit Order</button>
-							</div><!-- ./tab-pane -->
-							<div class="tab-pane fade" id="style1Tab4">
-								<h4>order ID</h4>
-								<input type="text" class="form-control input-sm" id="or-can">
-								<h6></h6>
-								<button type="button" class="btn btn-info btn-lg" id="can" onclick="funccanc()">Commit Order</button>
 							</div><!-- ./tab-pane -->
 						</div><!-- ./tab-content -->
 
@@ -348,29 +291,16 @@
 		});
 	});
 function funcmark(){
-	    alert("good");
-	    var typ = $('#ty-mar').val();
-	    if(typ == "sell"){
-		    typ = 'S'
-	    }
-	    else{
-	    	typ = 'B'
-	    }
 		var formData = {
 			'futureID' : $('#fu-mar').val(),
-			'amount' : $('#qu-mar').val(),
-			'way': typ,
-			'type':'M'
+			'futureName' : $('#fu-nam').val(),
+			'category': $('#fu-cat').val(),
 		};
 		alert(JSON.stringify(formData));
 		htmlobj =  $.ajax({
 			type: "post",
-			url: "http://10.162.231.38:8080/order/SendOrder",
+			url: "http://"+localStorage.getItem('tip')+":8080/future/add",
 			data: JSON.stringify(formData),
-			headers:{
-				'Authorization':"Bearer "+document.cookie,
-
-			},
 			contentType:"application/json",
 			// dataType: "json"
 		}).success(function (data) {
@@ -379,94 +309,6 @@ function funcmark(){
 			alert("失败");
 		});
 }
-	function funclimi(){
-		alert("good");
-		var typ = $('#ty-lim').val();
-		if(typ == "sell"){
-			typ = 'S'
-		}
-		else{
-			typ = 'B'
-		}
-		var formData = {
-			'futureID' : $('#fu-lim').val(),
-			'amount' : $('#qu-lim').val(),
-			'price':$('#pr-lim').val(),
-			'way': typ,
-			'type':'L'
-		};
-		alert(JSON.stringify(formData));
-		htmlobj =  $.ajax({
-			type: "post",
-			url: "http://10.162.231.38:8080/order/SendOrder",
-			data: JSON.stringify(formData),
-			headers:{
-				'Authorization':"Bearer "+document.cookie,
-
-			},
-			contentType:"application/json",
-			// dataType: "json"
-		}).success(function (data) {
-			alert(data);
-		}).error(function () {
-			alert("失败");
-		});
-	}
-	function funcstop(){
-		alert("good");
-		var typ = $('#ty-sto').val();
-		if(typ == "sell"){
-			typ = 'S'
-		}
-		else{
-			typ = 'B'
-		}
-		var formData = {
-			'futureID' : $('#fu-sto').val(),
-			'amount' : $('#qu-sto').val(),
-			'price':typ,
-			'way': 'S',
-			'type':'L'
-		};
-		alert(JSON.stringify(formData));
-		htmlobj =  $.ajax({
-			type: "post",
-			url: "http://10.162.231.38:8080/order/SendOrder",
-			data: JSON.stringify(formData),
-			headers:{
-				'Authorization':"Bearer "+document.cookie,
-
-			},
-			contentType:"application/json",
-			// dataType: "json"
-		}).success(function (data) {
-			alert(data);
-		}).error(function () {
-			alert("投稿失败");
-		});
-	}
-	function funccanc(){
-		alert("good");
-		var formData = {
-			'orderID':$('#or-can').val(),
-			'type':'C'
-		};
-		htmlobj =  $.ajax({
-			type: "post",
-			url: "http://10.162.231.38:8080/order/SendOrder",
-			data: JSON.stringify(formData),
-			headers:{
-				'Authorization':"Bearer "+document.cookie,
-
-			},
-			contentType:"application/json",
-			// dataType: "json"
-		}).success(function (data) {
-			alert(data);
-		}).error(function () {
-			alert("投稿失败");
-		});
-	}
 </script>
 
 </body>
