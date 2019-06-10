@@ -2,9 +2,8 @@ package com.trading.brokergateway.Controller;
 
 import java.io.IOException;
 import java.sql.ResultSet;
-import java.util.LinkedList;
-import java.util.List;
-import java.util.Set;
+import java.text.DecimalFormat;
+import java.util.*;
 import java.util.concurrent.CopyOnWriteArraySet;
 
 import com.google.gson.Gson;
@@ -21,7 +20,6 @@ import redis.clients.jedis.Jedis;
 import javax.websocket.*;
 import javax.websocket.server.ServerEndpoint;
 import java.io.IOException;
-import java.util.Queue;
 import java.util.concurrent.ConcurrentLinkedQueue;
 import java.util.concurrent.atomic.AtomicInteger;
 
@@ -81,16 +79,19 @@ public class PriceServer {
         }
 
         public void run() {
+            try {
             while(true){
-                try {
-                    Thread.sleep(2000);
+
+                    Thread.sleep(1500);
                     String i = new Gson().toJson(getRecentPrice(futureID));
+                    i = i+";"+calcVWAP(futureID)+";"+calcTWAP(futureID);
                     sendMessage(session,i);
                 }
-                catch (Exception e){
-                    return;
-                }
 
+
+            }
+            catch (Exception e){
+                return;
             }
         }
     }
@@ -108,13 +109,13 @@ public class PriceServer {
         LinkedList<Double> res = new LinkedList<>();
         JDBCConn link = new JDBCConn();
         String target = "'"+futureID+"'";
-        ResultSet rs = link.getRs("select price,finish_time from result where future_id = "+ target + "order by finish_time desc limit 10");
+        ResultSet rs = link.getRs("select price,finish_time from result where future_id = "+ target + "order by finish_time desc limit 20");
         while (rs.next()){
             double price = rs.getDouble("price");
             res.add(price);
         }
         LinkedList<Double> res2 = new LinkedList<>();
-        for(int i=9;i>=0;i--){
+        for(int i=19;i>=0;i--){
             res2.add(res.get(i));
         }
         return res2;
@@ -133,6 +134,59 @@ public class PriceServer {
         for(Session s : sessionQueue) {
             sendMessage(s, msg);
         }
+    }
+
+    public static String calcVWAP(String futureID) throws Exception{
+        double totalAmount = 0;
+        int totalVolume = 0;
+        LinkedList<Double> res = new LinkedList<>();
+        JDBCConn link = new JDBCConn();
+        String target = "'"+futureID+"'";
+        ResultSet rs = link.getRs("select price,amount from result where future_id = "+ target + "order by finish_time desc limit 15");
+        while (rs.next()){
+            double price = rs.getDouble("price");
+            int amount = rs.getInt("amount");
+            totalAmount += price * amount;
+            totalVolume += amount;
+            res.add(price);
+        }
+        DecimalFormat df = new DecimalFormat("#.000");
+        double ret = totalAmount/(double)totalVolume;
+        return df.format(ret);
+    }
+
+    public static String calcTWAP(String futureID) throws Exception{
+        long step = 3600*100;
+        double sum = 0;
+        int cnt = 0;
+        LinkedList<Double> res = new LinkedList<>();
+        JDBCConn link = new JDBCConn();
+        String target = "'"+futureID+"'";
+        Long now = Calendar.getInstance().getTimeInMillis();
+        Long start = now - 10*step;
+        Long temp = now-step;
+        while(temp>=start) {
+            ResultSet rs = link.getRs("select Max(price) as max,Min(price) as min from result" +
+                    " where future_id = " + target + " and finish_time>" + String.valueOf(temp) + " and finish_time<" + String.valueOf(now));
+            while (rs.next()) {
+                double max = rs.getDouble("max");
+                double min = rs.getDouble("min");
+                double avg = (max + min) / 2;
+                if(avg != 0){
+                    sum += avg;
+                    cnt++;
+                }
+            }
+            temp -= step;
+        }
+        DecimalFormat df = new DecimalFormat("#.000");
+
+        return df.format(sum/cnt);
+    }
+
+
+    public static void main(String args[]) throws Exception{
+        System.out.println(PriceServer.calcTWAP("SB"));
     }
 
 

@@ -3797,3 +3797,837 @@ java.lang.NullPointerException: null
 2019-06-10 14:23:16.676 DEBUG 5180 --- [http-nio-8080-exec-5] m.m.a.RequestResponseBodyMethodProcessor : Writing [[com.trading.tradergateway.Entity.Order@159efcd0, com.trading.tradergateway.Entity.Order@509c7007, c (truncated)...]
 2019-06-10 14:23:16.680 DEBUG 5180 --- [http-nio-8080-exec-5] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
 2019-06-10 15:29:12.938  WARN 5180 --- [HikariPool-1 housekeeper] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=26m57s740ms815µs802ns).
+2019-06-10 15:31:17.333  INFO 20536 --- [main] c.t.t.TradergatewayApplication           : Starting TradergatewayApplication on LAPTOP-HAEK8B4U with PID 20536 (D:\distributed-OTC-trading-system\Trader-gateway\target\classes started by administartor in D:\distributed-OTC-trading-system\Trader-gateway)
+2019-06-10 15:31:17.337  INFO 20536 --- [main] c.t.t.TradergatewayApplication           : No active profile set, falling back to default profiles: default
+2019-06-10 15:31:18.636  INFO 20536 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Multiple Spring Data modules found, entering strict repository configuration mode!
+2019-06-10 15:31:18.637  INFO 20536 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data repositories in DEFAULT mode.
+2019-06-10 15:31:18.757  INFO 20536 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 110ms. Found 4 repository interfaces.
+2019-06-10 15:31:18.772  INFO 20536 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Multiple Spring Data modules found, entering strict repository configuration mode!
+2019-06-10 15:31:18.773  INFO 20536 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data repositories in DEFAULT mode.
+2019-06-10 15:31:18.801  INFO 20536 --- [main] .RepositoryConfigurationExtensionSupport : Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.trading.tradergateway.Repository.BrokerRepository.
+2019-06-10 15:31:18.802  INFO 20536 --- [main] .RepositoryConfigurationExtensionSupport : Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.trading.tradergateway.Repository.FutureRepository.
+2019-06-10 15:31:18.802  INFO 20536 --- [main] .RepositoryConfigurationExtensionSupport : Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.trading.tradergateway.Repository.OrderRepository.
+2019-06-10 15:31:18.803  INFO 20536 --- [main] .RepositoryConfigurationExtensionSupport : Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.trading.tradergateway.Repository.TraderRepository.
+2019-06-10 15:31:18.803  INFO 20536 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 13ms. Found 0 repository interfaces.
+2019-06-10 15:31:19.275  INFO 20536 --- [main] trationDelegate$BeanPostProcessorChecker : Bean 'org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration' of type [org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration$$EnhancerBySpringCGLIB$$58b69901] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2019-06-10 15:31:19.338  INFO 20536 --- [main] trationDelegate$BeanPostProcessorChecker : Bean 'org.springframework.security.config.annotation.configuration.ObjectPostProcessorConfiguration' of type [org.springframework.security.config.annotation.configuration.ObjectPostProcessorConfiguration$$EnhancerBySpringCGLIB$$f164613b] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2019-06-10 15:31:19.345  INFO 20536 --- [main] trationDelegate$BeanPostProcessorChecker : Bean 'objectPostProcessor' of type [org.springframework.security.config.annotation.configuration.AutowireBeanFactoryObjectPostProcessor] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2019-06-10 15:31:19.347  INFO 20536 --- [main] trationDelegate$BeanPostProcessorChecker : Bean 'org.springframework.security.access.expression.method.DefaultMethodSecurityExpressionHandler@7068f7ca' of type [org.springframework.security.access.expression.method.DefaultMethodSecurityExpressionHandler] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2019-06-10 15:31:19.349  INFO 20536 --- [main] trationDelegate$BeanPostProcessorChecker : Bean 'org.springframework.security.config.annotation.method.configuration.GlobalMethodSecurityConfiguration' of type [org.springframework.security.config.annotation.method.configuration.GlobalMethodSecurityConfiguration$$EnhancerBySpringCGLIB$$163903ed] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2019-06-10 15:31:19.353  INFO 20536 --- [main] trationDelegate$BeanPostProcessorChecker : Bean 'methodSecurityMetadataSource' of type [org.springframework.security.access.method.DelegatingMethodSecurityMetadataSource] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2019-06-10 15:31:19.380  INFO 20536 --- [main] trationDelegate$BeanPostProcessorChecker : Bean 'jedisConfig' of type [com.trading.tradergateway.JedisConfig$$EnhancerBySpringCGLIB$$aaa989] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2019-06-10 15:31:19.426  INFO 20536 --- [main] trationDelegate$BeanPostProcessorChecker : Bean 'jedisConnectionFactory' of type [org.springframework.data.redis.connection.jedis.JedisConnectionFactory] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2019-06-10 15:31:19.429  INFO 20536 --- [main] trationDelegate$BeanPostProcessorChecker : Bean 'redisConfig' of type [com.trading.tradergateway.RedisConfig$$EnhancerBySpringCGLIB$$aa1a1891] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2019-06-10 15:31:19.707  INFO 20536 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
+2019-06-10 15:31:19.748  INFO 20536 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2019-06-10 15:31:19.749  INFO 20536 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.19]
+2019-06-10 15:31:19.919  INFO 20536 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2019-06-10 15:31:19.919 DEBUG 20536 --- [main] o.s.web.context.ContextLoader            : Published root WebApplicationContext as ServletContext attribute with name [org.springframework.web.context.WebApplicationContext.ROOT]
+2019-06-10 15:31:19.919  INFO 20536 --- [main] o.s.web.context.ContextLoader            : Root WebApplicationContext: initialization completed in 2539 ms
+2019-06-10 15:31:20.095  INFO 20536 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2019-06-10 15:31:20.096  WARN 20536 --- [main] com.zaxxer.hikari.util.DriverDataSource  : Registered driver with driverClassName=com.mysql.jdbc.Driver was not found, trying direct instantiation.
+2019-06-10 15:31:20.326  INFO 20536 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2019-06-10 15:31:21.316  INFO 20536 --- [main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2019-06-10 15:31:22.417  INFO 20536 --- [main] o.s.s.web.DefaultSecurityFilterChain     : Creating filter chain: any request, [org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@1209a0f, org.springframework.security.web.context.SecurityContextPersistenceFilter@bfe47a8, org.springframework.security.web.header.HeaderWriterFilter@2c6927f0, org.springframework.security.web.authentication.logout.LogoutFilter@5731caaf, com.trading.tradergateway.JWT.JwtAuthenticationTokenFilter@55c1ced9, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@5c8ab9de, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@7b451bf4, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@696174d3, org.springframework.security.web.session.SessionManagementFilter@18dd7767, org.springframework.security.web.access.ExceptionTranslationFilter@3ad847f8, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@2d913116]
+2019-06-10 15:31:22.481 DEBUG 20536 --- [main] o.s.w.s.handler.SimpleUrlHandlerMapping  : Patterns [/**/favicon.ico] in 'faviconHandlerMapping'
+2019-06-10 15:31:22.602  INFO 20536 --- [main] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
+2019-06-10 15:31:22.618 DEBUG 20536 --- [main] s.w.s.m.m.a.RequestMappingHandlerAdapter : ControllerAdvice beans: 0 @ModelAttribute, 0 @InitBinder, 1 RequestBodyAdvice, 1 ResponseBodyAdvice
+2019-06-10 15:31:22.647  WARN 20536 --- [main] aWebConfiguration$JpaWebMvcConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2019-06-10 15:31:22.684 DEBUG 20536 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : 20 mappings in 'requestMappingHandlerMapping'
+2019-06-10 15:31:22.707 DEBUG 20536 --- [main] o.s.w.s.handler.SimpleUrlHandlerMapping  : Patterns [/webjars/**, /**] in 'resourceHandlerMapping'
+2019-06-10 15:31:22.718 DEBUG 20536 --- [main] .m.m.a.ExceptionHandlerExceptionResolver : ControllerAdvice beans: 0 @ExceptionHandler, 1 ResponseBodyAdvice
+2019-06-10 15:31:23.292  INFO 20536 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
+2019-06-10 15:31:23.295  INFO 20536 --- [main] c.t.t.TradergatewayApplication           : Started TradergatewayApplication in 6.629 seconds (JVM running for 8.208)
+2019-06-10 16:06:35.166  INFO 20536 --- [http-nio-8080-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2019-06-10 16:06:35.167  INFO 20536 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2019-06-10 16:06:35.167 DEBUG 20536 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Detected StandardServletMultipartResolver
+2019-06-10 16:06:35.178 DEBUG 20536 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : enableLoggingRequestDetails='false': request parameters and headers will be masked to prevent unsafe logging of potentially sensitive data
+2019-06-10 16:06:35.178  INFO 20536 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 11 ms
+2019-06-10 16:06:35.220 DEBUG 20536 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : OPTIONS "/order/today", parameters={}
+2019-06-10 16:06:35.226 DEBUG 20536 --- [http-nio-8080-exec-1] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to public java.util.List com.trading.tradergateway.Controller.OrderController.getOrdersByToday()
+2019-06-10 16:06:35.246 DEBUG 20536 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
+2019-06-10 16:06:35.263 DEBUG 20536 --- [http-nio-8080-exec-2] o.s.web.servlet.DispatcherServlet        : GET "/order/today", parameters={}
+2019-06-10 16:06:35.263 DEBUG 20536 --- [http-nio-8080-exec-2] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to public java.util.List com.trading.tradergateway.Controller.OrderController.getOrdersByToday()
+2019-06-10 16:06:35.342 DEBUG 20536 --- [http-nio-8080-exec-2] m.m.a.RequestResponseBodyMethodProcessor : Using 'application/json', given [*/*] and supported [application/json, application/*+json, application/json, application/*+json]
+2019-06-10 16:06:35.343 DEBUG 20536 --- [http-nio-8080-exec-2] m.m.a.RequestResponseBodyMethodProcessor : Writing [[com.trading.tradergateway.Entity.Order@5c9bf796, com.trading.tradergateway.Entity.Order@504d2d33, c (truncated)...]
+2019-06-10 16:06:35.442 DEBUG 20536 --- [http-nio-8080-exec-2] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
+2019-06-10 16:06:41.708 DEBUG 20536 --- [http-nio-8080-exec-3] o.s.web.servlet.DispatcherServlet        : OPTIONS "/order/week", parameters={}
+2019-06-10 16:06:41.709 DEBUG 20536 --- [http-nio-8080-exec-3] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to public java.util.List com.trading.tradergateway.Controller.OrderController.getOrdersByWeek()
+2019-06-10 16:06:41.711 DEBUG 20536 --- [http-nio-8080-exec-3] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
+2019-06-10 16:06:41.720 DEBUG 20536 --- [http-nio-8080-exec-4] o.s.web.servlet.DispatcherServlet        : GET "/order/week", parameters={}
+2019-06-10 16:06:41.720 DEBUG 20536 --- [http-nio-8080-exec-4] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to public java.util.List com.trading.tradergateway.Controller.OrderController.getOrdersByWeek()
+2019-06-10 16:06:41.731 DEBUG 20536 --- [http-nio-8080-exec-4] m.m.a.RequestResponseBodyMethodProcessor : Using 'application/json', given [*/*] and supported [application/json, application/*+json, application/json, application/*+json]
+2019-06-10 16:06:41.732 DEBUG 20536 --- [http-nio-8080-exec-4] m.m.a.RequestResponseBodyMethodProcessor : Writing [[com.trading.tradergateway.Entity.Order@54fbeb1, com.trading.tradergateway.Entity.Order@5957283a, co (truncated)...]
+2019-06-10 16:06:41.732 DEBUG 20536 --- [http-nio-8080-exec-4] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
+2019-06-10 16:06:45.827 DEBUG 20536 --- [http-nio-8080-exec-5] o.s.web.servlet.DispatcherServlet        : OPTIONS "/order/month", parameters={}
+2019-06-10 16:06:45.827 DEBUG 20536 --- [http-nio-8080-exec-5] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to public java.util.List com.trading.tradergateway.Controller.OrderController.getOrdersByMonth()
+2019-06-10 16:06:45.828 DEBUG 20536 --- [http-nio-8080-exec-5] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
+2019-06-10 16:06:45.835 DEBUG 20536 --- [http-nio-8080-exec-6] o.s.web.servlet.DispatcherServlet        : GET "/order/month", parameters={}
+2019-06-10 16:06:45.836 DEBUG 20536 --- [http-nio-8080-exec-6] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to public java.util.List com.trading.tradergateway.Controller.OrderController.getOrdersByMonth()
+2019-06-10 16:06:45.844 DEBUG 20536 --- [http-nio-8080-exec-6] m.m.a.RequestResponseBodyMethodProcessor : Using 'application/json', given [*/*] and supported [application/json, application/*+json, application/json, application/*+json]
+2019-06-10 16:06:45.844 DEBUG 20536 --- [http-nio-8080-exec-6] m.m.a.RequestResponseBodyMethodProcessor : Writing [[com.trading.tradergateway.Entity.Order@173c050b, com.trading.tradergateway.Entity.Order@523e8988, c (truncated)...]
+2019-06-10 16:06:45.847 DEBUG 20536 --- [http-nio-8080-exec-6] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
+2019-06-10 16:07:54.298 DEBUG 20536 --- [http-nio-8080-exec-8] o.s.web.servlet.DispatcherServlet        : OPTIONS "/order", parameters={}
+2019-06-10 16:07:54.299 DEBUG 20536 --- [http-nio-8080-exec-8] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to public java.util.List com.trading.tradergateway.Controller.OrderController.getAllOrders()
+2019-06-10 16:07:54.300 DEBUG 20536 --- [http-nio-8080-exec-8] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
+2019-06-10 16:07:54.308 DEBUG 20536 --- [http-nio-8080-exec-9] o.s.web.servlet.DispatcherServlet        : GET "/order", parameters={}
+2019-06-10 16:07:54.309 DEBUG 20536 --- [http-nio-8080-exec-9] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to public java.util.List com.trading.tradergateway.Controller.OrderController.getAllOrders()
+2019-06-10 16:07:54.321 DEBUG 20536 --- [http-nio-8080-exec-9] m.m.a.RequestResponseBodyMethodProcessor : Using 'application/json', given [*/*] and supported [application/json, application/*+json, application/json, application/*+json]
+2019-06-10 16:07:54.321 DEBUG 20536 --- [http-nio-8080-exec-9] m.m.a.RequestResponseBodyMethodProcessor : Writing [[com.trading.tradergateway.Entity.Order@3e154205, com.trading.tradergateway.Entity.Order@3235d984, c (truncated)...]
+2019-06-10 16:07:54.324 DEBUG 20536 --- [http-nio-8080-exec-9] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
+2019-06-10 16:08:00.431 DEBUG 20536 --- [http-nio-8080-exec-10] o.s.web.servlet.DispatcherServlet        : GET "/order/week", parameters={}
+2019-06-10 16:08:00.431 DEBUG 20536 --- [http-nio-8080-exec-10] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to public java.util.List com.trading.tradergateway.Controller.OrderController.getOrdersByWeek()
+2019-06-10 16:08:00.437 DEBUG 20536 --- [http-nio-8080-exec-10] m.m.a.RequestResponseBodyMethodProcessor : Using 'application/json', given [*/*] and supported [application/json, application/*+json, application/json, application/*+json]
+2019-06-10 16:08:00.437 DEBUG 20536 --- [http-nio-8080-exec-10] m.m.a.RequestResponseBodyMethodProcessor : Writing [[com.trading.tradergateway.Entity.Order@64ae8544, com.trading.tradergateway.Entity.Order@21ac07b5, c (truncated)...]
+2019-06-10 16:08:00.439 DEBUG 20536 --- [http-nio-8080-exec-10] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
+2019-06-10 16:08:08.218 DEBUG 20536 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : GET "/order/today", parameters={}
+2019-06-10 16:08:08.219 DEBUG 20536 --- [http-nio-8080-exec-1] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to public java.util.List com.trading.tradergateway.Controller.OrderController.getOrdersByToday()
+2019-06-10 16:08:08.225 DEBUG 20536 --- [http-nio-8080-exec-1] m.m.a.RequestResponseBodyMethodProcessor : Using 'application/json', given [*/*] and supported [application/json, application/*+json, application/json, application/*+json]
+2019-06-10 16:08:08.225 DEBUG 20536 --- [http-nio-8080-exec-1] m.m.a.RequestResponseBodyMethodProcessor : Writing [[com.trading.tradergateway.Entity.Order@2f8a9271, com.trading.tradergateway.Entity.Order@22bd4c81, c (truncated)...]
+2019-06-10 16:08:08.227 DEBUG 20536 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
+2019-06-10 16:08:13.985 DEBUG 20536 --- [http-nio-8080-exec-2] o.s.web.servlet.DispatcherServlet        : GET "/order/week", parameters={}
+2019-06-10 16:08:13.986 DEBUG 20536 --- [http-nio-8080-exec-2] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to public java.util.List com.trading.tradergateway.Controller.OrderController.getOrdersByWeek()
+2019-06-10 16:08:13.995 DEBUG 20536 --- [http-nio-8080-exec-2] m.m.a.RequestResponseBodyMethodProcessor : Using 'application/json', given [*/*] and supported [application/json, application/*+json, application/json, application/*+json]
+2019-06-10 16:08:13.995 DEBUG 20536 --- [http-nio-8080-exec-2] m.m.a.RequestResponseBodyMethodProcessor : Writing [[com.trading.tradergateway.Entity.Order@7ac26dba, com.trading.tradergateway.Entity.Order@52c1bc94, c (truncated)...]
+2019-06-10 16:08:13.996 DEBUG 20536 --- [http-nio-8080-exec-2] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
+2019-06-10 16:08:42.244 DEBUG 20536 --- [http-nio-8080-exec-3] o.s.web.servlet.DispatcherServlet        : GET "/order", parameters={}
+2019-06-10 16:08:42.245 DEBUG 20536 --- [http-nio-8080-exec-3] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to public java.util.List com.trading.tradergateway.Controller.OrderController.getAllOrders()
+2019-06-10 16:08:42.251 DEBUG 20536 --- [http-nio-8080-exec-3] m.m.a.RequestResponseBodyMethodProcessor : Using 'application/json', given [*/*] and supported [application/json, application/*+json, application/json, application/*+json]
+2019-06-10 16:08:42.251 DEBUG 20536 --- [http-nio-8080-exec-3] m.m.a.RequestResponseBodyMethodProcessor : Writing [[com.trading.tradergateway.Entity.Order@159efcd0, com.trading.tradergateway.Entity.Order@509c7007, c (truncated)...]
+2019-06-10 16:08:42.253 DEBUG 20536 --- [http-nio-8080-exec-3] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
+2019-06-10 16:08:48.550 DEBUG 20536 --- [http-nio-8080-exec-4] o.s.web.servlet.DispatcherServlet        : GET "/order/week", parameters={}
+2019-06-10 16:08:48.550 DEBUG 20536 --- [http-nio-8080-exec-4] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to public java.util.List com.trading.tradergateway.Controller.OrderController.getOrdersByWeek()
+2019-06-10 16:08:48.555 DEBUG 20536 --- [http-nio-8080-exec-4] m.m.a.RequestResponseBodyMethodProcessor : Using 'application/json', given [*/*] and supported [application/json, application/*+json, application/json, application/*+json]
+2019-06-10 16:08:48.556 DEBUG 20536 --- [http-nio-8080-exec-4] m.m.a.RequestResponseBodyMethodProcessor : Writing [[com.trading.tradergateway.Entity.Order@6ed7e592, com.trading.tradergateway.Entity.Order@20d9891e, c (truncated)...]
+2019-06-10 16:08:48.557 DEBUG 20536 --- [http-nio-8080-exec-4] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
+2019-06-10 16:08:53.948 DEBUG 20536 --- [http-nio-8080-exec-5] o.s.web.servlet.DispatcherServlet        : GET "/order/today", parameters={}
+2019-06-10 16:08:53.949 DEBUG 20536 --- [http-nio-8080-exec-5] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to public java.util.List com.trading.tradergateway.Controller.OrderController.getOrdersByToday()
+2019-06-10 16:08:53.955 DEBUG 20536 --- [http-nio-8080-exec-5] m.m.a.RequestResponseBodyMethodProcessor : Using 'application/json', given [*/*] and supported [application/json, application/*+json, application/json, application/*+json]
+2019-06-10 16:08:53.955 DEBUG 20536 --- [http-nio-8080-exec-5] m.m.a.RequestResponseBodyMethodProcessor : Writing [[com.trading.tradergateway.Entity.Order@12c59388, com.trading.tradergateway.Entity.Order@3710d02, co (truncated)...]
+2019-06-10 16:08:53.956 DEBUG 20536 --- [http-nio-8080-exec-5] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
+2019-06-10 16:08:59.771 DEBUG 20536 --- [http-nio-8080-exec-6] o.s.web.servlet.DispatcherServlet        : GET "/order/month", parameters={}
+2019-06-10 16:08:59.772 DEBUG 20536 --- [http-nio-8080-exec-6] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to public java.util.List com.trading.tradergateway.Controller.OrderController.getOrdersByMonth()
+2019-06-10 16:08:59.777 DEBUG 20536 --- [http-nio-8080-exec-6] m.m.a.RequestResponseBodyMethodProcessor : Using 'application/json', given [*/*] and supported [application/json, application/*+json, application/json, application/*+json]
+2019-06-10 16:08:59.778 DEBUG 20536 --- [http-nio-8080-exec-6] m.m.a.RequestResponseBodyMethodProcessor : Writing [[com.trading.tradergateway.Entity.Order@e6b80f8, com.trading.tradergateway.Entity.Order@6790425a, co (truncated)...]
+2019-06-10 16:08:59.780 DEBUG 20536 --- [http-nio-8080-exec-6] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
+2019-06-10 16:09:46.703 DEBUG 20536 --- [http-nio-8080-exec-7] o.s.web.servlet.DispatcherServlet        : GET "/order/today", parameters={}
+2019-06-10 16:09:46.703 DEBUG 20536 --- [http-nio-8080-exec-7] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to public java.util.List com.trading.tradergateway.Controller.OrderController.getOrdersByToday()
+2019-06-10 16:09:46.708 DEBUG 20536 --- [http-nio-8080-exec-7] m.m.a.RequestResponseBodyMethodProcessor : Using 'application/json', given [*/*] and supported [application/json, application/*+json, application/json, application/*+json]
+2019-06-10 16:09:46.708 DEBUG 20536 --- [http-nio-8080-exec-7] m.m.a.RequestResponseBodyMethodProcessor : Writing [[com.trading.tradergateway.Entity.Order@86f732d, com.trading.tradergateway.Entity.Order@70e2f842, co (truncated)...]
+2019-06-10 16:09:46.709 DEBUG 20536 --- [http-nio-8080-exec-7] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
+2019-06-10 16:09:53.638 DEBUG 20536 --- [http-nio-8080-exec-8] o.s.web.servlet.DispatcherServlet        : GET "/order/week", parameters={}
+2019-06-10 16:09:53.638 DEBUG 20536 --- [http-nio-8080-exec-8] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to public java.util.List com.trading.tradergateway.Controller.OrderController.getOrdersByWeek()
+2019-06-10 16:09:53.642 DEBUG 20536 --- [http-nio-8080-exec-8] m.m.a.RequestResponseBodyMethodProcessor : Using 'application/json', given [*/*] and supported [application/json, application/*+json, application/json, application/*+json]
+2019-06-10 16:09:53.642 DEBUG 20536 --- [http-nio-8080-exec-8] m.m.a.RequestResponseBodyMethodProcessor : Writing [[com.trading.tradergateway.Entity.Order@40e99caa, com.trading.tradergateway.Entity.Order@5eb0ad3, co (truncated)...]
+2019-06-10 16:09:53.643 DEBUG 20536 --- [http-nio-8080-exec-8] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
+2019-06-10 16:10:03.491 DEBUG 20536 --- [http-nio-8080-exec-10] o.s.web.servlet.DispatcherServlet        : GET "/order/month", parameters={}
+2019-06-10 16:10:03.491 DEBUG 20536 --- [http-nio-8080-exec-10] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to public java.util.List com.trading.tradergateway.Controller.OrderController.getOrdersByMonth()
+2019-06-10 16:10:03.496 DEBUG 20536 --- [http-nio-8080-exec-10] m.m.a.RequestResponseBodyMethodProcessor : Using 'application/json', given [*/*] and supported [application/json, application/*+json, application/json, application/*+json]
+2019-06-10 16:10:03.496 DEBUG 20536 --- [http-nio-8080-exec-10] m.m.a.RequestResponseBodyMethodProcessor : Writing [[com.trading.tradergateway.Entity.Order@54b915b5, com.trading.tradergateway.Entity.Order@1366dc6, co (truncated)...]
+2019-06-10 16:10:03.497 DEBUG 20536 --- [http-nio-8080-exec-10] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
+2019-06-10 16:11:09.924 DEBUG 20536 --- [http-nio-8080-exec-2] o.s.web.servlet.DispatcherServlet        : GET "/order/week", parameters={}
+2019-06-10 16:11:09.924 DEBUG 20536 --- [http-nio-8080-exec-2] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to public java.util.List com.trading.tradergateway.Controller.OrderController.getOrdersByWeek()
+2019-06-10 16:11:09.928 DEBUG 20536 --- [http-nio-8080-exec-2] m.m.a.RequestResponseBodyMethodProcessor : Using 'application/json', given [*/*] and supported [application/json, application/*+json, application/json, application/*+json]
+2019-06-10 16:11:09.928 DEBUG 20536 --- [http-nio-8080-exec-2] m.m.a.RequestResponseBodyMethodProcessor : Writing [[com.trading.tradergateway.Entity.Order@4d2e8966, com.trading.tradergateway.Entity.Order@2a43a8d1, c (truncated)...]
+2019-06-10 16:11:09.930 DEBUG 20536 --- [http-nio-8080-exec-2] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
+2019-06-10 16:12:05.078 DEBUG 20536 --- [http-nio-8080-exec-3] o.s.web.servlet.DispatcherServlet        : GET "/order", parameters={}
+2019-06-10 16:12:05.078 DEBUG 20536 --- [http-nio-8080-exec-3] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to public java.util.List com.trading.tradergateway.Controller.OrderController.getAllOrders()
+2019-06-10 16:12:05.083 DEBUG 20536 --- [http-nio-8080-exec-3] m.m.a.RequestResponseBodyMethodProcessor : Using 'application/json', given [*/*] and supported [application/json, application/*+json, application/json, application/*+json]
+2019-06-10 16:12:05.083 DEBUG 20536 --- [http-nio-8080-exec-3] m.m.a.RequestResponseBodyMethodProcessor : Writing [[com.trading.tradergateway.Entity.Order@c660dfa, com.trading.tradergateway.Entity.Order@6349068f, co (truncated)...]
+2019-06-10 16:12:05.085 DEBUG 20536 --- [http-nio-8080-exec-3] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
+2019-06-10 16:12:10.448 DEBUG 20536 --- [http-nio-8080-exec-4] o.s.web.servlet.DispatcherServlet        : GET "/order/today", parameters={}
+2019-06-10 16:12:10.448 DEBUG 20536 --- [http-nio-8080-exec-4] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to public java.util.List com.trading.tradergateway.Controller.OrderController.getOrdersByToday()
+2019-06-10 16:12:10.453 DEBUG 20536 --- [http-nio-8080-exec-4] m.m.a.RequestResponseBodyMethodProcessor : Using 'application/json', given [*/*] and supported [application/json, application/*+json, application/json, application/*+json]
+2019-06-10 16:12:10.453 DEBUG 20536 --- [http-nio-8080-exec-4] m.m.a.RequestResponseBodyMethodProcessor : Writing [[com.trading.tradergateway.Entity.Order@6b5a52ba, com.trading.tradergateway.Entity.Order@470dc590, c (truncated)...]
+2019-06-10 16:12:10.454 DEBUG 20536 --- [http-nio-8080-exec-4] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
+2019-06-10 16:12:15.376 DEBUG 20536 --- [http-nio-8080-exec-5] o.s.web.servlet.DispatcherServlet        : GET "/order/month", parameters={}
+2019-06-10 16:12:15.376 DEBUG 20536 --- [http-nio-8080-exec-5] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to public java.util.List com.trading.tradergateway.Controller.OrderController.getOrdersByMonth()
+2019-06-10 16:12:15.381 DEBUG 20536 --- [http-nio-8080-exec-5] m.m.a.RequestResponseBodyMethodProcessor : Using 'application/json', given [*/*] and supported [application/json, application/*+json, application/json, application/*+json]
+2019-06-10 16:12:15.381 DEBUG 20536 --- [http-nio-8080-exec-5] m.m.a.RequestResponseBodyMethodProcessor : Writing [[com.trading.tradergateway.Entity.Order@6399c605, com.trading.tradergateway.Entity.Order@6df9cac3, c (truncated)...]
+2019-06-10 16:12:15.383 DEBUG 20536 --- [http-nio-8080-exec-5] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
+2019-06-10 16:12:21.309 DEBUG 20536 --- [http-nio-8080-exec-6] o.s.web.servlet.DispatcherServlet        : GET "/order/week", parameters={}
+2019-06-10 16:12:21.309 DEBUG 20536 --- [http-nio-8080-exec-6] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to public java.util.List com.trading.tradergateway.Controller.OrderController.getOrdersByWeek()
+2019-06-10 16:12:21.312 DEBUG 20536 --- [http-nio-8080-exec-6] m.m.a.RequestResponseBodyMethodProcessor : Using 'application/json', given [*/*] and supported [application/json, application/*+json, application/json, application/*+json]
+2019-06-10 16:12:21.312 DEBUG 20536 --- [http-nio-8080-exec-6] m.m.a.RequestResponseBodyMethodProcessor : Writing [[com.trading.tradergateway.Entity.Order@267757c0, com.trading.tradergateway.Entity.Order@36851ad1, c (truncated)...]
+2019-06-10 16:12:21.314 DEBUG 20536 --- [http-nio-8080-exec-6] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
+2019-06-10 17:10:16.593 DEBUG 20536 --- [http-nio-8080-exec-3] o.s.web.servlet.DispatcherServlet        : OPTIONS "/order", parameters={}
+2019-06-10 17:10:16.594 DEBUG 20536 --- [http-nio-8080-exec-3] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to public java.util.List com.trading.tradergateway.Controller.OrderController.getAllOrders()
+2019-06-10 17:10:16.596 DEBUG 20536 --- [http-nio-8080-exec-3] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
+2019-06-10 17:10:16.606 DEBUG 20536 --- [http-nio-8080-exec-4] o.s.web.servlet.DispatcherServlet        : GET "/order", parameters={}
+2019-06-10 17:10:16.607 DEBUG 20536 --- [http-nio-8080-exec-4] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to public java.util.List com.trading.tradergateway.Controller.OrderController.getAllOrders()
+2019-06-10 17:10:16.624 DEBUG 20536 --- [http-nio-8080-exec-4] m.m.a.RequestResponseBodyMethodProcessor : Using 'application/json', given [*/*] and supported [application/json, application/*+json, application/json, application/*+json]
+2019-06-10 17:10:16.624 DEBUG 20536 --- [http-nio-8080-exec-4] m.m.a.RequestResponseBodyMethodProcessor : Writing [[com.trading.tradergateway.Entity.Order@3b2be2c6, com.trading.tradergateway.Entity.Order@7dea0cf0, c (truncated)...]
+2019-06-10 17:10:16.627 DEBUG 20536 --- [http-nio-8080-exec-4] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
+2019-06-10 17:10:28.383 DEBUG 20536 --- [http-nio-8080-exec-5] o.s.web.servlet.DispatcherServlet        : OPTIONS "/future/all", parameters={}
+2019-06-10 17:10:28.384 DEBUG 20536 --- [http-nio-8080-exec-5] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to public java.util.List com.trading.tradergateway.Controller.FutureController.getAllFutures()
+2019-06-10 17:10:28.384 DEBUG 20536 --- [http-nio-8080-exec-5] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
+2019-06-10 17:10:28.394 DEBUG 20536 --- [http-nio-8080-exec-6] o.s.web.servlet.DispatcherServlet        : GET "/future/all", parameters={}
+2019-06-10 17:10:28.395 DEBUG 20536 --- [http-nio-8080-exec-6] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to public java.util.List com.trading.tradergateway.Controller.FutureController.getAllFutures()
+2019-06-10 17:10:28.417 DEBUG 20536 --- [http-nio-8080-exec-6] m.m.a.RequestResponseBodyMethodProcessor : Using 'application/json', given [*/*] and supported [application/json, application/*+json, application/json, application/*+json]
+2019-06-10 17:10:28.417 DEBUG 20536 --- [http-nio-8080-exec-6] m.m.a.RequestResponseBodyMethodProcessor : Writing [[com.trading.tradergateway.Entity.Future@9a44c1b, com.trading.tradergateway.Entity.Future@48e09a52,  (truncated)...]
+2019-06-10 17:10:28.422 DEBUG 20536 --- [http-nio-8080-exec-6] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
+2019-06-10 17:24:22.065  INFO 7868 --- [main] c.t.t.TradergatewayApplication           : Starting TradergatewayApplication on LAPTOP-HAEK8B4U with PID 7868 (D:\distributed-OTC-trading-system\Trader-gateway\target\classes started by administartor in D:\distributed-OTC-trading-system\Trader-gateway)
+2019-06-10 17:24:22.069  INFO 7868 --- [main] c.t.t.TradergatewayApplication           : No active profile set, falling back to default profiles: default
+2019-06-10 17:24:22.959  INFO 7868 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Multiple Spring Data modules found, entering strict repository configuration mode!
+2019-06-10 17:24:22.959  INFO 7868 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data repositories in DEFAULT mode.
+2019-06-10 17:24:23.047  INFO 7868 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 79ms. Found 4 repository interfaces.
+2019-06-10 17:24:23.063  INFO 7868 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Multiple Spring Data modules found, entering strict repository configuration mode!
+2019-06-10 17:24:23.064  INFO 7868 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data repositories in DEFAULT mode.
+2019-06-10 17:24:23.081  INFO 7868 --- [main] .RepositoryConfigurationExtensionSupport : Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.trading.tradergateway.Repository.BrokerRepository.
+2019-06-10 17:24:23.082  INFO 7868 --- [main] .RepositoryConfigurationExtensionSupport : Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.trading.tradergateway.Repository.FutureRepository.
+2019-06-10 17:24:23.083  INFO 7868 --- [main] .RepositoryConfigurationExtensionSupport : Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.trading.tradergateway.Repository.OrderRepository.
+2019-06-10 17:24:23.083  INFO 7868 --- [main] .RepositoryConfigurationExtensionSupport : Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.trading.tradergateway.Repository.TraderRepository.
+2019-06-10 17:24:23.083  INFO 7868 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 10ms. Found 0 repository interfaces.
+2019-06-10 17:24:23.442  INFO 7868 --- [main] trationDelegate$BeanPostProcessorChecker : Bean 'org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration' of type [org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration$$EnhancerBySpringCGLIB$$296415c3] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2019-06-10 17:24:23.477  INFO 7868 --- [main] trationDelegate$BeanPostProcessorChecker : Bean 'org.springframework.security.config.annotation.configuration.ObjectPostProcessorConfiguration' of type [org.springframework.security.config.annotation.configuration.ObjectPostProcessorConfiguration$$EnhancerBySpringCGLIB$$c211ddfd] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2019-06-10 17:24:23.482  INFO 7868 --- [main] trationDelegate$BeanPostProcessorChecker : Bean 'objectPostProcessor' of type [org.springframework.security.config.annotation.configuration.AutowireBeanFactoryObjectPostProcessor] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2019-06-10 17:24:23.483  INFO 7868 --- [main] trationDelegate$BeanPostProcessorChecker : Bean 'org.springframework.security.access.expression.method.DefaultMethodSecurityExpressionHandler@7b208b45' of type [org.springframework.security.access.expression.method.DefaultMethodSecurityExpressionHandler] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2019-06-10 17:24:23.485  INFO 7868 --- [main] trationDelegate$BeanPostProcessorChecker : Bean 'org.springframework.security.config.annotation.method.configuration.GlobalMethodSecurityConfiguration' of type [org.springframework.security.config.annotation.method.configuration.GlobalMethodSecurityConfiguration$$EnhancerBySpringCGLIB$$e6e680af] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2019-06-10 17:24:23.487  INFO 7868 --- [main] trationDelegate$BeanPostProcessorChecker : Bean 'methodSecurityMetadataSource' of type [org.springframework.security.access.method.DelegatingMethodSecurityMetadataSource] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2019-06-10 17:24:23.502  INFO 7868 --- [main] trationDelegate$BeanPostProcessorChecker : Bean 'jedisConfig' of type [com.trading.tradergateway.JedisConfig$$EnhancerBySpringCGLIB$$d158264b] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2019-06-10 17:24:23.535  INFO 7868 --- [main] trationDelegate$BeanPostProcessorChecker : Bean 'jedisConnectionFactory' of type [org.springframework.data.redis.connection.jedis.JedisConnectionFactory] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2019-06-10 17:24:23.538  INFO 7868 --- [main] trationDelegate$BeanPostProcessorChecker : Bean 'redisConfig' of type [com.trading.tradergateway.RedisConfig$$EnhancerBySpringCGLIB$$7ac79553] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2019-06-10 17:24:23.822  INFO 7868 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
+2019-06-10 17:24:23.843  INFO 7868 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2019-06-10 17:24:23.843  INFO 7868 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.19]
+2019-06-10 17:24:24.011  INFO 7868 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2019-06-10 17:24:24.011 DEBUG 7868 --- [main] o.s.web.context.ContextLoader            : Published root WebApplicationContext as ServletContext attribute with name [org.springframework.web.context.WebApplicationContext.ROOT]
+2019-06-10 17:24:24.011  INFO 7868 --- [main] o.s.web.context.ContextLoader            : Root WebApplicationContext: initialization completed in 1895 ms
+2019-06-10 17:24:24.179  INFO 7868 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2019-06-10 17:24:24.180  WARN 7868 --- [main] com.zaxxer.hikari.util.DriverDataSource  : Registered driver with driverClassName=com.mysql.jdbc.Driver was not found, trying direct instantiation.
+2019-06-10 17:24:24.382  INFO 7868 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2019-06-10 17:24:25.378  INFO 7868 --- [main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2019-06-10 17:24:26.351  INFO 7868 --- [main] o.s.s.web.DefaultSecurityFilterChain     : Creating filter chain: any request, [org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@34549979, org.springframework.security.web.context.SecurityContextPersistenceFilter@5ef2cbe6, org.springframework.security.web.header.HeaderWriterFilter@3688baab, org.springframework.security.web.authentication.logout.LogoutFilter@26a45089, com.trading.tradergateway.JWT.JwtAuthenticationTokenFilter@3a109ff7, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@68b7bdcb, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@bfe47a8, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@144a5e6e, org.springframework.security.web.session.SessionManagementFilter@19faedcc, org.springframework.security.web.access.ExceptionTranslationFilter@16b64a03, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@6f24ce45]
+2019-06-10 17:24:26.415 DEBUG 7868 --- [main] o.s.w.s.handler.SimpleUrlHandlerMapping  : Patterns [/**/favicon.ico] in 'faviconHandlerMapping'
+2019-06-10 17:24:26.540  INFO 7868 --- [main] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
+2019-06-10 17:24:26.556 DEBUG 7868 --- [main] s.w.s.m.m.a.RequestMappingHandlerAdapter : ControllerAdvice beans: 0 @ModelAttribute, 0 @InitBinder, 1 RequestBodyAdvice, 1 ResponseBodyAdvice
+2019-06-10 17:24:26.583  WARN 7868 --- [main] aWebConfiguration$JpaWebMvcConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2019-06-10 17:24:26.624 DEBUG 7868 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : 20 mappings in 'requestMappingHandlerMapping'
+2019-06-10 17:24:26.649 DEBUG 7868 --- [main] o.s.w.s.handler.SimpleUrlHandlerMapping  : Patterns [/webjars/**, /**] in 'resourceHandlerMapping'
+2019-06-10 17:24:26.659 DEBUG 7868 --- [main] .m.m.a.ExceptionHandlerExceptionResolver : ControllerAdvice beans: 0 @ExceptionHandler, 1 ResponseBodyAdvice
+2019-06-10 17:24:27.242  INFO 7868 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
+2019-06-10 17:24:27.244  INFO 7868 --- [main] c.t.t.TradergatewayApplication           : Started TradergatewayApplication in 5.65 seconds (JVM running for 6.91)
+2019-06-10 17:24:40.492  INFO 7868 --- [http-nio-8080-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2019-06-10 17:24:40.492  INFO 7868 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2019-06-10 17:24:40.492 DEBUG 7868 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Detected StandardServletMultipartResolver
+2019-06-10 17:24:40.501 DEBUG 7868 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : enableLoggingRequestDetails='false': request parameters and headers will be masked to prevent unsafe logging of potentially sensitive data
+2019-06-10 17:24:40.502  INFO 7868 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 10 ms
+2019-06-10 17:24:40.524 DEBUG 7868 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : OPTIONS "/trader/login", parameters={}
+2019-06-10 17:24:40.528 DEBUG 7868 --- [http-nio-8080-exec-1] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to public java.lang.String com.trading.tradergateway.Controller.TraderController.login(com.trading.tradergateway.Entity.Trader) throws javax.naming.AuthenticationException
+2019-06-10 17:24:40.541 DEBUG 7868 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
+2019-06-10 17:24:40.550 DEBUG 7868 --- [http-nio-8080-exec-2] o.s.web.servlet.DispatcherServlet        : POST "/trader/login", parameters={}
+2019-06-10 17:24:40.550 DEBUG 7868 --- [http-nio-8080-exec-2] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to public java.lang.String com.trading.tradergateway.Controller.TraderController.login(com.trading.tradergateway.Entity.Trader) throws javax.naming.AuthenticationException
+2019-06-10 17:24:40.622 DEBUG 7868 --- [http-nio-8080-exec-2] m.m.a.RequestResponseBodyMethodProcessor : Read "application/json;charset=UTF-8" to [com.trading.tradergateway.Entity.Trader@50780953]
+2019-06-10 17:24:41.782 DEBUG 7868 --- [http-nio-8080-exec-2] m.m.a.RequestResponseBodyMethodProcessor : Using 'text/plain', given [*/*] and supported [text/plain, */*, text/plain, */*, application/json, application/*+json, application/json, application/*+json]
+2019-06-10 17:24:41.783 DEBUG 7868 --- [http-nio-8080-exec-2] m.m.a.RequestResponseBodyMethodProcessor : Writing ["eyJhbGciOiJIUzUxMiJ9.eyJpc3MiOiJDVFMiLCJzdWIiOiJ0ZXN0IiwiZXhwIjoxNTYwMTYyMjgwLCJpYXQiOjE1NjAxNTg2OD (truncated)...]
+2019-06-10 17:24:41.789 DEBUG 7868 --- [http-nio-8080-exec-2] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
+2019-06-10 17:24:47.030 DEBUG 7868 --- [http-nio-8080-exec-3] o.s.web.servlet.DispatcherServlet        : GET "/future/all", parameters={}
+2019-06-10 17:24:47.031 DEBUG 7868 --- [http-nio-8080-exec-3] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to public java.util.List com.trading.tradergateway.Controller.FutureController.getAllFutures()
+2019-06-10 17:24:47.051 DEBUG 7868 --- [http-nio-8080-exec-3] m.m.a.RequestResponseBodyMethodProcessor : Using 'application/json', given [*/*] and supported [application/json, application/*+json, application/json, application/*+json]
+2019-06-10 17:24:47.051 DEBUG 7868 --- [http-nio-8080-exec-3] m.m.a.RequestResponseBodyMethodProcessor : Writing [[com.trading.tradergateway.Entity.Future@2695d78e, com.trading.tradergateway.Entity.Future@24e7cc5a, (truncated)...]
+2019-06-10 17:24:47.067 DEBUG 7868 --- [http-nio-8080-exec-3] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
+2019-06-10 17:26:01.334 DEBUG 7868 --- [http-nio-8080-exec-5] o.s.web.servlet.DispatcherServlet        : GET "/future/all", parameters={}
+2019-06-10 17:26:01.335 DEBUG 7868 --- [http-nio-8080-exec-5] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to public java.util.List com.trading.tradergateway.Controller.FutureController.getAllFutures()
+2019-06-10 17:26:01.340 DEBUG 7868 --- [http-nio-8080-exec-5] m.m.a.RequestResponseBodyMethodProcessor : Using 'application/json', given [*/*] and supported [application/json, application/*+json, application/json, application/*+json]
+2019-06-10 17:26:01.340 DEBUG 7868 --- [http-nio-8080-exec-5] m.m.a.RequestResponseBodyMethodProcessor : Writing [[com.trading.tradergateway.Entity.Future@7c56dbd2, com.trading.tradergateway.Entity.Future@199e9502, (truncated)...]
+2019-06-10 17:26:01.341 DEBUG 7868 --- [http-nio-8080-exec-5] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
+2019-06-10 17:26:04.704 DEBUG 7868 --- [http-nio-8080-exec-6] o.s.web.servlet.DispatcherServlet        : GET "/order", parameters={}
+2019-06-10 17:26:04.705 DEBUG 7868 --- [http-nio-8080-exec-6] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to public java.util.List com.trading.tradergateway.Controller.OrderController.getAllOrders()
+2019-06-10 17:26:04.724 DEBUG 7868 --- [http-nio-8080-exec-6] m.m.a.RequestResponseBodyMethodProcessor : Using 'application/json', given [*/*] and supported [application/json, application/*+json, application/json, application/*+json]
+2019-06-10 17:26:04.725 DEBUG 7868 --- [http-nio-8080-exec-6] m.m.a.RequestResponseBodyMethodProcessor : Writing [[com.trading.tradergateway.Entity.Order@67069a39, com.trading.tradergateway.Entity.Order@4bc03879, c (truncated)...]
+2019-06-10 17:26:04.733 DEBUG 7868 --- [http-nio-8080-exec-6] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
+2019-06-10 17:27:18.229 DEBUG 7868 --- [http-nio-8080-exec-8] o.s.web.servlet.DispatcherServlet        : OPTIONS "/order/SendOrder", parameters={}
+2019-06-10 17:27:18.230 DEBUG 7868 --- [http-nio-8080-exec-8] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to public java.lang.String com.trading.tradergateway.Controller.OrderController.sendOrder(com.trading.tradergateway.Entity.Order,javax.servlet.http.HttpServletRequest) throws java.lang.Exception
+2019-06-10 17:27:18.230 DEBUG 7868 --- [http-nio-8080-exec-8] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
+2019-06-10 17:27:18.244 DEBUG 7868 --- [http-nio-8080-exec-9] o.s.web.servlet.DispatcherServlet        : POST "/order/SendOrder", parameters={}
+2019-06-10 17:27:18.245 DEBUG 7868 --- [http-nio-8080-exec-9] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to public java.lang.String com.trading.tradergateway.Controller.OrderController.sendOrder(com.trading.tradergateway.Entity.Order,javax.servlet.http.HttpServletRequest) throws java.lang.Exception
+2019-06-10 17:27:18.249 DEBUG 7868 --- [http-nio-8080-exec-9] m.m.a.RequestResponseBodyMethodProcessor : Read "application/json;charset=UTF-8" to [com.trading.tradergateway.Entity.Order@1707a116]
+2019-06-10 17:29:01.314 DEBUG 7868 --- [http-nio-8080-exec-10] o.s.web.servlet.DispatcherServlet        : GET "/order", parameters={}
+2019-06-10 17:29:01.315 DEBUG 7868 --- [http-nio-8080-exec-10] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to public java.util.List com.trading.tradergateway.Controller.OrderController.getAllOrders()
+2019-06-10 17:29:01.325 DEBUG 7868 --- [http-nio-8080-exec-10] m.m.a.RequestResponseBodyMethodProcessor : Using 'application/json', given [*/*] and supported [application/json, application/*+json, application/json, application/*+json]
+2019-06-10 17:29:01.326 DEBUG 7868 --- [http-nio-8080-exec-10] m.m.a.RequestResponseBodyMethodProcessor : Writing [[com.trading.tradergateway.Entity.Order@4d2a39c3, com.trading.tradergateway.Entity.Order@5db703d8, c (truncated)...]
+2019-06-10 17:29:01.331 DEBUG 7868 --- [http-nio-8080-exec-10] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
+2019-06-10 17:30:27.177  INFO 1020 --- [main] c.t.t.TradergatewayApplication           : Starting TradergatewayApplication on LAPTOP-HAEK8B4U with PID 1020 (D:\distributed-OTC-trading-system\Trader-gateway\target\classes started by administartor in D:\distributed-OTC-trading-system\Trader-gateway)
+2019-06-10 17:30:27.180  INFO 1020 --- [main] c.t.t.TradergatewayApplication           : No active profile set, falling back to default profiles: default
+2019-06-10 17:30:28.076  INFO 1020 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Multiple Spring Data modules found, entering strict repository configuration mode!
+2019-06-10 17:30:28.076  INFO 1020 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data repositories in DEFAULT mode.
+2019-06-10 17:30:28.162  INFO 1020 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 79ms. Found 4 repository interfaces.
+2019-06-10 17:30:28.172  INFO 1020 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Multiple Spring Data modules found, entering strict repository configuration mode!
+2019-06-10 17:30:28.173  INFO 1020 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data repositories in DEFAULT mode.
+2019-06-10 17:30:28.189  INFO 1020 --- [main] .RepositoryConfigurationExtensionSupport : Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.trading.tradergateway.Repository.BrokerRepository.
+2019-06-10 17:30:28.189  INFO 1020 --- [main] .RepositoryConfigurationExtensionSupport : Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.trading.tradergateway.Repository.FutureRepository.
+2019-06-10 17:30:28.190  INFO 1020 --- [main] .RepositoryConfigurationExtensionSupport : Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.trading.tradergateway.Repository.OrderRepository.
+2019-06-10 17:30:28.190  INFO 1020 --- [main] .RepositoryConfigurationExtensionSupport : Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.trading.tradergateway.Repository.TraderRepository.
+2019-06-10 17:30:28.190  INFO 1020 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 9ms. Found 0 repository interfaces.
+2019-06-10 17:30:28.540  INFO 1020 --- [main] trationDelegate$BeanPostProcessorChecker : Bean 'org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration' of type [org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration$$EnhancerBySpringCGLIB$$d25524ac] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2019-06-10 17:30:28.573  INFO 1020 --- [main] trationDelegate$BeanPostProcessorChecker : Bean 'org.springframework.security.config.annotation.configuration.ObjectPostProcessorConfiguration' of type [org.springframework.security.config.annotation.configuration.ObjectPostProcessorConfiguration$$EnhancerBySpringCGLIB$$6b02ece6] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2019-06-10 17:30:28.578  INFO 1020 --- [main] trationDelegate$BeanPostProcessorChecker : Bean 'objectPostProcessor' of type [org.springframework.security.config.annotation.configuration.AutowireBeanFactoryObjectPostProcessor] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2019-06-10 17:30:28.580  INFO 1020 --- [main] trationDelegate$BeanPostProcessorChecker : Bean 'org.springframework.security.access.expression.method.DefaultMethodSecurityExpressionHandler@4cbd03e7' of type [org.springframework.security.access.expression.method.DefaultMethodSecurityExpressionHandler] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2019-06-10 17:30:28.581  INFO 1020 --- [main] trationDelegate$BeanPostProcessorChecker : Bean 'org.springframework.security.config.annotation.method.configuration.GlobalMethodSecurityConfiguration' of type [org.springframework.security.config.annotation.method.configuration.GlobalMethodSecurityConfiguration$$EnhancerBySpringCGLIB$$8fd78f98] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2019-06-10 17:30:28.584  INFO 1020 --- [main] trationDelegate$BeanPostProcessorChecker : Bean 'methodSecurityMetadataSource' of type [org.springframework.security.access.method.DelegatingMethodSecurityMetadataSource] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2019-06-10 17:30:28.601  INFO 1020 --- [main] trationDelegate$BeanPostProcessorChecker : Bean 'jedisConfig' of type [com.trading.tradergateway.JedisConfig$$EnhancerBySpringCGLIB$$7a493534] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2019-06-10 17:30:28.634  INFO 1020 --- [main] trationDelegate$BeanPostProcessorChecker : Bean 'jedisConnectionFactory' of type [org.springframework.data.redis.connection.jedis.JedisConnectionFactory] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2019-06-10 17:30:28.636  INFO 1020 --- [main] trationDelegate$BeanPostProcessorChecker : Bean 'redisConfig' of type [com.trading.tradergateway.RedisConfig$$EnhancerBySpringCGLIB$$23b8a43c] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2019-06-10 17:30:28.945  INFO 1020 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
+2019-06-10 17:30:28.966  INFO 1020 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2019-06-10 17:30:28.966  INFO 1020 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.19]
+2019-06-10 17:30:29.131  INFO 1020 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2019-06-10 17:30:29.131 DEBUG 1020 --- [main] o.s.web.context.ContextLoader            : Published root WebApplicationContext as ServletContext attribute with name [org.springframework.web.context.WebApplicationContext.ROOT]
+2019-06-10 17:30:29.131  INFO 1020 --- [main] o.s.web.context.ContextLoader            : Root WebApplicationContext: initialization completed in 1909 ms
+2019-06-10 17:30:29.329  INFO 1020 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2019-06-10 17:30:29.330  WARN 1020 --- [main] com.zaxxer.hikari.util.DriverDataSource  : Registered driver with driverClassName=com.mysql.jdbc.Driver was not found, trying direct instantiation.
+2019-06-10 17:30:29.539  INFO 1020 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2019-06-10 17:30:30.470  INFO 1020 --- [main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2019-06-10 17:30:31.355  INFO 1020 --- [main] o.s.s.web.DefaultSecurityFilterChain     : Creating filter chain: any request, [org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@5d27b4c1, org.springframework.security.web.context.SecurityContextPersistenceFilter@ce655b9, org.springframework.security.web.header.HeaderWriterFilter@29147c12, org.springframework.security.web.authentication.logout.LogoutFilter@fcd0e8d, com.trading.tradergateway.JWT.JwtAuthenticationTokenFilter@11826398, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@5731caaf, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@45796b2a, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@50df37eb, org.springframework.security.web.session.SessionManagementFilter@709d86a2, org.springframework.security.web.access.ExceptionTranslationFilter@33ebe4f0, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@45bd4753]
+2019-06-10 17:30:31.409 DEBUG 1020 --- [main] o.s.w.s.handler.SimpleUrlHandlerMapping  : Patterns [/**/favicon.ico] in 'faviconHandlerMapping'
+2019-06-10 17:30:31.529  INFO 1020 --- [main] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
+2019-06-10 17:30:31.543 DEBUG 1020 --- [main] s.w.s.m.m.a.RequestMappingHandlerAdapter : ControllerAdvice beans: 0 @ModelAttribute, 0 @InitBinder, 1 RequestBodyAdvice, 1 ResponseBodyAdvice
+2019-06-10 17:30:31.566  WARN 1020 --- [main] aWebConfiguration$JpaWebMvcConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2019-06-10 17:30:31.602 DEBUG 1020 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : 20 mappings in 'requestMappingHandlerMapping'
+2019-06-10 17:30:31.623 DEBUG 1020 --- [main] o.s.w.s.handler.SimpleUrlHandlerMapping  : Patterns [/webjars/**, /**] in 'resourceHandlerMapping'
+2019-06-10 17:30:31.632 DEBUG 1020 --- [main] .m.m.a.ExceptionHandlerExceptionResolver : ControllerAdvice beans: 0 @ExceptionHandler, 1 ResponseBodyAdvice
+2019-06-10 17:30:32.126  INFO 1020 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
+2019-06-10 17:30:32.127  INFO 1020 --- [main] c.t.t.TradergatewayApplication           : Started TradergatewayApplication in 5.444 seconds (JVM running for 6.736)
+2019-06-10 17:33:00.282  INFO 1020 --- [http-nio-8080-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2019-06-10 17:33:00.282  INFO 1020 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2019-06-10 17:33:00.282 DEBUG 1020 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Detected StandardServletMultipartResolver
+2019-06-10 17:33:00.295 DEBUG 1020 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : enableLoggingRequestDetails='false': request parameters and headers will be masked to prevent unsafe logging of potentially sensitive data
+2019-06-10 17:33:00.295  INFO 1020 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 13 ms
+2019-06-10 17:33:00.324 DEBUG 1020 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : OPTIONS "/order/SendOrder", parameters={}
+2019-06-10 17:33:00.328 DEBUG 1020 --- [http-nio-8080-exec-1] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to public java.lang.String com.trading.tradergateway.Controller.OrderController.sendOrder(com.trading.tradergateway.Entity.Order,javax.servlet.http.HttpServletRequest) throws java.lang.Exception
+2019-06-10 17:33:00.344 DEBUG 1020 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
+2019-06-10 17:33:00.926 DEBUG 1020 --- [http-nio-8080-exec-2] o.s.web.servlet.DispatcherServlet        : POST "/order/SendOrder", parameters={}
+2019-06-10 17:33:00.927 DEBUG 1020 --- [http-nio-8080-exec-2] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to public java.lang.String com.trading.tradergateway.Controller.OrderController.sendOrder(com.trading.tradergateway.Entity.Order,javax.servlet.http.HttpServletRequest) throws java.lang.Exception
+2019-06-10 17:33:00.978 DEBUG 1020 --- [http-nio-8080-exec-2] m.m.a.RequestResponseBodyMethodProcessor : Read "application/json;charset=UTF-8" to [com.trading.tradergateway.Entity.Order@5fd262d4]
+2019-06-10 17:33:11.174 DEBUG 1020 --- [http-nio-8080-exec-3] o.s.web.servlet.DispatcherServlet        : GET "/order", parameters={}
+2019-06-10 17:33:11.175 DEBUG 1020 --- [http-nio-8080-exec-3] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to public java.util.List com.trading.tradergateway.Controller.OrderController.getAllOrders()
+2019-06-10 17:33:11.202 DEBUG 1020 --- [http-nio-8080-exec-3] m.m.a.RequestResponseBodyMethodProcessor : Using 'application/json', given [*/*] and supported [application/json, application/*+json, application/json, application/*+json]
+2019-06-10 17:33:11.203 DEBUG 1020 --- [http-nio-8080-exec-3] m.m.a.RequestResponseBodyMethodProcessor : Writing [[com.trading.tradergateway.Entity.Order@410fbfd3, com.trading.tradergateway.Entity.Order@4818f07b, c (truncated)...]
+2019-06-10 17:33:11.233 DEBUG 1020 --- [http-nio-8080-exec-3] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
+2019-06-10 17:36:23.886 DEBUG 1020 --- [http-nio-8080-exec-5] o.s.web.servlet.DispatcherServlet        : GET "/future/all", parameters={}
+2019-06-10 17:36:23.886 DEBUG 1020 --- [http-nio-8080-exec-5] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to public java.util.List com.trading.tradergateway.Controller.FutureController.getAllFutures()
+2019-06-10 17:36:23.900 DEBUG 1020 --- [http-nio-8080-exec-5] m.m.a.RequestResponseBodyMethodProcessor : Using 'application/json', given [*/*] and supported [application/json, application/*+json, application/json, application/*+json]
+2019-06-10 17:36:23.901 DEBUG 1020 --- [http-nio-8080-exec-5] m.m.a.RequestResponseBodyMethodProcessor : Writing [[com.trading.tradergateway.Entity.Future@5993fc3b, com.trading.tradergateway.Entity.Future@5c2587d7, (truncated)...]
+2019-06-10 17:36:23.904 DEBUG 1020 --- [http-nio-8080-exec-5] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
+2019-06-10 17:36:26.782 DEBUG 1020 --- [http-nio-8080-exec-6] o.s.web.servlet.DispatcherServlet        : GET "/order", parameters={}
+2019-06-10 17:36:26.782 DEBUG 1020 --- [http-nio-8080-exec-6] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to public java.util.List com.trading.tradergateway.Controller.OrderController.getAllOrders()
+2019-06-10 17:36:26.792 DEBUG 1020 --- [http-nio-8080-exec-6] m.m.a.RequestResponseBodyMethodProcessor : Using 'application/json', given [*/*] and supported [application/json, application/*+json, application/json, application/*+json]
+2019-06-10 17:36:26.792 DEBUG 1020 --- [http-nio-8080-exec-6] m.m.a.RequestResponseBodyMethodProcessor : Writing [[com.trading.tradergateway.Entity.Order@11ebb84a, com.trading.tradergateway.Entity.Order@4d5bcbb0, c (truncated)...]
+2019-06-10 17:36:26.795 DEBUG 1020 --- [http-nio-8080-exec-6] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
+2019-06-10 17:37:56.270  INFO 17680 --- [main] c.t.t.TradergatewayApplication           : Starting TradergatewayApplication on LAPTOP-HAEK8B4U with PID 17680 (D:\distributed-OTC-trading-system\Trader-gateway\target\classes started by administartor in D:\distributed-OTC-trading-system\Trader-gateway)
+2019-06-10 17:37:56.278  INFO 17680 --- [main] c.t.t.TradergatewayApplication           : No active profile set, falling back to default profiles: default
+2019-06-10 17:37:57.190  INFO 17680 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Multiple Spring Data modules found, entering strict repository configuration mode!
+2019-06-10 17:37:57.191  INFO 17680 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data repositories in DEFAULT mode.
+2019-06-10 17:37:57.292  INFO 17680 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 91ms. Found 4 repository interfaces.
+2019-06-10 17:37:57.301  INFO 17680 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Multiple Spring Data modules found, entering strict repository configuration mode!
+2019-06-10 17:37:57.302  INFO 17680 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data repositories in DEFAULT mode.
+2019-06-10 17:37:57.317  INFO 17680 --- [main] .RepositoryConfigurationExtensionSupport : Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.trading.tradergateway.Repository.BrokerRepository.
+2019-06-10 17:37:57.318  INFO 17680 --- [main] .RepositoryConfigurationExtensionSupport : Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.trading.tradergateway.Repository.FutureRepository.
+2019-06-10 17:37:57.319  INFO 17680 --- [main] .RepositoryConfigurationExtensionSupport : Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.trading.tradergateway.Repository.OrderRepository.
+2019-06-10 17:37:57.319  INFO 17680 --- [main] .RepositoryConfigurationExtensionSupport : Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.trading.tradergateway.Repository.TraderRepository.
+2019-06-10 17:37:57.319  INFO 17680 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 9ms. Found 0 repository interfaces.
+2019-06-10 17:37:57.661  INFO 17680 --- [main] trationDelegate$BeanPostProcessorChecker : Bean 'org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration' of type [org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration$$EnhancerBySpringCGLIB$$e2c80ede] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2019-06-10 17:37:57.694  INFO 17680 --- [main] trationDelegate$BeanPostProcessorChecker : Bean 'org.springframework.security.config.annotation.configuration.ObjectPostProcessorConfiguration' of type [org.springframework.security.config.annotation.configuration.ObjectPostProcessorConfiguration$$EnhancerBySpringCGLIB$$7b75d718] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2019-06-10 17:37:57.699  INFO 17680 --- [main] trationDelegate$BeanPostProcessorChecker : Bean 'objectPostProcessor' of type [org.springframework.security.config.annotation.configuration.AutowireBeanFactoryObjectPostProcessor] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2019-06-10 17:37:57.700  INFO 17680 --- [main] trationDelegate$BeanPostProcessorChecker : Bean 'org.springframework.security.access.expression.method.DefaultMethodSecurityExpressionHandler@783efb48' of type [org.springframework.security.access.expression.method.DefaultMethodSecurityExpressionHandler] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2019-06-10 17:37:57.702  INFO 17680 --- [main] trationDelegate$BeanPostProcessorChecker : Bean 'org.springframework.security.config.annotation.method.configuration.GlobalMethodSecurityConfiguration' of type [org.springframework.security.config.annotation.method.configuration.GlobalMethodSecurityConfiguration$$EnhancerBySpringCGLIB$$a04a79ca] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2019-06-10 17:37:57.706  INFO 17680 --- [main] trationDelegate$BeanPostProcessorChecker : Bean 'methodSecurityMetadataSource' of type [org.springframework.security.access.method.DelegatingMethodSecurityMetadataSource] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2019-06-10 17:37:57.721  INFO 17680 --- [main] trationDelegate$BeanPostProcessorChecker : Bean 'jedisConfig' of type [com.trading.tradergateway.JedisConfig$$EnhancerBySpringCGLIB$$8abc1f66] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2019-06-10 17:37:57.756  INFO 17680 --- [main] trationDelegate$BeanPostProcessorChecker : Bean 'jedisConnectionFactory' of type [org.springframework.data.redis.connection.jedis.JedisConnectionFactory] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2019-06-10 17:37:57.760  INFO 17680 --- [main] trationDelegate$BeanPostProcessorChecker : Bean 'redisConfig' of type [com.trading.tradergateway.RedisConfig$$EnhancerBySpringCGLIB$$342b8e6e] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2019-06-10 17:37:58.076  INFO 17680 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
+2019-06-10 17:37:58.097  INFO 17680 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2019-06-10 17:37:58.097  INFO 17680 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.19]
+2019-06-10 17:37:58.266  INFO 17680 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2019-06-10 17:37:58.267 DEBUG 17680 --- [main] o.s.web.context.ContextLoader            : Published root WebApplicationContext as ServletContext attribute with name [org.springframework.web.context.WebApplicationContext.ROOT]
+2019-06-10 17:37:58.267  INFO 17680 --- [main] o.s.web.context.ContextLoader            : Root WebApplicationContext: initialization completed in 1922 ms
+2019-06-10 17:37:58.439  INFO 17680 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2019-06-10 17:37:58.440  WARN 17680 --- [main] com.zaxxer.hikari.util.DriverDataSource  : Registered driver with driverClassName=com.mysql.jdbc.Driver was not found, trying direct instantiation.
+2019-06-10 17:37:58.654  INFO 17680 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2019-06-10 17:37:59.639  INFO 17680 --- [main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2019-06-10 17:38:00.517  INFO 17680 --- [main] o.s.s.web.DefaultSecurityFilterChain     : Creating filter chain: any request, [org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@2d913116, org.springframework.security.web.context.SecurityContextPersistenceFilter@bfe47a8, org.springframework.security.web.header.HeaderWriterFilter@2c6927f0, org.springframework.security.web.authentication.logout.LogoutFilter@191f4d65, com.trading.tradergateway.JWT.JwtAuthenticationTokenFilter@28daf506, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@5c8ab9de, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@7b451bf4, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@1214d23c, org.springframework.security.web.session.SessionManagementFilter@18dd7767, org.springframework.security.web.access.ExceptionTranslationFilter@3ad847f8, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@7de3206d]
+2019-06-10 17:38:00.582 DEBUG 17680 --- [main] o.s.w.s.handler.SimpleUrlHandlerMapping  : Patterns [/**/favicon.ico] in 'faviconHandlerMapping'
+2019-06-10 17:38:00.724  INFO 17680 --- [main] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
+2019-06-10 17:38:00.737 DEBUG 17680 --- [main] s.w.s.m.m.a.RequestMappingHandlerAdapter : ControllerAdvice beans: 0 @ModelAttribute, 0 @InitBinder, 1 RequestBodyAdvice, 1 ResponseBodyAdvice
+2019-06-10 17:38:00.763  WARN 17680 --- [main] aWebConfiguration$JpaWebMvcConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2019-06-10 17:38:00.803 DEBUG 17680 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : 20 mappings in 'requestMappingHandlerMapping'
+2019-06-10 17:38:00.821 DEBUG 17680 --- [main] o.s.w.s.handler.SimpleUrlHandlerMapping  : Patterns [/webjars/**, /**] in 'resourceHandlerMapping'
+2019-06-10 17:38:00.834 DEBUG 17680 --- [main] .m.m.a.ExceptionHandlerExceptionResolver : ControllerAdvice beans: 0 @ExceptionHandler, 1 ResponseBodyAdvice
+2019-06-10 17:38:01.366  INFO 17680 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
+2019-06-10 17:38:01.368  INFO 17680 --- [main] c.t.t.TradergatewayApplication           : Started TradergatewayApplication in 5.661 seconds (JVM running for 7.103)
+2019-06-10 17:38:53.920  INFO 17680 --- [http-nio-8080-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2019-06-10 17:38:53.920  INFO 17680 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2019-06-10 17:38:53.921 DEBUG 17680 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Detected StandardServletMultipartResolver
+2019-06-10 17:38:53.932 DEBUG 17680 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : enableLoggingRequestDetails='false': request parameters and headers will be masked to prevent unsafe logging of potentially sensitive data
+2019-06-10 17:38:53.932  INFO 17680 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 12 ms
+2019-06-10 17:38:53.955 DEBUG 17680 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : OPTIONS "/order/SendOrder", parameters={}
+2019-06-10 17:38:53.958 DEBUG 17680 --- [http-nio-8080-exec-1] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to public java.lang.String com.trading.tradergateway.Controller.OrderController.sendOrder(com.trading.tradergateway.Entity.Order,javax.servlet.http.HttpServletRequest) throws java.lang.Exception
+2019-06-10 17:38:53.972 DEBUG 17680 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
+2019-06-10 17:38:54.502 DEBUG 17680 --- [http-nio-8080-exec-2] o.s.web.servlet.DispatcherServlet        : POST "/order/SendOrder", parameters={}
+2019-06-10 17:38:54.503 DEBUG 17680 --- [http-nio-8080-exec-2] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to public java.lang.String com.trading.tradergateway.Controller.OrderController.sendOrder(com.trading.tradergateway.Entity.Order,javax.servlet.http.HttpServletRequest) throws java.lang.Exception
+2019-06-10 17:38:54.543 DEBUG 17680 --- [http-nio-8080-exec-2] m.m.a.RequestResponseBodyMethodProcessor : Read "application/json;charset=UTF-8" to [com.trading.tradergateway.Entity.Order@4b8838cd]
+2019-06-10 17:40:07.336 DEBUG 17680 --- [http-nio-8080-exec-2] m.m.a.RequestResponseBodyMethodProcessor : Using 'text/plain', given [*/*] and supported [text/plain, */*, text/plain, */*, application/json, application/*+json, application/json, application/*+json]
+2019-06-10 17:40:07.337 DEBUG 17680 --- [http-nio-8080-exec-2] m.m.a.RequestResponseBodyMethodProcessor : Writing ["OK"]
+2019-06-10 17:40:07.344 DEBUG 17680 --- [http-nio-8080-exec-2] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
+2019-06-10 17:42:04.736 DEBUG 17680 --- [http-nio-8080-exec-4] o.s.web.servlet.DispatcherServlet        : POST "/order/SendOrder", parameters={}
+2019-06-10 17:42:04.736 DEBUG 17680 --- [http-nio-8080-exec-4] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to public java.lang.String com.trading.tradergateway.Controller.OrderController.sendOrder(com.trading.tradergateway.Entity.Order,javax.servlet.http.HttpServletRequest) throws java.lang.Exception
+2019-06-10 17:42:04.737 DEBUG 17680 --- [http-nio-8080-exec-4] m.m.a.RequestResponseBodyMethodProcessor : Read "application/json;charset=UTF-8" to [com.trading.tradergateway.Entity.Order@2b858266]
+2019-06-10 17:43:17.383 DEBUG 17680 --- [http-nio-8080-exec-4] m.m.a.RequestResponseBodyMethodProcessor : Using 'text/plain', given [*/*] and supported [text/plain, */*, text/plain, */*, application/json, application/*+json, application/json, application/*+json]
+2019-06-10 17:43:17.383 DEBUG 17680 --- [http-nio-8080-exec-4] m.m.a.RequestResponseBodyMethodProcessor : Writing ["OK"]
+2019-06-10 17:43:17.384 DEBUG 17680 --- [http-nio-8080-exec-4] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
+2019-06-10 17:49:18.928 DEBUG 17680 --- [http-nio-8080-exec-6] o.s.web.servlet.DispatcherServlet        : POST "/order/SendOrder", parameters={}
+2019-06-10 17:49:18.929 DEBUG 17680 --- [http-nio-8080-exec-6] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to public java.lang.String com.trading.tradergateway.Controller.OrderController.sendOrder(com.trading.tradergateway.Entity.Order,javax.servlet.http.HttpServletRequest) throws java.lang.Exception
+2019-06-10 17:49:18.930 DEBUG 17680 --- [http-nio-8080-exec-6] m.m.a.RequestResponseBodyMethodProcessor : Read "application/json;charset=UTF-8" to [com.trading.tradergateway.Entity.Order@59f3dd99]
+2019-06-10 17:50:17.065  INFO 3884 --- [main] c.t.t.TradergatewayApplication           : Starting TradergatewayApplication on LAPTOP-HAEK8B4U with PID 3884 (D:\distributed-OTC-trading-system\Trader-gateway\target\classes started by administartor in D:\distributed-OTC-trading-system\Trader-gateway)
+2019-06-10 17:50:17.069  INFO 3884 --- [main] c.t.t.TradergatewayApplication           : No active profile set, falling back to default profiles: default
+2019-06-10 17:50:17.985  INFO 3884 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Multiple Spring Data modules found, entering strict repository configuration mode!
+2019-06-10 17:50:17.986  INFO 3884 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data repositories in DEFAULT mode.
+2019-06-10 17:50:18.067  INFO 3884 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 74ms. Found 4 repository interfaces.
+2019-06-10 17:50:18.077  INFO 3884 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Multiple Spring Data modules found, entering strict repository configuration mode!
+2019-06-10 17:50:18.078  INFO 3884 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data repositories in DEFAULT mode.
+2019-06-10 17:50:18.094  INFO 3884 --- [main] .RepositoryConfigurationExtensionSupport : Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.trading.tradergateway.Repository.BrokerRepository.
+2019-06-10 17:50:18.095  INFO 3884 --- [main] .RepositoryConfigurationExtensionSupport : Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.trading.tradergateway.Repository.FutureRepository.
+2019-06-10 17:50:18.096  INFO 3884 --- [main] .RepositoryConfigurationExtensionSupport : Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.trading.tradergateway.Repository.OrderRepository.
+2019-06-10 17:50:18.096  INFO 3884 --- [main] .RepositoryConfigurationExtensionSupport : Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.trading.tradergateway.Repository.TraderRepository.
+2019-06-10 17:50:18.096  INFO 3884 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 9ms. Found 0 repository interfaces.
+2019-06-10 17:50:18.448  INFO 3884 --- [main] trationDelegate$BeanPostProcessorChecker : Bean 'org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration' of type [org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration$$EnhancerBySpringCGLIB$$54842cf] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2019-06-10 17:50:18.485  INFO 3884 --- [main] trationDelegate$BeanPostProcessorChecker : Bean 'org.springframework.security.config.annotation.configuration.ObjectPostProcessorConfiguration' of type [org.springframework.security.config.annotation.configuration.ObjectPostProcessorConfiguration$$EnhancerBySpringCGLIB$$9df60b09] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2019-06-10 17:50:18.489  INFO 3884 --- [main] trationDelegate$BeanPostProcessorChecker : Bean 'objectPostProcessor' of type [org.springframework.security.config.annotation.configuration.AutowireBeanFactoryObjectPostProcessor] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2019-06-10 17:50:18.491  INFO 3884 --- [main] trationDelegate$BeanPostProcessorChecker : Bean 'org.springframework.security.access.expression.method.DefaultMethodSecurityExpressionHandler@37095ded' of type [org.springframework.security.access.expression.method.DefaultMethodSecurityExpressionHandler] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2019-06-10 17:50:18.494  INFO 3884 --- [main] trationDelegate$BeanPostProcessorChecker : Bean 'org.springframework.security.config.annotation.method.configuration.GlobalMethodSecurityConfiguration' of type [org.springframework.security.config.annotation.method.configuration.GlobalMethodSecurityConfiguration$$EnhancerBySpringCGLIB$$c2caadbb] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2019-06-10 17:50:18.497  INFO 3884 --- [main] trationDelegate$BeanPostProcessorChecker : Bean 'methodSecurityMetadataSource' of type [org.springframework.security.access.method.DelegatingMethodSecurityMetadataSource] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2019-06-10 17:50:18.511  INFO 3884 --- [main] trationDelegate$BeanPostProcessorChecker : Bean 'jedisConfig' of type [com.trading.tradergateway.JedisConfig$$EnhancerBySpringCGLIB$$ad3c5357] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2019-06-10 17:50:18.551  INFO 3884 --- [main] trationDelegate$BeanPostProcessorChecker : Bean 'jedisConnectionFactory' of type [org.springframework.data.redis.connection.jedis.JedisConnectionFactory] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2019-06-10 17:50:18.554  INFO 3884 --- [main] trationDelegate$BeanPostProcessorChecker : Bean 'redisConfig' of type [com.trading.tradergateway.RedisConfig$$EnhancerBySpringCGLIB$$56abc25f] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2019-06-10 17:50:18.874  INFO 3884 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
+2019-06-10 17:50:18.897  INFO 3884 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2019-06-10 17:50:18.897  INFO 3884 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.19]
+2019-06-10 17:50:19.101  INFO 3884 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2019-06-10 17:50:19.101 DEBUG 3884 --- [main] o.s.web.context.ContextLoader            : Published root WebApplicationContext as ServletContext attribute with name [org.springframework.web.context.WebApplicationContext.ROOT]
+2019-06-10 17:50:19.101  INFO 3884 --- [main] o.s.web.context.ContextLoader            : Root WebApplicationContext: initialization completed in 1977 ms
+2019-06-10 17:50:19.288  INFO 3884 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2019-06-10 17:50:19.290  WARN 3884 --- [main] com.zaxxer.hikari.util.DriverDataSource  : Registered driver with driverClassName=com.mysql.jdbc.Driver was not found, trying direct instantiation.
+2019-06-10 17:50:19.542  INFO 3884 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2019-06-10 17:50:20.523  INFO 3884 --- [main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2019-06-10 17:50:21.434  INFO 3884 --- [main] o.s.s.web.DefaultSecurityFilterChain     : Creating filter chain: any request, [org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@6d420cdd, org.springframework.security.web.context.SecurityContextPersistenceFilter@cd5ff55, org.springframework.security.web.header.HeaderWriterFilter@395a573c, org.springframework.security.web.authentication.logout.LogoutFilter@18dd7767, com.trading.tradergateway.JWT.JwtAuthenticationTokenFilter@48cdb156, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@16b64a03, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@7dd91ffc, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@bd273b2, org.springframework.security.web.session.SessionManagementFilter@7ed7ae, org.springframework.security.web.access.ExceptionTranslationFilter@8383a14, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@fcd0e8d]
+2019-06-10 17:50:21.495 DEBUG 3884 --- [main] o.s.w.s.handler.SimpleUrlHandlerMapping  : Patterns [/**/favicon.ico] in 'faviconHandlerMapping'
+2019-06-10 17:50:21.644  INFO 3884 --- [main] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
+2019-06-10 17:50:21.661 DEBUG 3884 --- [main] s.w.s.m.m.a.RequestMappingHandlerAdapter : ControllerAdvice beans: 0 @ModelAttribute, 0 @InitBinder, 1 RequestBodyAdvice, 1 ResponseBodyAdvice
+2019-06-10 17:50:21.689  WARN 3884 --- [main] aWebConfiguration$JpaWebMvcConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2019-06-10 17:50:21.732 DEBUG 3884 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : 20 mappings in 'requestMappingHandlerMapping'
+2019-06-10 17:50:21.750 DEBUG 3884 --- [main] o.s.w.s.handler.SimpleUrlHandlerMapping  : Patterns [/webjars/**, /**] in 'resourceHandlerMapping'
+2019-06-10 17:50:21.761 DEBUG 3884 --- [main] .m.m.a.ExceptionHandlerExceptionResolver : ControllerAdvice beans: 0 @ExceptionHandler, 1 ResponseBodyAdvice
+2019-06-10 17:50:22.273  INFO 3884 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
+2019-06-10 17:50:22.275  INFO 3884 --- [main] c.t.t.TradergatewayApplication           : Started TradergatewayApplication in 5.775 seconds (JVM running for 7.122)
+2019-06-10 17:56:31.746  INFO 3884 --- [http-nio-8080-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2019-06-10 17:56:31.746  INFO 3884 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2019-06-10 17:56:31.746 DEBUG 3884 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Detected StandardServletMultipartResolver
+2019-06-10 17:56:31.758 DEBUG 3884 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : enableLoggingRequestDetails='false': request parameters and headers will be masked to prevent unsafe logging of potentially sensitive data
+2019-06-10 17:56:31.758  INFO 3884 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 12 ms
+2019-06-10 17:56:31.782 DEBUG 3884 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : OPTIONS "/order/SendOrder", parameters={}
+2019-06-10 17:56:31.786 DEBUG 3884 --- [http-nio-8080-exec-1] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to public java.lang.String com.trading.tradergateway.Controller.OrderController.sendOrder(com.trading.tradergateway.Entity.Order,javax.servlet.http.HttpServletRequest) throws java.lang.Exception
+2019-06-10 17:56:31.799 DEBUG 3884 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
+2019-06-10 17:56:32.327 DEBUG 3884 --- [http-nio-8080-exec-2] o.s.web.servlet.DispatcherServlet        : POST "/order/SendOrder", parameters={}
+2019-06-10 17:56:32.327 DEBUG 3884 --- [http-nio-8080-exec-2] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to public java.lang.String com.trading.tradergateway.Controller.OrderController.sendOrder(com.trading.tradergateway.Entity.Order,javax.servlet.http.HttpServletRequest) throws java.lang.Exception
+2019-06-10 17:56:32.369 DEBUG 3884 --- [http-nio-8080-exec-2] m.m.a.RequestResponseBodyMethodProcessor : Read "application/json;charset=UTF-8" to [com.trading.tradergateway.Entity.Order@63c32b70]
+2019-06-10 17:57:45.217 DEBUG 3884 --- [http-nio-8080-exec-2] m.m.a.RequestResponseBodyMethodProcessor : Using 'text/plain', given [*/*] and supported [text/plain, */*, text/plain, */*, application/json, application/*+json, application/json, application/*+json]
+2019-06-10 17:57:45.218 DEBUG 3884 --- [http-nio-8080-exec-2] m.m.a.RequestResponseBodyMethodProcessor : Writing ["OK"]
+2019-06-10 17:57:45.223 DEBUG 3884 --- [http-nio-8080-exec-2] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
+2019-06-10 18:03:03.019 DEBUG 3884 --- [http-nio-8080-exec-4] o.s.web.servlet.DispatcherServlet        : POST "/order/SendOrder", parameters={}
+2019-06-10 18:03:03.019 DEBUG 3884 --- [http-nio-8080-exec-4] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to public java.lang.String com.trading.tradergateway.Controller.OrderController.sendOrder(com.trading.tradergateway.Entity.Order,javax.servlet.http.HttpServletRequest) throws java.lang.Exception
+2019-06-10 18:03:03.021 DEBUG 3884 --- [http-nio-8080-exec-4] m.m.a.RequestResponseBodyMethodProcessor : Read "application/json;charset=UTF-8" to [com.trading.tradergateway.Entity.Order@76414f58]
+2019-06-10 18:04:17.704 DEBUG 3884 --- [http-nio-8080-exec-4] m.m.a.RequestResponseBodyMethodProcessor : Using 'text/plain', given [*/*] and supported [text/plain, */*, text/plain, */*, application/json, application/*+json, application/json, application/*+json]
+2019-06-10 18:04:17.704 DEBUG 3884 --- [http-nio-8080-exec-4] m.m.a.RequestResponseBodyMethodProcessor : Writing ["OK"]
+2019-06-10 18:04:17.705 DEBUG 3884 --- [http-nio-8080-exec-4] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
+2019-06-10 18:05:05.539 DEBUG 3884 --- [http-nio-8080-exec-5] o.s.web.servlet.DispatcherServlet        : OPTIONS "/order", parameters={}
+2019-06-10 18:05:05.540 DEBUG 3884 --- [http-nio-8080-exec-5] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to public java.util.List com.trading.tradergateway.Controller.OrderController.getAllOrders()
+2019-06-10 18:05:05.540 DEBUG 3884 --- [http-nio-8080-exec-5] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
+2019-06-10 18:05:05.576 DEBUG 3884 --- [http-nio-8080-exec-6] o.s.web.servlet.DispatcherServlet        : GET "/order", parameters={}
+2019-06-10 18:05:05.577 DEBUG 3884 --- [http-nio-8080-exec-6] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to public java.util.List com.trading.tradergateway.Controller.OrderController.getAllOrders()
+2019-06-10 18:05:05.590 DEBUG 3884 --- [http-nio-8080-exec-6] m.m.a.RequestResponseBodyMethodProcessor : Using 'application/json', given [*/*] and supported [application/json, application/*+json, application/json, application/*+json]
+2019-06-10 18:05:05.590 DEBUG 3884 --- [http-nio-8080-exec-6] m.m.a.RequestResponseBodyMethodProcessor : Writing [[]]
+2019-06-10 18:05:05.597 DEBUG 3884 --- [http-nio-8080-exec-6] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
+2019-06-10 18:08:58.346 DEBUG 3884 --- [http-nio-8080-exec-8] o.s.web.servlet.DispatcherServlet        : POST "/order/SendOrder", parameters={}
+2019-06-10 18:08:58.347 DEBUG 3884 --- [http-nio-8080-exec-8] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to public java.lang.String com.trading.tradergateway.Controller.OrderController.sendOrder(com.trading.tradergateway.Entity.Order,javax.servlet.http.HttpServletRequest) throws java.lang.Exception
+2019-06-10 18:08:58.348 DEBUG 3884 --- [http-nio-8080-exec-8] m.m.a.RequestResponseBodyMethodProcessor : Read "application/json;charset=UTF-8" to [com.trading.tradergateway.Entity.Order@3882f910]
+2019-06-10 18:10:11.258 DEBUG 3884 --- [http-nio-8080-exec-8] m.m.a.RequestResponseBodyMethodProcessor : Using 'text/plain', given [*/*] and supported [text/plain, */*, text/plain, */*, application/json, application/*+json, application/json, application/*+json]
+2019-06-10 18:10:11.258 DEBUG 3884 --- [http-nio-8080-exec-8] m.m.a.RequestResponseBodyMethodProcessor : Writing ["OK"]
+2019-06-10 18:10:11.259 DEBUG 3884 --- [http-nio-8080-exec-8] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
+2019-06-10 18:11:10.931 DEBUG 3884 --- [http-nio-8080-exec-9] o.s.web.servlet.DispatcherServlet        : GET "/order", parameters={}
+2019-06-10 18:11:10.932 DEBUG 3884 --- [http-nio-8080-exec-9] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to public java.util.List com.trading.tradergateway.Controller.OrderController.getAllOrders()
+2019-06-10 18:11:10.939 DEBUG 3884 --- [http-nio-8080-exec-9] m.m.a.RequestResponseBodyMethodProcessor : Using 'application/json', given [*/*] and supported [application/json, application/*+json, application/json, application/*+json]
+2019-06-10 18:11:10.939 DEBUG 3884 --- [http-nio-8080-exec-9] m.m.a.RequestResponseBodyMethodProcessor : Writing [[com.trading.tradergateway.Entity.Order@1da1ad6a, com.trading.tradergateway.Entity.Order@77557ecd, c (truncated)...]
+2019-06-10 18:11:10.958 DEBUG 3884 --- [http-nio-8080-exec-9] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
+2019-06-10 18:38:40.341 DEBUG 3884 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : OPTIONS "/order", parameters={}
+2019-06-10 18:38:40.342 DEBUG 3884 --- [http-nio-8080-exec-1] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to public java.util.List com.trading.tradergateway.Controller.OrderController.getAllOrders()
+2019-06-10 18:38:40.343 DEBUG 3884 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
+2019-06-10 18:38:40.351 DEBUG 3884 --- [http-nio-8080-exec-2] o.s.web.servlet.DispatcherServlet        : GET "/order", parameters={}
+2019-06-10 18:38:40.352 DEBUG 3884 --- [http-nio-8080-exec-2] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to public java.util.List com.trading.tradergateway.Controller.OrderController.getAllOrders()
+2019-06-10 18:38:40.362 DEBUG 3884 --- [http-nio-8080-exec-2] m.m.a.RequestResponseBodyMethodProcessor : Using 'application/json', given [*/*] and supported [application/json, application/*+json, application/json, application/*+json]
+2019-06-10 18:38:40.362 DEBUG 3884 --- [http-nio-8080-exec-2] m.m.a.RequestResponseBodyMethodProcessor : Writing [[com.trading.tradergateway.Entity.Order@21efb5d7, com.trading.tradergateway.Entity.Order@1227e37a, c (truncated)...]
+2019-06-10 18:38:40.364 DEBUG 3884 --- [http-nio-8080-exec-2] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
+2019-06-10 18:38:44.469 DEBUG 3884 --- [http-nio-8080-exec-3] o.s.web.servlet.DispatcherServlet        : OPTIONS "/future/all", parameters={}
+2019-06-10 18:38:44.469 DEBUG 3884 --- [http-nio-8080-exec-3] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to public java.util.List com.trading.tradergateway.Controller.FutureController.getAllFutures()
+2019-06-10 18:38:44.470 DEBUG 3884 --- [http-nio-8080-exec-3] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
+2019-06-10 18:38:44.476 DEBUG 3884 --- [http-nio-8080-exec-4] o.s.web.servlet.DispatcherServlet        : GET "/future/all", parameters={}
+2019-06-10 18:38:44.476 DEBUG 3884 --- [http-nio-8080-exec-4] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to public java.util.List com.trading.tradergateway.Controller.FutureController.getAllFutures()
+2019-06-10 18:38:44.489 DEBUG 3884 --- [http-nio-8080-exec-4] m.m.a.RequestResponseBodyMethodProcessor : Using 'application/json', given [*/*] and supported [application/json, application/*+json, application/json, application/*+json]
+2019-06-10 18:38:44.489 DEBUG 3884 --- [http-nio-8080-exec-4] m.m.a.RequestResponseBodyMethodProcessor : Writing [[com.trading.tradergateway.Entity.Future@773e4a22, com.trading.tradergateway.Entity.Future@656f2a08, (truncated)...]
+2019-06-10 18:38:44.492 DEBUG 3884 --- [http-nio-8080-exec-4] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
+2019-06-10 18:38:50.618 DEBUG 3884 --- [http-nio-8080-exec-5] o.s.web.servlet.DispatcherServlet        : GET "/order", parameters={}
+2019-06-10 18:38:50.618 DEBUG 3884 --- [http-nio-8080-exec-5] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to public java.util.List com.trading.tradergateway.Controller.OrderController.getAllOrders()
+2019-06-10 18:38:50.622 DEBUG 3884 --- [http-nio-8080-exec-5] m.m.a.RequestResponseBodyMethodProcessor : Using 'application/json', given [*/*] and supported [application/json, application/*+json, application/json, application/*+json]
+2019-06-10 18:38:50.622 DEBUG 3884 --- [http-nio-8080-exec-5] m.m.a.RequestResponseBodyMethodProcessor : Writing [[com.trading.tradergateway.Entity.Order@30591a1f, com.trading.tradergateway.Entity.Order@755b9270, c (truncated)...]
+2019-06-10 18:38:50.624 DEBUG 3884 --- [http-nio-8080-exec-5] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
+2019-06-10 18:39:34.967 DEBUG 3884 --- [http-nio-8080-exec-6] o.s.web.servlet.DispatcherServlet        : OPTIONS "/future/all", parameters={}
+2019-06-10 18:39:34.967 DEBUG 3884 --- [http-nio-8080-exec-6] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to public java.util.List com.trading.tradergateway.Controller.FutureController.getAllFutures()
+2019-06-10 18:39:34.968 DEBUG 3884 --- [http-nio-8080-exec-6] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
+2019-06-10 18:39:34.984 DEBUG 3884 --- [http-nio-8080-exec-7] o.s.web.servlet.DispatcherServlet        : GET "/future/all", parameters={}
+2019-06-10 18:39:34.984 DEBUG 3884 --- [http-nio-8080-exec-7] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to public java.util.List com.trading.tradergateway.Controller.FutureController.getAllFutures()
+2019-06-10 18:39:34.989 DEBUG 3884 --- [http-nio-8080-exec-7] m.m.a.RequestResponseBodyMethodProcessor : Using 'application/json', given [*/*] and supported [application/json, application/*+json, application/json, application/*+json]
+2019-06-10 18:39:34.989 DEBUG 3884 --- [http-nio-8080-exec-7] m.m.a.RequestResponseBodyMethodProcessor : Writing [[com.trading.tradergateway.Entity.Future@6bd0e562, com.trading.tradergateway.Entity.Future@1f230ac1, (truncated)...]
+2019-06-10 18:39:34.990 DEBUG 3884 --- [http-nio-8080-exec-7] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
+2019-06-10 18:39:36.769 DEBUG 3884 --- [http-nio-8080-exec-8] o.s.web.servlet.DispatcherServlet        : OPTIONS "/order", parameters={}
+2019-06-10 18:39:36.770 DEBUG 3884 --- [http-nio-8080-exec-8] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to public java.util.List com.trading.tradergateway.Controller.OrderController.getAllOrders()
+2019-06-10 18:39:36.770 DEBUG 3884 --- [http-nio-8080-exec-8] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
+2019-06-10 18:39:36.793 DEBUG 3884 --- [http-nio-8080-exec-9] o.s.web.servlet.DispatcherServlet        : GET "/order", parameters={}
+2019-06-10 18:39:36.794 DEBUG 3884 --- [http-nio-8080-exec-9] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to public java.util.List com.trading.tradergateway.Controller.OrderController.getAllOrders()
+2019-06-10 18:39:36.797 DEBUG 3884 --- [http-nio-8080-exec-9] m.m.a.RequestResponseBodyMethodProcessor : Using 'application/json', given [*/*] and supported [application/json, application/*+json, application/json, application/*+json]
+2019-06-10 18:39:36.797 DEBUG 3884 --- [http-nio-8080-exec-9] m.m.a.RequestResponseBodyMethodProcessor : Writing [[com.trading.tradergateway.Entity.Order@10f87be1, com.trading.tradergateway.Entity.Order@511286c9, c (truncated)...]
+2019-06-10 18:39:36.799 DEBUG 3884 --- [http-nio-8080-exec-9] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
+2019-06-10 18:39:56.059 DEBUG 3884 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : OPTIONS "/order/SendOrder", parameters={}
+2019-06-10 18:39:56.059 DEBUG 3884 --- [http-nio-8080-exec-1] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to public java.lang.String com.trading.tradergateway.Controller.OrderController.sendOrder(com.trading.tradergateway.Entity.Order,javax.servlet.http.HttpServletRequest) throws java.lang.Exception
+2019-06-10 18:39:56.060 DEBUG 3884 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
+2019-06-10 18:39:56.069 DEBUG 3884 --- [http-nio-8080-exec-2] o.s.web.servlet.DispatcherServlet        : POST "/order/SendOrder", parameters={}
+2019-06-10 18:39:56.069 DEBUG 3884 --- [http-nio-8080-exec-2] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to public java.lang.String com.trading.tradergateway.Controller.OrderController.sendOrder(com.trading.tradergateway.Entity.Order,javax.servlet.http.HttpServletRequest) throws java.lang.Exception
+2019-06-10 18:39:56.070 DEBUG 3884 --- [http-nio-8080-exec-2] m.m.a.RequestResponseBodyMethodProcessor : Read "application/json;charset=UTF-8" to [com.trading.tradergateway.Entity.Order@10a63465]
+2019-06-10 18:39:56.077 DEBUG 3884 --- [http-nio-8080-exec-2] o.s.web.servlet.DispatcherServlet        : Failed to complete request: java.lang.StringIndexOutOfBoundsException: String index out of range: -1
+2019-06-10 18:39:56.082 ERROR 3884 --- [http-nio-8080-exec-2] o.a.c.c.C.[.[.[/].[dispatcherServlet]    : Servlet.service() for servlet [dispatcherServlet] in context with path [] threw exception [Request processing failed; nested exception is java.lang.StringIndexOutOfBoundsException: String index out of range: -1] with root cause
+
+java.lang.StringIndexOutOfBoundsException: String index out of range: -1
+	at java.lang.String.substring(String.java:1931) ~[na:1.8.0_172]
+	at com.trading.tradergateway.JWT.JwtTokenUtil.parseUsername(JwtTokenUtil.java:128) ~[classes/:na]
+	at com.trading.tradergateway.Service.Implement.OrderServiceImpl.sendOrder(OrderServiceImpl.java:38) ~[classes/:na]
+	at com.trading.tradergateway.Controller.OrderController.sendOrder(OrderController.java:46) ~[classes/:na]
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[na:1.8.0_172]
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62) ~[na:1.8.0_172]
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43) ~[na:1.8.0_172]
+	at java.lang.reflect.Method.invoke(Method.java:498) ~[na:1.8.0_172]
+	at org.springframework.web.method.support.InvocableHandlerMethod.doInvoke(InvocableHandlerMethod.java:189) ~[spring-web-5.1.5.RELEASE.jar:5.1.5.RELEASE]
+	at org.springframework.web.method.support.InvocableHandlerMethod.invokeForRequest(InvocableHandlerMethod.java:138) ~[spring-web-5.1.5.RELEASE.jar:5.1.5.RELEASE]
+	at org.springframework.web.servlet.mvc.method.annotation.ServletInvocableHandlerMethod.invokeAndHandle(ServletInvocableHandlerMethod.java:104) ~[spring-webmvc-5.1.7.RELEASE.jar:5.1.7.RELEASE]
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.invokeHandlerMethod(RequestMappingHandlerAdapter.java:892) ~[spring-webmvc-5.1.7.RELEASE.jar:5.1.7.RELEASE]
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.handleInternal(RequestMappingHandlerAdapter.java:797) ~[spring-webmvc-5.1.7.RELEASE.jar:5.1.7.RELEASE]
+	at org.springframework.web.servlet.mvc.method.AbstractHandlerMethodAdapter.handle(AbstractHandlerMethodAdapter.java:87) ~[spring-webmvc-5.1.7.RELEASE.jar:5.1.7.RELEASE]
+	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:1039) ~[spring-webmvc-5.1.7.RELEASE.jar:5.1.7.RELEASE]
+	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:942) ~[spring-webmvc-5.1.7.RELEASE.jar:5.1.7.RELEASE]
+	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:1005) ~[spring-webmvc-5.1.7.RELEASE.jar:5.1.7.RELEASE]
+	at org.springframework.web.servlet.FrameworkServlet.doPost(FrameworkServlet.java:908) ~[spring-webmvc-5.1.7.RELEASE.jar:5.1.7.RELEASE]
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:660) ~[tomcat-embed-core-9.0.19.jar:9.0.19]
+	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:882) ~[spring-webmvc-5.1.7.RELEASE.jar:5.1.7.RELEASE]
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:741) ~[tomcat-embed-core-9.0.19.jar:9.0.19]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:231) ~[tomcat-embed-core-9.0.19.jar:9.0.19]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166) ~[tomcat-embed-core-9.0.19.jar:9.0.19]
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:53) ~[tomcat-embed-websocket-9.0.19.jar:9.0.19]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193) ~[tomcat-embed-core-9.0.19.jar:9.0.19]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166) ~[tomcat-embed-core-9.0.19.jar:9.0.19]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:101) ~[spring-web-5.1.5.RELEASE.jar:5.1.5.RELEASE]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193) ~[tomcat-embed-core-9.0.19.jar:9.0.19]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166) ~[tomcat-embed-core-9.0.19.jar:9.0.19]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:320) ~[spring-security-web-5.1.5.RELEASE.jar:5.1.5.RELEASE]
+	at org.springframework.security.web.access.intercept.FilterSecurityInterceptor.invoke(FilterSecurityInterceptor.java:127) ~[spring-security-web-5.1.5.RELEASE.jar:5.1.5.RELEASE]
+	at org.springframework.security.web.access.intercept.FilterSecurityInterceptor.doFilter(FilterSecurityInterceptor.java:91) ~[spring-security-web-5.1.5.RELEASE.jar:5.1.5.RELEASE]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:334) ~[spring-security-web-5.1.5.RELEASE.jar:5.1.5.RELEASE]
+	at org.springframework.security.web.access.ExceptionTranslationFilter.doFilter(ExceptionTranslationFilter.java:119) ~[spring-security-web-5.1.5.RELEASE.jar:5.1.5.RELEASE]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:334) ~[spring-security-web-5.1.5.RELEASE.jar:5.1.5.RELEASE]
+	at org.springframework.security.web.session.SessionManagementFilter.doFilter(SessionManagementFilter.java:137) ~[spring-security-web-5.1.5.RELEASE.jar:5.1.5.RELEASE]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:334) ~[spring-security-web-5.1.5.RELEASE.jar:5.1.5.RELEASE]
+	at org.springframework.security.web.authentication.AnonymousAuthenticationFilter.doFilter(AnonymousAuthenticationFilter.java:111) ~[spring-security-web-5.1.5.RELEASE.jar:5.1.5.RELEASE]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:334) ~[spring-security-web-5.1.5.RELEASE.jar:5.1.5.RELEASE]
+	at org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter.doFilter(SecurityContextHolderAwareRequestFilter.java:170) ~[spring-security-web-5.1.5.RELEASE.jar:5.1.5.RELEASE]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:334) ~[spring-security-web-5.1.5.RELEASE.jar:5.1.5.RELEASE]
+	at org.springframework.security.web.savedrequest.RequestCacheAwareFilter.doFilter(RequestCacheAwareFilter.java:63) ~[spring-security-web-5.1.5.RELEASE.jar:5.1.5.RELEASE]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:334) ~[spring-security-web-5.1.5.RELEASE.jar:5.1.5.RELEASE]
+	at com.trading.tradergateway.JWT.JwtAuthenticationTokenFilter.doFilterInternal(JwtAuthenticationTokenFilter.java:46) ~[classes/:na]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:107) ~[spring-web-5.1.5.RELEASE.jar:5.1.5.RELEASE]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:334) ~[spring-security-web-5.1.5.RELEASE.jar:5.1.5.RELEASE]
+	at org.springframework.security.web.authentication.logout.LogoutFilter.doFilter(LogoutFilter.java:116) ~[spring-security-web-5.1.5.RELEASE.jar:5.1.5.RELEASE]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:334) ~[spring-security-web-5.1.5.RELEASE.jar:5.1.5.RELEASE]
+	at org.springframework.security.web.header.HeaderWriterFilter.doFilterInternal(HeaderWriterFilter.java:74) ~[spring-security-web-5.1.5.RELEASE.jar:5.1.5.RELEASE]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:107) ~[spring-web-5.1.5.RELEASE.jar:5.1.5.RELEASE]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:334) ~[spring-security-web-5.1.5.RELEASE.jar:5.1.5.RELEASE]
+	at org.springframework.security.web.context.SecurityContextPersistenceFilter.doFilter(SecurityContextPersistenceFilter.java:105) ~[spring-security-web-5.1.5.RELEASE.jar:5.1.5.RELEASE]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:334) ~[spring-security-web-5.1.5.RELEASE.jar:5.1.5.RELEASE]
+	at org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter.doFilterInternal(WebAsyncManagerIntegrationFilter.java:56) ~[spring-security-web-5.1.5.RELEASE.jar:5.1.5.RELEASE]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:107) ~[spring-web-5.1.5.RELEASE.jar:5.1.5.RELEASE]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:334) ~[spring-security-web-5.1.5.RELEASE.jar:5.1.5.RELEASE]
+	at org.springframework.security.web.FilterChainProxy.doFilterInternal(FilterChainProxy.java:215) ~[spring-security-web-5.1.5.RELEASE.jar:5.1.5.RELEASE]
+	at org.springframework.security.web.FilterChainProxy.doFilter(FilterChainProxy.java:178) ~[spring-security-web-5.1.5.RELEASE.jar:5.1.5.RELEASE]
+	at org.springframework.web.filter.DelegatingFilterProxy.invokeDelegate(DelegatingFilterProxy.java:357) ~[spring-web-5.1.5.RELEASE.jar:5.1.5.RELEASE]
+	at org.springframework.web.filter.DelegatingFilterProxy.doFilter(DelegatingFilterProxy.java:270) ~[spring-web-5.1.5.RELEASE.jar:5.1.5.RELEASE]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193) ~[tomcat-embed-core-9.0.19.jar:9.0.19]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166) ~[tomcat-embed-core-9.0.19.jar:9.0.19]
+	at org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:99) ~[spring-web-5.1.5.RELEASE.jar:5.1.5.RELEASE]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:107) ~[spring-web-5.1.5.RELEASE.jar:5.1.5.RELEASE]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193) ~[tomcat-embed-core-9.0.19.jar:9.0.19]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166) ~[tomcat-embed-core-9.0.19.jar:9.0.19]
+	at org.springframework.web.filter.FormContentFilter.doFilterInternal(FormContentFilter.java:92) ~[spring-web-5.1.5.RELEASE.jar:5.1.5.RELEASE]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:107) ~[spring-web-5.1.5.RELEASE.jar:5.1.5.RELEASE]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193) ~[tomcat-embed-core-9.0.19.jar:9.0.19]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166) ~[tomcat-embed-core-9.0.19.jar:9.0.19]
+	at org.springframework.web.filter.HiddenHttpMethodFilter.doFilterInternal(HiddenHttpMethodFilter.java:93) ~[spring-web-5.1.5.RELEASE.jar:5.1.5.RELEASE]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:107) ~[spring-web-5.1.5.RELEASE.jar:5.1.5.RELEASE]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193) ~[tomcat-embed-core-9.0.19.jar:9.0.19]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166) ~[tomcat-embed-core-9.0.19.jar:9.0.19]
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:200) ~[spring-web-5.1.5.RELEASE.jar:5.1.5.RELEASE]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:107) ~[spring-web-5.1.5.RELEASE.jar:5.1.5.RELEASE]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193) ~[tomcat-embed-core-9.0.19.jar:9.0.19]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166) ~[tomcat-embed-core-9.0.19.jar:9.0.19]
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:200) ~[tomcat-embed-core-9.0.19.jar:9.0.19]
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:96) [tomcat-embed-core-9.0.19.jar:9.0.19]
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:490) [tomcat-embed-core-9.0.19.jar:9.0.19]
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:139) [tomcat-embed-core-9.0.19.jar:9.0.19]
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:92) [tomcat-embed-core-9.0.19.jar:9.0.19]
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:74) [tomcat-embed-core-9.0.19.jar:9.0.19]
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:343) [tomcat-embed-core-9.0.19.jar:9.0.19]
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:408) [tomcat-embed-core-9.0.19.jar:9.0.19]
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:66) [tomcat-embed-core-9.0.19.jar:9.0.19]
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:836) [tomcat-embed-core-9.0.19.jar:9.0.19]
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1747) [tomcat-embed-core-9.0.19.jar:9.0.19]
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:49) [tomcat-embed-core-9.0.19.jar:9.0.19]
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149) [na:1.8.0_172]
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624) [na:1.8.0_172]
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61) [tomcat-embed-core-9.0.19.jar:9.0.19]
+	at java.lang.Thread.run(Thread.java:748) [na:1.8.0_172]
+
+2019-06-10 18:39:56.091 DEBUG 3884 --- [http-nio-8080-exec-2] o.s.web.servlet.DispatcherServlet        : "ERROR" dispatch for POST "/error", parameters={}
+2019-06-10 18:39:56.092 DEBUG 3884 --- [http-nio-8080-exec-2] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to public org.springframework.http.ResponseEntity<java.util.Map<java.lang.String, java.lang.Object>> org.springframework.boot.autoconfigure.web.servlet.error.BasicErrorController.error(javax.servlet.http.HttpServletRequest)
+2019-06-10 18:39:56.097 DEBUG 3884 --- [http-nio-8080-exec-2] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Using 'application/json', given [*/*] and supported [application/json, application/*+json, application/json, application/*+json]
+2019-06-10 18:39:56.097 DEBUG 3884 --- [http-nio-8080-exec-2] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Writing [{timestamp=Mon Jun 10 18:39:56 GMT+08:00 2019, status=500, error=Internal Server Error, message=Stri (truncated)...]
+2019-06-10 18:39:56.104 DEBUG 3884 --- [http-nio-8080-exec-2] o.s.web.servlet.DispatcherServlet        : Exiting from "ERROR" dispatch, status 500
+2019-06-10 18:41:31.442 DEBUG 3884 --- [http-nio-8080-exec-3] o.s.web.servlet.DispatcherServlet        : OPTIONS "/trader/login", parameters={}
+2019-06-10 18:41:31.442 DEBUG 3884 --- [http-nio-8080-exec-3] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to public java.lang.String com.trading.tradergateway.Controller.TraderController.login(com.trading.tradergateway.Entity.Trader) throws javax.naming.AuthenticationException
+2019-06-10 18:41:31.442 DEBUG 3884 --- [http-nio-8080-exec-3] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
+2019-06-10 18:41:31.451 DEBUG 3884 --- [http-nio-8080-exec-4] o.s.web.servlet.DispatcherServlet        : POST "/trader/login", parameters={}
+2019-06-10 18:41:31.451 DEBUG 3884 --- [http-nio-8080-exec-4] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to public java.lang.String com.trading.tradergateway.Controller.TraderController.login(com.trading.tradergateway.Entity.Trader) throws javax.naming.AuthenticationException
+2019-06-10 18:41:31.453 DEBUG 3884 --- [http-nio-8080-exec-4] m.m.a.RequestResponseBodyMethodProcessor : Read "application/json;charset=UTF-8" to [com.trading.tradergateway.Entity.Trader@67368f5]
+2019-06-10 18:41:31.733 DEBUG 3884 --- [http-nio-8080-exec-4] m.m.a.RequestResponseBodyMethodProcessor : Using 'text/plain', given [*/*] and supported [text/plain, */*, text/plain, */*, application/json, application/*+json, application/json, application/*+json]
+2019-06-10 18:41:31.733 DEBUG 3884 --- [http-nio-8080-exec-4] m.m.a.RequestResponseBodyMethodProcessor : Writing ["eyJhbGciOiJIUzUxMiJ9.eyJpc3MiOiJDVFMiLCJzdWIiOiJ0ZXN0IiwiZXhwIjoxNTYwMTY2ODkxLCJpYXQiOjE1NjAxNjMyOT (truncated)...]
+2019-06-10 18:41:31.734 DEBUG 3884 --- [http-nio-8080-exec-4] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
+2019-06-10 18:41:48.248 DEBUG 3884 --- [http-nio-8080-exec-5] o.s.web.servlet.DispatcherServlet        : POST "/order/SendOrder", parameters={}
+2019-06-10 18:41:48.248 DEBUG 3884 --- [http-nio-8080-exec-5] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to public java.lang.String com.trading.tradergateway.Controller.OrderController.sendOrder(com.trading.tradergateway.Entity.Order,javax.servlet.http.HttpServletRequest) throws java.lang.Exception
+2019-06-10 18:41:48.249 DEBUG 3884 --- [http-nio-8080-exec-5] m.m.a.RequestResponseBodyMethodProcessor : Read "application/json;charset=UTF-8" to [com.trading.tradergateway.Entity.Order@7052697f]
+2019-06-10 18:41:48.380 DEBUG 3884 --- [http-nio-8080-exec-5] m.m.a.RequestResponseBodyMethodProcessor : Using 'text/plain', given [*/*] and supported [text/plain, */*, text/plain, */*, application/json, application/*+json, application/json, application/*+json]
+2019-06-10 18:41:48.380 DEBUG 3884 --- [http-nio-8080-exec-5] m.m.a.RequestResponseBodyMethodProcessor : Writing ["Order Request Processing"]
+2019-06-10 18:41:48.380 DEBUG 3884 --- [http-nio-8080-exec-5] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
+2019-06-10 18:41:55.394 DEBUG 3884 --- [http-nio-8080-exec-6] o.s.web.servlet.DispatcherServlet        : GET "/order", parameters={}
+2019-06-10 18:41:55.394 DEBUG 3884 --- [http-nio-8080-exec-6] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to public java.util.List com.trading.tradergateway.Controller.OrderController.getAllOrders()
+2019-06-10 18:41:55.398 DEBUG 3884 --- [http-nio-8080-exec-6] m.m.a.RequestResponseBodyMethodProcessor : Using 'application/json', given [*/*] and supported [application/json, application/*+json, application/json, application/*+json]
+2019-06-10 18:41:55.398 DEBUG 3884 --- [http-nio-8080-exec-6] m.m.a.RequestResponseBodyMethodProcessor : Writing [[com.trading.tradergateway.Entity.Order@289b92ab, com.trading.tradergateway.Entity.Order@68123a48, c (truncated)...]
+2019-06-10 18:41:55.399 DEBUG 3884 --- [http-nio-8080-exec-6] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
+2019-06-10 18:42:15.198 DEBUG 3884 --- [http-nio-8080-exec-7] o.s.web.servlet.DispatcherServlet        : GET "/order", parameters={}
+2019-06-10 18:42:15.198 DEBUG 3884 --- [http-nio-8080-exec-7] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to public java.util.List com.trading.tradergateway.Controller.OrderController.getAllOrders()
+2019-06-10 18:42:15.202 DEBUG 3884 --- [http-nio-8080-exec-7] m.m.a.RequestResponseBodyMethodProcessor : Using 'application/json', given [*/*] and supported [application/json, application/*+json, application/json, application/*+json]
+2019-06-10 18:42:15.202 DEBUG 3884 --- [http-nio-8080-exec-7] m.m.a.RequestResponseBodyMethodProcessor : Writing [[com.trading.tradergateway.Entity.Order@27f12b73, com.trading.tradergateway.Entity.Order@236fc893, c (truncated)...]
+2019-06-10 18:42:15.203 DEBUG 3884 --- [http-nio-8080-exec-7] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
+2019-06-10 18:42:26.509 DEBUG 3884 --- [http-nio-8080-exec-8] o.s.web.servlet.DispatcherServlet        : POST "/order/SendOrder", parameters={}
+2019-06-10 18:42:26.510 DEBUG 3884 --- [http-nio-8080-exec-8] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to public java.lang.String com.trading.tradergateway.Controller.OrderController.sendOrder(com.trading.tradergateway.Entity.Order,javax.servlet.http.HttpServletRequest) throws java.lang.Exception
+2019-06-10 18:42:26.511 DEBUG 3884 --- [http-nio-8080-exec-8] m.m.a.RequestResponseBodyMethodProcessor : Read "application/json;charset=UTF-8" to [com.trading.tradergateway.Entity.Order@711a577a]
+2019-06-10 18:42:26.538 DEBUG 3884 --- [http-nio-8080-exec-8] m.m.a.RequestResponseBodyMethodProcessor : Using 'text/plain', given [*/*] and supported [text/plain, */*, text/plain, */*, application/json, application/*+json, application/json, application/*+json]
+2019-06-10 18:42:26.539 DEBUG 3884 --- [http-nio-8080-exec-8] m.m.a.RequestResponseBodyMethodProcessor : Writing ["Order Request Processing"]
+2019-06-10 18:42:26.539 DEBUG 3884 --- [http-nio-8080-exec-8] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
+2019-06-10 18:42:28.696 DEBUG 3884 --- [http-nio-8080-exec-9] o.s.web.servlet.DispatcherServlet        : GET "/order", parameters={}
+2019-06-10 18:42:28.696 DEBUG 3884 --- [http-nio-8080-exec-9] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to public java.util.List com.trading.tradergateway.Controller.OrderController.getAllOrders()
+2019-06-10 18:42:28.699 DEBUG 3884 --- [http-nio-8080-exec-9] m.m.a.RequestResponseBodyMethodProcessor : Using 'application/json', given [*/*] and supported [application/json, application/*+json, application/json, application/*+json]
+2019-06-10 18:42:28.700 DEBUG 3884 --- [http-nio-8080-exec-9] m.m.a.RequestResponseBodyMethodProcessor : Writing [[com.trading.tradergateway.Entity.Order@6419d77c, com.trading.tradergateway.Entity.Order@2b83d8f5, c (truncated)...]
+2019-06-10 18:42:28.701 DEBUG 3884 --- [http-nio-8080-exec-9] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
+2019-06-10 18:43:49.324 DEBUG 3884 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : GET "/order", parameters={}
+2019-06-10 18:43:49.324 DEBUG 3884 --- [http-nio-8080-exec-1] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to public java.util.List com.trading.tradergateway.Controller.OrderController.getAllOrders()
+2019-06-10 18:43:49.328 DEBUG 3884 --- [http-nio-8080-exec-1] m.m.a.RequestResponseBodyMethodProcessor : Using 'application/json', given [*/*] and supported [application/json, application/*+json, application/json, application/*+json]
+2019-06-10 18:43:49.328 DEBUG 3884 --- [http-nio-8080-exec-1] m.m.a.RequestResponseBodyMethodProcessor : Writing [[com.trading.tradergateway.Entity.Order@19ddad2b, com.trading.tradergateway.Entity.Order@5228455, co (truncated)...]
+2019-06-10 18:43:49.330 DEBUG 3884 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
+2019-06-10 18:44:03.844 DEBUG 3884 --- [http-nio-8080-exec-2] o.s.web.servlet.DispatcherServlet        : GET "/order", parameters={}
+2019-06-10 18:44:03.844 DEBUG 3884 --- [http-nio-8080-exec-2] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to public java.util.List com.trading.tradergateway.Controller.OrderController.getAllOrders()
+2019-06-10 18:44:03.847 DEBUG 3884 --- [http-nio-8080-exec-2] m.m.a.RequestResponseBodyMethodProcessor : Using 'application/json', given [*/*] and supported [application/json, application/*+json, application/json, application/*+json]
+2019-06-10 18:44:03.847 DEBUG 3884 --- [http-nio-8080-exec-2] m.m.a.RequestResponseBodyMethodProcessor : Writing [[com.trading.tradergateway.Entity.Order@67a1e047, com.trading.tradergateway.Entity.Order@285d8b2e, c (truncated)...]
+2019-06-10 18:44:03.849 DEBUG 3884 --- [http-nio-8080-exec-2] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
+2019-06-10 18:44:06.747 DEBUG 3884 --- [http-nio-8080-exec-3] o.s.web.servlet.DispatcherServlet        : GET "/order", parameters={}
+2019-06-10 18:44:06.747 DEBUG 3884 --- [http-nio-8080-exec-3] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to public java.util.List com.trading.tradergateway.Controller.OrderController.getAllOrders()
+2019-06-10 18:44:06.750 DEBUG 3884 --- [http-nio-8080-exec-3] m.m.a.RequestResponseBodyMethodProcessor : Using 'application/json', given [*/*] and supported [application/json, application/*+json, application/json, application/*+json]
+2019-06-10 18:44:06.750 DEBUG 3884 --- [http-nio-8080-exec-3] m.m.a.RequestResponseBodyMethodProcessor : Writing [[com.trading.tradergateway.Entity.Order@472a8b7c, com.trading.tradergateway.Entity.Order@5a3ad7c1, c (truncated)...]
+2019-06-10 18:44:06.751 DEBUG 3884 --- [http-nio-8080-exec-3] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
+2019-06-10 18:44:44.338 DEBUG 3884 --- [http-nio-8080-exec-4] o.s.web.servlet.DispatcherServlet        : GET "/order", parameters={}
+2019-06-10 18:44:44.339 DEBUG 3884 --- [http-nio-8080-exec-4] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to public java.util.List com.trading.tradergateway.Controller.OrderController.getAllOrders()
+2019-06-10 18:44:44.342 DEBUG 3884 --- [http-nio-8080-exec-4] m.m.a.RequestResponseBodyMethodProcessor : Using 'application/json', given [*/*] and supported [application/json, application/*+json, application/json, application/*+json]
+2019-06-10 18:44:44.342 DEBUG 3884 --- [http-nio-8080-exec-4] m.m.a.RequestResponseBodyMethodProcessor : Writing [[com.trading.tradergateway.Entity.Order@108c73f1, com.trading.tradergateway.Entity.Order@1a44c3be, c (truncated)...]
+2019-06-10 18:44:44.343 DEBUG 3884 --- [http-nio-8080-exec-4] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
+2019-06-10 18:45:31.516 DEBUG 3884 --- [http-nio-8080-exec-5] o.s.web.servlet.DispatcherServlet        : OPTIONS "/order", parameters={}
+2019-06-10 18:45:31.516 DEBUG 3884 --- [http-nio-8080-exec-5] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to public java.util.List com.trading.tradergateway.Controller.OrderController.getAllOrders()
+2019-06-10 18:45:31.517 DEBUG 3884 --- [http-nio-8080-exec-5] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
+2019-06-10 18:45:31.530 DEBUG 3884 --- [http-nio-8080-exec-6] o.s.web.servlet.DispatcherServlet        : GET "/order", parameters={}
+2019-06-10 18:45:31.531 DEBUG 3884 --- [http-nio-8080-exec-6] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to public java.util.List com.trading.tradergateway.Controller.OrderController.getAllOrders()
+2019-06-10 18:45:31.534 DEBUG 3884 --- [http-nio-8080-exec-6] m.m.a.RequestResponseBodyMethodProcessor : Using 'application/json', given [*/*] and supported [application/json, application/*+json, application/json, application/*+json]
+2019-06-10 18:45:31.534 DEBUG 3884 --- [http-nio-8080-exec-6] m.m.a.RequestResponseBodyMethodProcessor : Writing [[com.trading.tradergateway.Entity.Order@1ce49fd4, com.trading.tradergateway.Entity.Order@71f1e3d1, c (truncated)...]
+2019-06-10 18:45:31.535 DEBUG 3884 --- [http-nio-8080-exec-6] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
+2019-06-10 18:46:13.826 DEBUG 3884 --- [http-nio-8080-exec-7] o.s.web.servlet.DispatcherServlet        : OPTIONS "/order/SendOrder", parameters={}
+2019-06-10 18:46:13.827 DEBUG 3884 --- [http-nio-8080-exec-7] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to public java.lang.String com.trading.tradergateway.Controller.OrderController.sendOrder(com.trading.tradergateway.Entity.Order,javax.servlet.http.HttpServletRequest) throws java.lang.Exception
+2019-06-10 18:46:13.827 DEBUG 3884 --- [http-nio-8080-exec-7] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
+2019-06-10 18:46:13.840 DEBUG 3884 --- [http-nio-8080-exec-8] o.s.web.servlet.DispatcherServlet        : POST "/order/SendOrder", parameters={}
+2019-06-10 18:46:13.841 DEBUG 3884 --- [http-nio-8080-exec-8] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to public java.lang.String com.trading.tradergateway.Controller.OrderController.sendOrder(com.trading.tradergateway.Entity.Order,javax.servlet.http.HttpServletRequest) throws java.lang.Exception
+2019-06-10 18:46:13.841 DEBUG 3884 --- [http-nio-8080-exec-8] m.m.a.RequestResponseBodyMethodProcessor : Read "application/json;charset=UTF-8" to [com.trading.tradergateway.Entity.Order@bf45c38]
+2019-06-10 18:46:13.873 DEBUG 3884 --- [http-nio-8080-exec-8] m.m.a.RequestResponseBodyMethodProcessor : Using 'text/plain', given [*/*] and supported [text/plain, */*, text/plain, */*, application/json, application/*+json, application/json, application/*+json]
+2019-06-10 18:46:13.873 DEBUG 3884 --- [http-nio-8080-exec-8] m.m.a.RequestResponseBodyMethodProcessor : Writing ["Order Request Processing"]
+2019-06-10 18:46:13.873 DEBUG 3884 --- [http-nio-8080-exec-8] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
+2019-06-10 18:46:16.217 DEBUG 3884 --- [http-nio-8080-exec-9] o.s.web.servlet.DispatcherServlet        : GET "/order", parameters={}
+2019-06-10 18:46:16.217 DEBUG 3884 --- [http-nio-8080-exec-9] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to public java.util.List com.trading.tradergateway.Controller.OrderController.getAllOrders()
+2019-06-10 18:46:16.240 DEBUG 3884 --- [http-nio-8080-exec-9] m.m.a.RequestResponseBodyMethodProcessor : Using 'application/json', given [*/*] and supported [application/json, application/*+json, application/json, application/*+json]
+2019-06-10 18:46:16.240 DEBUG 3884 --- [http-nio-8080-exec-9] m.m.a.RequestResponseBodyMethodProcessor : Writing [[com.trading.tradergateway.Entity.Order@5096f886, com.trading.tradergateway.Entity.Order@c5c667, com (truncated)...]
+2019-06-10 18:46:16.242 DEBUG 3884 --- [http-nio-8080-exec-9] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
+2019-06-10 18:48:41.034 DEBUG 3884 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : OPTIONS "/trader/login", parameters={}
+2019-06-10 18:48:41.035 DEBUG 3884 --- [http-nio-8080-exec-1] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to public java.lang.String com.trading.tradergateway.Controller.TraderController.login(com.trading.tradergateway.Entity.Trader) throws javax.naming.AuthenticationException
+2019-06-10 18:48:41.035 DEBUG 3884 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
+2019-06-10 18:48:41.046 DEBUG 3884 --- [http-nio-8080-exec-2] o.s.web.servlet.DispatcherServlet        : POST "/trader/login", parameters={}
+2019-06-10 18:48:41.047 DEBUG 3884 --- [http-nio-8080-exec-2] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to public java.lang.String com.trading.tradergateway.Controller.TraderController.login(com.trading.tradergateway.Entity.Trader) throws javax.naming.AuthenticationException
+2019-06-10 18:48:41.047 DEBUG 3884 --- [http-nio-8080-exec-2] m.m.a.RequestResponseBodyMethodProcessor : Read "application/json;charset=UTF-8" to [com.trading.tradergateway.Entity.Trader@4c70e241]
+2019-06-10 18:48:41.153 DEBUG 3884 --- [http-nio-8080-exec-2] m.m.a.RequestResponseBodyMethodProcessor : Using 'text/plain', given [*/*] and supported [text/plain, */*, text/plain, */*, application/json, application/*+json, application/json, application/*+json]
+2019-06-10 18:48:41.153 DEBUG 3884 --- [http-nio-8080-exec-2] m.m.a.RequestResponseBodyMethodProcessor : Writing ["eyJhbGciOiJIUzUxMiJ9.eyJpc3MiOiJDVFMiLCJzdWIiOiJ0ZXN0IiwiZXhwIjoxNTYwMTY3MzIxLCJpYXQiOjE1NjAxNjM3Mj (truncated)...]
+2019-06-10 18:48:41.154 DEBUG 3884 --- [http-nio-8080-exec-2] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
+2019-06-10 18:48:47.518 DEBUG 3884 --- [http-nio-8080-exec-3] o.s.web.servlet.DispatcherServlet        : OPTIONS "/order", parameters={}
+2019-06-10 18:48:47.518 DEBUG 3884 --- [http-nio-8080-exec-3] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to public java.util.List com.trading.tradergateway.Controller.OrderController.getAllOrders()
+2019-06-10 18:48:47.519 DEBUG 3884 --- [http-nio-8080-exec-3] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
+2019-06-10 18:48:47.531 DEBUG 3884 --- [http-nio-8080-exec-4] o.s.web.servlet.DispatcherServlet        : GET "/order", parameters={}
+2019-06-10 18:48:47.531 DEBUG 3884 --- [http-nio-8080-exec-4] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to public java.util.List com.trading.tradergateway.Controller.OrderController.getAllOrders()
+2019-06-10 18:48:47.534 DEBUG 3884 --- [http-nio-8080-exec-4] m.m.a.RequestResponseBodyMethodProcessor : Using 'application/json', given [*/*] and supported [application/json, application/*+json, application/json, application/*+json]
+2019-06-10 18:48:47.534 DEBUG 3884 --- [http-nio-8080-exec-4] m.m.a.RequestResponseBodyMethodProcessor : Writing [[com.trading.tradergateway.Entity.Order@5c30c689, com.trading.tradergateway.Entity.Order@1dec439a, c (truncated)...]
+2019-06-10 18:48:47.535 DEBUG 3884 --- [http-nio-8080-exec-4] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
+2019-06-10 18:49:01.896 DEBUG 3884 --- [http-nio-8080-exec-5] o.s.web.servlet.DispatcherServlet        : OPTIONS "/future/all", parameters={}
+2019-06-10 18:49:01.896 DEBUG 3884 --- [http-nio-8080-exec-5] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to public java.util.List com.trading.tradergateway.Controller.FutureController.getAllFutures()
+2019-06-10 18:49:01.897 DEBUG 3884 --- [http-nio-8080-exec-5] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
+2019-06-10 18:49:01.910 DEBUG 3884 --- [http-nio-8080-exec-6] o.s.web.servlet.DispatcherServlet        : GET "/future/all", parameters={}
+2019-06-10 18:49:01.910 DEBUG 3884 --- [http-nio-8080-exec-6] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to public java.util.List com.trading.tradergateway.Controller.FutureController.getAllFutures()
+2019-06-10 18:49:01.914 DEBUG 3884 --- [http-nio-8080-exec-6] m.m.a.RequestResponseBodyMethodProcessor : Using 'application/json', given [*/*] and supported [application/json, application/*+json, application/json, application/*+json]
+2019-06-10 18:49:01.914 DEBUG 3884 --- [http-nio-8080-exec-6] m.m.a.RequestResponseBodyMethodProcessor : Writing [[com.trading.tradergateway.Entity.Future@4bb81d, com.trading.tradergateway.Entity.Future@38943e4f, c (truncated)...]
+2019-06-10 18:49:01.915 DEBUG 3884 --- [http-nio-8080-exec-6] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
+2019-06-10 18:53:47.719 DEBUG 3884 --- [http-nio-8080-exec-8] o.s.web.servlet.DispatcherServlet        : OPTIONS "/trader/login", parameters={}
+2019-06-10 18:53:47.719 DEBUG 3884 --- [http-nio-8080-exec-8] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to public java.lang.String com.trading.tradergateway.Controller.TraderController.login(com.trading.tradergateway.Entity.Trader) throws javax.naming.AuthenticationException
+2019-06-10 18:53:47.720 DEBUG 3884 --- [http-nio-8080-exec-8] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
+2019-06-10 18:53:47.735 DEBUG 3884 --- [http-nio-8080-exec-9] o.s.web.servlet.DispatcherServlet        : POST "/trader/login", parameters={}
+2019-06-10 18:53:47.735 DEBUG 3884 --- [http-nio-8080-exec-9] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to public java.lang.String com.trading.tradergateway.Controller.TraderController.login(com.trading.tradergateway.Entity.Trader) throws javax.naming.AuthenticationException
+2019-06-10 18:53:47.735 DEBUG 3884 --- [http-nio-8080-exec-9] m.m.a.RequestResponseBodyMethodProcessor : Read "application/json;charset=UTF-8" to [com.trading.tradergateway.Entity.Trader@5f343677]
+2019-06-10 18:53:47.850 DEBUG 3884 --- [http-nio-8080-exec-9] m.m.a.RequestResponseBodyMethodProcessor : Using 'text/plain', given [*/*] and supported [text/plain, */*, text/plain, */*, application/json, application/*+json, application/json, application/*+json]
+2019-06-10 18:53:47.850 DEBUG 3884 --- [http-nio-8080-exec-9] m.m.a.RequestResponseBodyMethodProcessor : Writing ["eyJhbGciOiJIUzUxMiJ9.eyJpc3MiOiJDVFMiLCJzdWIiOiJ0ZXN0IiwiZXhwIjoxNTYwMTY3NjI3LCJpYXQiOjE1NjAxNjQwMj (truncated)...]
+2019-06-10 18:53:47.851 DEBUG 3884 --- [http-nio-8080-exec-9] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
+2019-06-10 18:54:16.954 DEBUG 3884 --- [http-nio-8080-exec-10] o.s.web.servlet.DispatcherServlet        : OPTIONS "/future/all", parameters={}
+2019-06-10 18:54:16.954 DEBUG 3884 --- [http-nio-8080-exec-10] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to public java.util.List com.trading.tradergateway.Controller.FutureController.getAllFutures()
+2019-06-10 18:54:16.955 DEBUG 3884 --- [http-nio-8080-exec-10] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
+2019-06-10 18:54:16.968 DEBUG 3884 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : GET "/future/all", parameters={}
+2019-06-10 18:54:16.968 DEBUG 3884 --- [http-nio-8080-exec-1] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to public java.util.List com.trading.tradergateway.Controller.FutureController.getAllFutures()
+2019-06-10 18:54:16.972 DEBUG 3884 --- [http-nio-8080-exec-1] m.m.a.RequestResponseBodyMethodProcessor : Using 'application/json', given [*/*] and supported [application/json, application/*+json, application/json, application/*+json]
+2019-06-10 18:54:16.972 DEBUG 3884 --- [http-nio-8080-exec-1] m.m.a.RequestResponseBodyMethodProcessor : Writing [[com.trading.tradergateway.Entity.Future@5ec384df, com.trading.tradergateway.Entity.Future@39d69f17, (truncated)...]
+2019-06-10 18:54:16.973 DEBUG 3884 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
+2019-06-10 19:25:00.118 DEBUG 3884 --- [http-nio-8080-exec-7] o.s.web.servlet.DispatcherServlet        : OPTIONS "/order", parameters={}
+2019-06-10 19:25:00.118 DEBUG 3884 --- [http-nio-8080-exec-7] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to public java.util.List com.trading.tradergateway.Controller.OrderController.getAllOrders()
+2019-06-10 19:25:00.119 DEBUG 3884 --- [http-nio-8080-exec-7] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
+2019-06-10 19:25:00.131 DEBUG 3884 --- [http-nio-8080-exec-8] o.s.web.servlet.DispatcherServlet        : GET "/order", parameters={}
+2019-06-10 19:25:00.131 DEBUG 3884 --- [http-nio-8080-exec-8] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to public java.util.List com.trading.tradergateway.Controller.OrderController.getAllOrders()
+2019-06-10 19:25:00.142 DEBUG 3884 --- [http-nio-8080-exec-8] m.m.a.RequestResponseBodyMethodProcessor : Using 'application/json', given [*/*] and supported [application/json, application/*+json, application/json, application/*+json]
+2019-06-10 19:25:00.142 DEBUG 3884 --- [http-nio-8080-exec-8] m.m.a.RequestResponseBodyMethodProcessor : Writing [[com.trading.tradergateway.Entity.Order@4ac7f139, com.trading.tradergateway.Entity.Order@11f590c6, c (truncated)...]
+2019-06-10 19:25:00.144 DEBUG 3884 --- [http-nio-8080-exec-8] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
+2019-06-10 19:25:14.084 DEBUG 3884 --- [http-nio-8080-exec-9] o.s.web.servlet.DispatcherServlet        : OPTIONS "/order/today", parameters={}
+2019-06-10 19:25:14.084 DEBUG 3884 --- [http-nio-8080-exec-9] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to public java.util.List com.trading.tradergateway.Controller.OrderController.getOrdersByToday()
+2019-06-10 19:25:14.085 DEBUG 3884 --- [http-nio-8080-exec-9] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
+2019-06-10 19:25:14.092 DEBUG 3884 --- [http-nio-8080-exec-10] o.s.web.servlet.DispatcherServlet        : GET "/order/today", parameters={}
+2019-06-10 19:25:14.093 DEBUG 3884 --- [http-nio-8080-exec-10] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to public java.util.List com.trading.tradergateway.Controller.OrderController.getOrdersByToday()
+2019-06-10 19:25:14.111 DEBUG 3884 --- [http-nio-8080-exec-10] m.m.a.RequestResponseBodyMethodProcessor : Using 'application/json', given [*/*] and supported [application/json, application/*+json, application/json, application/*+json]
+2019-06-10 19:25:14.112 DEBUG 3884 --- [http-nio-8080-exec-10] m.m.a.RequestResponseBodyMethodProcessor : Writing [[com.trading.tradergateway.Entity.Order@1bfa7b4e, com.trading.tradergateway.Entity.Order@327a2f34, c (truncated)...]
+2019-06-10 19:25:14.113 DEBUG 3884 --- [http-nio-8080-exec-10] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
+2019-06-10 19:25:24.477 DEBUG 3884 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : OPTIONS "/order/week", parameters={}
+2019-06-10 19:25:24.477 DEBUG 3884 --- [http-nio-8080-exec-1] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to public java.util.List com.trading.tradergateway.Controller.OrderController.getOrdersByWeek()
+2019-06-10 19:25:24.478 DEBUG 3884 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
+2019-06-10 19:25:24.494 DEBUG 3884 --- [http-nio-8080-exec-2] o.s.web.servlet.DispatcherServlet        : GET "/order/week", parameters={}
+2019-06-10 19:25:24.494 DEBUG 3884 --- [http-nio-8080-exec-2] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to public java.util.List com.trading.tradergateway.Controller.OrderController.getOrdersByWeek()
+2019-06-10 19:25:24.506 DEBUG 3884 --- [http-nio-8080-exec-2] m.m.a.RequestResponseBodyMethodProcessor : Using 'application/json', given [*/*] and supported [application/json, application/*+json, application/json, application/*+json]
+2019-06-10 19:25:24.506 DEBUG 3884 --- [http-nio-8080-exec-2] m.m.a.RequestResponseBodyMethodProcessor : Writing [[com.trading.tradergateway.Entity.Order@70ab569, com.trading.tradergateway.Entity.Order@72e94411, co (truncated)...]
+2019-06-10 19:25:24.508 DEBUG 3884 --- [http-nio-8080-exec-2] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
+2019-06-10 19:25:32.188 DEBUG 3884 --- [http-nio-8080-exec-3] o.s.web.servlet.DispatcherServlet        : OPTIONS "/order/month", parameters={}
+2019-06-10 19:25:32.188 DEBUG 3884 --- [http-nio-8080-exec-3] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to public java.util.List com.trading.tradergateway.Controller.OrderController.getOrdersByMonth()
+2019-06-10 19:25:32.189 DEBUG 3884 --- [http-nio-8080-exec-3] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
+2019-06-10 19:25:32.197 DEBUG 3884 --- [http-nio-8080-exec-4] o.s.web.servlet.DispatcherServlet        : GET "/order/month", parameters={}
+2019-06-10 19:25:32.197 DEBUG 3884 --- [http-nio-8080-exec-4] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to public java.util.List com.trading.tradergateway.Controller.OrderController.getOrdersByMonth()
+2019-06-10 19:25:32.201 DEBUG 3884 --- [http-nio-8080-exec-4] m.m.a.RequestResponseBodyMethodProcessor : Using 'application/json', given [*/*] and supported [application/json, application/*+json, application/json, application/*+json]
+2019-06-10 19:25:32.201 DEBUG 3884 --- [http-nio-8080-exec-4] m.m.a.RequestResponseBodyMethodProcessor : Writing [[com.trading.tradergateway.Entity.Order@704e1a15, com.trading.tradergateway.Entity.Order@42b0a41d, c (truncated)...]
+2019-06-10 19:25:32.203 DEBUG 3884 --- [http-nio-8080-exec-4] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
+2019-06-10 19:25:55.353 DEBUG 3884 --- [http-nio-8080-exec-5] o.s.web.servlet.DispatcherServlet        : OPTIONS "/order/oid?orderId=3c6e5ac8-8e71-4cee-b833-3370dbd6c382", parameters={masked}
+2019-06-10 19:25:55.354 DEBUG 3884 --- [http-nio-8080-exec-5] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to public java.util.List com.trading.tradergateway.Controller.OrderController.getOrdersByOid(java.lang.String)
+2019-06-10 19:25:55.354 DEBUG 3884 --- [http-nio-8080-exec-5] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
+2019-06-10 19:25:55.368 DEBUG 3884 --- [http-nio-8080-exec-6] o.s.web.servlet.DispatcherServlet        : GET "/order/oid?orderId=3c6e5ac8-8e71-4cee-b833-3370dbd6c382", parameters={masked}
+2019-06-10 19:25:55.369 DEBUG 3884 --- [http-nio-8080-exec-6] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to public java.util.List com.trading.tradergateway.Controller.OrderController.getOrdersByOid(java.lang.String)
+2019-06-10 19:25:55.379 DEBUG 3884 --- [http-nio-8080-exec-6] m.m.a.RequestResponseBodyMethodProcessor : Using 'application/json', given [*/*] and supported [application/json, application/*+json, application/json, application/*+json]
+2019-06-10 19:25:55.380 DEBUG 3884 --- [http-nio-8080-exec-6] m.m.a.RequestResponseBodyMethodProcessor : Writing [[com.trading.tradergateway.Entity.Order@4586418b]]
+2019-06-10 19:25:55.380 DEBUG 3884 --- [http-nio-8080-exec-6] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
+2019-06-10 19:26:08.481 DEBUG 3884 --- [http-nio-8080-exec-7] o.s.web.servlet.DispatcherServlet        : OPTIONS "/order/stat?status=PROCESSED", parameters={masked}
+2019-06-10 19:26:08.481 DEBUG 3884 --- [http-nio-8080-exec-7] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to public java.util.List com.trading.tradergateway.Controller.OrderController.getOrdersByStat(java.lang.String)
+2019-06-10 19:26:08.481 DEBUG 3884 --- [http-nio-8080-exec-7] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
+2019-06-10 19:26:08.489 DEBUG 3884 --- [http-nio-8080-exec-8] o.s.web.servlet.DispatcherServlet        : GET "/order/stat?status=PROCESSED", parameters={masked}
+2019-06-10 19:26:08.489 DEBUG 3884 --- [http-nio-8080-exec-8] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to public java.util.List com.trading.tradergateway.Controller.OrderController.getOrdersByStat(java.lang.String)
+2019-06-10 19:26:08.495 DEBUG 3884 --- [http-nio-8080-exec-8] m.m.a.RequestResponseBodyMethodProcessor : Using 'application/json', given [*/*] and supported [application/json, application/*+json, application/json, application/*+json]
+2019-06-10 19:26:08.495 DEBUG 3884 --- [http-nio-8080-exec-8] m.m.a.RequestResponseBodyMethodProcessor : Writing [[com.trading.tradergateway.Entity.Order@13f6477, com.trading.tradergateway.Entity.Order@5c6b6e91, co (truncated)...]
+2019-06-10 19:26:08.496 DEBUG 3884 --- [http-nio-8080-exec-8] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
+2019-06-10 19:26:14.867 DEBUG 3884 --- [http-nio-8080-exec-9] o.s.web.servlet.DispatcherServlet        : OPTIONS "/order/fid?futureId=U", parameters={masked}
+2019-06-10 19:26:14.867 DEBUG 3884 --- [http-nio-8080-exec-9] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to public java.util.List com.trading.tradergateway.Controller.OrderController.getOrdersByFid(javax.servlet.http.HttpServletRequest)
+2019-06-10 19:26:14.868 DEBUG 3884 --- [http-nio-8080-exec-9] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
+2019-06-10 19:26:14.874 DEBUG 3884 --- [http-nio-8080-exec-10] o.s.web.servlet.DispatcherServlet        : GET "/order/fid?futureId=U", parameters={masked}
+2019-06-10 19:26:14.874 DEBUG 3884 --- [http-nio-8080-exec-10] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to public java.util.List com.trading.tradergateway.Controller.OrderController.getOrdersByFid(javax.servlet.http.HttpServletRequest)
+2019-06-10 19:26:14.880 DEBUG 3884 --- [http-nio-8080-exec-10] m.m.a.RequestResponseBodyMethodProcessor : Using 'application/json', given [*/*] and supported [application/json, application/*+json, application/json, application/*+json]
+2019-06-10 19:26:14.881 DEBUG 3884 --- [http-nio-8080-exec-10] m.m.a.RequestResponseBodyMethodProcessor : Writing [[]]
+2019-06-10 19:26:14.882 DEBUG 3884 --- [http-nio-8080-exec-10] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
+2019-06-10 19:26:19.923 DEBUG 3884 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : OPTIONS "/order/fid?futureId=SB", parameters={masked}
+2019-06-10 19:26:19.923 DEBUG 3884 --- [http-nio-8080-exec-1] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to public java.util.List com.trading.tradergateway.Controller.OrderController.getOrdersByFid(javax.servlet.http.HttpServletRequest)
+2019-06-10 19:26:19.924 DEBUG 3884 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
+2019-06-10 19:26:19.933 DEBUG 3884 --- [http-nio-8080-exec-2] o.s.web.servlet.DispatcherServlet        : GET "/order/fid?futureId=SB", parameters={masked}
+2019-06-10 19:26:19.933 DEBUG 3884 --- [http-nio-8080-exec-2] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to public java.util.List com.trading.tradergateway.Controller.OrderController.getOrdersByFid(javax.servlet.http.HttpServletRequest)
+2019-06-10 19:26:19.938 DEBUG 3884 --- [http-nio-8080-exec-2] m.m.a.RequestResponseBodyMethodProcessor : Using 'application/json', given [*/*] and supported [application/json, application/*+json, application/json, application/*+json]
+2019-06-10 19:26:19.938 DEBUG 3884 --- [http-nio-8080-exec-2] m.m.a.RequestResponseBodyMethodProcessor : Writing [[com.trading.tradergateway.Entity.Order@3d774fbd, com.trading.tradergateway.Entity.Order@20549499, c (truncated)...]
+2019-06-10 19:26:19.939 DEBUG 3884 --- [http-nio-8080-exec-2] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
+2019-06-10 19:26:25.802 DEBUG 3884 --- [http-nio-8080-exec-3] o.s.web.servlet.DispatcherServlet        : OPTIONS "/order/fid?futureId=SB&price=6.1", parameters={masked}
+2019-06-10 19:26:25.802 DEBUG 3884 --- [http-nio-8080-exec-3] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to public java.util.List com.trading.tradergateway.Controller.OrderController.getOrdersByFid(javax.servlet.http.HttpServletRequest)
+2019-06-10 19:26:25.803 DEBUG 3884 --- [http-nio-8080-exec-3] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
+2019-06-10 19:26:25.813 DEBUG 3884 --- [http-nio-8080-exec-4] o.s.web.servlet.DispatcherServlet        : GET "/order/fid?futureId=SB&price=6.1", parameters={masked}
+2019-06-10 19:26:25.813 DEBUG 3884 --- [http-nio-8080-exec-4] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to public java.util.List com.trading.tradergateway.Controller.OrderController.getOrdersByFid(javax.servlet.http.HttpServletRequest)
+2019-06-10 19:26:25.821 DEBUG 3884 --- [http-nio-8080-exec-4] m.m.a.RequestResponseBodyMethodProcessor : Using 'application/json', given [*/*] and supported [application/json, application/*+json, application/json, application/*+json]
+2019-06-10 19:26:25.821 DEBUG 3884 --- [http-nio-8080-exec-4] m.m.a.RequestResponseBodyMethodProcessor : Writing [[]]
+2019-06-10 19:26:25.822 DEBUG 3884 --- [http-nio-8080-exec-4] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
+2019-06-10 19:26:33.945 DEBUG 3884 --- [http-nio-8080-exec-5] o.s.web.servlet.DispatcherServlet        : OPTIONS "/order/fid?futureId=SB&price=7.5", parameters={masked}
+2019-06-10 19:26:33.945 DEBUG 3884 --- [http-nio-8080-exec-5] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to public java.util.List com.trading.tradergateway.Controller.OrderController.getOrdersByFid(javax.servlet.http.HttpServletRequest)
+2019-06-10 19:26:33.946 DEBUG 3884 --- [http-nio-8080-exec-5] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
+2019-06-10 19:26:33.956 DEBUG 3884 --- [http-nio-8080-exec-6] o.s.web.servlet.DispatcherServlet        : GET "/order/fid?futureId=SB&price=7.5", parameters={masked}
+2019-06-10 19:26:33.957 DEBUG 3884 --- [http-nio-8080-exec-6] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to public java.util.List com.trading.tradergateway.Controller.OrderController.getOrdersByFid(javax.servlet.http.HttpServletRequest)
+2019-06-10 19:26:33.961 DEBUG 3884 --- [http-nio-8080-exec-6] m.m.a.RequestResponseBodyMethodProcessor : Using 'application/json', given [*/*] and supported [application/json, application/*+json, application/json, application/*+json]
+2019-06-10 19:26:33.961 DEBUG 3884 --- [http-nio-8080-exec-6] m.m.a.RequestResponseBodyMethodProcessor : Writing [[]]
+2019-06-10 19:26:33.962 DEBUG 3884 --- [http-nio-8080-exec-6] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
+2019-06-10 19:26:36.597 DEBUG 3884 --- [http-nio-8080-exec-7] o.s.web.servlet.DispatcherServlet        : GET "/order/fid?futureId=SB", parameters={masked}
+2019-06-10 19:26:36.597 DEBUG 3884 --- [http-nio-8080-exec-7] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to public java.util.List com.trading.tradergateway.Controller.OrderController.getOrdersByFid(javax.servlet.http.HttpServletRequest)
+2019-06-10 19:26:36.601 DEBUG 3884 --- [http-nio-8080-exec-7] m.m.a.RequestResponseBodyMethodProcessor : Using 'application/json', given [*/*] and supported [application/json, application/*+json, application/json, application/*+json]
+2019-06-10 19:26:36.601 DEBUG 3884 --- [http-nio-8080-exec-7] m.m.a.RequestResponseBodyMethodProcessor : Writing [[com.trading.tradergateway.Entity.Order@6e0c1410, com.trading.tradergateway.Entity.Order@667f6ffc, c (truncated)...]
+2019-06-10 19:26:36.602 DEBUG 3884 --- [http-nio-8080-exec-7] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
+2019-06-10 19:26:51.896 DEBUG 3884 --- [http-nio-8080-exec-8] o.s.web.servlet.DispatcherServlet        : OPTIONS "/order/fid?futureId=SB&price=0", parameters={masked}
+2019-06-10 19:26:51.897 DEBUG 3884 --- [http-nio-8080-exec-8] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to public java.util.List com.trading.tradergateway.Controller.OrderController.getOrdersByFid(javax.servlet.http.HttpServletRequest)
+2019-06-10 19:26:51.897 DEBUG 3884 --- [http-nio-8080-exec-8] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
+2019-06-10 19:26:51.909 DEBUG 3884 --- [http-nio-8080-exec-9] o.s.web.servlet.DispatcherServlet        : GET "/order/fid?futureId=SB&price=0", parameters={masked}
+2019-06-10 19:26:51.909 DEBUG 3884 --- [http-nio-8080-exec-9] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to public java.util.List com.trading.tradergateway.Controller.OrderController.getOrdersByFid(javax.servlet.http.HttpServletRequest)
+2019-06-10 19:26:51.914 DEBUG 3884 --- [http-nio-8080-exec-9] m.m.a.RequestResponseBodyMethodProcessor : Using 'application/json', given [*/*] and supported [application/json, application/*+json, application/json, application/*+json]
+2019-06-10 19:26:51.914 DEBUG 3884 --- [http-nio-8080-exec-9] m.m.a.RequestResponseBodyMethodProcessor : Writing [[com.trading.tradergateway.Entity.Order@3b2d66ed, com.trading.tradergateway.Entity.Order@690e15e8, c (truncated)...]
+2019-06-10 19:26:51.915 DEBUG 3884 --- [http-nio-8080-exec-9] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
+2019-06-10 19:27:10.811 DEBUG 3884 --- [http-nio-8080-exec-10] o.s.web.servlet.DispatcherServlet        : OPTIONS "/order/tid?traderId=583707403745230848", parameters={masked}
+2019-06-10 19:27:10.811 DEBUG 3884 --- [http-nio-8080-exec-10] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to public java.util.List com.trading.tradergateway.Controller.OrderController.getOrdersByTid(java.lang.String)
+2019-06-10 19:27:10.812 DEBUG 3884 --- [http-nio-8080-exec-10] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
+2019-06-10 19:27:10.818 DEBUG 3884 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : GET "/order/tid?traderId=583707403745230848", parameters={masked}
+2019-06-10 19:27:10.818 DEBUG 3884 --- [http-nio-8080-exec-1] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to public java.util.List com.trading.tradergateway.Controller.OrderController.getOrdersByTid(java.lang.String)
+2019-06-10 19:27:10.832 DEBUG 3884 --- [http-nio-8080-exec-1] m.m.a.RequestResponseBodyMethodProcessor : Using 'application/json', given [*/*] and supported [application/json, application/*+json, application/json, application/*+json]
+2019-06-10 19:27:10.832 DEBUG 3884 --- [http-nio-8080-exec-1] m.m.a.RequestResponseBodyMethodProcessor : Writing [[com.trading.tradergateway.Entity.Order@22568a9e, com.trading.tradergateway.Entity.Order@3e800eb3, c (truncated)...]
+2019-06-10 19:27:10.833 DEBUG 3884 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
+2019-06-10 19:29:14.353 DEBUG 3884 --- [http-nio-8080-exec-3] o.s.web.servlet.DispatcherServlet        : GET "/order", parameters={}
+2019-06-10 19:29:14.354 DEBUG 3884 --- [http-nio-8080-exec-3] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to public java.util.List com.trading.tradergateway.Controller.OrderController.getAllOrders()
+2019-06-10 19:29:14.357 DEBUG 3884 --- [http-nio-8080-exec-3] m.m.a.RequestResponseBodyMethodProcessor : Using 'application/json', given [*/*] and supported [application/json, application/*+json, application/json, application/*+json]
+2019-06-10 19:29:14.358 DEBUG 3884 --- [http-nio-8080-exec-3] m.m.a.RequestResponseBodyMethodProcessor : Writing [[com.trading.tradergateway.Entity.Order@3222cf3e, com.trading.tradergateway.Entity.Order@102effd6, c (truncated)...]
+2019-06-10 19:29:14.359 DEBUG 3884 --- [http-nio-8080-exec-3] o.s.web.servlet.DispatcherServlet        : Completed 200 OK

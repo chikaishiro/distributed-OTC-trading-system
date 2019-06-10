@@ -105,12 +105,13 @@ public class OrderServiceImpl implements OrderService {
         int i;
         int times  = amount / (200);
         for (i = 0; i < times - 1; i++) {
-            Thread.sleep(10 * 1000);
+            Thread.sleep(3 * 1000);
             Order orderI = new Order();
             BeanUtils.copyProperties(orderI, order);
             orderI.setOrderID(String.valueOf(UUID.randomUUID()));
             now = Calendar.getInstance().getTimeInMillis();
             orderI.setTimeStamp(now);
+            orderI.setAmount(200);
             String status = htp.sendPost("http://" + orderI.getBrokerIp() + ":8081/Order", FIX.toFIX(orderI));
             orderI.setStatus(status);
             orderRepository.save(orderI);

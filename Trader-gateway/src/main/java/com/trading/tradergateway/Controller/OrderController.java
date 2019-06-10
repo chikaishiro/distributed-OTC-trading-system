@@ -30,7 +30,7 @@ public class OrderController {
     @PostMapping("/SendOrder")
     public String sendOrder(@RequestBody Order order, HttpServletRequest request) throws Exception {
         String result = null;
-        if (order.getAmount() >= 10000){
+        if (order.getAmount() >= 5000){
             if (order.getType() == 'C'){
                 System.out.println("Failed iceberg cancel.");
                 return "Order Request Failed";

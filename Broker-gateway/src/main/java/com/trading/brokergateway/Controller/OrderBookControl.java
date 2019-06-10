@@ -23,7 +23,7 @@ public class OrderBookControl {
         String id = req.getParameter("futureID");
         OrderQueue orderQueue = StoreUtil.GetQueue(id);
         Gson gs = new Gson();
-        OrderBook ODB = new OrderBook(orderQueue);
+        OrderBook ODB = new OrderBook(orderQueue,true);
         String to_string = gs.toJson(ODB);
         return to_string;
 
