@@ -3796,3 +3796,4 @@ java.lang.NullPointerException: null
 2019-06-10 14:23:16.676 DEBUG 5180 --- [http-nio-8080-exec-5] m.m.a.RequestResponseBodyMethodProcessor : Using 'application/json', given [*/*] and supported [application/json, application/*+json, application/json, application/*+json]
 2019-06-10 14:23:16.676 DEBUG 5180 --- [http-nio-8080-exec-5] m.m.a.RequestResponseBodyMethodProcessor : Writing [[com.trading.tradergateway.Entity.Order@159efcd0, com.trading.tradergateway.Entity.Order@509c7007, c (truncated)...]
 2019-06-10 14:23:16.680 DEBUG 5180 --- [http-nio-8080-exec-5] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
+2019-06-10 15:29:12.938  WARN 5180 --- [HikariPool-1 housekeeper] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=26m57s740ms815µs802ns).
