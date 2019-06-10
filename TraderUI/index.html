@@ -106,7 +106,7 @@
 		Chat.sendMessage = (function() {
 			var message = document.getElementById('chat').value;
 			if (message != '') {
-				alert(message);
+				//alert(message);
 				Chat.socket.send(message);
 				document.getElementById('chat').value = '';
 			}
