@@ -41,6 +41,9 @@ public class Result implements Serializable{
     @Column(nullable = false, name = "amount")
     private int amount;
 
+    @Column(nullable = true,name ="commission")
+    private double commission;
+
     public Result(){
 
     }
@@ -54,6 +57,7 @@ public class Result implements Serializable{
         this.finishTime = finishTime;
         this.price = price;
         this.amount = amount;
+        this.commission = calcCommission();
     }
 
     public void setResultID(String resultID) {
@@ -126,5 +130,40 @@ public class Result implements Serializable{
 
     public long getFinishTime() {
         return finishTime;
+    }
+
+    public double getCommission() {
+        return commission;
+    }
+
+    public void setCommission(double commission) {
+        this.commission = commission;
+    }
+
+    private double calcCommission(){
+        double futureRate = 0.0;
+        double typeRate = 0.0;
+        double creditRate = 0.0;
+        if (this.futureID.equals("SB")){
+            futureRate = 0.75;
+        }
+        else if (this.futureID.equals("U")){
+            futureRate = 0.6;
+        }
+        else {
+            futureRate = 0.4;
+        }
+        typeRate = 0.95;
+        double credit = this.amount * this.price;
+        if (credit >= 2000){
+            creditRate = 0.03;
+        }
+        else if (credit < 500){
+            creditRate = 0.01;
+        }
+        else{
+            creditRate = 0.02;
+        }
+        return credit * futureRate * typeRate * creditRate;
     }
 }
