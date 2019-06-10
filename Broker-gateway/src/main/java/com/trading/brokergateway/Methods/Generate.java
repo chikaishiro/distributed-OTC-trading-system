@@ -31,18 +31,18 @@ public class Generate {
         StoreUtil.SetQueue(orderQueue,"SB");
     }
     public static void test2(){
-        Order ord1 = new Order(UUID.randomUUID(), "SB", 'L', 'S', 8.1, 100, "2.4",
-                Calendar.getInstance().getTimeInMillis(), "xxx");
-        Order ord2 = new Order(UUID.randomUUID(), "SB", 'L', 'S', 6.1, 100, "2.4",
-                2, "xxx");
-        Order ord3 = new Order(UUID.randomUUID(), "SB", 'L', 'S', 6.1, 100, "2.4",
-                1, "xxx");
-        Order ord4 = new Order(UUID.randomUUID(), "SB", 'L', 'B', 5.1, 100, "2.4",
-                2, "xxx");
-        Order ord5 = new Order(UUID.randomUUID(), "SB", 'L', 'B', 5.1, 100, "2.4",
-                1, "xxx");
-        Order ord6 = new Order(UUID.randomUUID(), "SB", 'L', 'B', 3.1, 100, "2.4",
-                Calendar.getInstance().getTimeInMillis(), "xxx");
+        Order ord1 = new Order(UUID.randomUUID(), "SB", 'L', 'S', 8.1, 200, "192.168.0.114",
+                Calendar.getInstance().getTimeInMillis(), "Noone");
+        Order ord2 = new Order(UUID.randomUUID(), "SB", 'L', 'S', 6.1, 300, "192.168.0.114",
+                2, "Noone");
+        Order ord3 = new Order(UUID.randomUUID(), "SB", 'L', 'S', 6.1, 400, "192.168.0.114",
+                1, "Noone");
+        Order ord4 = new Order(UUID.randomUUID(), "SB", 'L', 'B', 5.1, 200, "192.168.0.114",
+                2, "Noone");
+        Order ord5 = new Order(UUID.randomUUID(), "SB", 'L', 'B', 5.1, 300, "192.168.0.114",
+                1, "Noone");
+        Order ord6 = new Order(UUID.randomUUID(), "SB", 'L', 'B', 3.1, 400, "192.168.0.114",
+                Calendar.getInstance().getTimeInMillis(), "Noone");
         OrderQueue orderQueue = StoreUtil.GetQueue("SB");
         orderQueue.insertSell(ord1);
         orderQueue.insertSell(ord2);
@@ -54,18 +54,18 @@ public class Generate {
     }
 
     public static void test3(){
-        Order ord1 = new Order(UUID.randomUUID(), "U", 'L', 'S', 8.1, 100, "2.4",
-                Calendar.getInstance().getTimeInMillis(), "xxx");
-        Order ord2 = new Order(UUID.randomUUID(), "U", 'L', 'S', 6.1, 100, "2.4",
-                2, "xxx");
-        Order ord3 = new Order(UUID.randomUUID(), "U", 'L', 'S', 6.1, 100, "2.4",
-                1, "xxx");
-        Order ord4 = new Order(UUID.randomUUID(), "U", 'L', 'B', 5.1, 100, "2.4",
-                2, "xxx");
-        Order ord5 = new Order(UUID.randomUUID(), "U", 'L', 'B', 5.1, 100, "2.4",
-                1, "xxx");
-        Order ord6 = new Order(UUID.randomUUID(), "U", 'L', 'B', 3.1, 100, "2.4",
-                Calendar.getInstance().getTimeInMillis(), "xxx");
+        Order ord1 = new Order(UUID.randomUUID(), "U", 'L', 'S', 8.1, 200, "192.168.0.114",
+                Calendar.getInstance().getTimeInMillis(), "Noone");
+        Order ord2 = new Order(UUID.randomUUID(), "U", 'L', 'S', 6.1, 300, "192.168.0.114",
+                2, "Noone");
+        Order ord3 = new Order(UUID.randomUUID(), "U", 'L', 'S', 6.1, 400, "192.168.0.114",
+                1, "Noone");
+        Order ord4 = new Order(UUID.randomUUID(), "U", 'L', 'B', 5.1, 200, "192.168.0.114",
+                2, "Noone");
+        Order ord5 = new Order(UUID.randomUUID(), "U", 'L', 'B', 5.1, 300, "192.168.0.114",
+                1, "Noone");
+        Order ord6 = new Order(UUID.randomUUID(), "U", 'L', 'B', 3.1, 400, "192.168.0.114",
+                Calendar.getInstance().getTimeInMillis(), "Noone");
         OrderQueue orderQueue = StoreUtil.GetQueue("U");
         orderQueue.insertSell(ord1);
         orderQueue.insertSell(ord2);

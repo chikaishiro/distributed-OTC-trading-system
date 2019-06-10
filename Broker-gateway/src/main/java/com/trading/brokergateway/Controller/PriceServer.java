@@ -118,6 +118,7 @@ public class PriceServer {
         for(int i=19;i>=0;i--){
             res2.add(res.get(i));
         }
+        link.close();
         return res2;
     }
 
@@ -152,6 +153,7 @@ public class PriceServer {
         }
         DecimalFormat df = new DecimalFormat("#.000");
         double ret = totalAmount/(double)totalVolume;
+        link.close();
         return df.format(ret);
     }
 
@@ -172,6 +174,7 @@ public class PriceServer {
                 double max = rs.getDouble("max");
                 double min = rs.getDouble("min");
                 double avg = (max + min) / 2;
+                System.out.println(avg);
                 if(avg != 0){
                     sum += avg;
                     cnt++;
@@ -180,7 +183,10 @@ public class PriceServer {
             temp -= step;
         }
         DecimalFormat df = new DecimalFormat("#.000");
-
+        link.close();
+        if(cnt == 0){
+            return "一小时内暂无成交记录";
+        }
         return df.format(sum/cnt);
     }
 

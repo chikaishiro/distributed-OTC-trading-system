@@ -104,7 +104,8 @@ public class OrderServiceImpl implements OrderService {
         int amount = order.getAmount();
         int i;
         int times  = amount / (200);
-        for (i = 0; i < times - 1; i++) {
+        System.out.println(times);
+        for (i = 0; i < times; i++) {
             Thread.sleep(3 * 1000);
             Order orderI = new Order();
             BeanUtils.copyProperties(orderI, order);
@@ -128,7 +129,7 @@ public class OrderServiceImpl implements OrderService {
         orderRepository.save(orderI);
         order.setType('I');
         orderRepository.save(order);
-        return "OK";
+        return "Sent with iceberg order with status: OK";
     }
 
     @Override
