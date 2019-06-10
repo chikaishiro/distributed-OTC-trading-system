@@ -58,7 +58,7 @@
 				return;
 			}
 			Chat.socket.onopen = function () {
-				Console.log('在线聊天室已开启');
+				//Console.log('在线聊天室已开启');
 				document.getElementById('chat').onkeydown = function(event) {
 					if (event.keyCode == 13) {
 						Chat.sendMessage();
@@ -67,10 +67,12 @@
 			};
 			Chat.socket.onclose = function () {
 				document.getElementById('chat').onkeydown = null;
-				Console.log('在线聊天室已关闭');
+				//Console.log('在线聊天室已关闭');
 			};
 			Chat.socket.onmessage = function (message) {
-					var origindata = JSON.parse(message.data);
+				document.getElementById("s2").innerHTML=message.data.split(";")[1];
+				document.getElementById("b2").innerHTML=message.data.split(";")[2];
+					var origindata = JSON.parse(message.data.split(";")[0]);
 
 					var dataset = origindata;
 					// 基于准备好的dom，初始化echarts实例
@@ -79,7 +81,7 @@
 					var option = {
 						xAxis: {
 							type: 'category',
-							data: ['0', '1', '2', '3', '4', '5', '6','7','8','9']
+							data: ['0', '1', '2', '3', '4', '5', '6','7','8','9','10', '11', '12', '13', '14', '15', '16','17','18','19']
 						},
 						yAxis: {
 							type: 'value'
@@ -250,32 +252,15 @@
 								Welcome Back, 袁添镱, <i class="fa fa-map-marker text-danger"></i> Shanghai
 							</div>
 						</div>
-						<div class="col-sm-6 text-right text-left-sm p-top-sm">
-							<div class="btn-group">
-							  <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
-							    Select Item <span class="caret"></span>
-							  </button>
-							  <ul class="dropdown-menu pull-right" role="menu">
-							    <li><a href="#">Project1</a></li>
-							    <li><a href="#">Project2</a></li>
-							    <li><a href="#">Project3</a></li>
-							    <li class="divider"></li>
-							    <li><a href="#">Setting</a></li>
-							  </ul>
-							</div>
-
-							<a class="btn btn-default"><i class="fa fa-cog"></i></a>
-						</div>
 					</div>
 
 					<div class="row m-top-md">
 						<div class="col-lg-3 col-sm-6">
 							<div class="statistic-box bg-danger m-bottom-md">
 								<div class="statistic-title">
-									Today Visitors
 								</div>
 
-								<div class="statistic-value">
+								<div class="statistic-value" id="s2">
 									96.7k
 								</div>
 
@@ -290,10 +275,9 @@
 						<div class="col-lg-3 col-sm-6">
 							<div class="statistic-box bg-info m-bottom-md">
 								<div class="statistic-title">
-									Today Sales
 								</div>
 
-								<div class="statistic-value">
+								<div class="statistic-value" id="b2">
 									751
 								</div>
 
@@ -308,7 +292,6 @@
 						<div class="col-lg-3 col-sm-6">
 							<div class="statistic-box bg-purple m-bottom-md">
 								<div class="statistic-title">
-									Today Users
 								</div>
 
 								<div class="statistic-value">
@@ -326,7 +309,6 @@
 						<div class="col-lg-3 col-sm-6">
 							<div class="statistic-box bg-success m-bottom-md">
 								<div class="statistic-title">
-									Today Earnings
 								</div>
 
 								<div class="statistic-value">
@@ -341,326 +323,13 @@
 							</div>
 						</div>
 					</div>
+						<input type="text" placeholder="type and press enter to chat" id="chat" style="position:relative;left:450px" />
+						<button class="btn btn-primary" onclick="f()" style="position:relative;left:450px">change</button>
 
-					<div class="row">
-						<div class="col-lg-6">
-							<div class="smart-widget widget-dark-blue">
-								<div class="smart-widget-header">
-									TOTAL VISITS
-									<span class="smart-widget-option">
-										<span class="refresh-icon-animated">
-											<i class="fa fa-circle-o-notch fa-spin"></i>
-										</span>
-			                            <a href="#" class="widget-toggle-hidden-option">
-			                                <i class="fa fa-cog"></i>
-			                            </a>
-			                            <a href="#" class="widget-collapse-option" data-toggle="collapse">
-			                                <i class="fa fa-chevron-up"></i>
-			                            </a>
-			                            <a href="#" class="widget-refresh-option">
-			                                <i class="fa fa-refresh"></i>
-			                            </a>
-			                            <a href="#" class="widget-remove-option">
-			                                <i class="fa fa-times"></i>
-			                            </a>
-			                        </span>
-								</div>
-								<div class="smart-widget-inner">
-									<div class="smart-widget-hidden-section">
-										<ul class="widget-color-list clearfix">
-											<li style="background-color:#20232b;" data-color="widget-dark"></li>
-											<li style="background-color:#4c5f70;" data-color="widget-dark-blue"></li>
-											<li style="background-color:#23b7e5;" data-color="widget-blue"></li>
-											<li style="background-color:#2baab1;" data-color="widget-green"></li>
-											<li style="background-color:#edbc6c;" data-color="widget-yellow"></li>
-											<li style="background-color:#fbc852;" data-color="widget-orange"></li>
-											<li style="background-color:#e36159;" data-color="widget-red"></li>
-											<li style="background-color:#7266ba;" data-color="widget-purple"></li>
-											<li style="background-color:#f5f5f5;" data-color="widget-light-grey"></li>
-											<li style="background-color:#fff;" data-color="reset"></li>
-										</ul>
-									</div>
-									<div class="smart-widget-body no-padding">
-										<div class="padding-md">
-											<div id="totalSalesChart" class="morris-chart" style="height:250px;"></div>
-										</div>
-
-										<div class="bg-grey">
-											<div class="row">
-												<div class="col-xs-4 text-center">
-													<h3 class="m-top-sm">999</h3>
-													<small class="m-bottom-sm block">Total Visits</small>
-												</div>
-												<div class="col-xs-4 text-center">
-													<h3 class="m-top-sm">102</h3>
-													<small class="m-bottom-sm block">New Visits</small>
-												</div>
-												<div class="col-xs-4 text-center">
-													<h3 class="m-top-sm">690</h3>
-													<small class="m-bottom-sm block">Bounce Rate</small>
-												</div>
-											</div>
-										</div>
-									</div>
-								</div><!-- ./smart-widget-inner -->
-							</div><!-- ./smart-widget -->
-						</div><!-- ./col -->
-						<div class="col-lg-6">
-							<div class="smart-widget widget-dark-blue">
-								<div class="smart-widget-header">
-									TOTAL SALES
-									<span class="smart-widget-option">
-										<span class="refresh-icon-animated">
-											<i class="fa fa-circle-o-notch fa-spin"></i>
-										</span>
-			                            <a href="#" class="widget-toggle-hidden-option">
-			                                <i class="fa fa-cog"></i>
-			                            </a>
-			                            <a href="#" class="widget-collapse-option" data-toggle="collapse">
-			                                <i class="fa fa-chevron-up"></i>
-			                            </a>
-			                            <a href="#" class="widget-refresh-option">
-			                                <i class="fa fa-refresh"></i>
-			                            </a>
-			                            <a href="#" class="widget-remove-option">
-			                                <i class="fa fa-times"></i>
-			                            </a>
-			                        </span>
-								</div>
-								<div class="smart-widget-inner">
-									<div class="smart-widget-hidden-section">
-										<ul class="widget-color-list clearfix">
-											<li style="background-color:#20232b;" data-color="widget-dark"></li>
-											<li style="background-color:#4c5f70;" data-color="widget-dark-blue"></li>
-											<li style="background-color:#23b7e5;" data-color="widget-blue"></li>
-											<li style="background-color:#2baab1;" data-color="widget-green"></li>
-											<li style="background-color:#edbc6c;" data-color="widget-yellow"></li>
-											<li style="background-color:#fbc852;" data-color="widget-orange"></li>
-											<li style="background-color:#e36159;" data-color="widget-red"></li>
-											<li style="background-color:#7266ba;" data-color="widget-purple"></li>
-											<li style="background-color:#f5f5f5;" data-color="widget-light-grey"></li>
-											<li style="background-color:#fff;" data-color="reset"></li>
-										</ul>
-									</div>
-									<div class="smart-widget-body no-padding">
-										<div class="padding-md">
-											<div id="placeholder" style="height:250px;">
-
-											</div>
-										</div>
-
-										<div class="bg-grey">
-											<div class="row">
-												<div class="col-xs-4 text-center">
-													<h3 class="m-top-sm">3491</h3>
-													<small class="m-bottom-sm block">Total Sales</small>
-												</div>
-												<div class="col-xs-4 text-center">
-													<h3 class="m-top-sm">721</h3>
-													<small class="m-bottom-sm block">New Orders</small>
-												</div>
-												<div class="col-xs-4 text-center">
-													<h3 class="m-top-sm">$8103</h3>
-													<small class="m-bottom-sm block">Total Earnings</small>
-												</div>
-											</div>
-										</div>
-									</div>
-								</div><!-- ./smart-widget-inner -->
-							</div><!-- ./smart-widget -->
-						</div><!-- ./col -->
-					</div>
-
-					<div class="row">
-						<div class="col-lg-8">
-							<div class="smart-widget">
-								<div class="smart-widget-header">
-									Website Statistic
-									<span class="smart-widget-option">
-										<span class="refresh-icon-animated">
-											<i class="fa fa-circle-o-notch fa-spin"></i>
-										</span>
-			                            <a href="#" class="widget-toggle-hidden-option">
-			                                <i class="fa fa-cog"></i>
-			                            </a>
-			                            <a href="#" class="widget-collapse-option" data-toggle="collapse">
-			                                <i class="fa fa-chevron-up"></i>
-			                            </a>
-			                            <a href="#" class="widget-refresh-option">
-			                                <i class="fa fa-refresh"></i>
-			                            </a>
-			                            <a href="#" class="widget-remove-option">
-			                                <i class="fa fa-times"></i>
-			                            </a>
-			                        </span>
-								</div>
-								<div class="smart-widget-inner table-responsive">
-									<div class="smart-widget-hidden-section">
-										<ul class="widget-color-list clearfix">
-											<li style="background-color:#20232b;" data-color="widget-dark"></li>
-											<li style="background-color:#4c5f70;" data-color="widget-dark-blue"></li>
-											<li style="background-color:#23b7e5;" data-color="widget-blue"></li>
-											<li style="background-color:#2baab1;" data-color="widget-green"></li>
-											<li style="background-color:#edbc6c;" data-color="widget-yellow"></li>
-											<li style="background-color:#fbc852;" data-color="widget-orange"></li>
-											<li style="background-color:#e36159;" data-color="widget-red"></li>
-											<li style="background-color:#7266ba;" data-color="widget-purple"></li>
-											<li style="background-color:#f5f5f5;" data-color="widget-light-grey"></li>
-											<li style="background-color:#fff;" data-color="reset"></li>
-										</ul>
-									</div>
-									<table class="table table-striped no-margin">
-										<thead>
-											<tr>
-												<th class="text-right">Date</th>
-												<th class="text-right">Database Usage</th>
-												<th class="text-right">CPU Usage</th>
-												<th class="text-right">Memory Usage</th>
-												<th class="text-right">Total Disk Usage</th>
-											</tr>
-										</thead>
-										<tbody>
-											<tr>
-												<td class="text-right">July, 11</td>
-												<td class="text-right">31</td>
-												<td class="text-right">65</td>
-												<td class="text-right">86</td>
-												<td class="text-right">
-													<div class="progress progress-sm inline-block m-bottom-none" style="width:100px; margin-top:6px">
-													  <div class="progress-bar progress-bar-success" style="width: 54.41%;">
-													    <span class="sr-only">54.41% Complete</span>
-													  </div>
-													</div>
-
-													<span class="m-left-sm vertical-top">54.41%</span>
-												</td>
-											</tr>
-											<tr>
-												<td class="text-right">July, 12</td>
-												<td class="text-right">48</td>
-												<td class="text-right">72</td>
-												<td class="text-right">74</td>
-												<td class="text-right">
-													<div class="progress progress-sm inline-block m-bottom-none" style="width:100px; margin-top:6px">
-													  <div class="progress-bar progress-bar-warning" style="width: 69.92%;">
-													    <span class="sr-only">69.92% Complete</span>
-													  </div>
-													</div>
-
-													<span class="m-left-sm vertical-top">69.92%</span>
-												</td>
-											</tr>
-											<tr>
-												<td class="text-right">July, 13</td>
-												<td class="text-right">13</td>
-												<td class="text-right">32</td>
-												<td class="text-right">50</td>
-												<td class="text-right">
-													<div class="progress progress-sm inline-block m-bottom-none" style="width:100px; margin-top:6px">
-													  <div class="progress-bar progress-bar-danger" style="width: 43.17%;">
-													    <span class="sr-only">43.17% Complete</span>
-													  </div>
-													</div>
-
-													<span class="m-left-sm vertical-top">43.17%</span>
-												</td>
-											</tr>
-											<tr>
-												<td class="text-right">July, 14</td>
-												<td class="text-right">9</td>
-												<td class="text-right">11</td>
-												<td class="text-right">10</td>
-												<td class="text-right">
-													<div class="progress progress-sm inline-block m-bottom-none" style="width:100px; margin-top:6px">
-													  <div class="progress-bar progress-bar-success" style="width: 12.11%;">
-													    <span class="sr-only">12.11% Complete</span>
-													  </div>
-													</div>
-
-													<span class="m-left-sm vertical-top">12.11%</span>
-												</td>
-											</tr>
-										</tbody>
-									</table>
-								</div><!-- ./smart-widget-inner -->
-							</div><!-- ./smart-widget -->
-						</div><!-- ./col -->
-						<div class="col-lg-4">
-							<div class="task-widget">
-								<div class="task-widget-body clearfix">
-									<div class="pie-chart-wrapper">
-										<div class="chart task-pie-chart line-normal" data-percent="73">
-											<h1 class="m-top-lg m-bottom-none">73</h1>
-											<div>Percent</div>
-										</div>
-									</div>
-									<div class="widget-detail">
-										<small class="text-upper text-muted block font-sm">Task Completed</small>
-										<h1 class="no-margin">4312</h1>
-									</div>
-								</div><!-- ./task-widget-body -->
-								<div class="task-widget-statatistic">
-									<ul class="clearfix">
-										<li class="bg-grey border-success">
-											<div class="text-muted text-upper font-sm">Remaining</div>
-											2311
-										</li>
-										<li class="bg-grey border-danger">
-											<div class="text-muted text-upper font-sm">In Progress</div>
-											3212
-										</li>
-										<li class="bg-grey border-purple">
-											<div class="text-muted text-upper font-sm">Budget</div>
-											$17.1M
-										</li>
-									</ul><!-- ./row -->
-								</div>
-							</div><!-- ./task-widget -->
-						</div><!-- ./col -->
-
-					</div><!-- ./row -->
-					<p>
-						<input type="text" placeholder="type and press enter to chat" id="chat" />
-					</p>
-					<div id="console-container">
-						<div id="console"/>
-					</div>
-					<button onclick="f()">change</button>
-					<div id="main" style="width: 600px;height:400px;position: center"></div>
+					<div id="main" style="width: 1200px;height:300px;position: center"></div>
 				</div><!-- ./padding-md -->
 			</div><!-- /main-container -->
-			<div class="smart-widget-body no-padding">
-
-			<footer class="footer">
-				<span class="footer-brand">
-					<strong class="text-danger">Simplify</strong> Admin
-				</span>
-				<p class="no-margin">
-					&copy; 2014 <strong>Simplify Admin</strong>. ALL Rights Reserved.
-				</p>
-			</footer>
 		</div><!-- /wrapper -->
-
-		<a href="#" class="scroll-to-top hidden-print"><i class="fa fa-chevron-up fa-lg"></i></a>
-
-		<!-- Delete Widget Confirmation -->
-		<div class="custom-popup delete-widget-popup delete-confirmation-popup" id="deleteWidgetConfirm">
-			<div class="popup-header text-center">
-				<span class="fa-stack fa-4x">
-				  <i class="fa fa-circle fa-stack-2x"></i>
-				  <i class="fa fa-lock fa-stack-1x fa-inverse"></i>
-				</span>
-			</div>
-			<div class="popup-body text-center">
-				<h5>Are you sure to delete this widget?</h5>
-				<strong class="block m-top-xs"><i class="fa fa-exclamation-circle m-right-xs text-danger"></i>This action cannot be undone</strong>
-
-				<div class="text-center m-top-lg">
-					<a class="btn btn-success m-right-sm remove-widget-btn">Delete</a>
-					<a class="btn btn-default deleteWidgetConfirm_close">Cancel</a>
-				</div>
-			</div>
-		</div>
 
 
 	    <!-- Le javascript

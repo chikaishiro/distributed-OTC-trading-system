@@ -85,7 +85,7 @@
 	});
 	Chat.initialize = function() {
 		if (window.location.protocol == 'http:') {
-			Chat.connect('ws://' + "192.168.43.40:8080" + '/orderbook');
+			Chat.connect('ws://' +localStorage.getItem('bip')+ ":8081" + '/orderbook');
 		} else {
 			Chat.connect('wss://' + window.location.host + '/orderbook');
 		}
