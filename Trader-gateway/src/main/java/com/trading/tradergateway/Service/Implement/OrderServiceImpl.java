@@ -93,6 +93,44 @@ public class OrderServiceImpl implements OrderService {
     }
 
     @Override
+    public String icebergOrder(Order order, HttpServletRequest request) throws Exception{
+        String username = jwtTokenUtil.parseUsername(request);
+        if (username == null) return "Authorization failed";
+        order.setTraderId(String.valueOf(traderRepository.findTraderByTraderName(username).getTraderID()));
+        order.setOrderID(String.valueOf(UUID.randomUUID()));
+        Long now = Calendar.getInstance().getTimeInMillis();
+        order.setTimeStamp(now);
+        HttpRequest htp = new HttpRequest();
+        int amount = order.getAmount();
+        int i;
+        int times  = amount / (200);
+        for (i = 0; i < times - 1; i++) {
+            Thread.sleep(10 * 1000);
+            Order orderI = new Order();
+            BeanUtils.copyProperties(orderI, order);
+            orderI.setOrderID(String.valueOf(UUID.randomUUID()));
+            now = Calendar.getInstance().getTimeInMillis();
+            orderI.setTimeStamp(now);
+            String status = htp.sendPost("http://" + orderI.getBrokerIp() + ":8081/Order", FIX.toFIX(orderI));
+            orderI.setStatus(status);
+            orderRepository.save(orderI);
+        }
+        int left = amount - times * 200;
+        Order orderI = new Order();
+        BeanUtils.copyProperties(orderI, order);
+        orderI.setOrderID(String.valueOf(UUID.randomUUID()));
+        now = Calendar.getInstance().getTimeInMillis();
+        orderI.setTimeStamp(now);
+        orderI.setAmount(left);
+        String status = htp.sendPost("http://" + orderI.getBrokerIp() + ":8081/Order", FIX.toFIX(orderI));
+        orderI.setStatus(status);
+        orderRepository.save(orderI);
+        order.setType('I');
+        orderRepository.save(order);
+        return "OK";
+    }
+
+    @Override
     public List findOrdersByTraderId(String traderId){
         List<Order> orders = orderRepository.findOrdersByTraderIdAndStatus(traderId, processing);
         updateOrders(orders);

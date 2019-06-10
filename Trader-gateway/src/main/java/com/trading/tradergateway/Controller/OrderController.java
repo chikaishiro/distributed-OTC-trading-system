@@ -8,7 +8,6 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.web.bind.annotation.*;
 
 import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
 import java.util.List;
 
 @SpringBootApplication
@@ -31,6 +30,14 @@ public class OrderController {
     @PostMapping("/SendOrder")
     public String sendOrder(@RequestBody Order order, HttpServletRequest request) throws Exception {
         String result = null;
+        if (order.getAmount() >= 10000){
+            if (order.getType() == 'C'){
+                System.out.println("Failed iceberg cancel.");
+                return "Order Request Failed";
+            }
+            result = orderService.icebergOrder(order,request);
+            return result;
+        }
         if (order.getType() == 'C'){
             result = orderService.cancelOrder(order.getOrderID(),request);
             System.out.println("C: " + result);
