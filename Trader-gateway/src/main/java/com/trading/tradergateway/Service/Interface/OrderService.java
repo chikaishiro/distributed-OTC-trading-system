@@ -10,6 +10,7 @@ public interface OrderService {
 
         String sendOrder(Order order, HttpServletRequest request) throws Exception;
         String cancelOrder(String orderId, HttpServletRequest request) throws Exception;
+        String icebergOrder(Order order, HttpServletRequest request) throws Exception;
         List getOrder(HttpServletRequest request);
         List findOrdersByTraderId(String orderId);
         List findOrdersByFutureId(String futureId);

@@ -34,4 +34,9 @@ public class FutureController {
     public List getFuturesByFutureName(@RequestParam("futureName")String futureName) {
         return futureService.findFuturesByFutureName(futureName);
     }
+
+    @PostMapping("/add")
+    public String addFuture(@RequestBody Future future) {
+        return futureService.addFuture(future);
+    }
 }

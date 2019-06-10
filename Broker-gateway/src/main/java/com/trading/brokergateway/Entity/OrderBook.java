@@ -1,5 +1,6 @@
 package com.trading.brokergateway.Entity;
 import com.trading.brokergateway.Methods.OrderQueue;
+import com.trading.brokergateway.Util.SortUtil;
 
 import java.io.Serializable;
 import java.util.*;
@@ -29,20 +30,17 @@ public class OrderBook implements Serializable {
     public OrderBook(OrderQueue odq,boolean Display){
         sellList = new LinkedList<Order>();
         buyList = new LinkedList<Order>();
-        LinkedList<Order> tempSell = new LinkedList<>();
         PriorityQueue<Order> buyQueue = odq.getBuyQueue();
         PriorityQueue<Order> sellQueue = odq.getSellQueue();
-        while(sellQueue.size()!=0){
-            Order temp = sellQueue.poll();
-            tempSell.add(temp);
-        }
-        for(int i = tempSell.size()-1;i>=0;i--){
-            Order temp = tempSell.get(i);
-            this.sellList.add(temp);
-        }
-        while(buyQueue.size()!=0){
-            Order temp = buyQueue.poll();
+        List<Order> bList = SortUtil.sortQueue(odq.getBuyQueue(),false);
+        List<Order> sList = SortUtil.sortQueue(odq.getSellQueue(),true);
+        for(int i =0;i<bList.size();i++){
+            Order temp = bList.get(i);
             this.buyList.add(temp);
+        }
+        for(int i =sList.size()-1;i>=0;i--){
+            Order temp = sList.get(i);
+            this.sellList.add(temp);
         }
     }
 }

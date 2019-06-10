@@ -10,4 +10,6 @@ public interface FutureService {
     Future findFutureByFutureID(String futureID);
 
     List findFuturesByFutureName(String futureName);
+
+    String addFuture(Future future);
 }
