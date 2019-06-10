@@ -3684,3 +3684,5 @@ java.lang.ArrayIndexOutOfBoundsException: -1
 2019-06-10 19:37:23.238 DEBUG 22036 --- [http-nio-8081-exec-4] m.m.a.RequestResponseBodyMethodProcessor : Using 'text/plain', given [*/*] and supported [text/plain, */*, text/plain, */*, application/json, application/*+json, application/json, application/*+json]
 2019-06-10 19:37:23.238 DEBUG 22036 --- [http-nio-8081-exec-4] m.m.a.RequestResponseBodyMethodProcessor : Writing ["{"sellList":[],"buyList":[]}"]
 2019-06-10 19:37:23.244 DEBUG 22036 --- [http-nio-8081-exec-4] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
+2019-06-10 19:53:01.472 ERROR 22036 --- [http-nio-8081-exec-2] c.t.b.Controller.WebsocketServer         : 发生错误
+2019-06-10 19:53:02.486 ERROR 22036 --- [http-nio-8081-exec-2] c.t.b.Controller.WebsocketServer         : 发生错误
