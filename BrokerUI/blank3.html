@@ -175,7 +175,7 @@
 				//dataType: "json",
 
 			}).success(function (data) {
-				alert(data);
+				//alert(data);
 				var table = new Table("Table");
 				table.update(data);
 			}).error(function () {
@@ -190,7 +190,7 @@
 				//dataType: "json",
 
 			}).success(function (data) {
-				alert(data);
+				//alert(data);
 				var table = new Table("Table");
 				table.update(data);
 			}).error(function () {
@@ -198,7 +198,7 @@
 			});
 		}
 		else {
-			alert(localStorage.getItem("tip"));
+			//alert(localStorage.getItem("tip"));
 			$.ajax({
 				type: "get",
 				url: "http://"+localStorage.getItem("tip")+":8080/order",
@@ -209,7 +209,7 @@
 				//dataType: "json",
 
 			}).success(function (data) {
-				alert(data);
+				//alert(data);
 				var table = new Table("Table");
 				table.update(data);
 			}).error(function () {
@@ -230,7 +230,7 @@
 			contentType: "application/json",
 			//dataType: "json",
 		}).success(function (data) {
-			alert(data);
+			//alert(data);
 			var table = new Table("Table3");
 			table.update(data);
 		}).error(function () {
@@ -250,7 +250,7 @@
 			contentType: "application/json",
 			//dataType: "json",
 		}).success(function (data) {
-			alert(data);
+			//alert(data);
 			var table = new Table("Table2");
 			table.update(data);
 		}).error(function () {
@@ -270,7 +270,7 @@
 			contentType: "application/json",
 			//dataType: "json",
 		}).success(function (data) {
-			alert(data);
+			//alert(data);
 			var table = new Table("Table4");
 			table.update(data);
 		}).error(function () {
@@ -308,7 +308,7 @@
 			contentType: "application/json",
 			//dataType: "json",
 		}).success(function (data) {
-			alert(data);
+			//alert(data);
 			var table = new Table("Table3");
 			table.update(data);
 		}).error(function () {

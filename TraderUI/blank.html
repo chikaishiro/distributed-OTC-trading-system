@@ -397,7 +397,7 @@ function funcmark(){
 			'type':'L',
             'brokerIp':localStorage.getItem('bip')
 		};
-		alert(JSON.stringify(formData));
+		//alert(JSON.stringify(formData));
 		htmlobj =  $.ajax({
 			type: "post",
 			url: "http://"+localStorage.getItem('tip')+":8080/order/SendOrder",
@@ -426,9 +426,9 @@ function funcmark(){
 		var formData = {
 			'futureID' : $('#fu-sto').val(),
 			'amount' : $('#qu-sto').val(),
-			'price':typ,
+			'price':$('#pr-sto').val(),
 			'way': typ,
-			'type':'L',
+			'type':'S',
             'brokerIp':localStorage.getItem('bip')
 		};
 		//alert(JSON.stringify(formData));
@@ -468,7 +468,7 @@ function funcmark(){
 		}).success(function (data) {
 			alert(data);
 		}).error(function () {
-			alert("投稿失败");
+			alert("err");
 		});
 	}
 </script>

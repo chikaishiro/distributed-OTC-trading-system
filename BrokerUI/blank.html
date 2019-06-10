@@ -296,7 +296,7 @@ function funcmark(){
 			'futureName' : $('#fu-nam').val(),
 			'category': $('#fu-cat').val(),
 		};
-		alert(JSON.stringify(formData));
+		//alert(JSON.stringify(formData));
 		htmlobj =  $.ajax({
 			type: "post",
 			url: "http://"+localStorage.getItem('tip')+":8080/future/add",
@@ -304,7 +304,7 @@ function funcmark(){
 			contentType:"application/json",
 			// dataType: "json"
 		}).success(function (data) {
-			alert(data);
+			alert("成功添加");
 		}).error(function () {
 			alert("失败");
 		});
