@@ -36,7 +36,16 @@ public class ResultAPI {
             return gson.toJson(this.resultService.findByOrderId(orderID));
         }
         else if(method.equals("ByTime")){
-            return gson.toJson(this.resultService.findToday());
+            String start = request.getParameter("start");
+            if(start.equals("today")){
+                return gson.toJson(this.resultService.findToday());
+            }
+            else if(start.equals("week")){
+                return gson.toJson(this.resultService.findToweek());
+            }
+            else if(start.equals("month")){
+                return gson.toJson(this.resultService.findTomonth());
+            }
         }
         else if(method.equals("ByPrice")){
             Double price = Double.valueOf(request.getParameter("price"));

@@ -756,3 +756,113 @@
 2019-06-10 04:13:24.959 DEBUG 5364 --- [http-nio-8081-exec-5] m.m.a.RequestResponseBodyMethodProcessor : Using 'text/plain', given [*/*] and supported [text/plain, */*, text/plain, */*, application/json, application/*+json, application/json, application/*+json]
 2019-06-10 04:13:24.959 DEBUG 5364 --- [http-nio-8081-exec-5] m.m.a.RequestResponseBodyMethodProcessor : Writing ["[null,"587458294994436096","583707403745230848"]"]
 2019-06-10 04:13:24.960 DEBUG 5364 --- [http-nio-8081-exec-5] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
+2019-06-10 13:09:40.457  WARN 5364 --- [HikariPool-1 housekeeper] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=16m17s418ms79µs670ns).
+2019-06-10 13:30:45.448  INFO 15288 --- [main] c.t.b.BrokergatewayApplication           : Starting BrokergatewayApplication on LAPTOP-HAEK8B4U with PID 15288 (D:\distributed-OTC-trading-system\Broker-gateway\target\classes started by administartor in D:\distributed-OTC-trading-system\Broker-gateway)
+2019-06-10 13:30:45.452  INFO 15288 --- [main] c.t.b.BrokergatewayApplication           : No active profile set, falling back to default profiles: default
+2019-06-10 13:30:46.318  INFO 15288 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data repositories in DEFAULT mode.
+2019-06-10 13:30:46.440  INFO 15288 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 112ms. Found 1 repository interfaces.
+2019-06-10 13:30:46.797  INFO 15288 --- [main] trationDelegate$BeanPostProcessorChecker : Bean 'org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration' of type [org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration$$EnhancerBySpringCGLIB$$39e5085a] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2019-06-10 13:30:47.266  INFO 15288 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8081 (http)
+2019-06-10 13:30:47.301  INFO 15288 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2019-06-10 13:30:47.302  INFO 15288 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.19]
+2019-06-10 13:30:47.472  INFO 15288 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2019-06-10 13:30:47.472 DEBUG 15288 --- [main] o.s.web.context.ContextLoader            : Published root WebApplicationContext as ServletContext attribute with name [org.springframework.web.context.WebApplicationContext.ROOT]
+2019-06-10 13:30:47.472  INFO 15288 --- [main] o.s.web.context.ContextLoader            : Root WebApplicationContext: initialization completed in 1959 ms
+2019-06-10 13:30:47.684  INFO 15288 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2019-06-10 13:30:47.685  WARN 15288 --- [main] com.zaxxer.hikari.util.DriverDataSource  : Registered driver with driverClassName=com.mysql.jdbc.Driver was not found, trying direct instantiation.
+2019-06-10 13:30:47.865  INFO 15288 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2019-06-10 13:30:49.687  INFO 15288 --- [main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2019-06-10 13:30:50.220 DEBUG 15288 --- [main] o.s.w.s.handler.SimpleUrlHandlerMapping  : Patterns [/**/favicon.ico] in 'faviconHandlerMapping'
+2019-06-10 13:30:50.406  INFO 15288 --- [main] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
+2019-06-10 13:30:50.422 DEBUG 15288 --- [main] s.w.s.m.m.a.RequestMappingHandlerAdapter : ControllerAdvice beans: 0 @ModelAttribute, 0 @InitBinder, 1 RequestBodyAdvice, 1 ResponseBodyAdvice
+2019-06-10 13:30:50.457  WARN 15288 --- [main] aWebConfiguration$JpaWebMvcConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2019-06-10 13:30:50.495 DEBUG 15288 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : 12 mappings in 'requestMappingHandlerMapping'
+2019-06-10 13:30:50.508 DEBUG 15288 --- [main] o.s.w.s.handler.SimpleUrlHandlerMapping  : Patterns [/webjars/**, /**] in 'resourceHandlerMapping'
+2019-06-10 13:30:50.517 DEBUG 15288 --- [main] .m.m.a.ExceptionHandlerExceptionResolver : ControllerAdvice beans: 0 @ExceptionHandler, 1 ResponseBodyAdvice
+2019-06-10 13:30:50.793 DEBUG 15288 --- [main] o.s.w.s.s.s.ServerEndpointExporter       : Registering @ServerEndpoint class: class com.trading.brokergateway.Controller.PriceServer
+2019-06-10 13:30:50.800 DEBUG 15288 --- [main] o.s.w.s.s.s.ServerEndpointExporter       : Registering @ServerEndpoint class: class com.trading.brokergateway.Controller.WebsocketServer
+2019-06-10 13:30:50.865  INFO 15288 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8081 (http) with context path ''
+2019-06-10 13:30:50.868  INFO 15288 --- [main] c.t.b.BrokergatewayApplication           : Started BrokergatewayApplication in 6.033 seconds (JVM running for 8.029)
+2019-06-10 13:55:03.533  INFO 16748 --- [main] c.t.b.BrokergatewayApplication           : Starting BrokergatewayApplication on LAPTOP-HAEK8B4U with PID 16748 (D:\distributed-OTC-trading-system\Broker-gateway\target\classes started by administartor in D:\distributed-OTC-trading-system\Broker-gateway)
+2019-06-10 13:55:03.547  INFO 16748 --- [main] c.t.b.BrokergatewayApplication           : No active profile set, falling back to default profiles: default
+2019-06-10 13:55:06.662  INFO 16748 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data repositories in DEFAULT mode.
+2019-06-10 13:55:06.783  INFO 16748 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 106ms. Found 1 repository interfaces.
+2019-06-10 13:55:07.352  INFO 16748 --- [main] trationDelegate$BeanPostProcessorChecker : Bean 'org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration' of type [org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration$$EnhancerBySpringCGLIB$$42562cf] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2019-06-10 13:55:07.948  INFO 16748 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8081 (http)
+2019-06-10 13:55:08.019  INFO 16748 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2019-06-10 13:55:08.019  INFO 16748 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.19]
+2019-06-10 13:55:08.573  INFO 16748 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2019-06-10 13:55:08.573 DEBUG 16748 --- [main] o.s.web.context.ContextLoader            : Published root WebApplicationContext as ServletContext attribute with name [org.springframework.web.context.WebApplicationContext.ROOT]
+2019-06-10 13:55:08.573  INFO 16748 --- [main] o.s.web.context.ContextLoader            : Root WebApplicationContext: initialization completed in 4881 ms
+2019-06-10 13:55:09.032  INFO 16748 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2019-06-10 13:55:09.033  WARN 16748 --- [main] com.zaxxer.hikari.util.DriverDataSource  : Registered driver with driverClassName=com.mysql.jdbc.Driver was not found, trying direct instantiation.
+2019-06-10 13:55:09.468  INFO 16748 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2019-06-10 13:55:12.116  INFO 16748 --- [main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2019-06-10 13:55:12.683 DEBUG 16748 --- [main] o.s.w.s.handler.SimpleUrlHandlerMapping  : Patterns [/**/favicon.ico] in 'faviconHandlerMapping'
+2019-06-10 13:55:12.862  INFO 16748 --- [main] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
+2019-06-10 13:55:12.878 DEBUG 16748 --- [main] s.w.s.m.m.a.RequestMappingHandlerAdapter : ControllerAdvice beans: 0 @ModelAttribute, 0 @InitBinder, 1 RequestBodyAdvice, 1 ResponseBodyAdvice
+2019-06-10 13:55:12.916  WARN 16748 --- [main] aWebConfiguration$JpaWebMvcConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2019-06-10 13:55:12.968 DEBUG 16748 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : 12 mappings in 'requestMappingHandlerMapping'
+2019-06-10 13:55:12.984 DEBUG 16748 --- [main] o.s.w.s.handler.SimpleUrlHandlerMapping  : Patterns [/webjars/**, /**] in 'resourceHandlerMapping'
+2019-06-10 13:55:13.000 DEBUG 16748 --- [main] .m.m.a.ExceptionHandlerExceptionResolver : ControllerAdvice beans: 0 @ExceptionHandler, 1 ResponseBodyAdvice
+2019-06-10 13:55:13.288 DEBUG 16748 --- [main] o.s.w.s.s.s.ServerEndpointExporter       : Registering @ServerEndpoint class: class com.trading.brokergateway.Controller.PriceServer
+2019-06-10 13:55:13.294 DEBUG 16748 --- [main] o.s.w.s.s.s.ServerEndpointExporter       : Registering @ServerEndpoint class: class com.trading.brokergateway.Controller.WebsocketServer
+2019-06-10 13:55:13.339  INFO 16748 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8081 (http) with context path ''
+2019-06-10 13:55:13.341  INFO 16748 --- [main] c.t.b.BrokergatewayApplication           : Started BrokergatewayApplication in 10.839 seconds (JVM running for 17.523)
+2019-06-10 13:55:52.902  INFO 16748 --- [http-nio-8081-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2019-06-10 13:55:52.902  INFO 16748 --- [http-nio-8081-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2019-06-10 13:55:52.902 DEBUG 16748 --- [http-nio-8081-exec-1] o.s.web.servlet.DispatcherServlet        : Detected StandardServletMultipartResolver
+2019-06-10 13:55:52.910 DEBUG 16748 --- [http-nio-8081-exec-1] o.s.web.servlet.DispatcherServlet        : enableLoggingRequestDetails='false': request parameters and headers will be masked to prevent unsafe logging of potentially sensitive data
+2019-06-10 13:55:52.910  INFO 16748 --- [http-nio-8081-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 8 ms
+2019-06-10 13:55:52.918 DEBUG 16748 --- [http-nio-8081-exec-1] o.s.web.servlet.DispatcherServlet        : GET "/Result?method=ByTime&start=today", parameters={masked}
+2019-06-10 13:55:52.923 DEBUG 16748 --- [http-nio-8081-exec-1] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to public java.lang.String com.trading.brokergateway.Controller.ResultAPI.getResult(javax.servlet.http.HttpServletRequest) throws java.lang.Exception
+2019-06-10 13:55:53.272 DEBUG 16748 --- [http-nio-8081-exec-1] m.m.a.RequestResponseBodyMethodProcessor : Using 'text/plain', given [*/*] and supported [text/plain, */*, text/plain, */*, application/json, application/*+json, application/json, application/*+json]
+2019-06-10 13:55:53.273 DEBUG 16748 --- [http-nio-8081-exec-1] m.m.a.RequestResponseBodyMethodProcessor : Writing ["[{"resultID":"30b18d21-9034-4e9b-9ff0-9927b0dbd51c","orderID1":"179b9898-9644-4068-b6e1-90cf8ef563a (truncated)...]
+2019-06-10 13:55:53.281 DEBUG 16748 --- [http-nio-8081-exec-1] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
+2019-06-10 13:56:03.888 DEBUG 16748 --- [http-nio-8081-exec-3] o.s.web.servlet.DispatcherServlet        : GET "/Result?method=ByTime&start=weekn", parameters={masked}
+2019-06-10 13:56:03.888 DEBUG 16748 --- [http-nio-8081-exec-3] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to public java.lang.String com.trading.brokergateway.Controller.ResultAPI.getResult(javax.servlet.http.HttpServletRequest) throws java.lang.Exception
+2019-06-10 13:56:03.908 DEBUG 16748 --- [http-nio-8081-exec-3] m.m.a.RequestResponseBodyMethodProcessor : Using 'text/plain', given [*/*] and supported [text/plain, */*, text/plain, */*, application/json, application/*+json, application/json, application/*+json]
+2019-06-10 13:56:03.908 DEBUG 16748 --- [http-nio-8081-exec-3] m.m.a.RequestResponseBodyMethodProcessor : Writing ["[{"resultID":"30b18d21-9034-4e9b-9ff0-9927b0dbd51c","orderID1":"179b9898-9644-4068-b6e1-90cf8ef563a (truncated)...]
+2019-06-10 13:56:03.910 DEBUG 16748 --- [http-nio-8081-exec-3] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
+2019-06-10 13:56:11.523 DEBUG 16748 --- [http-nio-8081-exec-4] o.s.web.servlet.DispatcherServlet        : GET "/Result?method=ByTime&start=week", parameters={masked}
+2019-06-10 13:56:11.523 DEBUG 16748 --- [http-nio-8081-exec-4] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to public java.lang.String com.trading.brokergateway.Controller.ResultAPI.getResult(javax.servlet.http.HttpServletRequest) throws java.lang.Exception
+2019-06-10 13:56:11.529 DEBUG 16748 --- [http-nio-8081-exec-4] m.m.a.RequestResponseBodyMethodProcessor : Using 'text/plain', given [*/*] and supported [text/plain, */*, text/plain, */*, application/json, application/*+json, application/json, application/*+json]
+2019-06-10 13:56:11.529 DEBUG 16748 --- [http-nio-8081-exec-4] m.m.a.RequestResponseBodyMethodProcessor : Writing ["[{"resultID":"30b18d21-9034-4e9b-9ff0-9927b0dbd51c","orderID1":"179b9898-9644-4068-b6e1-90cf8ef563a (truncated)...]
+2019-06-10 13:56:11.529 DEBUG 16748 --- [http-nio-8081-exec-4] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
+2019-06-10 13:59:51.434 DEBUG 16748 --- [http-nio-8081-exec-6] o.s.web.servlet.DispatcherServlet        : OPTIONS "/Result?method=ByTime&start=today", parameters={masked}
+2019-06-10 13:59:51.434 DEBUG 16748 --- [http-nio-8081-exec-6] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to public java.lang.String com.trading.brokergateway.Controller.ResultAPI.getResult(javax.servlet.http.HttpServletRequest) throws java.lang.Exception
+2019-06-10 13:59:51.448 DEBUG 16748 --- [http-nio-8081-exec-6] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
+2019-06-10 13:59:51.470 DEBUG 16748 --- [http-nio-8081-exec-7] o.s.web.servlet.DispatcherServlet        : GET "/Result?method=ByTime&start=today", parameters={masked}
+2019-06-10 13:59:51.470 DEBUG 16748 --- [http-nio-8081-exec-7] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to public java.lang.String com.trading.brokergateway.Controller.ResultAPI.getResult(javax.servlet.http.HttpServletRequest) throws java.lang.Exception
+2019-06-10 13:59:51.477 DEBUG 16748 --- [http-nio-8081-exec-7] m.m.a.RequestResponseBodyMethodProcessor : Using 'text/plain', given [*/*] and supported [text/plain, */*, text/plain, */*, application/json, application/*+json, application/json, application/*+json]
+2019-06-10 13:59:51.478 DEBUG 16748 --- [http-nio-8081-exec-7] m.m.a.RequestResponseBodyMethodProcessor : Writing ["[{"resultID":"30b18d21-9034-4e9b-9ff0-9927b0dbd51c","orderID1":"179b9898-9644-4068-b6e1-90cf8ef563a (truncated)...]
+2019-06-10 13:59:51.479 DEBUG 16748 --- [http-nio-8081-exec-7] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
+2019-06-10 14:00:00.854 DEBUG 16748 --- [http-nio-8081-exec-8] o.s.web.servlet.DispatcherServlet        : OPTIONS "/Result", parameters={}
+2019-06-10 14:00:00.854 DEBUG 16748 --- [http-nio-8081-exec-8] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to public java.lang.String com.trading.brokergateway.Controller.ResultAPI.getResult(javax.servlet.http.HttpServletRequest) throws java.lang.Exception
+2019-06-10 14:00:00.855 DEBUG 16748 --- [http-nio-8081-exec-8] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
+2019-06-10 14:00:00.872 DEBUG 16748 --- [http-nio-8081-exec-9] o.s.web.servlet.DispatcherServlet        : GET "/Result", parameters={}
+2019-06-10 14:00:00.872 DEBUG 16748 --- [http-nio-8081-exec-9] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to public java.lang.String com.trading.brokergateway.Controller.ResultAPI.getResult(javax.servlet.http.HttpServletRequest) throws java.lang.Exception
+2019-06-10 14:00:00.887 DEBUG 16748 --- [http-nio-8081-exec-9] m.m.a.RequestResponseBodyMethodProcessor : Using 'text/plain', given [*/*] and supported [text/plain, */*, text/plain, */*, application/json, application/*+json, application/json, application/*+json]
+2019-06-10 14:00:00.888 DEBUG 16748 --- [http-nio-8081-exec-9] m.m.a.RequestResponseBodyMethodProcessor : Writing ["[{"resultID":"30b18d21-9034-4e9b-9ff0-9927b0dbd51c","orderID1":"179b9898-9644-4068-b6e1-90cf8ef563a (truncated)...]
+2019-06-10 14:00:00.889 DEBUG 16748 --- [http-nio-8081-exec-9] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
+2019-06-10 14:00:29.697 DEBUG 16748 --- [http-nio-8081-exec-10] o.s.web.servlet.DispatcherServlet        : OPTIONS "/Result?method=ByTime&start=month", parameters={masked}
+2019-06-10 14:00:29.698 DEBUG 16748 --- [http-nio-8081-exec-10] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to public java.lang.String com.trading.brokergateway.Controller.ResultAPI.getResult(javax.servlet.http.HttpServletRequest) throws java.lang.Exception
+2019-06-10 14:00:29.699 DEBUG 16748 --- [http-nio-8081-exec-10] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
+2019-06-10 14:00:29.711 DEBUG 16748 --- [http-nio-8081-exec-2] o.s.web.servlet.DispatcherServlet        : GET "/Result?method=ByTime&start=month", parameters={masked}
+2019-06-10 14:00:29.712 DEBUG 16748 --- [http-nio-8081-exec-2] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to public java.lang.String com.trading.brokergateway.Controller.ResultAPI.getResult(javax.servlet.http.HttpServletRequest) throws java.lang.Exception
+2019-06-10 14:00:29.720 DEBUG 16748 --- [http-nio-8081-exec-2] m.m.a.RequestResponseBodyMethodProcessor : Using 'text/plain', given [*/*] and supported [text/plain, */*, text/plain, */*, application/json, application/*+json, application/json, application/*+json]
+2019-06-10 14:00:29.720 DEBUG 16748 --- [http-nio-8081-exec-2] m.m.a.RequestResponseBodyMethodProcessor : Writing ["[{"resultID":"30b18d21-9034-4e9b-9ff0-9927b0dbd51c","orderID1":"179b9898-9644-4068-b6e1-90cf8ef563a (truncated)...]
+2019-06-10 14:00:29.721 DEBUG 16748 --- [http-nio-8081-exec-2] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
+2019-06-10 14:01:06.554 DEBUG 16748 --- [http-nio-8081-exec-1] o.s.web.servlet.DispatcherServlet        : OPTIONS "/Result?method=ByTime&start=week", parameters={masked}
+2019-06-10 14:01:06.554 DEBUG 16748 --- [http-nio-8081-exec-1] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to public java.lang.String com.trading.brokergateway.Controller.ResultAPI.getResult(javax.servlet.http.HttpServletRequest) throws java.lang.Exception
+2019-06-10 14:01:06.555 DEBUG 16748 --- [http-nio-8081-exec-1] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
+2019-06-10 14:01:06.568 DEBUG 16748 --- [http-nio-8081-exec-3] o.s.web.servlet.DispatcherServlet        : GET "/Result?method=ByTime&start=week", parameters={masked}
+2019-06-10 14:01:06.568 DEBUG 16748 --- [http-nio-8081-exec-3] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to public java.lang.String com.trading.brokergateway.Controller.ResultAPI.getResult(javax.servlet.http.HttpServletRequest) throws java.lang.Exception
+2019-06-10 14:01:06.572 DEBUG 16748 --- [http-nio-8081-exec-3] m.m.a.RequestResponseBodyMethodProcessor : Using 'text/plain', given [*/*] and supported [text/plain, */*, text/plain, */*, application/json, application/*+json, application/json, application/*+json]
+2019-06-10 14:01:06.572 DEBUG 16748 --- [http-nio-8081-exec-3] m.m.a.RequestResponseBodyMethodProcessor : Writing ["[{"resultID":"30b18d21-9034-4e9b-9ff0-9927b0dbd51c","orderID1":"179b9898-9644-4068-b6e1-90cf8ef563a (truncated)...]
+2019-06-10 14:01:06.573 DEBUG 16748 --- [http-nio-8081-exec-3] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
+2019-06-10 14:01:33.122 DEBUG 16748 --- [http-nio-8081-exec-4] o.s.web.servlet.DispatcherServlet        : GET "/Result", parameters={}
+2019-06-10 14:01:33.123 DEBUG 16748 --- [http-nio-8081-exec-4] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to public java.lang.String com.trading.brokergateway.Controller.ResultAPI.getResult(javax.servlet.http.HttpServletRequest) throws java.lang.Exception
+2019-06-10 14:01:33.136 DEBUG 16748 --- [http-nio-8081-exec-4] m.m.a.RequestResponseBodyMethodProcessor : Using 'text/plain', given [*/*] and supported [text/plain, */*, text/plain, */*, application/json, application/*+json, application/json, application/*+json]
+2019-06-10 14:01:33.136 DEBUG 16748 --- [http-nio-8081-exec-4] m.m.a.RequestResponseBodyMethodProcessor : Writing ["[{"resultID":"30b18d21-9034-4e9b-9ff0-9927b0dbd51c","orderID1":"179b9898-9644-4068-b6e1-90cf8ef563a (truncated)...]
+2019-06-10 14:01:33.137 DEBUG 16748 --- [http-nio-8081-exec-4] o.s.web.servlet.DispatcherServlet        : Completed 200 OK

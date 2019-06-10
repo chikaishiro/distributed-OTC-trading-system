@@ -1,4 +1,6 @@
-package com.trading.tradergateway.Util;
+package com.trading.brokergateway.Util; /**
+ * Copyright &copy; 2012-2014 <a href="https://github.com.bra.>JeeSite</a> All rights reserved.
+ */
 
 import org.apache.commons.lang3.time.DateFormatUtils;
 
@@ -7,7 +9,11 @@ import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
 
-
+/**
+ * 日期工具类, 继承org.apache.commons.lang.time.DateUtils类
+ *
+ * @version 2014-4-15
+ */
 public class DateUtil extends org.apache.commons.lang3.time.DateUtils {
 
     private static String[] parsePatterns = {
@@ -120,19 +126,7 @@ public class DateUtil extends org.apache.commons.lang3.time.DateUtils {
      * @param date
      * @return
      */
-    public static String getWeekStart(Date date) {
-        SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd");
-        Calendar calendar = Calendar.getInstance();
-        calendar.setTime(date);
-        calendar.get(Calendar.WEEK_OF_YEAR);
-        int firstDay = calendar.getFirstDayOfWeek();
-        calendar.set(Calendar.DAY_OF_WEEK, firstDay);
-        calendar.set(Calendar.HOUR_OF_DAY, 0);
-        calendar.set(Calendar.MINUTE, 0);
-        calendar.set(Calendar.SECOND, 0);
-        calendar.set(Calendar.MILLISECOND, 0);
-        return format.format(calendar.getTime());
-    }
+
 
     /**
      * 得到当前周截止时间
@@ -154,15 +148,7 @@ public class DateUtil extends org.apache.commons.lang3.time.DateUtils {
         return format.format(calendar.getTime());
     }
 
-    public static String getFirstDayOfMonth() {
-        SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd");
-        //获取当前月第一天：
-        Calendar c = Calendar.getInstance();
-        c.add(Calendar.MONTH, 0);
-        c.set(Calendar.DAY_OF_MONTH, 1);//设置为1号,当前日期既为本月第一天
-        String first = format.format(c.getTime());
-        return first;
-    }
+
 
     /**
      * 月的最后一天
@@ -303,6 +289,27 @@ public class DateUtil extends org.apache.commons.lang3.time.DateUtils {
         return season;
     }
 
+    public static long getMonthStart() {
+
+        Calendar c = Calendar.getInstance();
+        c.add(Calendar.MONTH, 0);
+        c.set(Calendar.DAY_OF_MONTH, 1);//设置为1号,当前日期既为本月第一天
+        return c.getTimeInMillis();
+    }
+
+    public static long getWeekStart() {
+        Calendar calendar = Calendar.getInstance();
+        calendar.setTime(new Date());
+        calendar.get(Calendar.WEEK_OF_YEAR);
+        int firstDay = calendar.getFirstDayOfWeek();
+        calendar.set(Calendar.DAY_OF_WEEK, firstDay);
+        calendar.set(Calendar.HOUR_OF_DAY, 0);
+        calendar.set(Calendar.MINUTE, 0);
+        calendar.set(Calendar.SECOND, 0);
+        calendar.set(Calendar.MILLISECOND, 0);
+        return calendar.getTimeInMillis();
+    }
+
     /**
      * 字符转日期
      *
@@ -333,27 +340,6 @@ public class DateUtil extends org.apache.commons.lang3.time.DateUtils {
 
         return formatter.parse(dateStr);
 
-    }
-
-    public static long getMonthStart() {
-
-        Calendar c = Calendar.getInstance();
-        c.add(Calendar.MONTH, 0);
-        c.set(Calendar.DAY_OF_MONTH, 1);//设置为1号,当前日期既为本月第一天
-        return c.getTimeInMillis();
-    }
-
-    public static long getWeekStart() {
-        Calendar calendar = Calendar.getInstance();
-        calendar.setTime(new Date());
-        calendar.get(Calendar.WEEK_OF_YEAR);
-        int firstDay = calendar.getFirstDayOfWeek();
-        calendar.set(Calendar.DAY_OF_WEEK, firstDay);
-        calendar.set(Calendar.HOUR_OF_DAY, 0);
-        calendar.set(Calendar.MINUTE, 0);
-        calendar.set(Calendar.SECOND, 0);
-        calendar.set(Calendar.MILLISECOND, 0);
-        return calendar.getTimeInMillis();
     }
 
 }

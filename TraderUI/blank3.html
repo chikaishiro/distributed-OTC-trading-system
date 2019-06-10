@@ -259,7 +259,7 @@
                 //$('.table').tablesorter();
 				htmlobj =  $.ajax({
 					type: "get",
-					url: "http://"+localStorage.getItem("tip")+":8080/order/GetOrder",
+					url: "http://"+localStorage.getItem("tip")+":8080/order",
 					//data: JSON.stringify(formData),
 					headers:{
 						'Authorization':"Bearer "+document.cookie,

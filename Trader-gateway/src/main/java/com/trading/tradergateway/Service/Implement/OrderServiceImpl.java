@@ -6,6 +6,7 @@ import com.trading.tradergateway.JWT.JwtTokenUtil;
 import com.trading.tradergateway.Repository.OrderRepository;
 import com.trading.tradergateway.Repository.TraderRepository;
 import com.trading.tradergateway.Service.Interface.OrderService;
+import com.trading.tradergateway.Util.DateUtil;
 import com.trading.tradergateway.Util.FIX;
 import com.trading.tradergateway.Util.HttpRequest;
 import org.apache.commons.beanutils.BeanUtils;
@@ -142,6 +143,33 @@ public class OrderServiceImpl implements OrderService {
     public List findOrdersByFutureId2(String futureId){
         return orderRepository.findOrdersByFutureIDOrderByTimeStampDesc(futureId);
     }
+
+    @Override
+    public List findOrdersByWeek(){
+        long start = DateUtil.getWeekStart();
+        Calendar calendar = Calendar.getInstance();
+        calendar.set(Calendar.HOUR_OF_DAY, 0);
+        calendar.set(Calendar.MINUTE, 0);
+        calendar.set(Calendar.SECOND, 0);
+        calendar.set(Calendar.MILLISECOND, 0); //当天0点
+        calendar.set(Calendar.HOUR_OF_DAY, 24);
+        long end =  calendar.getTimeInMillis();
+        return orderRepository.findOrdersByTimeStampBetweenOrderByTimeStampDesc(start, end);
+    }
+
+    @Override
+    public List findOrdersByMonth(){
+        long start = DateUtil.getMonthStart();
+        Calendar calendar = Calendar.getInstance();
+        calendar.set(Calendar.HOUR_OF_DAY, 0);
+        calendar.set(Calendar.MINUTE, 0);
+        calendar.set(Calendar.SECOND, 0);
+        calendar.set(Calendar.MILLISECOND, 0); //当天0点
+        calendar.set(Calendar.HOUR_OF_DAY, 24);
+        long end =  calendar.getTimeInMillis();
+        return orderRepository.findOrdersByTimeStampBetweenOrderByTimeStampDesc(start, end);
+    }
+
     @Override
     public List getOrder(HttpServletRequest request){
         String username = jwtTokenUtil.parseUsername(request);

@@ -1,6 +1,7 @@
 package com.trading.brokergateway.DAO;
 
 import com.trading.brokergateway.Entity.Result;
+import com.trading.brokergateway.Util.DateUtil;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -88,6 +89,42 @@ public class ResultService {
             return list;
         }
 
+    }
+
+    public static List<Result> findToweek(){
+        long start = DateUtil.getWeekStart();
+        Calendar calendar = Calendar.getInstance();
+        calendar.set(Calendar.HOUR_OF_DAY, 0);
+        calendar.set(Calendar.MINUTE, 0);
+        calendar.set(Calendar.SECOND, 0);
+        calendar.set(Calendar.MILLISECOND, 0); //当天0点
+        calendar.set(Calendar.HOUR_OF_DAY, 24);
+        long end =  calendar.getTimeInMillis();
+        List<Result> list = resultRepository.findResultsByFinishTimeBetweenOrderByFinishTimeDesc(start, end);
+        if(list.size()>num){
+            return list.subList(0,num);
+        }
+        else{
+            return list;
+        }
+    }
+
+    public static List<Result> findTomonth(){
+        long start = DateUtil.getMonthStart();
+        Calendar calendar = Calendar.getInstance();
+        calendar.set(Calendar.HOUR_OF_DAY, 0);
+        calendar.set(Calendar.MINUTE, 0);
+        calendar.set(Calendar.SECOND, 0);
+        calendar.set(Calendar.MILLISECOND, 0); //当天0点
+        calendar.set(Calendar.HOUR_OF_DAY, 24);
+        long end =  calendar.getTimeInMillis();
+        List<Result> list = resultRepository.findResultsByFinishTimeBetweenOrderByFinishTimeDesc(start, end);
+        if(list.size()>num){
+            return list.subList(0,num);
+        }
+        else{
+            return list;
+        }
     }
 
     public static void main(String[] args){

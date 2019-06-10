@@ -14,6 +14,8 @@ public interface OrderService {
         List findOrdersByTraderId(String orderId);
         List findOrdersByFutureId(String futureId);
         List findOrdersByToday();
+        List findOrdersByWeek();
+        List findOrdersByMonth();
         List getAllOrders();
         List findOrdersByFutureId2(String futureId);
         List findOrdersByFutureIdAndPrice(String futureId,double price);

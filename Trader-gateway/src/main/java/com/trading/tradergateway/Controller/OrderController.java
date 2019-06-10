@@ -61,8 +61,18 @@ public class OrderController {
     }
 
     @GetMapping("/today")
-    public List getOrdersByFid() {
+    public List getOrdersByToday() {
         return orderService.findOrdersByToday();
+    }
+
+    @GetMapping("/week")
+    public List getOrdersByWeek(){
+        return orderService.findOrdersByWeek();
+    }
+
+    @GetMapping("/month")
+    public List getOrdersByMonth(){
+        return orderService.findOrdersByMonth();
     }
 
     @GetMapping("/stat")
