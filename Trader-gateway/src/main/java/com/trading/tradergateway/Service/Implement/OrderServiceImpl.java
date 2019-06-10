@@ -122,7 +122,25 @@ public class OrderServiceImpl implements OrderService {
 
     @Override
     public List getAllOrders(){
-        return orderRepository.
+        return orderRepository.findAllByOrderByTimeStampDesc();
+    }
+
+    @Override
+    public List findOrdersByFutureIdAndPrice(String futureId,double price){
+        return orderRepository.findOrdersByPriceAndFutureIDOrderByTimeStampDesc(price,futureId);
+    }
+
+    @Override
+    public List findOrdersByOrderId(String orderId){
+        return orderRepository.findOrdersByOrderIDOrderByTimeStampDesc(orderId);
+    }
+    @Override
+    public List findOrdersByStatus(String status){
+        return orderRepository.findOrdersByStatusOrderByTimeStampDesc(status);
+    }
+    @Override
+    public List findOrdersByFutureId2(String futureId){
+        return orderRepository.findOrdersByFutureIDOrderByTimeStampDesc(futureId);
     }
     @Override
     public List getOrder(HttpServletRequest request){

@@ -17,5 +17,8 @@ public interface OrderRepository extends JpaRepository<Order, String> {
     List<Order> findOrdersByStatusAndTimeStampBetween(String status,Long start, Long end);
     List<Order> findOrdersByFutureIDOrderByTimeStampDesc(String futureId);
     List<Order> findOrdersByFutureIDAndStatus(String futureId, String status);
-    List<Order>
+    List<Order> findAllByOrderByTimeStampDesc();
+    List<Order> findOrdersByPriceAndFutureIDOrderByTimeStampDesc(double price, String futureId);
+    List<Order> findOrdersByOrderIDOrderByTimeStampDesc(String orderId);
+    List<Order> findOrdersByStatusOrderByTimeStampDesc(String status);
 }

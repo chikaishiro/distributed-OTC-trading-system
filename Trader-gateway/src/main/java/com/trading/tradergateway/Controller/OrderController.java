@@ -48,8 +48,16 @@ public class OrderController {
     }
 
     @GetMapping("/fid")
-    public List getOrdersByFid(@RequestParam("futureId")String futureId) {
-        return orderService.findOrdersByFutureId(futureId);
+    public List getOrdersByFid(HttpServletRequest request) {
+        String futureId = request.getParameter("futureId");
+        System.out.println(futureId);
+        try{
+            String price = request.getParameter("price");
+            return orderService.findOrdersByFutureIdAndPrice(futureId,Double.valueOf(price));
+        }
+        catch (Exception e){
+            return orderService.findOrdersByFutureId2(futureId);
+        }
     }
 
     @GetMapping("/today")
@@ -57,8 +65,18 @@ public class OrderController {
         return orderService.findOrdersByToday();
     }
 
+    @GetMapping("/stat")
+    public List getOrdersByStat(@RequestParam("status")String status){
+        return orderService.findOrdersByStatus(status);
+    }
+
+    @GetMapping("/oid")
+    public List getOrdersByOid(@RequestParam("orderId")String orderId){
+        return orderService.findOrdersByOrderId(orderId);
+
+    }
     @GetMapping("")
     public List getAllOrders(){
-        return orderService.
+        return orderService.getAllOrders();
     }
 }
