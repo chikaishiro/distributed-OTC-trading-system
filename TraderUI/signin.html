@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+  	<head>
+	    <meta charset="utf-8">
+	    <title>Simplify Admin</title>
+	    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+	    <meta name="description" content="">
+	    <meta name="author" content="">
+
+	    <!-- Bootstrap core CSS -->
+	    <link href="bootstrap/css/bootstrap.min.css" rel="stylesheet">
+		
+		<!-- Font Awesome -->
+		<link href="css/font-awesome.min.css" rel="stylesheet">
+
+		<!-- ionicons -->
+		<link href="css/ionicons.min.css" rel="stylesheet">
+		
+		<!-- Simplify -->
+		<link href="css/simplify.min.css" rel="stylesheet">
+	
+  	</head>
+
+	<script>
+		function func() {
+			var username = $('input[name="form-username"]').val();
+			var password = $('input[name="form-password"]').val();
+			var formData = {
+				'traderName':username,
+				'password':password,
+			};
+			var token;
+			//alert(JSON.stringify(formData));
+			$.ajax({
+				type: "post",
+				url: "http://172.20.10.8:8080/trader/login",
+				async:false,
+				data: JSON.stringify(formData),
+				contentType: "application/json",
+				//dataType:"json",
+				//dataType: "json",
+			}).success(function (data) {
+				//alert(data);
+				alert("success");
+				localStorage.setItem("username",username);
+				document.cookie = data;
+				window.location.href = "/index.html"
+			}).error(function () {
+				alert("error");
+			})
+
+		}
+	</script>
+
+  	<body class="overflow-hidden light-background">
+		<div class="wrapper no-navigation preload">
+			<div class="sign-in-wrapper">
+				<div class="sign-in-inner">
+					<div class="login-brand text-center">
+						<i class="fa fa-database m-right-xs"></i> Simplify <strong class="text-skin">Admin</strong>
+					</div>
+
+					<form>
+						<div class="form-group m-bottom-md">
+							<input type="text" class="form-control" placeholder="Email Address" name="form-username">
+						</div>
+						<div class="form-group">
+							<input type="password" class="form-control" placeholder="Password" name="form-password">
+						</div>
+
+						<div class="form-group">
+							<div class="custom-checkbox">
+								<input type="checkbox" id="chkRemember">
+								<label for="chkRemember"></label>
+							</div>
+							Remember me
+						</div>
+
+						<div class="m-top-md p-top-sm">
+							<button class="btn btn-success block" onclick="func()">Sign in</button>
+						</div>
+
+						<div class="m-top-md p-top-sm">
+							<div class="font-12 text-center m-bottom-xs">
+								<a href="#" class="font-12">Forgot password ?</a>
+							</div>
+							<div class="font-12 text-center m-bottom-xs">Do not have an account?</div>
+							<a href="signup.html" class="btn btn-default block">Create an accounts</a>
+						</div>
+					</form>
+				</div><!-- ./sign-in-inner -->
+			</div><!-- ./sign-in-wrapper -->
+		</div><!-- /wrapper -->
+
+		<a href="" id="scroll-to-top" class="hidden-print"><i class="icon-chevron-up"></i></a>
+
+	    <!-- Le javascript
+	    ================================================== -->
+	    <!-- Placed at the end of the document so the pages load faster -->
+		
+		<!-- Jquery -->
+		<script src="js/jquery-1.11.1.min.js"></script>
+		
+		<!-- Bootstrap -->
+	    <script src="bootstrap/js/bootstrap.min.js"></script>
+		
+		<!-- Slimscroll -->
+		<script src='js/jquery.slimscroll.min.js'></script>
+		
+		<!-- Popup Overlay -->
+		<script src='js/jquery.popupoverlay.min.js'></script>
+
+		<!-- Modernizr -->
+		<script src='js/modernizr.min.js'></script>
+		
+		<!-- Simplify -->
+		<script src="js/simplify/simplify.js"></script>
+
+
+  	</body>
+</html>

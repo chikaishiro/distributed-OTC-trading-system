@@ -1,0 +1,432 @@
+<!DOCTYPE html>
+<html lang="en">
+  	<head>
+	    <meta charset="utf-8">
+	    <title>Simplify Admin</title>
+	    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+	    <meta name="description" content="">
+	    <meta name="author" content="">
+
+	    <!-- Bootstrap core CSS -->
+	    <link href="bootstrap/css/bootstrap.min.css" rel="stylesheet">
+
+		<!-- Font Awesome -->
+		<link href="css/font-awesome.min.css" rel="stylesheet">
+
+		<!-- ionicons -->
+		<link href="css/ionicons.min.css" rel="stylesheet">
+
+		<!-- Morris -->
+		<link href="css/morris.css" rel="stylesheet"/>
+
+		<!-- Datepicker -->
+		<link href="css/datepicker.css" rel="stylesheet"/>
+
+		<!-- Animate -->
+		<link href="css/animate.min.css" rel="stylesheet">
+
+		<!-- Owl Carousel -->
+		<link href="css/owl.carousel.min.css" rel="stylesheet">
+		<link href="css/owl.theme.default.min.css" rel="stylesheet">
+
+		<!-- Simplify -->
+		<link href="css/simplify.min.css" rel="stylesheet">
+		<style>
+			#divContainer{
+				margin-top: 20px;
+				text-align: center;
+			}
+			#cv{
+				width: 300px;
+				height: 200px;
+				border-bottom: 2px solid #000;
+				border-left: 2px solid #000;
+			}
+		</style>
+
+  	</head>
+	<script>
+		var Chat = {};
+		Chat.socket = null;
+		Chat.connect = (function(host) {
+			if ('WebSocket' in window) {
+				Chat.socket = new WebSocket(host);
+			} else if ('MozWebSocket' in window) {
+				Chat.socket = new MozWebSocket(host);
+			} else {
+				Console.log('Error: WebSocket is not supported by this browser.');
+				return;
+			}
+			Chat.socket.onopen = function () {
+				//Console.log('在线聊天室已开启');
+				document.getElementById('chat').onkeydown = function(event) {
+					if (event.keyCode == 13) {
+						Chat.sendMessage();
+					}
+				};
+			};
+			Chat.socket.onclose = function () {
+				document.getElementById('chat').onkeydown = null;
+				//Console.log('在线聊天室已关闭');
+			};
+			Chat.socket.onmessage = function (message) {
+				document.getElementById("s2").innerHTML=message.data.split(";")[1];
+				document.getElementById("b2").innerHTML=message.data.split(";")[2];
+				document.getElementById("p2").innerHTML=message.data.split(";")[3];
+				var origindata = JSON.parse(message.data.split(";")[0]);
+
+				var dataset = origindata;
+				// 基于准备好的dom，初始化echarts实例
+				var myChart = echarts.init(document.getElementById('main'));
+				// 指定图表的配置项和数据
+				var option = {
+					xAxis: {
+						type: 'category',
+						data: ['0', '1', '2', '3', '4', '5', '6','7','8','9','10', '11', '12', '13', '14', '15', '16','17','18','19']
+					},
+					yAxis: {
+						type: 'value'
+					},
+					series: [{
+						data: dataset,
+						type: 'line'
+					}]
+				};
+				// 使用刚指定的配置项和数据显示图表。
+				myChart.setOption(option);
+
+			};
+		});
+		Chat.initialize = function() {
+			if (window.location.protocol == 'http:') {
+				Chat.connect('ws://' +"localhost"+ ":8081" + '/price');
+			} else {
+				Chat.connect('wss://' + window.location.host + '/orderbook');
+			}
+		};
+		Chat.sendMessage = (function() {
+			var message = document.getElementById('chat').value;
+			if (message != '') {
+				//alert(message);
+				Chat.socket.send(message);
+				document.getElementById('chat').value = '';
+			}
+		});
+		var Console = {};
+
+		Console.log = (function(message) {
+			var console = document.getElementById('console');
+			var p = document.createElement('p');
+			p.style.wordWrap = 'break-word';
+			p.innerHTML = message;
+			console.appendChild(p);
+			while (console.childNodes.length > 25) {
+				console.removeChild(console.firstChild);
+			}
+			console.scrollTop = console.scrollHeight;
+
+		});
+
+		function formTable(message) {
+			t1 = new Table("sellTable");
+			t2 = new Table("buyTable");
+			var obj = JSON.parse(message);
+			//alert(obj["sellList"]);
+			t1.update(obj["sellList"]);
+			t2.update(obj["buyList"]);
+		}
+
+
+		function f(){
+			Chat.initialize();
+		}
+	</script>
+
+  	<body class="overflow-hidden">
+		<div class="wrapper preload">
+			<header class="top-nav">
+				<div class="top-nav-inner">
+					<div class="nav-header">
+						<a href="index.html" class="brand">
+							<i class="fa fa-database"></i><span class="brand-name">TRADING SYSTEM</span>
+						</a>
+					</div>
+					<button type="button" class="navbar-toggle pull-left sidebar-toggle" id="sidebarToggleLG">
+						<span class="icon-bar"></span>
+						<span class="icon-bar"></span>
+						<span class="icon-bar"></span>
+					</button>
+				</div><!-- ./top-nav-inner -->
+			</header>
+			<aside class="sidebar-menu fixed">
+				<div class="sidebar-inner scrollable-sidebar">
+					<div class="main-menu">
+						<ul class="accordion">
+							<li class="menu-header">
+								Main Menu
+							</li>
+							<li class="bg-palette1 active">
+								<a href="index.html">
+									<span class="menu-content block">
+										<span class="menu-icon"><i class="block fa fa-home fa-lg"></i></span>
+										<span class="text m-left-sm">交易统计</span>
+									</span>
+									<span class="menu-content-hover block">
+										统计
+									</span>
+								</a>
+							</li>
+							<li class="bg-palette2">
+								<a href="blank3.html">
+									<span class="menu-content block">
+										<span class="menu-icon"><i class="block fa fa-desktop fa-lg"></i></span>
+										<span class="text m-left-sm">订单记录</span>
+									</span>
+									<span class="menu-content-hover block">
+										订单
+									</span>
+								</a>
+							</li>
+							<li class="bg-palette1">
+								<a href="blank4.html">
+									<span class="menu-content block">
+										<span class="menu-icon"><i class="block fa fa-envelope fa-lg"></i></span>
+										<span class="text m-left-sm">Order Book</span>
+									</span>
+									<span class="menu-content-hover block">
+										Order Book
+									</span>
+								</a>
+							</li>
+							<li class="bg-palette2">
+								<a href="blank1.html">
+									<span class="menu-content block">
+										<span class="menu-icon"><i class="block fa fa-clock-o fa-lg"></i></span>
+										<span class="text m-left-sm">交易记录</span>
+									</span>
+									<span class="menu-content-hover block">
+										记录
+									</span>
+								</a>
+							</li>
+							<li class="menu-header">
+								Others
+							</li>
+							<li class="bg-palette3">
+								<a href="blank2.html">
+									<span class="menu-content block">
+										<span class="menu-icon"><i class="block fa fa-gift fa-lg"></i></span>
+										<span class="text m-left-sm">个人信息</span>
+									</span>
+									<span class="menu-content-hover block">
+										个人
+									</span>
+								</a>
+							</li>
+							<li class="bg-palette4">
+								<a href="blank.html">
+									<span class="menu-content block">
+										<span class="menu-icon"><i class="block fa fa-list fa-lg"></i></span>
+										<span class="text m-left-sm">信息管理</span>
+									</span>
+									<span class="menu-content-hover block">
+										管理
+									</span>
+								</a>
+							</li>
+						</ul>
+					</div>
+					<div class="sidebar-fix-bottom clearfix">
+						<a href="lockscreen.html" class="pull-right font-18"><i class="ion-log-out"></i></a>
+					</div>
+				</div><!-- sidebar-inner -->
+			</aside>
+
+			<div class="main-container">
+				<div class="padding-md">
+					<div class="row">
+						<div class="col-sm-6">
+							<div class="page-title">
+								交易统计
+							</div>
+							<div class="page-sub-header">
+								Welcome Back, <i class="fa fa-map-marker text-danger"></i> Shanghai
+							</div>
+						</div>
+					</div>
+
+					<div class="row m-top-md">
+						<div class="col-lg-3 col-sm-6">
+							<div class="statistic-box bg-danger m-bottom-md">
+								<div class="statistic-title">
+									VWAP
+								</div>
+
+								<div class="statistic-value" id="s2">
+									0
+								</div>
+
+								<div class="m-top-md"></div>
+
+								<div class="statistic-icon-background">
+									<i class="ion-eye"></i>
+								</div>
+							</div>
+						</div>
+
+						<div class="col-lg-3 col-sm-6">
+							<div class="statistic-box bg-info m-bottom-md">
+								<div class="statistic-title">
+									TWAP
+								</div>
+
+								<div class="statistic-value" id="b2">
+									0
+								</div>
+
+								<div class="m-top-md"></div>
+
+								<div class="statistic-icon-background">
+									<i class="ion-ios7-cart-outline"></i>
+								</div>
+							</div>
+						</div>
+
+						<div class="col-lg-3 col-sm-6">
+							<div class="statistic-box bg-purple m-bottom-md">
+								<div class="statistic-title">
+									HIGH/LOW
+								</div>
+
+								<div class="statistic-value" id="p2">
+									0
+								</div>
+
+								<div class="m-top-md"></div>
+
+								<div class="statistic-icon-background">
+									<i class="ion-person-add"></i>
+								</div>
+							</div>
+						</div>
+
+						<div class="col-lg-3 col-sm-6">
+							<div class="statistic-box bg-success m-bottom-md">
+								<div class="statistic-title">
+									DATE
+								</div>
+
+								<div class="statistic-value">
+									June 11
+								</div>
+
+								<div class="m-top-md"></div>
+
+								<div class="statistic-icon-background">
+									<i class="ion-stats-bars"></i>
+								</div>
+							</div>
+						</div>
+					</div>
+					<input type="text" placeholder="type and press enter to chat" id="chat" style="position:relative;left:450px" />
+					<button class="btn btn-primary" onclick="f()" style="position:relative;left:450px">change</button>
+
+					<div id="main" style="width: 1200px;height:300px;position: center"></div>
+				</div><!-- ./padding-md -->
+			</div><!-- /main-container -->
+		</div><!-- /wrapper -->
+
+
+	    <!-- Le javascript
+	    ================================================== -->
+	    <!-- Placed at the end of the document so the pages load faster -->
+
+		<!-- Jquery -->
+		<script src="js/jquery-1.11.1.min.js"></script>
+
+		<!-- Bootstrap -->
+	    <script src="bootstrap/js/bootstrap.min.js"></script>
+
+		<!-- Flot -->
+		<script src='js/jquery.flot.min.js'></script>
+
+		<!-- Slimscroll -->
+		<script src='js/jquery.slimscroll.min.js'></script>
+
+		<!-- Morris -->
+		<script src='js/rapheal.min.js'></script>
+		<script src='js/morris.min.js'></script>
+
+		<!-- Datepicker -->
+		<script src='js/uncompressed/datepicker.js'></script>
+
+		<!-- Sparkline -->
+		<script src='js/sparkline.min.js'></script>
+
+		<!-- Skycons -->
+		<script src='js/uncompressed/skycons.js'></script>
+
+		<!-- Popup Overlay -->
+		<script src='js/jquery.popupoverlay.min.js'></script>
+
+		<script src="js/jquery.tablesorter.js"></script>
+		<!-- Easy Pie Chart -->
+		<script src='js/jquery.easypiechart.min.js'></script>
+
+		<!-- Sortable -->
+		<script src='js/uncompressed/jquery.sortable.js'></script>
+
+		<!-- Owl Carousel -->
+		<script src='js/owl.carousel.min.js'></script>
+
+		<!-- Modernizr -->
+		<script src='js/modernizr.min.js'></script>
+
+		<!-- Simplify -->
+		<script src="js/simplify/simplify.js"></script>
+		<script src="js/simplify/simplify_dashboard.js"></script>
+		<script src="js/incubator-echarts-master/dist/echarts.min.js"></script>
+			<script type="text/javascript">
+
+			</script>
+		<script>
+			$(function()	{
+				$('.chart').easyPieChart({
+					easing: 'easeOutBounce',
+					size: '140',
+					lineWidth: '7',
+					barColor: '#7266ba',
+					onStep: function(from, to, percent) {
+						$(this.el).find('.percent').text(Math.round(percent));
+					}
+				});
+
+				$('.sortable-list').sortable();
+				$('.table').tablesorter();
+
+				$('.todo-checkbox').click(function()	{
+
+					var _activeCheckbox = $(this).find('input[type="checkbox"]');
+
+					if(_activeCheckbox.is(':checked'))	{
+						$(this).parent().addClass('selected');
+					}
+					else	{
+						$(this).parent().removeClass('selected');
+					}
+
+				});
+
+				//Delete Widget Confirmation
+				$('#deleteWidgetConfirm').popup({
+					vertical: 'top',
+					pagecontainer: '.container',
+					transition: 'all 0.3s'
+				});
+
+			});
+
+		</script>
+
+  	</body>
+</html>
