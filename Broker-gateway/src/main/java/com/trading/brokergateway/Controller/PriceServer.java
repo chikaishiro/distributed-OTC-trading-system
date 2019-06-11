@@ -167,6 +167,14 @@ public class PriceServer {
         Long now = Calendar.getInstance().getTimeInMillis();
         Long start = now - 10*step;
         Long temp = now-step;
+        double MAX =0;
+        double MIN = 0;
+        ResultSet rss = link.getRs("select Max(price) as max,Min(price) as min from result" +
+                " where future_id = " + target + " and finish_time>" + String.valueOf(now-(step/10)) + " and finish_time<" + String.valueOf(now));
+        while(rss.next()){
+            MAX = rss.getDouble("max");
+            MIN = rss.getDouble("min");
+        }
         while(temp>=start) {
             ResultSet rs = link.getRs("select Max(price) as max,Min(price) as min from result" +
                     " where future_id = " + target + " and finish_time>" + String.valueOf(temp) + " and finish_time<" + String.valueOf(now));
@@ -174,7 +182,7 @@ public class PriceServer {
                 double max = rs.getDouble("max");
                 double min = rs.getDouble("min");
                 double avg = (max + min) / 2;
-                System.out.println(avg);
+                //System.out.println(avg);
                 if(avg != 0){
                     sum += avg;
                     cnt++;
@@ -187,7 +195,7 @@ public class PriceServer {
         if(cnt == 0){
             return "一小时内暂无成交记录";
         }
-        return df.format(sum/cnt);
+        return df.format(sum/cnt)+";"+String.valueOf(MAX)+"/"+String.valueOf(MIN);
     }
 
 

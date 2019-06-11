@@ -31,9 +31,9 @@ public class OrderDEMO {
             add(8.6);
         }};
         List<Integer> Amounts = new LinkedList<Integer>(){{
-            add(1000);
-            add(3000);
-            add(2000);
+            add(200);
+            add(300);
+            add(200);
             add(500);
             add(600);
             add(400);
