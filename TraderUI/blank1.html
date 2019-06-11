@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang="en">
+  	<head>
+  		<meta charset="utf-8">
+    	<title>Simplify Admin</title>
+    	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+    	<meta name="description" content="">
+    	<meta name="author" content="">
+
+	    <!-- Bootstrap core CSS -->
+	    <link href="bootstrap/css/bootstrap.min.css" rel="stylesheet">
+		
+		<!-- Font Awesome -->
+		<link href="css/font-awesome.min.css" rel="stylesheet">
+
+		<!-- ionicons -->
+		<link href="css/ionicons.min.css" rel="stylesheet">
+		
+		<!-- Simplify -->
+		<link href="css/simplify.min.css" rel="stylesheet">
+	
+  	</head>
+
+  	<body class="overflow-hidden">
+		<div class="wrapper preload">
+			<header class="top-nav">
+				<div class="top-nav-inner">
+					<div class="nav-header">
+						<a href="index.html" class="brand">
+							<i class="fa fa-database"></i><span class="brand-name">TRADING SYSTEM</span>
+						</a>
+					</div>
+					<button type="button" class="navbar-toggle pull-left sidebar-toggle" id="sidebarToggleLG">
+						<span class="icon-bar"></span>
+						<span class="icon-bar"></span>
+						<span class="icon-bar"></span>
+					</button>
+				</div><!-- ./top-nav-inner -->
+			</header>
+			<aside class="sidebar-menu fixed">
+				<div class="sidebar-inner scrollable-sidebar">
+					<div class="main-menu">
+						<ul class="accordion">
+							<li class="menu-header">
+								Main Menu
+							</li>
+							<li class="bg-palette1 active">
+								<a href="index.html">
+									<span class="menu-content block">
+										<span class="menu-icon"><i class="block fa fa-home fa-lg"></i></span>
+										<span class="text m-left-sm">交易统计</span>
+									</span>
+									<span class="menu-content-hover block">
+										统计
+									</span>
+								</a>
+							</li>
+							<li class="bg-palette2">
+								<a href="blank.html">
+									<span class="menu-content block">
+										<span class="menu-icon"><i class="block fa fa-desktop fa-lg"></i></span>
+										<span class="text m-left-sm">新建订单</span>
+									</span>
+									<span class="menu-content-hover block">
+										新建
+									</span>
+								</a>
+							</li>
+							<li class="bg-palette1">
+								<a href="blank4.html">
+									<span class="menu-content block">
+										<span class="menu-icon"><i class="block fa fa-envelope fa-lg"></i></span>
+										<span class="text m-left-sm">Order Book</span>
+									</span>
+									<span class="menu-content-hover block">
+										Order Book
+									</span>
+								</a>
+							</li>
+							<li class="bg-palette2">
+								<a href="blank3.html">
+									<span class="menu-content block">
+										<span class="menu-icon"><i class="block fa fa-clock-o fa-lg"></i></span>
+										<span class="text m-left-sm">交易记录</span>
+									</span>
+									<span class="menu-content-hover block">
+										记录
+									</span>
+								</a>
+							</li>
+							<li class="menu-header">
+								Others
+							</li>
+							<li class="bg-palette3">
+								<a href="blank2.html">
+									<span class="menu-content block">
+										<span class="menu-icon"><i class="block fa fa-gift fa-lg"></i></span>
+										<span class="text m-left-sm">个人信息</span>
+									</span>
+									<span class="menu-content-hover block">
+										个人
+									</span>
+								</a>
+							</li>
+							<li class="bg-palette4">
+								<a href="blank1.html">
+									<span class="menu-content block">
+										<span class="menu-icon"><i class="block fa fa-list fa-lg"></i></span>
+										<span class="text m-left-sm">信息查询</span>
+									</span>
+									<span class="menu-content-hover block">
+										查询
+									</span>
+								</a>
+							</li>
+						</ul>
+					</div>
+					<div class="sidebar-fix-bottom clearfix">
+						<a href="lockscreen.html" class="pull-right font-18"><i class="ion-log-out"></i></a>
+					</div>
+				</div><!-- sidebar-inner -->
+			</aside>
+			<div class="main-container">
+				<div class="padding-md">
+					<div class="row">
+						<div class="col-sm-6">
+							<div class="page-title">
+								信息查询
+							</div>
+						</div>
+					</div>
+					<div class="smart-widget">
+						<div class="smart-widget-inner">
+							<ul class="nav nav-tabs tab-style2">
+								<li class="active">
+									<a href="#style2Tab1" data-toggle="tab">
+										<span class="icon-wrapper"><i class="fa fa-bar-chart-o"></i></span>
+										<span class="text-wrapper">FUTURE LIST</span>
+									</a>
+								</li>
+								<li>
+									<a href="#style2Tab2" data-toggle="tab">
+										<span class="icon-wrapper"><i class="fa fa-book"></i></span>
+										<span class="text-wrapper">BROKER LIST</span>
+									</a>
+								</li>
+							</ul>
+							<div class="smart-widget-body">
+								<div class="tab-content">
+									<div class="tab-pane fade in active" id="style2Tab1">
+										<div class="block h4"><strong>Future List</strong></div>
+										<table class="table table-striped" id ="future" style="text-align: center">
+
+											<tr>
+
+												<th class="text-center">Future ID</th>
+												<th class="text-center">Future Name</th>
+												<th class="text-center">Category</th>
+											</tr>
+
+
+										</table>
+									</div><!-- ./tab-pane -->
+									<div class="tab-pane fade" id="style2Tab2">
+										<div class="block h4"><strong>Broker List</strong></div>
+										<table class="table table-striped">
+											<thead>
+											<tr>
+												<th class="text-center">Broker IP</th>
+												<th class="text-center">Status</th>
+											</tr>
+											</thead>
+											<tbody>
+											<tr>
+												<td class="text-center">192.168.0.114</td>
+												<td class="text-center">active</td>
+											</tr>
+											<tr>
+												<td class="text-center">192.168.0.116</td>
+												<td class="text-center">closed</td>
+											</tr>
+											<tr>
+												<td class="text-center">192.168.0.115</td>
+												<td class="text-center">closed</td>
+											</tr>
+											</tbody>
+										</table>
+									</div><!-- ./tab-pane -->
+								</div><!-- ./tab-content -->
+							</div>
+						</div>
+					</div><!-- ./smart-widget -->
+				</div><!-- ./padding-md -->
+			</div><!-- /main-container -->
+		</div><!-- /wrapper -->
+
+		<a href="#" class="scroll-to-top hidden-print"><i class="fa fa-chevron-up fa-lg"></i></a>
+
+	    <!-- Le javascript
+	    ================================================== -->
+	    <!-- Placed at the end of the document so the pages load faster -->
+		
+		<!-- Jquery -->
+		<script src="js/jquery-1.11.1.min.js"></script>
+		
+		<!-- Bootstrap -->
+	    <script src="bootstrap/js/bootstrap.min.js"></script>
+		
+		<!-- Slimscroll -->
+		<script src='js/jquery.slimscroll.min.js'></script>
+		
+		<!-- Popup Overlay -->
+		<script src='js/jquery.popupoverlay.min.js'></script>
+
+		<!-- Modernizr -->
+		<script src='js/modernizr.min.js'></script>
+		
+		<!-- Simplify -->
+		<script src="js/simplify/simplify.js"></script>
+        <script>
+            var Table = function(element){
+                this.element = document.getElementById(element);
+            };
+            var headers = ["futureID","futureName","category"];
+            Table.prototype = {
+                add : function(data){
+                    var e = this.element, body = null;
+                    for(var i = 0; i < data.length; i++){
+                        var tr = e.insertRow();
+                        for(var j = 0; j < headers.length; j++){
+                            var td = tr.insertCell();
+                            var todata;
+
+
+							todata = data[i][headers[j]];
+
+                            td.innerHTML = todata;
+                            tr.appendChild(td);
+                        }
+                        if(!body) body = e.getElementsByTagName("tbody")[0];
+                        body.appendChild(tr);
+                    }
+                },
+            };
+
+			$(function()	{
+				// $('.table').tablesorter();
+                htmlobj =  $.ajax({
+                    type: "get",
+                    url: "http://"+localStorage.getItem("tip")+":8080/future/all",
+                    //data: JSON.stringify(formData),
+                    headers:{
+                        'Authorization':"Bearer "+document.cookie,
+
+                    },
+                    async:false,
+                    contentType:"application/json",
+                    // dataType: "json"
+                }).success(function (data) {
+                    //alert(JSON.stringify(data));
+                    t1 = new Table("future");
+                    t1.add(data);
+                }).error(function () {
+                    alert("失败");
+                });
+			})
+		</script>
+		<script src="js/jquery.tablesorter.js"></script>
+  	</body>
+</html>
