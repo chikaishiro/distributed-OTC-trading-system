@@ -72,6 +72,7 @@
 			Chat.socket.onmessage = function (message) {
 				document.getElementById("s2").innerHTML=message.data.split(";")[1];
 				document.getElementById("b2").innerHTML=message.data.split(";")[2];
+				document.getElementById("p2").innerHTML=message.data.split(";")[3];
 				var origindata = JSON.parse(message.data.split(";")[0]);
 
 				var dataset = origindata;
@@ -294,11 +295,11 @@
 						<div class="col-lg-3 col-sm-6">
 							<div class="statistic-box bg-purple m-bottom-md">
 								<div class="statistic-title">
-									DAY
+									HIGH/LOW
 								</div>
 
-								<div class="statistic-value">
-									Monday
+								<div class="statistic-value" id="p2">
+									0
 								</div>
 
 								<div class="m-top-md"></div>
@@ -316,7 +317,7 @@
 								</div>
 
 								<div class="statistic-value">
-									June 10
+									June 11
 								</div>
 
 								<div class="m-top-md"></div>
